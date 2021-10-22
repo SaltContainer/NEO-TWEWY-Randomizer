@@ -30,6 +30,7 @@ namespace NEO_TWEWY_Randomizer
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabDrops = new System.Windows.Forms.TabPage();
             this.grpItems = new System.Windows.Forms.GroupBox();
@@ -49,9 +50,35 @@ namespace NEO_TWEWY_Randomizer
             this.btnOpen = new System.Windows.Forms.Button();
             this.picPin = new System.Windows.Forms.PictureBox();
             this.imlistPins = new System.Windows.Forms.ImageList(this.components);
+            this.grpChance = new System.Windows.Forms.GroupBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
+            this.checkBox9 = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
+            this.grpItems.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
+            this.grpChance.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -75,6 +102,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             // tabDrops
             // 
+            this.tabDrops.Controls.Add(this.grpChance);
             this.tabDrops.Controls.Add(this.grpItems);
             this.tabDrops.Location = new System.Drawing.Point(4, 22);
             this.tabDrops.Name = "tabDrops";
@@ -86,9 +114,15 @@ namespace NEO_TWEWY_Randomizer
             // 
             // grpItems
             // 
+            this.grpItems.Controls.Add(this.groupBox1);
+            this.grpItems.Controls.Add(this.checkBox1);
+            this.grpItems.Controls.Add(this.radioButton4);
+            this.grpItems.Controls.Add(this.radioButton3);
+            this.grpItems.Controls.Add(this.radioButton2);
+            this.grpItems.Controls.Add(this.radioButton1);
             this.grpItems.Location = new System.Drawing.Point(6, 6);
             this.grpItems.Name = "grpItems";
-            this.grpItems.Size = new System.Drawing.Size(335, 201);
+            this.grpItems.Size = new System.Drawing.Size(349, 201);
             this.grpItems.TabIndex = 0;
             this.grpItems.TabStop = false;
             this.grpItems.Text = "Dropped Pins";
@@ -192,9 +226,9 @@ namespace NEO_TWEWY_Randomizer
             this.lbVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbVersion.Location = new System.Drawing.Point(9, 151);
             this.lbVersion.Name = "lbVersion";
-            this.lbVersion.Size = new System.Drawing.Size(391, 13);
+            this.lbVersion.Size = new System.Drawing.Size(316, 13);
             this.lbVersion.TabIndex = 3;
-            this.lbVersion.Text = "NEO: The World Ends With You Randomizer - Version 2021.10.21.a";
+            this.lbVersion.Text = "NEO: The World Ends With You Randomizer - Version ";
             // 
             // btnAbout
             // 
@@ -251,6 +285,246 @@ namespace NEO_TWEWY_Randomizer
             this.imlistPins.ImageSize = new System.Drawing.Size(16, 16);
             this.imlistPins.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // grpChance
+            // 
+            this.grpChance.Controls.Add(this.numericUpDown1);
+            this.grpChance.Controls.Add(this.label1);
+            this.grpChance.Controls.Add(this.groupBox2);
+            this.grpChance.Controls.Add(this.radioButton7);
+            this.grpChance.Controls.Add(this.radioButton6);
+            this.grpChance.Controls.Add(this.radioButton5);
+            this.grpChance.Location = new System.Drawing.Point(361, 6);
+            this.grpChance.Name = "grpChance";
+            this.grpChance.Size = new System.Drawing.Size(401, 201);
+            this.grpChance.TabIndex = 1;
+            this.grpChance.TabStop = false;
+            this.grpChance.Text = "Drop Chances";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(17, 28);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(81, 17);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Unchanged";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(17, 51);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(58, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Shuffle";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(17, 74);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(125, 17);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Random (Completely)";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(17, 97);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(108, 17);
+            this.radioButton4.TabIndex = 3;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Random (All Pins)";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(186, 28);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(120, 17);
+            this.checkBox1.TabIndex = 4;
+            this.checkBox1.Text = "Include Limited Pins";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBox5);
+            this.groupBox1.Controls.Add(this.checkBox4);
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Location = new System.Drawing.Point(170, 64);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(173, 123);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Affected Difficulties";
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(16, 24);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(49, 17);
+            this.checkBox2.TabIndex = 6;
+            this.checkBox2.Text = "Easy";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(16, 46);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(59, 17);
+            this.checkBox3.TabIndex = 7;
+            this.checkBox3.Text = "Normal";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(16, 69);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(49, 17);
+            this.checkBox4.TabIndex = 8;
+            this.checkBox4.Text = "Hard";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Location = new System.Drawing.Point(16, 92);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(64, 17);
+            this.checkBox5.TabIndex = 9;
+            this.checkBox5.Text = "Ultimate";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(22, 28);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(81, 17);
+            this.radioButton5.TabIndex = 6;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Unchanged";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(22, 51);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(125, 17);
+            this.radioButton6.TabIndex = 6;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "Random (Completely)";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(22, 74);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(120, 17);
+            this.radioButton7.TabIndex = 6;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "Random (Weighted)";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.checkBox6);
+            this.groupBox2.Controls.Add(this.checkBox7);
+            this.groupBox2.Controls.Add(this.checkBox8);
+            this.groupBox2.Controls.Add(this.checkBox9);
+            this.groupBox2.Location = new System.Drawing.Point(222, 64);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(173, 123);
+            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Affected Difficulties";
+            // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.Location = new System.Drawing.Point(16, 92);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(64, 17);
+            this.checkBox6.TabIndex = 9;
+            this.checkBox6.Text = "Ultimate";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.Location = new System.Drawing.Point(16, 69);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(49, 17);
+            this.checkBox7.TabIndex = 8;
+            this.checkBox7.Text = "Hard";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.Location = new System.Drawing.Point(16, 46);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(59, 17);
+            this.checkBox8.TabIndex = 7;
+            this.checkBox8.Text = "Normal";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
+            // checkBox9
+            // 
+            this.checkBox9.AutoSize = true;
+            this.checkBox9.Location = new System.Drawing.Point(16, 24);
+            this.checkBox9.Name = "checkBox9";
+            this.checkBox9.Size = new System.Drawing.Size(49, 17);
+            this.checkBox9.TabIndex = 6;
+            this.checkBox9.Text = "Easy";
+            this.checkBox9.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 109);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Minimum Drop Chance";
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.DecimalPlaces = 2;
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDown1.Location = new System.Drawing.Point(22, 130);
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.TabIndex = 12;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -265,12 +539,22 @@ namespace NEO_TWEWY_Randomizer
             this.Controls.Add(this.linkSource);
             this.Controls.Add(this.grpInfo);
             this.Controls.Add(this.tabsMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 626);
             this.Name = "FormMain";
             this.Text = "NEO: TWEWY Randomizer";
             this.tabsMain.ResumeLayout(false);
             this.tabDrops.ResumeLayout(false);
+            this.grpItems.ResumeLayout(false);
+            this.grpItems.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
+            this.grpChance.ResumeLayout(false);
+            this.grpChance.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,6 +581,27 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.ImageList imlistPins;
         private System.Windows.Forms.TabPage tabFood;
         private System.Windows.Forms.TabPage tabMusic;
+        private System.Windows.Forms.GroupBox grpChance;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox8;
+        private System.Windows.Forms.CheckBox checkBox9;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
     }
 }
 

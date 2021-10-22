@@ -18,6 +18,8 @@ namespace NEO_TWEWY_Randomizer
         public FormMain()
         {
             InitializeComponent();
+            lbVersion.Text += SourceLinks.GetVersion();
+
             pinImages = new PinImages();
             picPin.Image = pinImages.GetRandomImage();
             randomizationEngine = new RandomizationEngine();
@@ -25,7 +27,7 @@ namespace NEO_TWEWY_Randomizer
 
         private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(SourceLinks.getGitHubLink());
+            System.Diagnostics.Process.Start(SourceLinks.GetGitHubLink());
         }
     }
 }

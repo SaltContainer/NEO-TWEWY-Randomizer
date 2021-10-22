@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class SourceLinks
+    static class SourceLinks
     {
         private static string gitHubLink = "https://github.com/SaltContainer/NEO-TWEWY-Randomizer";
 
-        public static string getGitHubLink()
+        public static string GetGitHubLink()
         {
             return gitHubLink;
+        }
+
+        public static string GetVersion()
+        {
+            return System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString();
         }
     }
 }

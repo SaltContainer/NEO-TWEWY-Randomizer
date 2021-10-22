@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data.cs" />
     <Compile Include="DataManipulator.cs" />
     <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
@@ -59,7 +60,7 @@
     <Compile Include="RandomizationEngine.cs" />
     <Compile Include="RandomizationSettings.cs" />
     <Compile Include="SourceLinks.cs" />
-    <Compile Include="TextDataFiles.cs" />
+    <Compile Include="DataAddresses.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

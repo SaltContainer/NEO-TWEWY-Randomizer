@@ -8,5 +8,19 @@ namespace NEO_TWEWY_Randomizer
 {
     class DataManipulator
     {
+        private Dictionary<string, Data> dataFiles;
+
+        public DataManipulator()
+        {
+            dataFiles = new Dictionary<string, Data>();
+        }
+
+        public void LoadFiles(Dictionary<string, string> fileNames)
+        {
+            foreach(var entry in fileNames)
+            {
+                dataFiles.Add(entry.Key, new Data(entry.Value));
+            }
+        }
     }
 }

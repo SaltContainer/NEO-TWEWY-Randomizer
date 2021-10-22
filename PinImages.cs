@@ -23,10 +23,10 @@ namespace NEO_TWEWY_Randomizer
             imageList = new ImageList();
             imageList.ImageSize = new Size(128, 128);
             imageList.TransparentColor = SystemColors.Control;
-            readImages();
+            ReadImages();
         }
 
-        public void readImages()
+        public void ReadImages()
         {
             ResourceSet images = Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, true, true);
             foreach (DictionaryEntry image in images)
@@ -38,7 +38,7 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        public Image getRandomImage()
+        public Image GetRandomImage()
         {
             return imageList.Images[rand.Next(imageList.Images.Count)];
         }

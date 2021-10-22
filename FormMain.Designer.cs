@@ -37,6 +37,8 @@ namespace NEO_TWEWY_Randomizer
             this.tabSocial = new System.Windows.Forms.TabPage();
             this.tabThreads = new System.Windows.Forms.TabPage();
             this.tabEncounter = new System.Windows.Forms.TabPage();
+            this.tabFood = new System.Windows.Forms.TabPage();
+            this.tabMusic = new System.Windows.Forms.TabPage();
             this.tabMisc = new System.Windows.Forms.TabPage();
             this.grpInfo = new System.Windows.Forms.GroupBox();
             this.linkSource = new System.Windows.Forms.LinkLabel();
@@ -47,8 +49,6 @@ namespace NEO_TWEWY_Randomizer
             this.btnOpen = new System.Windows.Forms.Button();
             this.picPin = new System.Windows.Forms.PictureBox();
             this.imlistPins = new System.Windows.Forms.ImageList(this.components);
-            this.tabFood = new System.Windows.Forms.TabPage();
-            this.tabMusic = new System.Windows.Forms.TabPage();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
@@ -132,6 +132,26 @@ namespace NEO_TWEWY_Randomizer
             this.tabEncounter.TabIndex = 4;
             this.tabEncounter.Text = "Noise Encounters";
             this.tabEncounter.UseVisualStyleBackColor = true;
+            // 
+            // tabFood
+            // 
+            this.tabFood.Location = new System.Drawing.Point(4, 22);
+            this.tabFood.Name = "tabFood";
+            this.tabFood.Padding = new System.Windows.Forms.Padding(3);
+            this.tabFood.Size = new System.Drawing.Size(768, 382);
+            this.tabFood.TabIndex = 6;
+            this.tabFood.Text = "Food";
+            this.tabFood.UseVisualStyleBackColor = true;
+            // 
+            // tabMusic
+            // 
+            this.tabMusic.Location = new System.Drawing.Point(4, 22);
+            this.tabMusic.Name = "tabMusic";
+            this.tabMusic.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMusic.Size = new System.Drawing.Size(768, 382);
+            this.tabMusic.TabIndex = 7;
+            this.tabMusic.Text = "Music";
+            this.tabMusic.UseVisualStyleBackColor = true;
             // 
             // tabMisc
             // 
@@ -230,26 +250,6 @@ namespace NEO_TWEWY_Randomizer
             this.imlistPins.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imlistPins.ImageSize = new System.Drawing.Size(16, 16);
             this.imlistPins.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // tabFood
-            // 
-            this.tabFood.Location = new System.Drawing.Point(4, 22);
-            this.tabFood.Name = "tabFood";
-            this.tabFood.Padding = new System.Windows.Forms.Padding(3);
-            this.tabFood.Size = new System.Drawing.Size(768, 382);
-            this.tabFood.TabIndex = 6;
-            this.tabFood.Text = "Food";
-            this.tabFood.UseVisualStyleBackColor = true;
-            // 
-            // tabMusic
-            // 
-            this.tabMusic.Location = new System.Drawing.Point(4, 22);
-            this.tabMusic.Name = "tabMusic";
-            this.tabMusic.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMusic.Size = new System.Drawing.Size(768, 382);
-            this.tabMusic.TabIndex = 7;
-            this.tabMusic.Text = "Music";
-            this.tabMusic.UseVisualStyleBackColor = true;
             // 
             // FormMain
             // 

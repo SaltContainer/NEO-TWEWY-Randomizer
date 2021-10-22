@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class TextDataFiles
+    static class DataAddresses
     {
+        public static long fieldBgmAddress = 0x441D59;
     }
 }

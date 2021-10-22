@@ -13,12 +13,14 @@ namespace NEO_TWEWY_Randomizer
     public partial class FormMain : Form
     {
         private PinImages pinImages;
+        private RandomizationEngine randomizationEngine;
 
         public FormMain()
         {
             InitializeComponent();
             pinImages = new PinImages();
-            picPin.Image = pinImages.getRandomImage();
+            picPin.Image = pinImages.GetRandomImage();
+            randomizationEngine = new RandomizationEngine();
         }
 
         private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

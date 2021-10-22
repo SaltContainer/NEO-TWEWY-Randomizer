@@ -11,6 +11,11 @@ namespace NEO_TWEWY_Randomizer
         private Random rand;
         private DataManipulator dataManipulator;
 
+        public RandomizationEngine()
+        {
+            dataManipulator = new DataManipulator();
+        }
+
         public void LoadFiles(Dictionary<string, string> fileNames)
         {
             dataManipulator.LoadFiles(fileNames);

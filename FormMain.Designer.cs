@@ -718,6 +718,7 @@ namespace NEO_TWEWY_Randomizer
             this.picPin.Location = new System.Drawing.Point(517, 12);
             this.picPin.Name = "picPin";
             this.picPin.Size = new System.Drawing.Size(128, 128);
+            this.picPin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picPin.TabIndex = 10;
             this.picPin.TabStop = false;
             // 

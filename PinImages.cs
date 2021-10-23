@@ -15,32 +15,18 @@ namespace NEO_TWEWY_Randomizer
     class PinImages
     {
         private Random rand;
-        private ImageList imageList;
 
         public PinImages()
         {
             rand = new Random();
-            imageList = new ImageList();
-            imageList.ImageSize = new Size(128, 128);
-            imageList.TransparentColor = SystemColors.Control;
-            ReadImages();
-        }
-
-        public void ReadImages()
-        {
-            ResourceSet images = Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, true, true);
-            foreach (DictionaryEntry image in images)
-            {
-                if (image.Value.GetType() == typeof(Bitmap))
-                {
-                    imageList.Images.Add((string)image.Key, (Bitmap)image.Value);
-                }
-            }
         }
 
         public Image GetRandomImage()
         {
-            return imageList.Images[rand.Next(imageList.Images.Count)];
+            ResourceSet resourceSet = Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, true, true);
+            var pins = resourceSet.Cast<DictionaryEntry>().Where(x => x.Value.GetType() == typeof(Bitmap));
+            Bitmap selectedPin = (Bitmap)pins.ElementAt(rand.Next(pins.Count())).Value;
+            return selectedPin;
         }
     }
 }

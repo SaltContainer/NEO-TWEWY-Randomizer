@@ -8,10 +8,12 @@ namespace NEO_TWEWY_Randomizer
 {
     class DataManipulator
     {
+        private BundleDecrypter bundleDecrypter;
         private Dictionary<string, Data> dataFiles;
 
         public DataManipulator()
         {
+            bundleDecrypter = new BundleDecrypter();
             dataFiles = new Dictionary<string, Data>();
         }
 
@@ -19,7 +21,7 @@ namespace NEO_TWEWY_Randomizer
         {
             foreach(var entry in fileNames)
             {
-                dataFiles.Add(entry.Key, new Data(entry.Value));
+                dataFiles.Add(entry.Key, bundleDecrypter.DecryptData(new Data(entry.Value)));
             }
         }
     }

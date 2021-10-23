@@ -78,7 +78,6 @@ namespace NEO_TWEWY_Randomizer
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.picPin = new System.Windows.Forms.PictureBox();
-            this.imlistPins = new System.Windows.Forms.ImageList(this.components);
             this.ttradioItemsUnchanged = new System.Windows.Forms.ToolTip(this.components);
             this.ttradioItemsShuffleC = new System.Windows.Forms.ToolTip(this.components);
             this.ttradioItemsRandomC = new System.Windows.Forms.ToolTip(this.components);
@@ -722,12 +721,6 @@ namespace NEO_TWEWY_Randomizer
             this.picPin.TabIndex = 10;
             this.picPin.TabStop = false;
             // 
-            // imlistPins
-            // 
-            this.imlistPins.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imlistPins.ImageSize = new System.Drawing.Size(16, 16);
-            this.imlistPins.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // ttradioItemsUnchanged
             // 
             this.ttradioItemsUnchanged.ToolTipTitle = "Unchanged Dropped Pins";
@@ -842,7 +835,6 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.GroupBox grpItems;
         private System.Windows.Forms.PictureBox picPin;
-        private System.Windows.Forms.ImageList imlistPins;
         private System.Windows.Forms.TabPage tabFood;
         private System.Windows.Forms.TabPage tabMusic;
         private System.Windows.Forms.GroupBox grpChance;

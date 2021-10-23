@@ -1087,4 +1087,72 @@
   <data name="ID333_sozai" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ID333_sozai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ttcheckItemsLimited" xml:space="preserve">
+    <value>Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion).</value>
+    <comment>Limited Pins Dropped Pins</comment>
+  </data>
+  <data name="ttgrpChanceDifficulty" xml:space="preserve">
+    <value>Checked Difficulties are included in the randomization.</value>
+    <comment>Difficulties Drop Rate</comment>
+  </data>
+  <data name="ttgrpItemsDifficulty" xml:space="preserve">
+    <value>Checked Difficulties are included in the randomization.</value>
+    <comment>Difficulties Dropped Pins</comment>
+  </data>
+  <data name="ttnumChanceMax" xml:space="preserve">
+    <value>The maximum drop rate. All randomized drop rates will be lower or equal to this number.</value>
+    <comment>Maximum Drop Rate</comment>
+  </data>
+  <data name="ttnumChanceMin" xml:space="preserve">
+    <value>The minimum drop rate. All randomized drop rates will be higher or equal to this number.</value>
+    <comment>Minimum Drop Rate</comment>
+  </data>
+  <data name="ttnumChanceWeight" xml:space="preserve">
+    <value>The weights with which to randomize the drop rates for each difficulty.</value>
+    <comment>Drop Rate Weights</comment>
+  </data>
+  <data name="ttradioChanceRandomC" xml:space="preserve">
+    <value>Make the drop rates completely random between the minimum and maximum drop rates.</value>
+    <comment>Random (Completely) Drop Rates</comment>
+  </data>
+  <data name="ttradioChanceRandomW" xml:space="preserve">
+    <value>Make the drop rates random but somewhat controlled with weights.
+This allows for certain difficulties to have lower/higher drop rates.
+The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while
+the difficulty with the highest weight will have drop rates closer to the maximum drop rate.
+The weights scale linearly.</value>
+    <comment>Random (Weighted) Drop Rates</comment>
+  </data>
+  <data name="ttradioChanceUnchanged" xml:space="preserve">
+    <value>Don't change the drop rates.</value>
+    <comment>Unchanged Drop Rates</comment>
+  </data>
+  <data name="ttradioItemsRandomA" xml:space="preserve">
+    <value>Make Noise drop random pins while making all pins available this way.
+This will always affect all difficulties as this is too restrictive otherwise.</value>
+    <comment>Random (All Pins) Dropped Pins</comment>
+  </data>
+  <data name="ttradioItemsRandomC" xml:space="preserve">
+    <value>Make Noise drop random pins with no other limitations.</value>
+    <comment>Random (Completely) Dropped Pins</comment>
+  </data>
+  <data name="ttradioItemsShuffleC" xml:space="preserve">
+    <value>Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+This means that all pins that are obtainable through drops in vanilla are still obtainable
+in the same way and no new pins are dropped.</value>
+    <comment>Shuffled (Completely) Dropped Pins</comment>
+  </data>
+  <data name="ttradioItemsShuffleS" xml:space="preserve">
+    <value>Take each Noise's vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+The shuffling keeps the corresponding difficulty.
+For example, a Nefastraven could end up having a Dixiefrog's drops
+(50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).
+This means that all pins that are obtainable through drops in vanilla are still obtainable
+in the same way and no new pins are dropped.</value>
+    <comment>Shuffled (Sets) Dropped Pins</comment>
+  </data>
+  <data name="ttradioItemsUnchanged" xml:space="preserve">
+    <value>Don't change what pins Noise drop.</value>
+    <comment>Unchanged Dropped Pins</comment>
+  </data>
 </root>

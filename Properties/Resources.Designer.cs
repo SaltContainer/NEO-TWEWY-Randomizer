@@ -3289,5 +3289,143 @@ namespace NEO_TWEWY_Randomizer.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)..
+        /// </summary>
+        internal static string ttcheckItemsLimited {
+            get {
+                return ResourceManager.GetString("ttcheckItemsLimited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checked Difficulties are included in the randomization..
+        /// </summary>
+        internal static string ttgrpChanceDifficulty {
+            get {
+                return ResourceManager.GetString("ttgrpChanceDifficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Checked Difficulties are included in the randomization..
+        /// </summary>
+        internal static string ttgrpItemsDifficulty {
+            get {
+                return ResourceManager.GetString("ttgrpItemsDifficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The maximum drop rate. All randomized drop rates will be lower or equal to this number..
+        /// </summary>
+        internal static string ttnumChanceMax {
+            get {
+                return ResourceManager.GetString("ttnumChanceMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The minimum drop rate. All randomized drop rates will be higher or equal to this number..
+        /// </summary>
+        internal static string ttnumChanceMin {
+            get {
+                return ResourceManager.GetString("ttnumChanceMin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The weights with which to randomize the drop rates for each difficulty..
+        /// </summary>
+        internal static string ttnumChanceWeight {
+            get {
+                return ResourceManager.GetString("ttnumChanceWeight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make the drop rates completely random between the minimum and maximum drop rates..
+        /// </summary>
+        internal static string ttradioChanceRandomC {
+            get {
+                return ResourceManager.GetString("ttradioChanceRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make the drop rates random but somewhat controlled with weights.
+        ///This allows for certain difficulties to have lower/higher drop rates.
+        ///The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while
+        ///the difficulty with the highest weight will have drop rates closer to the maximum drop rate.
+        ///The weights scale linearly..
+        /// </summary>
+        internal static string ttradioChanceRandomW {
+            get {
+                return ResourceManager.GetString("ttradioChanceRandomW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t change the drop rates..
+        /// </summary>
+        internal static string ttradioChanceUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioChanceUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make Noise drop random pins while making all pins available this way.
+        ///This will always affect all difficulties as this is too restrictive otherwise..
+        /// </summary>
+        internal static string ttradioItemsRandomA {
+            get {
+                return ResourceManager.GetString("ttradioItemsRandomA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make Noise drop random pins with no other limitations..
+        /// </summary>
+        internal static string ttradioItemsRandomC {
+            get {
+                return ResourceManager.GetString("ttradioItemsRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+        ///This means that all pins that are obtainable through drops in vanilla are still obtainable
+        ///in the same way and no new pins are dropped..
+        /// </summary>
+        internal static string ttradioItemsShuffleC {
+            get {
+                return ResourceManager.GetString("ttradioItemsShuffleC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take each Noise&apos;s vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+        ///The shuffling keeps the corresponding difficulty.
+        ///For example, a Nefastraven could end up having a Dixiefrog&apos;s drops
+        ///(50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).
+        ///This means that all pins that are obtainable through drops in vanilla are still obtainable
+        ///in the same way and no new pins are dropped..
+        /// </summary>
+        internal static string ttradioItemsShuffleS {
+            get {
+                return ResourceManager.GetString("ttradioItemsShuffleS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Don&apos;t change what pins Noise drop..
+        /// </summary>
+        internal static string ttradioItemsUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioItemsUnchanged", resourceCulture);
+            }
+        }
     }
 }

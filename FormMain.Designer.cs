@@ -33,7 +33,36 @@ namespace NEO_TWEWY_Randomizer
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabsMain = new System.Windows.Forms.TabControl();
             this.tabDrops = new System.Windows.Forms.TabPage();
+            this.grpChance = new System.Windows.Forms.GroupBox();
+            this.lbChanceMax = new System.Windows.Forms.Label();
+            this.numChanceMax = new System.Windows.Forms.NumericUpDown();
+            this.lbChanceMin = new System.Windows.Forms.Label();
+            this.numChanceMin = new System.Windows.Forms.NumericUpDown();
+            this.grpChanceDifficulty = new System.Windows.Forms.GroupBox();
+            this.lbChanceWeight = new System.Windows.Forms.Label();
+            this.numChanceWeightEasy = new System.Windows.Forms.NumericUpDown();
+            this.numChanceWeightNormal = new System.Windows.Forms.NumericUpDown();
+            this.numChanceWeightHard = new System.Windows.Forms.NumericUpDown();
+            this.numChanceWeightUltimate = new System.Windows.Forms.NumericUpDown();
+            this.checkChanceEasy = new System.Windows.Forms.CheckBox();
+            this.checkChanceNormal = new System.Windows.Forms.CheckBox();
+            this.checkChanceHard = new System.Windows.Forms.CheckBox();
+            this.checkChanceUltimate = new System.Windows.Forms.CheckBox();
+            this.radioChanceUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioChanceRandomC = new System.Windows.Forms.RadioButton();
+            this.radioChanceRandomW = new System.Windows.Forms.RadioButton();
             this.grpItems = new System.Windows.Forms.GroupBox();
+            this.grpItemsDifficulty = new System.Windows.Forms.GroupBox();
+            this.checkItemsEasy = new System.Windows.Forms.CheckBox();
+            this.checkItemsNormal = new System.Windows.Forms.CheckBox();
+            this.checkItemsHard = new System.Windows.Forms.CheckBox();
+            this.checkItemsUltimate = new System.Windows.Forms.CheckBox();
+            this.checkItemsLimited = new System.Windows.Forms.CheckBox();
+            this.radioItemsUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioItemsShuffleC = new System.Windows.Forms.RadioButton();
+            this.radioItemsShuffleS = new System.Windows.Forms.RadioButton();
+            this.radioItemsRandomC = new System.Windows.Forms.RadioButton();
+            this.radioItemsRandomA = new System.Windows.Forms.RadioButton();
             this.tabPins = new System.Windows.Forms.TabPage();
             this.tabSocial = new System.Windows.Forms.TabPage();
             this.tabThreads = new System.Windows.Forms.TabPage();
@@ -50,35 +79,33 @@ namespace NEO_TWEWY_Randomizer
             this.btnOpen = new System.Windows.Forms.Button();
             this.picPin = new System.Windows.Forms.PictureBox();
             this.imlistPins = new System.Windows.Forms.ImageList(this.components);
-            this.grpChance = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.ttradioItemsUnchanged = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioItemsShuffleC = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioItemsRandomC = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioItemsRandomA = new System.Windows.Forms.ToolTip(this.components);
+            this.ttcheckItemsLimited = new System.Windows.Forms.ToolTip(this.components);
+            this.ttgrpItemsDifficulty = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioItemsShuffleS = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioChanceUnchanged = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioChanceRandomC = new System.Windows.Forms.ToolTip(this.components);
+            this.ttradioChanceRandomW = new System.Windows.Forms.ToolTip(this.components);
+            this.ttnumChanceMin = new System.Windows.Forms.ToolTip(this.components);
+            this.ttnumChanceMax = new System.Windows.Forms.ToolTip(this.components);
+            this.ttgrpChanceDifficulty = new System.Windows.Forms.ToolTip(this.components);
+            this.ttnumChanceWeight = new System.Windows.Forms.ToolTip(this.components);
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
-            this.grpItems.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             this.grpChance.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceMin)).BeginInit();
+            this.grpChanceDifficulty.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightEasy)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightNormal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightHard)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightUltimate)).BeginInit();
+            this.grpItems.SuspendLayout();
+            this.grpItemsDifficulty.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -112,20 +139,435 @@ namespace NEO_TWEWY_Randomizer
             this.tabDrops.Text = "Noise Drops";
             this.tabDrops.UseVisualStyleBackColor = true;
             // 
+            // grpChance
+            // 
+            this.grpChance.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpChance.Controls.Add(this.lbChanceMax);
+            this.grpChance.Controls.Add(this.numChanceMax);
+            this.grpChance.Controls.Add(this.lbChanceMin);
+            this.grpChance.Controls.Add(this.numChanceMin);
+            this.grpChance.Controls.Add(this.grpChanceDifficulty);
+            this.grpChance.Controls.Add(this.radioChanceUnchanged);
+            this.grpChance.Controls.Add(this.radioChanceRandomC);
+            this.grpChance.Controls.Add(this.radioChanceRandomW);
+            this.grpChance.Location = new System.Drawing.Point(387, 6);
+            this.grpChance.Name = "grpChance";
+            this.grpChance.Size = new System.Drawing.Size(375, 215);
+            this.grpChance.TabIndex = 1;
+            this.grpChance.TabStop = false;
+            this.grpChance.Text = "Drop Rates";
+            // 
+            // lbChanceMax
+            // 
+            this.lbChanceMax.AutoSize = true;
+            this.lbChanceMax.Location = new System.Drawing.Point(22, 165);
+            this.lbChanceMax.Name = "lbChanceMax";
+            this.lbChanceMax.Size = new System.Drawing.Size(103, 13);
+            this.lbChanceMax.TabIndex = 14;
+            this.lbChanceMax.Text = "Maximum Drop Rate";
+            // 
+            // numChanceMax
+            // 
+            this.numChanceMax.DecimalPlaces = 2;
+            this.numChanceMax.Enabled = false;
+            this.numChanceMax.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numChanceMax.Location = new System.Drawing.Point(22, 181);
+            this.numChanceMax.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numChanceMax.Name = "numChanceMax";
+            this.numChanceMax.Size = new System.Drawing.Size(120, 20);
+            this.numChanceMax.TabIndex = 13;
+            this.numChanceMax.Value = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            131072});
+            // 
+            // lbChanceMin
+            // 
+            this.lbChanceMin.AutoSize = true;
+            this.lbChanceMin.Location = new System.Drawing.Point(22, 109);
+            this.lbChanceMin.Name = "lbChanceMin";
+            this.lbChanceMin.Size = new System.Drawing.Size(100, 13);
+            this.lbChanceMin.TabIndex = 11;
+            this.lbChanceMin.Text = "Minimum Drop Rate";
+            // 
+            // numChanceMin
+            // 
+            this.numChanceMin.DecimalPlaces = 2;
+            this.numChanceMin.Enabled = false;
+            this.numChanceMin.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numChanceMin.Location = new System.Drawing.Point(22, 125);
+            this.numChanceMin.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numChanceMin.Name = "numChanceMin";
+            this.numChanceMin.Size = new System.Drawing.Size(120, 20);
+            this.numChanceMin.TabIndex = 12;
+            this.numChanceMin.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numChanceMin.ValueChanged += new System.EventHandler(this.numChance_ValueChanged);
+            // 
+            // grpChanceDifficulty
+            // 
+            this.grpChanceDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpChanceDifficulty.Controls.Add(this.lbChanceWeight);
+            this.grpChanceDifficulty.Controls.Add(this.numChanceWeightEasy);
+            this.grpChanceDifficulty.Controls.Add(this.numChanceWeightNormal);
+            this.grpChanceDifficulty.Controls.Add(this.numChanceWeightHard);
+            this.grpChanceDifficulty.Controls.Add(this.numChanceWeightUltimate);
+            this.grpChanceDifficulty.Controls.Add(this.checkChanceEasy);
+            this.grpChanceDifficulty.Controls.Add(this.checkChanceNormal);
+            this.grpChanceDifficulty.Controls.Add(this.checkChanceHard);
+            this.grpChanceDifficulty.Controls.Add(this.checkChanceUltimate);
+            this.grpChanceDifficulty.Location = new System.Drawing.Point(187, 67);
+            this.grpChanceDifficulty.Name = "grpChanceDifficulty";
+            this.grpChanceDifficulty.Size = new System.Drawing.Size(173, 134);
+            this.grpChanceDifficulty.TabIndex = 10;
+            this.grpChanceDifficulty.TabStop = false;
+            this.grpChanceDifficulty.Text = "Affected Difficulties";
+            // 
+            // lbChanceWeight
+            // 
+            this.lbChanceWeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbChanceWeight.AutoSize = true;
+            this.lbChanceWeight.Location = new System.Drawing.Point(101, 15);
+            this.lbChanceWeight.Name = "lbChanceWeight";
+            this.lbChanceWeight.Size = new System.Drawing.Size(41, 13);
+            this.lbChanceWeight.TabIndex = 14;
+            this.lbChanceWeight.Text = "Weight";
+            // 
+            // numChanceWeightEasy
+            // 
+            this.numChanceWeightEasy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numChanceWeightEasy.Enabled = false;
+            this.numChanceWeightEasy.Location = new System.Drawing.Point(104, 34);
+            this.numChanceWeightEasy.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numChanceWeightEasy.Name = "numChanceWeightEasy";
+            this.numChanceWeightEasy.Size = new System.Drawing.Size(63, 20);
+            this.numChanceWeightEasy.TabIndex = 10;
+            this.numChanceWeightEasy.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // numChanceWeightNormal
+            // 
+            this.numChanceWeightNormal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numChanceWeightNormal.Enabled = false;
+            this.numChanceWeightNormal.Location = new System.Drawing.Point(104, 57);
+            this.numChanceWeightNormal.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numChanceWeightNormal.Name = "numChanceWeightNormal";
+            this.numChanceWeightNormal.Size = new System.Drawing.Size(63, 20);
+            this.numChanceWeightNormal.TabIndex = 11;
+            this.numChanceWeightNormal.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // numChanceWeightHard
+            // 
+            this.numChanceWeightHard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numChanceWeightHard.Enabled = false;
+            this.numChanceWeightHard.Location = new System.Drawing.Point(104, 80);
+            this.numChanceWeightHard.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numChanceWeightHard.Name = "numChanceWeightHard";
+            this.numChanceWeightHard.Size = new System.Drawing.Size(63, 20);
+            this.numChanceWeightHard.TabIndex = 12;
+            this.numChanceWeightHard.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // numChanceWeightUltimate
+            // 
+            this.numChanceWeightUltimate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.numChanceWeightUltimate.Enabled = false;
+            this.numChanceWeightUltimate.Location = new System.Drawing.Point(104, 103);
+            this.numChanceWeightUltimate.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numChanceWeightUltimate.Name = "numChanceWeightUltimate";
+            this.numChanceWeightUltimate.Size = new System.Drawing.Size(63, 20);
+            this.numChanceWeightUltimate.TabIndex = 13;
+            this.numChanceWeightUltimate.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // checkChanceEasy
+            // 
+            this.checkChanceEasy.AutoSize = true;
+            this.checkChanceEasy.Checked = true;
+            this.checkChanceEasy.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkChanceEasy.Enabled = false;
+            this.checkChanceEasy.Location = new System.Drawing.Point(16, 35);
+            this.checkChanceEasy.Name = "checkChanceEasy";
+            this.checkChanceEasy.Size = new System.Drawing.Size(49, 17);
+            this.checkChanceEasy.TabIndex = 6;
+            this.checkChanceEasy.Text = "Easy";
+            this.checkChanceEasy.UseVisualStyleBackColor = true;
+            this.checkChanceEasy.CheckedChanged += new System.EventHandler(this.checkChanceEasy_CheckedChanged);
+            // 
+            // checkChanceNormal
+            // 
+            this.checkChanceNormal.AutoSize = true;
+            this.checkChanceNormal.Checked = true;
+            this.checkChanceNormal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkChanceNormal.Enabled = false;
+            this.checkChanceNormal.Location = new System.Drawing.Point(16, 58);
+            this.checkChanceNormal.Name = "checkChanceNormal";
+            this.checkChanceNormal.Size = new System.Drawing.Size(59, 17);
+            this.checkChanceNormal.TabIndex = 7;
+            this.checkChanceNormal.Text = "Normal";
+            this.checkChanceNormal.UseVisualStyleBackColor = true;
+            this.checkChanceNormal.CheckedChanged += new System.EventHandler(this.checkChanceNormal_CheckedChanged);
+            // 
+            // checkChanceHard
+            // 
+            this.checkChanceHard.AutoSize = true;
+            this.checkChanceHard.Checked = true;
+            this.checkChanceHard.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkChanceHard.Enabled = false;
+            this.checkChanceHard.Location = new System.Drawing.Point(16, 81);
+            this.checkChanceHard.Name = "checkChanceHard";
+            this.checkChanceHard.Size = new System.Drawing.Size(49, 17);
+            this.checkChanceHard.TabIndex = 8;
+            this.checkChanceHard.Text = "Hard";
+            this.checkChanceHard.UseVisualStyleBackColor = true;
+            this.checkChanceHard.CheckedChanged += new System.EventHandler(this.checkChanceHard_CheckedChanged);
+            // 
+            // checkChanceUltimate
+            // 
+            this.checkChanceUltimate.AutoSize = true;
+            this.checkChanceUltimate.Checked = true;
+            this.checkChanceUltimate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkChanceUltimate.Enabled = false;
+            this.checkChanceUltimate.Location = new System.Drawing.Point(16, 104);
+            this.checkChanceUltimate.Name = "checkChanceUltimate";
+            this.checkChanceUltimate.Size = new System.Drawing.Size(64, 17);
+            this.checkChanceUltimate.TabIndex = 9;
+            this.checkChanceUltimate.Text = "Ultimate";
+            this.checkChanceUltimate.UseVisualStyleBackColor = true;
+            this.checkChanceUltimate.CheckedChanged += new System.EventHandler(this.checkChanceUltimate_CheckedChanged);
+            // 
+            // radioChanceUnchanged
+            // 
+            this.radioChanceUnchanged.AutoSize = true;
+            this.radioChanceUnchanged.Checked = true;
+            this.radioChanceUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioChanceUnchanged.Name = "radioChanceUnchanged";
+            this.radioChanceUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioChanceUnchanged.TabIndex = 6;
+            this.radioChanceUnchanged.TabStop = true;
+            this.radioChanceUnchanged.Text = "Unchanged";
+            this.radioChanceUnchanged.UseVisualStyleBackColor = true;
+            this.radioChanceUnchanged.CheckedChanged += new System.EventHandler(this.radioChanceUnchanged_CheckedChanged);
+            // 
+            // radioChanceRandomC
+            // 
+            this.radioChanceRandomC.AutoSize = true;
+            this.radioChanceRandomC.Location = new System.Drawing.Point(17, 51);
+            this.radioChanceRandomC.Name = "radioChanceRandomC";
+            this.radioChanceRandomC.Size = new System.Drawing.Size(125, 17);
+            this.radioChanceRandomC.TabIndex = 6;
+            this.radioChanceRandomC.Text = "Random (Completely)";
+            this.radioChanceRandomC.UseVisualStyleBackColor = true;
+            this.radioChanceRandomC.CheckedChanged += new System.EventHandler(this.radioChanceRandomC_CheckedChanged);
+            // 
+            // radioChanceRandomW
+            // 
+            this.radioChanceRandomW.AutoSize = true;
+            this.radioChanceRandomW.Location = new System.Drawing.Point(17, 74);
+            this.radioChanceRandomW.Name = "radioChanceRandomW";
+            this.radioChanceRandomW.Size = new System.Drawing.Size(120, 17);
+            this.radioChanceRandomW.TabIndex = 6;
+            this.radioChanceRandomW.Text = "Random (Weighted)";
+            this.radioChanceRandomW.UseVisualStyleBackColor = true;
+            // 
             // grpItems
             // 
-            this.grpItems.Controls.Add(this.groupBox1);
-            this.grpItems.Controls.Add(this.checkBox1);
-            this.grpItems.Controls.Add(this.radioButton4);
-            this.grpItems.Controls.Add(this.radioButton3);
-            this.grpItems.Controls.Add(this.radioButton2);
-            this.grpItems.Controls.Add(this.radioButton1);
+            this.grpItems.Controls.Add(this.grpItemsDifficulty);
+            this.grpItems.Controls.Add(this.checkItemsLimited);
+            this.grpItems.Controls.Add(this.radioItemsUnchanged);
+            this.grpItems.Controls.Add(this.radioItemsShuffleC);
+            this.grpItems.Controls.Add(this.radioItemsShuffleS);
+            this.grpItems.Controls.Add(this.radioItemsRandomC);
+            this.grpItems.Controls.Add(this.radioItemsRandomA);
             this.grpItems.Location = new System.Drawing.Point(6, 6);
             this.grpItems.Name = "grpItems";
-            this.grpItems.Size = new System.Drawing.Size(349, 201);
+            this.grpItems.Size = new System.Drawing.Size(375, 215);
             this.grpItems.TabIndex = 0;
             this.grpItems.TabStop = false;
             this.grpItems.Text = "Dropped Pins";
+            // 
+            // grpItemsDifficulty
+            // 
+            this.grpItemsDifficulty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpItemsDifficulty.Controls.Add(this.checkItemsEasy);
+            this.grpItemsDifficulty.Controls.Add(this.checkItemsNormal);
+            this.grpItemsDifficulty.Controls.Add(this.checkItemsHard);
+            this.grpItemsDifficulty.Controls.Add(this.checkItemsUltimate);
+            this.grpItemsDifficulty.Location = new System.Drawing.Point(187, 78);
+            this.grpItemsDifficulty.Name = "grpItemsDifficulty";
+            this.grpItemsDifficulty.Size = new System.Drawing.Size(173, 123);
+            this.grpItemsDifficulty.TabIndex = 5;
+            this.grpItemsDifficulty.TabStop = false;
+            this.grpItemsDifficulty.Text = "Affected Difficulties";
+            // 
+            // checkItemsEasy
+            // 
+            this.checkItemsEasy.AutoSize = true;
+            this.checkItemsEasy.Checked = true;
+            this.checkItemsEasy.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkItemsEasy.Enabled = false;
+            this.checkItemsEasy.Location = new System.Drawing.Point(16, 24);
+            this.checkItemsEasy.Name = "checkItemsEasy";
+            this.checkItemsEasy.Size = new System.Drawing.Size(49, 17);
+            this.checkItemsEasy.TabIndex = 6;
+            this.checkItemsEasy.Text = "Easy";
+            this.checkItemsEasy.UseVisualStyleBackColor = true;
+            // 
+            // checkItemsNormal
+            // 
+            this.checkItemsNormal.AutoSize = true;
+            this.checkItemsNormal.Checked = true;
+            this.checkItemsNormal.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkItemsNormal.Enabled = false;
+            this.checkItemsNormal.Location = new System.Drawing.Point(16, 47);
+            this.checkItemsNormal.Name = "checkItemsNormal";
+            this.checkItemsNormal.Size = new System.Drawing.Size(59, 17);
+            this.checkItemsNormal.TabIndex = 7;
+            this.checkItemsNormal.Text = "Normal";
+            this.checkItemsNormal.UseVisualStyleBackColor = true;
+            // 
+            // checkItemsHard
+            // 
+            this.checkItemsHard.AutoSize = true;
+            this.checkItemsHard.Checked = true;
+            this.checkItemsHard.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkItemsHard.Enabled = false;
+            this.checkItemsHard.Location = new System.Drawing.Point(16, 70);
+            this.checkItemsHard.Name = "checkItemsHard";
+            this.checkItemsHard.Size = new System.Drawing.Size(49, 17);
+            this.checkItemsHard.TabIndex = 8;
+            this.checkItemsHard.Text = "Hard";
+            this.checkItemsHard.UseVisualStyleBackColor = true;
+            // 
+            // checkItemsUltimate
+            // 
+            this.checkItemsUltimate.AutoSize = true;
+            this.checkItemsUltimate.Checked = true;
+            this.checkItemsUltimate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkItemsUltimate.Enabled = false;
+            this.checkItemsUltimate.Location = new System.Drawing.Point(16, 93);
+            this.checkItemsUltimate.Name = "checkItemsUltimate";
+            this.checkItemsUltimate.Size = new System.Drawing.Size(64, 17);
+            this.checkItemsUltimate.TabIndex = 9;
+            this.checkItemsUltimate.Text = "Ultimate";
+            this.checkItemsUltimate.UseVisualStyleBackColor = true;
+            // 
+            // checkItemsLimited
+            // 
+            this.checkItemsLimited.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkItemsLimited.AutoSize = true;
+            this.checkItemsLimited.Enabled = false;
+            this.checkItemsLimited.Location = new System.Drawing.Point(203, 29);
+            this.checkItemsLimited.Name = "checkItemsLimited";
+            this.checkItemsLimited.Size = new System.Drawing.Size(120, 17);
+            this.checkItemsLimited.TabIndex = 4;
+            this.checkItemsLimited.Text = "Include Limited Pins";
+            this.checkItemsLimited.UseVisualStyleBackColor = true;
+            // 
+            // radioItemsUnchanged
+            // 
+            this.radioItemsUnchanged.AutoSize = true;
+            this.radioItemsUnchanged.Checked = true;
+            this.radioItemsUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioItemsUnchanged.Name = "radioItemsUnchanged";
+            this.radioItemsUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioItemsUnchanged.TabIndex = 0;
+            this.radioItemsUnchanged.TabStop = true;
+            this.radioItemsUnchanged.Text = "Unchanged";
+            this.radioItemsUnchanged.UseVisualStyleBackColor = true;
+            this.radioItemsUnchanged.CheckedChanged += new System.EventHandler(this.radioItemsUnchanged_CheckedChanged);
+            // 
+            // radioItemsShuffleC
+            // 
+            this.radioItemsShuffleC.AutoSize = true;
+            this.radioItemsShuffleC.Location = new System.Drawing.Point(17, 51);
+            this.radioItemsShuffleC.Name = "radioItemsShuffleC";
+            this.radioItemsShuffleC.Size = new System.Drawing.Size(118, 17);
+            this.radioItemsShuffleC.TabIndex = 1;
+            this.radioItemsShuffleC.Text = "Shuffle (Completely)";
+            this.radioItemsShuffleC.UseVisualStyleBackColor = true;
+            // 
+            // radioItemsShuffleS
+            // 
+            this.radioItemsShuffleS.AutoSize = true;
+            this.radioItemsShuffleS.Location = new System.Drawing.Point(17, 74);
+            this.radioItemsShuffleS.Name = "radioItemsShuffleS";
+            this.radioItemsShuffleS.Size = new System.Drawing.Size(88, 17);
+            this.radioItemsShuffleS.TabIndex = 6;
+            this.radioItemsShuffleS.Text = "Shuffle (Sets)";
+            this.radioItemsShuffleS.UseVisualStyleBackColor = true;
+            this.radioItemsShuffleS.CheckedChanged += new System.EventHandler(this.radioItemsShuffleS_CheckedChanged);
+            // 
+            // radioItemsRandomC
+            // 
+            this.radioItemsRandomC.AutoSize = true;
+            this.radioItemsRandomC.Location = new System.Drawing.Point(17, 97);
+            this.radioItemsRandomC.Name = "radioItemsRandomC";
+            this.radioItemsRandomC.Size = new System.Drawing.Size(125, 17);
+            this.radioItemsRandomC.TabIndex = 2;
+            this.radioItemsRandomC.Text = "Random (Completely)";
+            this.radioItemsRandomC.UseVisualStyleBackColor = true;
+            // 
+            // radioItemsRandomA
+            // 
+            this.radioItemsRandomA.AutoSize = true;
+            this.radioItemsRandomA.Location = new System.Drawing.Point(17, 120);
+            this.radioItemsRandomA.Name = "radioItemsRandomA";
+            this.radioItemsRandomA.Size = new System.Drawing.Size(108, 17);
+            this.radioItemsRandomA.TabIndex = 3;
+            this.radioItemsRandomA.Text = "Random (All Pins)";
+            this.radioItemsRandomA.UseVisualStyleBackColor = true;
+            this.radioItemsRandomA.CheckedChanged += new System.EventHandler(this.radioItemsRandomA_CheckedChanged);
             // 
             // tabPins
             // 
@@ -285,245 +727,61 @@ namespace NEO_TWEWY_Randomizer
             this.imlistPins.ImageSize = new System.Drawing.Size(16, 16);
             this.imlistPins.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // grpChance
+            // ttradioItemsUnchanged
             // 
-            this.grpChance.Controls.Add(this.numericUpDown1);
-            this.grpChance.Controls.Add(this.label1);
-            this.grpChance.Controls.Add(this.groupBox2);
-            this.grpChance.Controls.Add(this.radioButton7);
-            this.grpChance.Controls.Add(this.radioButton6);
-            this.grpChance.Controls.Add(this.radioButton5);
-            this.grpChance.Location = new System.Drawing.Point(361, 6);
-            this.grpChance.Name = "grpChance";
-            this.grpChance.Size = new System.Drawing.Size(401, 201);
-            this.grpChance.TabIndex = 1;
-            this.grpChance.TabStop = false;
-            this.grpChance.Text = "Drop Chances";
+            this.ttradioItemsUnchanged.ToolTipTitle = "Unchanged Dropped Pins";
             // 
-            // radioButton1
+            // ttradioItemsShuffleC
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(17, 28);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(81, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Unchanged";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.ttradioItemsShuffleC.ToolTipTitle = "Shuffled (Completely) Dropped Pins";
             // 
-            // radioButton2
+            // ttradioItemsRandomC
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(17, 51);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(58, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Shuffle";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.ttradioItemsRandomC.ToolTipTitle = "Random (Completely) Dropped Pins";
             // 
-            // radioButton3
+            // ttradioItemsRandomA
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(17, 74);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(125, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Random (Completely)";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.ttradioItemsRandomA.ToolTipTitle = "Random (All Pins) Dropped Pins";
             // 
-            // radioButton4
+            // ttcheckItemsLimited
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(17, 97);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(108, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Random (All Pins)";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.ttcheckItemsLimited.ToolTipTitle = "Include Limited Pins in Dropped Pins";
             // 
-            // checkBox1
+            // ttgrpItemsDifficulty
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(186, 28);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(120, 17);
-            this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "Include Limited Pins";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.ttgrpItemsDifficulty.ToolTipTitle = "Difficulties Affected by Changed Dropped Pins";
             // 
-            // groupBox1
+            // ttradioItemsShuffleS
             // 
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Location = new System.Drawing.Point(170, 64);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(173, 123);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Affected Difficulties";
+            this.ttradioItemsShuffleS.ToolTipTitle = "Shuffled (Sets) Dropped Pins";
             // 
-            // checkBox2
+            // ttradioChanceUnchanged
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(16, 24);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(49, 17);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Easy";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.ttradioChanceUnchanged.ToolTipTitle = "Unchanged Drop Rate";
             // 
-            // checkBox3
+            // ttradioChanceRandomC
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(16, 46);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(59, 17);
-            this.checkBox3.TabIndex = 7;
-            this.checkBox3.Text = "Normal";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.ttradioChanceRandomC.ToolTipTitle = "Random Drop Rate (Completely)";
             // 
-            // checkBox4
+            // ttradioChanceRandomW
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(16, 69);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(49, 17);
-            this.checkBox4.TabIndex = 8;
-            this.checkBox4.Text = "Hard";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.ttradioChanceRandomW.ToolTipTitle = "Random Drop Rate (Weighted)";
             // 
-            // checkBox5
+            // ttnumChanceMin
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(16, 92);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(64, 17);
-            this.checkBox5.TabIndex = 9;
-            this.checkBox5.Text = "Ultimate";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.ttnumChanceMin.ToolTipTitle = "Minimum Drop Rate";
             // 
-            // radioButton5
+            // ttnumChanceMax
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(22, 28);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(81, 17);
-            this.radioButton5.TabIndex = 6;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Unchanged";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.ttnumChanceMax.ToolTipTitle = "Maximum Drop Rate";
             // 
-            // radioButton6
+            // ttgrpChanceDifficulty
             // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(22, 51);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(125, 17);
-            this.radioButton6.TabIndex = 6;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "Random (Completely)";
-            this.radioButton6.UseVisualStyleBackColor = true;
+            this.ttgrpChanceDifficulty.ToolTipTitle = "Difficulties Affected by Changed Drop Rate";
             // 
-            // radioButton7
+            // ttnumChanceWeight
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(22, 74);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(120, 17);
-            this.radioButton7.TabIndex = 6;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "Random (Weighted)";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.checkBox6);
-            this.groupBox2.Controls.Add(this.checkBox7);
-            this.groupBox2.Controls.Add(this.checkBox8);
-            this.groupBox2.Controls.Add(this.checkBox9);
-            this.groupBox2.Location = new System.Drawing.Point(222, 64);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(173, 123);
-            this.groupBox2.TabIndex = 10;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Affected Difficulties";
-            // 
-            // checkBox6
-            // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(16, 92);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(64, 17);
-            this.checkBox6.TabIndex = 9;
-            this.checkBox6.Text = "Ultimate";
-            this.checkBox6.UseVisualStyleBackColor = true;
-            // 
-            // checkBox7
-            // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(16, 69);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(49, 17);
-            this.checkBox7.TabIndex = 8;
-            this.checkBox7.Text = "Hard";
-            this.checkBox7.UseVisualStyleBackColor = true;
-            // 
-            // checkBox8
-            // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Location = new System.Drawing.Point(16, 46);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(59, 17);
-            this.checkBox8.TabIndex = 7;
-            this.checkBox8.Text = "Normal";
-            this.checkBox8.UseVisualStyleBackColor = true;
-            // 
-            // checkBox9
-            // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Location = new System.Drawing.Point(16, 24);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(49, 17);
-            this.checkBox9.TabIndex = 6;
-            this.checkBox9.Text = "Easy";
-            this.checkBox9.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 109);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Minimum Drop Chance";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDown1.Location = new System.Drawing.Point(22, 130);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 12;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
+            this.ttnumChanceWeight.ToolTipTitle = "Weights for Random Drop Rate";
             // 
             // FormMain
             // 
@@ -545,16 +803,21 @@ namespace NEO_TWEWY_Randomizer
             this.Text = "NEO: TWEWY Randomizer";
             this.tabsMain.ResumeLayout(false);
             this.tabDrops.ResumeLayout(false);
-            this.grpItems.ResumeLayout(false);
-            this.grpItems.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             this.grpChance.ResumeLayout(false);
             this.grpChance.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceMin)).EndInit();
+            this.grpChanceDifficulty.ResumeLayout(false);
+            this.grpChanceDifficulty.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightEasy)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightNormal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightHard)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightUltimate)).EndInit();
+            this.grpItems.ResumeLayout(false);
+            this.grpItems.PerformLayout();
+            this.grpItemsDifficulty.ResumeLayout(false);
+            this.grpItemsDifficulty.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,26 +845,48 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.TabPage tabFood;
         private System.Windows.Forms.TabPage tabMusic;
         private System.Windows.Forms.GroupBox grpChance;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.RadioButton radioItemsRandomC;
+        private System.Windows.Forms.RadioButton radioItemsShuffleC;
+        private System.Windows.Forms.RadioButton radioItemsUnchanged;
+        private System.Windows.Forms.CheckBox checkItemsLimited;
+        private System.Windows.Forms.RadioButton radioItemsRandomA;
+        private System.Windows.Forms.NumericUpDown numChanceMin;
+        private System.Windows.Forms.Label lbChanceMin;
+        private System.Windows.Forms.GroupBox grpChanceDifficulty;
+        private System.Windows.Forms.CheckBox checkChanceUltimate;
+        private System.Windows.Forms.CheckBox checkChanceHard;
+        private System.Windows.Forms.CheckBox checkChanceNormal;
+        private System.Windows.Forms.CheckBox checkChanceEasy;
+        private System.Windows.Forms.RadioButton radioChanceRandomW;
+        private System.Windows.Forms.RadioButton radioChanceRandomC;
+        private System.Windows.Forms.RadioButton radioChanceUnchanged;
+        private System.Windows.Forms.GroupBox grpItemsDifficulty;
+        private System.Windows.Forms.CheckBox checkItemsUltimate;
+        private System.Windows.Forms.CheckBox checkItemsHard;
+        private System.Windows.Forms.CheckBox checkItemsNormal;
+        private System.Windows.Forms.CheckBox checkItemsEasy;
+        private System.Windows.Forms.Label lbChanceMax;
+        private System.Windows.Forms.NumericUpDown numChanceMax;
+        private System.Windows.Forms.ToolTip ttradioItemsUnchanged;
+        private System.Windows.Forms.ToolTip ttradioItemsShuffleC;
+        private System.Windows.Forms.ToolTip ttradioItemsRandomC;
+        private System.Windows.Forms.ToolTip ttradioItemsRandomA;
+        private System.Windows.Forms.ToolTip ttcheckItemsLimited;
+        private System.Windows.Forms.ToolTip ttgrpItemsDifficulty;
+        private System.Windows.Forms.ToolTip ttradioItemsShuffleS;
+        private System.Windows.Forms.RadioButton radioItemsShuffleS;
+        private System.Windows.Forms.Label lbChanceWeight;
+        private System.Windows.Forms.NumericUpDown numChanceWeightEasy;
+        private System.Windows.Forms.NumericUpDown numChanceWeightNormal;
+        private System.Windows.Forms.NumericUpDown numChanceWeightHard;
+        private System.Windows.Forms.NumericUpDown numChanceWeightUltimate;
+        private System.Windows.Forms.ToolTip ttradioChanceUnchanged;
+        private System.Windows.Forms.ToolTip ttradioChanceRandomC;
+        private System.Windows.Forms.ToolTip ttradioChanceRandomW;
+        private System.Windows.Forms.ToolTip ttnumChanceMin;
+        private System.Windows.Forms.ToolTip ttnumChanceMax;
+        private System.Windows.Forms.ToolTip ttgrpChanceDifficulty;
+        private System.Windows.Forms.ToolTip ttnumChanceWeight;
     }
 }
 

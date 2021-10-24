@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEO_TWEWY_Randomizer.Randomizer.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace NEO_TWEWY_Randomizer
 
         public void LoadFiles(Dictionary<string, string> fileNames)
         {
-            dataManipulator.LoadFiles(fileNames);
+            dataManipulator.LoadBundles(fileNames);
         }
 
         public void RandomizeAndSave(RandomizationSettings settings, string fileName)
@@ -37,12 +38,17 @@ namespace NEO_TWEWY_Randomizer
 
         private void Randomize(RandomizationSettings settings)
         {
-
+            RandomizeDrops(settings);
         }
 
         private void Save(string fileName)
         {
 
+        }
+
+        private void RandomizeDrops(RandomizationSettings settings)
+        {
+            string enemyDataScript = dataManipulator.LoadScriptFileFromBundle(FileConstants.TEXT_DATA_KEY, FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME, FileConstants.TEXT_DATA_ENEMY_DATA_SCRIPT);
         }
     }
 }

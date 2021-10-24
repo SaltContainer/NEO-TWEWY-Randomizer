@@ -700,6 +700,7 @@ namespace NEO_TWEWY_Randomizer
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Randomize and Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpen
             // 
@@ -710,6 +711,7 @@ namespace NEO_TWEWY_Randomizer
             this.btnOpen.TabIndex = 9;
             this.btnOpen.Text = "Open Game Files";
             this.btnOpen.UseVisualStyleBackColor = true;
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // picPin
             // 

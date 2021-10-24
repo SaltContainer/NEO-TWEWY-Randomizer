@@ -73,6 +73,9 @@
     <Reference Include="Mono.Cecil.Rocks, Version=0.10.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e, processorArchitecture=MSIL">
       <HintPath>packages\Mono.Cecil.0.10.4\lib\net40\Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -86,9 +89,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Randomizer\Data\BundleDecrypter.cs" />
+    <Compile Include="Randomizer\Data\BundleDecompressor.cs" />
     <Compile Include="Randomizer\Data\Data.cs" />
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants.cs" />
     <Compile Include="Randomizer\UI\Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>

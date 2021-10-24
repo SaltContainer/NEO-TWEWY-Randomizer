@@ -1,5 +1,7 @@
 ﻿using NEO_TWEWY_Randomizer.Properties;
+using NEO_TWEWY_Randomizer.Randomizer.Data;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace NEO_TWEWY_Randomizer
@@ -146,6 +148,22 @@ namespace NEO_TWEWY_Randomizer
                 if (sender == numChanceMin) numChanceMin.Value = numChanceMax.Value;
                 else if (sender == numChanceMax) numChanceMax.Value = numChanceMin.Value;
             }
+        }
+
+        private void btnOpen_Click(object sender, EventArgs e)
+        {
+            Dictionary<string, string> files = new Dictionary<string, string>();
+            foreach (string fileNeeded in FileConstants.FILES_TO_READ)
+            {
+                string fileName = "../4017d8fc-orig.unity3d"; //TODO: Change to openfile dialog
+                files.Add(fileNeeded, fileName);
+            }
+            randomizationEngine.LoadFiles(files);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            randomizationEngine.RandomizeAndSave(null, "");
         }
     }
 }

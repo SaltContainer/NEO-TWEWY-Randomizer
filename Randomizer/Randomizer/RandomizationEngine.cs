@@ -1,4 +1,5 @@
-﻿using NEO_TWEWY_Randomizer.Randomizer.Data;
+﻿using AssetsTools.NET;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,33 +23,37 @@ namespace NEO_TWEWY_Randomizer
             dataManipulator.LoadBundles(fileNames);
         }
 
-        public void RandomizeAndSave(RandomizationSettings settings, string fileName)
+        public void Randomize(RandomizationSettings settings)
         {
-            rand = new Random();
-            Randomize(settings);
-            Save(fileName);
+            if (rand == null) rand = new Random();
+
+            string enemyDataJson = RandomizeEnemyData(settings);
+
+            Dictionary<string, string> scripts = new Dictionary<string, string>
+            { { FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME, enemyDataJson } };
+            dataManipulator.SetScriptFilesToBundle(FileConstants.TEXT_DATA_KEY, scripts);
         }
 
-        public void RandomizeAndSave(RandomizationSettings settings, string fileName, int seed)
+        public void Randomize(RandomizationSettings settings, int seed)
         {
             rand = new Random(seed);
             Randomize(settings);
-            Save(fileName);
         }
 
-        private void Randomize(RandomizationSettings settings)
+        public void Save(string fileName)
         {
-            RandomizeDrops(settings);
+            dataManipulator.SaveBundles(new Dictionary<string, string> { { FileConstants.TEXT_DATA_KEY, fileName } });
         }
 
-        private void Save(string fileName)
+        private string RandomizeEnemyData(RandomizationSettings settings)
         {
+            string enemyDataScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TEXT_DATA_KEY, FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME);
 
-        }
-
-        private void RandomizeDrops(RandomizationSettings settings)
-        {
-            string enemyDataScript = dataManipulator.LoadScriptFileFromBundle(FileConstants.TEXT_DATA_KEY, FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME, FileConstants.TEXT_DATA_ENEMY_DATA_SCRIPT);
+            EnemyData enemyData = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
+            enemyData.Target[0].Drop = new List<int> { 5001, 5001, 5001, 5001 };
+            enemyData.Target[0].DropRate = new List<float> { 0.70f, 0.70f, 0.70f, 0.70f };
+            enemyData.Target[0].Scale = 3.0f;
+            return JsonConvert.SerializeObject(enemyData, Formatting.Indented);
         }
     }
 }

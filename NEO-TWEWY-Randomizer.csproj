@@ -89,9 +89,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Randomizer\Data\BundleDecompressor.cs" />
+    <Compile Include="Randomizer\Data\BundleCompressor.cs" />
     <Compile Include="Randomizer\Data\Data.cs" />
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
+    <Compile Include="Randomizer\Data\Data\EnemyData\Enemy.cs" />
+    <Compile Include="Randomizer\Data\Data\EnemyData\EnemyData.cs" />
     <Compile Include="Randomizer\Utils\FileConstants.cs" />
     <Compile Include="Randomizer\UI\Forms\FormMain.cs">
       <SubType>Form</SubType>

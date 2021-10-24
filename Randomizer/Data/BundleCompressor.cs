@@ -9,9 +9,16 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class BundleDecompressor
+    class BundleCompressor
     {
-        public BundleFileInstance LoadAndDecompressFile(AssetsManager assetsManager, string fileName)
+        private AssetsManager assetsManager;
+
+        public BundleCompressor(AssetsManager assetsManager)
+        {
+            this.assetsManager = assetsManager;
+        }
+
+        public BundleFileInstance LoadAndDecompressFile(string fileName)
         {
             BundleFileInstance bundle = assetsManager.LoadBundleFile(fileName);
             bundle.file.reader.Position = 0;

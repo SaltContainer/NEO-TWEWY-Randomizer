@@ -1,8 +1,8 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
-using NEO_TWEWY_Randomizer.Randomizer.Data;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,14 +13,14 @@ namespace NEO_TWEWY_Randomizer
     class DataManipulator
     {
         private AssetsManager assetsManager;
-        private BundleDecompressor bundleDecrypter;
-        private Dictionary<string, BundleFileInstance> dataFiles;
+        private BundleCompressor bundleCompressor;
+        private Dictionary<string, Data> dataFiles;
 
         public DataManipulator()
         {
             assetsManager = new AssetsManager();
-            bundleDecrypter = new BundleDecompressor();
-            dataFiles = new Dictionary<string, BundleFileInstance>();
+            bundleCompressor = new BundleCompressor(assetsManager);
+            dataFiles = new Dictionary<string, Data>();
         }
 
         public void LoadBundles(Dictionary<string, string> fileNames)
@@ -29,25 +29,52 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in fileNames)
                 {
-                    dataFiles.Add(entry.Key, bundleDecrypter.LoadAndDecompressFile(assetsManager, entry.Value));
+                    Data data = new Data(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key);
+                    dataFiles.Add(entry.Key, data);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an error reading or decrypting one of the data files. Exception: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There was an error reading or decompressing one of the data files. Exception: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        public string LoadScriptFileFromBundle(string bundle, string className, string attributeName)
+        public void SaveBundles(Dictionary<string, string> fileNames)
         {
-            AssetsFileInstance assetsFile = assetsManager.LoadAssetsFileFromBundle(dataFiles[bundle], FileConstants.FILES_CAB_DIRECTORIES[bundle]);
-            if (!assetsFile.file.typeTree.hasTypeTree)
-                assetsManager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
+            try
+            {
+                foreach (var entry in dataFiles)
+                {
+                    SaveBundle(entry.Key, fileNames[entry.Key]);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error writing or compressing one of the data files. Exception: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
-            AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
+        private void SaveBundle(string bundleKey, string fileName)
+        {
+            Data data = dataFiles[bundleKey];
+            BundleFileInstance bundleInstance = data.GetBundle();
+            string cabDirName = FileConstants.FILES_CAB_DIRECTORIES[bundleKey];
 
-            return baseField.Get(attributeName).GetValue().AsString();
+            BundleReplacerFromMemory bundleReplacer = new BundleReplacerFromMemory(cabDirName, cabDirName, true, data.GetNewData(), -1);
+            AssetsFileWriter bundleWriter = new AssetsFileWriter(File.OpenWrite(fileName));
+            bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
+
+            bundleWriter.Close();
+        }
+
+        public string GetScriptFileFromBundle(string bundleKey, string className)
+        {
+            return dataFiles[bundleKey].GetScriptFile(className);
+        }
+
+        public void SetScriptFilesToBundle(string bundleKey, Dictionary<string, string> scripts)
+        {
+            dataFiles[bundleKey].SetScriptFiles(scripts);
         }
     }
 }

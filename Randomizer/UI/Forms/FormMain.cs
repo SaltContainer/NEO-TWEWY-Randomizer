@@ -1,5 +1,4 @@
 ﻿using NEO_TWEWY_Randomizer.Properties;
-using NEO_TWEWY_Randomizer.Randomizer.Data;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -163,7 +162,13 @@ namespace NEO_TWEWY_Randomizer
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            randomizationEngine.RandomizeAndSave(null, "");
+            randomizationEngine.Randomize(null);
+
+            foreach (string fileNeeded in FileConstants.FILES_TO_READ)
+            {
+                string path = ".."; //TODO: Change to openfile dialog
+                randomizationEngine.Save(path + "/" + FileConstants.FILES_ASSET_FILE_NAMES[fileNeeded]);
+            }
         }
     }
 }

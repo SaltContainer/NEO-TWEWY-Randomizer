@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AssetsTools.NET;
+using AssetsTools.NET.Extra;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,30 +11,67 @@ namespace NEO_TWEWY_Randomizer
 {
     class Data
     {
-        private byte[] data;
+        private AssetsManager assetsManager;
+        private BundleFileInstance bundle;
+        private AssetsFileInstance assetsFile;
+        private byte[] newData;
 
-        public Data(string fileName)
+        public Data(AssetsManager assetsManager, BundleFileInstance bundle, string bundleKey)
         {
-            data = File.ReadAllBytes(fileName);
+            this.assetsManager = assetsManager;
+            this.bundle = bundle;
+
+            assetsFile = assetsManager.LoadAssetsFileFromBundle(bundle, FileConstants.FILES_CAB_DIRECTORIES[bundleKey]);
+            if (!assetsFile.file.typeTree.hasTypeTree)
+                assetsManager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
         }
 
-        public void SetByte(long address, byte value)
+        public string GetScriptFile(string className)
         {
-            data[address] = value;
+            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
+            AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
+
+            return baseField.Get(FileConstants.TEXT_DATA_ATTRIBUTES[className]).GetValue().AsString();
         }
 
-        public void SetNumericalValue(long address, int value)
+        public void SetScriptFiles(Dictionary<string, string> scripts)
         {
-            string sValue = value.ToString();
-            for (int i = 0; i < sValue.Length; i++)
+            List<AssetsReplacer> replacers = new List<AssetsReplacer>();
+            foreach(var script in scripts)
             {
-                SetByte(address + i, (byte)sValue[i]);
+                AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(script.Key);
+                AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
+                baseField.Get(FileConstants.TEXT_DATA_ATTRIBUTES[script.Key]).GetValue().Set(script.Value);
+                replacers.Add(new AssetsReplacerFromMemory(0, fileInfo.index, (int)fileInfo.curFileType, 0xffff, baseField.WriteToByteArray()));
+            }
+
+            using (var stream = new MemoryStream())
+            using (var writer = new AssetsFileWriter(stream))
+            {
+                assetsFile.file.Write(writer, 0, replacers, 0);
+                newData = stream.ToArray();
             }
         }
 
-        public byte[] GetData()
+        public AssetTypeValueField GetBaseField(string className)
         {
-            return data;
+            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
+            return assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
+        }
+
+        public AssetsFileInstance GetAssetsFile()
+        {
+            return assetsFile;
+        }
+
+        public BundleFileInstance GetBundle()
+        {
+            return bundle;
+        }
+
+        public byte[] GetNewData()
+        {
+            return newData;
         }
     }
 }

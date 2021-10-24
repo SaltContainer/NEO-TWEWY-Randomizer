@@ -12,6 +12,7 @@ namespace NEO_TWEWY_Randomizer
     class Data
     {
         private AssetsManager assetsManager;
+        private string bundleKey;
         private BundleFileInstance bundle;
         private AssetsFileInstance assetsFile;
         private byte[] newData;
@@ -20,8 +21,9 @@ namespace NEO_TWEWY_Randomizer
         {
             this.assetsManager = assetsManager;
             this.bundle = bundle;
+            this.bundleKey = bundleKey;
 
-            assetsFile = assetsManager.LoadAssetsFileFromBundle(bundle, FileConstants.FILES_CAB_DIRECTORIES[bundleKey]);
+            assetsFile = assetsManager.LoadAssetsFileFromBundle(bundle, FileConstants.Bundles[bundleKey].CabDirectory);
             if (!assetsFile.file.typeTree.hasTypeTree)
                 assetsManager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
         }
@@ -31,7 +33,7 @@ namespace NEO_TWEWY_Randomizer
             AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
             AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
 
-            return baseField.Get(FileConstants.TEXT_DATA_ATTRIBUTES[className]).GetValue().AsString();
+            return baseField.Get(FileConstants.Bundles[bundleKey].Classes[className].Attribute).GetValue().AsString();
         }
 
         public void SetScriptFiles(Dictionary<string, string> scripts)
@@ -41,7 +43,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(script.Key);
                 AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
-                baseField.Get(FileConstants.TEXT_DATA_ATTRIBUTES[script.Key]).GetValue().Set(script.Value);
+                baseField.Get(FileConstants.Bundles[bundleKey].Classes[script.Key].Attribute).GetValue().Set(script.Value);
                 replacers.Add(new AssetsReplacerFromMemory(0, fileInfo.index, (int)fileInfo.curFileType, 0xffff, baseField.WriteToByteArray()));
             }
 

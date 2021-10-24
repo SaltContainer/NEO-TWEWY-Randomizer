@@ -58,7 +58,7 @@ namespace NEO_TWEWY_Randomizer
         {
             Data data = dataFiles[bundleKey];
             BundleFileInstance bundleInstance = data.GetBundle();
-            string cabDirName = FileConstants.FILES_CAB_DIRECTORIES[bundleKey];
+            string cabDirName = FileConstants.Bundles[bundleKey].CabDirectory;
 
             BundleReplacerFromMemory bundleReplacer = new BundleReplacerFromMemory(cabDirName, cabDirName, true, data.GetNewData(), -1);
             AssetsFileWriter bundleWriter = new AssetsFileWriter(File.OpenWrite(fileName));

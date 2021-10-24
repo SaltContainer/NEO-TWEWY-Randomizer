@@ -94,7 +94,9 @@
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
     <Compile Include="Randomizer\Data\Data\EnemyData\Enemy.cs" />
     <Compile Include="Randomizer\Data\Data\EnemyData\EnemyData.cs" />
-    <Compile Include="Randomizer\Utils\FileConstants.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\DataBundle.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\DataClass.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\FileConstants.cs" />
     <Compile Include="Randomizer\UI\Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +138,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bundle_constants.json" />
     <None Include="Resources\ID001_NoBrand.png" />
   </ItemGroup>
   <ItemGroup>

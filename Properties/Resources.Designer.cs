@@ -61,6 +61,15 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string bundle_constants {
+            get {
+                return ResourceManager.GetString("bundle_constants", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ID001_NoBrand {

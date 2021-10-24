@@ -30,8 +30,8 @@ namespace NEO_TWEWY_Randomizer
             string enemyDataJson = RandomizeEnemyData(settings);
 
             Dictionary<string, string> scripts = new Dictionary<string, string>
-            { { FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME, enemyDataJson } };
-            dataManipulator.SetScriptFilesToBundle(FileConstants.TEXT_DATA_KEY, scripts);
+            { { FileConstants.EnemyDataClassName, enemyDataJson } };
+            dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -42,12 +42,12 @@ namespace NEO_TWEWY_Randomizer
 
         public void Save(string fileName)
         {
-            dataManipulator.SaveBundles(new Dictionary<string, string> { { FileConstants.TEXT_DATA_KEY, fileName } });
+            dataManipulator.SaveBundles(new Dictionary<string, string> { { FileConstants.TextDataBundleKey, fileName } });
         }
 
         private string RandomizeEnemyData(RandomizationSettings settings)
         {
-            string enemyDataScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TEXT_DATA_KEY, FileConstants.TEXT_DATA_ENEMY_DATA_CLASS_NAME);
+            string enemyDataScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName);
 
             EnemyData enemyData = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
             enemyData.Target[0].Drop = new List<int> { 5001, 5001, 5001, 5001 };

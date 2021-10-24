@@ -680,6 +680,7 @@ namespace NEO_TWEWY_Randomizer
             this.btnAbout.TabIndex = 6;
             this.btnAbout.Text = "About...";
             this.btnAbout.UseVisualStyleBackColor = true;
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // btnPremade
             // 

@@ -94,6 +94,12 @@
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
     <Compile Include="Randomizer\Data\Data\EnemyData\Enemy.cs" />
     <Compile Include="Randomizer\Data\Data\EnemyData\EnemyData.cs" />
+    <Compile Include="Randomizer\UI\Forms\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Randomizer\UI\Forms\FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Randomizer\Utils\FileConstants\DataBundle.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\DataClass.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\FileConstants.cs" />
@@ -110,6 +116,9 @@
     <Compile Include="Randomizer\Randomizer\RandomizationSettings.cs" />
     <Compile Include="Randomizer\Utils\SourceLinks.cs" />
     <Compile Include="Randomizer\Data\DataAddresses.cs" />
+    <EmbeddedResource Include="Randomizer\UI\Forms\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Randomizer\UI\Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>

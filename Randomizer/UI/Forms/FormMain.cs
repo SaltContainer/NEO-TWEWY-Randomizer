@@ -174,7 +174,8 @@ namespace NEO_TWEWY_Randomizer
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
-            
+            FormAbout form = new FormAbout();
+            form.ShowDialog();
         }
     }
 }

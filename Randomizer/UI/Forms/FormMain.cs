@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NEO_TWEWY_Randomizer
@@ -16,6 +17,8 @@ namespace NEO_TWEWY_Randomizer
             InitializeComponent();
             InitializeTooltips();
             lbVersion.Text += SourceLinks.GetVersion();
+            SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
+            GenerateNewSeed();
 
             pinImages = new PinImages();
             picPin.Image = pinImages.GetRandomImage();
@@ -50,6 +53,23 @@ namespace NEO_TWEWY_Randomizer
             ttnumChanceWeight.SetToolTip(numChanceWeightNormal, Resources.ttnumChanceWeight);
             ttnumChanceWeight.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
             ttnumChanceWeight.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
+        }
+
+        private void SetLoadedFilesLabel(Dictionary<string, string> files)
+        {
+            lbInfoFilesLabel.Text = "";
+            lbInfoFiles.Text = "";
+            foreach (var file in files)
+            {
+                lbInfoFilesLabel.Text += string.Format("{0}:\n", FileConstants.Bundles[file.Key].FileName);
+                lbInfoFiles.Text += string.Format("{0}\n", file.Value);
+            }
+        }
+
+        private void GenerateNewSeed()
+        {
+            Random rand = new Random();
+            textGeneralSeed.Text = rand.Next().ToString();
         }
 
         private void SetItemsAffectedDifficultiesEnabled(bool value)
@@ -159,6 +179,7 @@ namespace NEO_TWEWY_Randomizer
                 files.Add(bundleNeeded.Key, fileName);
             }
             randomizationEngine.LoadFiles(files);
+            SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -176,6 +197,21 @@ namespace NEO_TWEWY_Randomizer
         {
             FormAbout form = new FormAbout();
             form.ShowDialog();
+        }
+
+        private void btnGeneralGenerateSetting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGeneralLoadSetting_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGeneralRandomSeed_Click(object sender, EventArgs e)
+        {
+            GenerateNewSeed();
         }
     }
 }

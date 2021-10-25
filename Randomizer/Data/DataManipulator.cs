@@ -23,7 +23,12 @@ namespace NEO_TWEWY_Randomizer
             dataFiles = new Dictionary<string, Data>();
         }
 
-        public void LoadBundles(Dictionary<string, string> fileNames)
+        public bool AreFilesLoaded()
+        {
+            return FileConstants.Bundles.All(kvp => dataFiles.ContainsKey(kvp.Key));
+        }
+
+        public bool LoadBundles(Dictionary<string, string> fileNames)
         {
             try
             {
@@ -32,25 +37,29 @@ namespace NEO_TWEWY_Randomizer
                     Data data = new Data(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key);
                     dataFiles.Add(entry.Key, data);
                 }
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an error reading or decompressing one of the data files. Exception: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There was an error reading or decompressing one of the data files. Full Exception: " + ex.Message, "Loading Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 
-        public void SaveBundles(Dictionary<string, string> fileNames)
+        public bool SaveBundles(string filePath)
         {
             try
             {
                 foreach (var entry in dataFiles)
                 {
-                    SaveBundle(entry.Key, fileNames[entry.Key]);
+                    SaveBundle(entry.Key, string.Format("{0}/{1}", filePath, FileConstants.Bundles[entry.Key].FileName));
                 }
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an error writing or compressing one of the data files. Exception: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There was an error writing one of the data files. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
         }
 

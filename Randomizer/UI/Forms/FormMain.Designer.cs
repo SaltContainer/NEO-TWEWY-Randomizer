@@ -73,8 +73,6 @@ namespace NEO_TWEWY_Randomizer
             this.grpInfo = new System.Windows.Forms.GroupBox();
             this.lbInfoFiles = new System.Windows.Forms.Label();
             this.lbInfoFilesLabel = new System.Windows.Forms.Label();
-            this.lbInfoStatus = new System.Windows.Forms.Label();
-            this.lbInfoStatusLabel = new System.Windows.Forms.Label();
             this.linkSource = new System.Windows.Forms.LinkLabel();
             this.lbVersion = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -657,53 +655,31 @@ namespace NEO_TWEWY_Randomizer
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpInfo.Controls.Add(this.lbInfoFiles);
             this.grpInfo.Controls.Add(this.lbInfoFilesLabel);
-            this.grpInfo.Controls.Add(this.lbInfoStatus);
-            this.grpInfo.Controls.Add(this.lbInfoStatusLabel);
             this.grpInfo.Location = new System.Drawing.Point(265, 12);
             this.grpInfo.Name = "grpInfo";
             this.grpInfo.Size = new System.Drawing.Size(246, 128);
             this.grpInfo.TabIndex = 1;
             this.grpInfo.TabStop = false;
-            this.grpInfo.Text = "File Information";
+            this.grpInfo.Text = "File Status";
             // 
             // lbInfoFiles
             // 
             this.lbInfoFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lbInfoFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfoFiles.Location = new System.Drawing.Point(128, 42);
+            this.lbInfoFiles.Location = new System.Drawing.Point(128, 16);
             this.lbInfoFiles.Name = "lbInfoFiles";
-            this.lbInfoFiles.Size = new System.Drawing.Size(112, 73);
+            this.lbInfoFiles.Size = new System.Drawing.Size(112, 99);
             this.lbInfoFiles.TabIndex = 3;
             this.lbInfoFiles.Text = "files loaded";
             // 
             // lbInfoFilesLabel
             // 
-            this.lbInfoFilesLabel.Location = new System.Drawing.Point(9, 42);
+            this.lbInfoFilesLabel.Location = new System.Drawing.Point(9, 16);
             this.lbInfoFilesLabel.Name = "lbInfoFilesLabel";
-            this.lbInfoFilesLabel.Size = new System.Drawing.Size(112, 73);
+            this.lbInfoFilesLabel.Size = new System.Drawing.Size(112, 99);
             this.lbInfoFilesLabel.TabIndex = 2;
             this.lbInfoFilesLabel.Text = "files loaded";
-            // 
-            // lbInfoStatus
-            // 
-            this.lbInfoStatus.AutoSize = true;
-            this.lbInfoStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfoStatus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbInfoStatus.Location = new System.Drawing.Point(45, 19);
-            this.lbInfoStatus.Name = "lbInfoStatus";
-            this.lbInfoStatus.Size = new System.Drawing.Size(92, 13);
-            this.lbInfoStatus.TabIndex = 1;
-            this.lbInfoStatus.Text = "No files loaded";
-            // 
-            // lbInfoStatusLabel
-            // 
-            this.lbInfoStatusLabel.AutoSize = true;
-            this.lbInfoStatusLabel.Location = new System.Drawing.Point(9, 19);
-            this.lbInfoStatusLabel.Name = "lbInfoStatusLabel";
-            this.lbInfoStatusLabel.Size = new System.Drawing.Size(40, 13);
-            this.lbInfoStatusLabel.TabIndex = 0;
-            this.lbInfoStatusLabel.Text = "Status:";
             // 
             // linkSource
             // 
@@ -741,6 +717,7 @@ namespace NEO_TWEWY_Randomizer
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(651, 57);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(133, 38);
@@ -871,6 +848,7 @@ namespace NEO_TWEWY_Randomizer
             this.textSeedSeed.Name = "textSeedSeed";
             this.textSeedSeed.Size = new System.Drawing.Size(149, 20);
             this.textSeedSeed.TabIndex = 7;
+            this.textSeedSeed.Leave += new System.EventHandler(this.textSeedSeed_Leave);
             // 
             // btnSeedRandom
             // 
@@ -929,7 +907,6 @@ namespace NEO_TWEWY_Randomizer
             this.grpItemsDifficulty.ResumeLayout(false);
             this.grpItemsDifficulty.PerformLayout();
             this.grpInfo.ResumeLayout(false);
-            this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             this.grpSettingString.ResumeLayout(false);
             this.grpSettingString.PerformLayout();
@@ -1002,9 +979,7 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.ToolTip ttnumChanceMax;
         private System.Windows.Forms.ToolTip ttgrpChanceDifficulty;
         private System.Windows.Forms.ToolTip ttnumChanceWeight;
-        private System.Windows.Forms.Label lbInfoStatusLabel;
         private System.Windows.Forms.Label lbInfoFilesLabel;
-        private System.Windows.Forms.Label lbInfoStatus;
         private System.Windows.Forms.Label lbInfoFiles;
         private System.Windows.Forms.TextBox textSettingStringString;
         private System.Windows.Forms.GroupBox grpSettingString;

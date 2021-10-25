@@ -72,6 +72,11 @@ namespace NEO_TWEWY_Randomizer
             textSeedSeed.Text = rand.Next().ToString();
         }
 
+        private bool TryParseSeed(out int seed)
+        {
+            return int.TryParse(textSeedSeed.Text, out seed);
+        }
+
         private void SetItemsAffectedDifficultiesEnabled(bool value)
         {
             checkItemsEasy.Enabled = value;
@@ -178,18 +183,26 @@ namespace NEO_TWEWY_Randomizer
                 string fileName = "../4017d8fc-orig.unity3d"; //TODO: Change to openfile dialog
                 files.Add(bundleNeeded.Key, fileName);
             }
-            randomizationEngine.LoadFiles(files);
-            SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
+            bool result = randomizationEngine.LoadFiles(files);
+            if (result)
+            {
+                SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
+                btnSave.Enabled = randomizationEngine.AreFilesLoaded();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            randomizationEngine.Randomize(null);
-
-            foreach (var bundleNeeded in FileConstants.Bundles.Values)
+            int seed;
+            if (TryParseSeed(out seed))
             {
+                randomizationEngine.Randomize(null, seed);
                 string path = ".."; //TODO: Change to openfile dialog
-                randomizationEngine.Save(path + "/" + bundleNeeded.FileName);
+                bool result = randomizationEngine.Save(path);
+                if (result)
+                {
+                    SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Saved"));
+                }
             }
         }
 
@@ -212,6 +225,15 @@ namespace NEO_TWEWY_Randomizer
         private void textSeedSeed_Click(object sender, EventArgs e)
         {
             GenerateNewSeed();
+        }
+
+        private void textSeedSeed_Leave(object sender, EventArgs e)
+        {
+            if (!TryParseSeed(out _))
+            {
+                MessageBox.Show(string.Format("There was an error parsing the seed. The seed must be a number between {0} and {1}.", int.MinValue, int.MaxValue), "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                textSeedSeed.Text = "0";
+            }
         }
     }
 }

@@ -69,7 +69,7 @@ namespace NEO_TWEWY_Randomizer
         private void GenerateNewSeed()
         {
             Random rand = new Random();
-            textGeneralSeed.Text = rand.Next().ToString();
+            textSeedSeed.Text = rand.Next().ToString();
         }
 
         private void SetItemsAffectedDifficultiesEnabled(bool value)
@@ -199,17 +199,17 @@ namespace NEO_TWEWY_Randomizer
             form.ShowDialog();
         }
 
-        private void btnGeneralGenerateSetting_Click(object sender, EventArgs e)
+        private void btnSettingStringGenerate_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnGeneralLoadSetting_Click(object sender, EventArgs e)
+        private void btnSettingStringImport_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnGeneralRandomSeed_Click(object sender, EventArgs e)
+        private void textSeedSeed_Click(object sender, EventArgs e)
         {
             GenerateNewSeed();
         }

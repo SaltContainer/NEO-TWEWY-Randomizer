@@ -71,6 +71,10 @@ namespace NEO_TWEWY_Randomizer
             this.tabMusic = new System.Windows.Forms.TabPage();
             this.tabMisc = new System.Windows.Forms.TabPage();
             this.grpInfo = new System.Windows.Forms.GroupBox();
+            this.lbInfoFiles = new System.Windows.Forms.Label();
+            this.lbInfoFilesLabel = new System.Windows.Forms.Label();
+            this.lbInfoStatus = new System.Windows.Forms.Label();
+            this.lbInfoStatusLabel = new System.Windows.Forms.Label();
             this.linkSource = new System.Windows.Forms.LinkLabel();
             this.lbVersion = new System.Windows.Forms.Label();
             this.btnAbout = new System.Windows.Forms.Button();
@@ -91,18 +95,13 @@ namespace NEO_TWEWY_Randomizer
             this.ttnumChanceMax = new System.Windows.Forms.ToolTip(this.components);
             this.ttgrpChanceDifficulty = new System.Windows.Forms.ToolTip(this.components);
             this.ttnumChanceWeight = new System.Windows.Forms.ToolTip(this.components);
-            this.lbInfoStatusLabel = new System.Windows.Forms.Label();
-            this.lbInfoStatus = new System.Windows.Forms.Label();
-            this.lbInfoFilesLabel = new System.Windows.Forms.Label();
-            this.lbInfoFiles = new System.Windows.Forms.Label();
-            this.lbGeneralSettingStringLabel = new System.Windows.Forms.Label();
-            this.textGeneralSettingString = new System.Windows.Forms.TextBox();
-            this.grpGeneral = new System.Windows.Forms.GroupBox();
-            this.lbGeneralSeedLabel = new System.Windows.Forms.Label();
-            this.textGeneralSeed = new System.Windows.Forms.TextBox();
-            this.btnGeneralGenerateSetting = new System.Windows.Forms.Button();
-            this.btnGeneralLoadSetting = new System.Windows.Forms.Button();
-            this.btnGeneralRandomSeed = new System.Windows.Forms.Button();
+            this.textSettingStringString = new System.Windows.Forms.TextBox();
+            this.grpSettingString = new System.Windows.Forms.GroupBox();
+            this.btnSettingStringImport = new System.Windows.Forms.Button();
+            this.btnSettingStringGenerate = new System.Windows.Forms.Button();
+            this.textSeedSeed = new System.Windows.Forms.TextBox();
+            this.btnSeedRandom = new System.Windows.Forms.Button();
+            this.grpSeed = new System.Windows.Forms.GroupBox();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
             this.grpChance.SuspendLayout();
@@ -117,7 +116,8 @@ namespace NEO_TWEWY_Randomizer
             this.grpItemsDifficulty.SuspendLayout();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
-            this.grpGeneral.SuspendLayout();
+            this.grpSettingString.SuspendLayout();
+            this.grpSeed.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -666,6 +666,45 @@ namespace NEO_TWEWY_Randomizer
             this.grpInfo.TabStop = false;
             this.grpInfo.Text = "File Information";
             // 
+            // lbInfoFiles
+            // 
+            this.lbInfoFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbInfoFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfoFiles.Location = new System.Drawing.Point(128, 42);
+            this.lbInfoFiles.Name = "lbInfoFiles";
+            this.lbInfoFiles.Size = new System.Drawing.Size(112, 73);
+            this.lbInfoFiles.TabIndex = 3;
+            this.lbInfoFiles.Text = "files loaded";
+            // 
+            // lbInfoFilesLabel
+            // 
+            this.lbInfoFilesLabel.Location = new System.Drawing.Point(9, 42);
+            this.lbInfoFilesLabel.Name = "lbInfoFilesLabel";
+            this.lbInfoFilesLabel.Size = new System.Drawing.Size(112, 73);
+            this.lbInfoFilesLabel.TabIndex = 2;
+            this.lbInfoFilesLabel.Text = "files loaded";
+            // 
+            // lbInfoStatus
+            // 
+            this.lbInfoStatus.AutoSize = true;
+            this.lbInfoStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInfoStatus.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lbInfoStatus.Location = new System.Drawing.Point(45, 19);
+            this.lbInfoStatus.Name = "lbInfoStatus";
+            this.lbInfoStatus.Size = new System.Drawing.Size(92, 13);
+            this.lbInfoStatus.TabIndex = 1;
+            this.lbInfoStatus.Text = "No files loaded";
+            // 
+            // lbInfoStatusLabel
+            // 
+            this.lbInfoStatusLabel.AutoSize = true;
+            this.lbInfoStatusLabel.Location = new System.Drawing.Point(9, 19);
+            this.lbInfoStatusLabel.Name = "lbInfoStatusLabel";
+            this.lbInfoStatusLabel.Size = new System.Drawing.Size(40, 13);
+            this.lbInfoStatusLabel.TabIndex = 0;
+            this.lbInfoStatusLabel.Text = "Status:";
+            // 
             // linkSource
             // 
             this.linkSource.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -787,129 +826,80 @@ namespace NEO_TWEWY_Randomizer
             // 
             this.ttnumChanceWeight.ToolTipTitle = "Weights for Random Drop Rate";
             // 
-            // lbInfoStatusLabel
+            // textSettingStringString
             // 
-            this.lbInfoStatusLabel.AutoSize = true;
-            this.lbInfoStatusLabel.Location = new System.Drawing.Point(9, 19);
-            this.lbInfoStatusLabel.Name = "lbInfoStatusLabel";
-            this.lbInfoStatusLabel.Size = new System.Drawing.Size(40, 13);
-            this.lbInfoStatusLabel.TabIndex = 0;
-            this.lbInfoStatusLabel.Text = "Status:";
+            this.textSettingStringString.Location = new System.Drawing.Point(9, 16);
+            this.textSettingStringString.Name = "textSettingStringString";
+            this.textSettingStringString.Size = new System.Drawing.Size(230, 20);
+            this.textSettingStringString.TabIndex = 5;
             // 
-            // lbInfoStatus
+            // grpSettingString
             // 
-            this.lbInfoStatus.AutoSize = true;
-            this.lbInfoStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfoStatus.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lbInfoStatus.Location = new System.Drawing.Point(45, 19);
-            this.lbInfoStatus.Name = "lbInfoStatus";
-            this.lbInfoStatus.Size = new System.Drawing.Size(92, 13);
-            this.lbInfoStatus.TabIndex = 1;
-            this.lbInfoStatus.Text = "No files loaded";
+            this.grpSettingString.Controls.Add(this.btnSettingStringImport);
+            this.grpSettingString.Controls.Add(this.btnSettingStringGenerate);
+            this.grpSettingString.Controls.Add(this.textSettingStringString);
+            this.grpSettingString.Location = new System.Drawing.Point(12, 12);
+            this.grpSettingString.Name = "grpSettingString";
+            this.grpSettingString.Size = new System.Drawing.Size(246, 75);
+            this.grpSettingString.TabIndex = 11;
+            this.grpSettingString.TabStop = false;
+            this.grpSettingString.Text = "Settings String";
             // 
-            // lbInfoFilesLabel
+            // btnSettingStringImport
             // 
-            this.lbInfoFilesLabel.Location = new System.Drawing.Point(9, 42);
-            this.lbInfoFilesLabel.Name = "lbInfoFilesLabel";
-            this.lbInfoFilesLabel.Size = new System.Drawing.Size(112, 73);
-            this.lbInfoFilesLabel.TabIndex = 2;
-            this.lbInfoFilesLabel.Text = "files loaded";
+            this.btnSettingStringImport.Location = new System.Drawing.Point(127, 42);
+            this.btnSettingStringImport.Name = "btnSettingStringImport";
+            this.btnSettingStringImport.Size = new System.Drawing.Size(112, 23);
+            this.btnSettingStringImport.TabIndex = 9;
+            this.btnSettingStringImport.Text = "Import Settings";
+            this.btnSettingStringImport.UseVisualStyleBackColor = true;
+            this.btnSettingStringImport.Click += new System.EventHandler(this.btnSettingStringImport_Click);
             // 
-            // lbInfoFiles
+            // btnSettingStringGenerate
             // 
-            this.lbInfoFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbInfoFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfoFiles.Location = new System.Drawing.Point(128, 42);
-            this.lbInfoFiles.Name = "lbInfoFiles";
-            this.lbInfoFiles.Size = new System.Drawing.Size(112, 73);
-            this.lbInfoFiles.TabIndex = 3;
-            this.lbInfoFiles.Text = "files loaded";
+            this.btnSettingStringGenerate.Location = new System.Drawing.Point(9, 42);
+            this.btnSettingStringGenerate.Name = "btnSettingStringGenerate";
+            this.btnSettingStringGenerate.Size = new System.Drawing.Size(112, 23);
+            this.btnSettingStringGenerate.TabIndex = 8;
+            this.btnSettingStringGenerate.Text = "Generate String";
+            this.btnSettingStringGenerate.UseVisualStyleBackColor = true;
+            this.btnSettingStringGenerate.Click += new System.EventHandler(this.btnSettingStringGenerate_Click);
             // 
-            // lbGeneralSettingStringLabel
+            // textSeedSeed
             // 
-            this.lbGeneralSettingStringLabel.AutoSize = true;
-            this.lbGeneralSettingStringLabel.Location = new System.Drawing.Point(6, 19);
-            this.lbGeneralSettingStringLabel.Name = "lbGeneralSettingStringLabel";
-            this.lbGeneralSettingStringLabel.Size = new System.Drawing.Size(78, 13);
-            this.lbGeneralSettingStringLabel.TabIndex = 4;
-            this.lbGeneralSettingStringLabel.Text = "Settings String:";
+            this.textSeedSeed.Location = new System.Drawing.Point(9, 19);
+            this.textSeedSeed.Name = "textSeedSeed";
+            this.textSeedSeed.Size = new System.Drawing.Size(149, 20);
+            this.textSeedSeed.TabIndex = 7;
             // 
-            // textGeneralSettingString
+            // btnSeedRandom
             // 
-            this.textGeneralSettingString.Location = new System.Drawing.Point(90, 16);
-            this.textGeneralSettingString.Name = "textGeneralSettingString";
-            this.textGeneralSettingString.Size = new System.Drawing.Size(149, 20);
-            this.textGeneralSettingString.TabIndex = 5;
+            this.btnSeedRandom.Location = new System.Drawing.Point(164, 16);
+            this.btnSeedRandom.Name = "btnSeedRandom";
+            this.btnSeedRandom.Size = new System.Drawing.Size(75, 23);
+            this.btnSeedRandom.TabIndex = 10;
+            this.btnSeedRandom.Text = "Random";
+            this.btnSeedRandom.UseVisualStyleBackColor = true;
+            this.btnSeedRandom.Click += new System.EventHandler(this.textSeedSeed_Click);
             // 
-            // grpGeneral
+            // grpSeed
             // 
-            this.grpGeneral.Controls.Add(this.btnGeneralRandomSeed);
-            this.grpGeneral.Controls.Add(this.btnGeneralLoadSetting);
-            this.grpGeneral.Controls.Add(this.btnGeneralGenerateSetting);
-            this.grpGeneral.Controls.Add(this.textGeneralSeed);
-            this.grpGeneral.Controls.Add(this.lbGeneralSeedLabel);
-            this.grpGeneral.Controls.Add(this.textGeneralSettingString);
-            this.grpGeneral.Controls.Add(this.lbGeneralSettingStringLabel);
-            this.grpGeneral.Location = new System.Drawing.Point(12, 12);
-            this.grpGeneral.Name = "grpGeneral";
-            this.grpGeneral.Size = new System.Drawing.Size(246, 128);
-            this.grpGeneral.TabIndex = 11;
-            this.grpGeneral.TabStop = false;
-            this.grpGeneral.Text = "General Settings";
-            // 
-            // lbGeneralSeedLabel
-            // 
-            this.lbGeneralSeedLabel.AutoSize = true;
-            this.lbGeneralSeedLabel.Location = new System.Drawing.Point(6, 102);
-            this.lbGeneralSeedLabel.Name = "lbGeneralSeedLabel";
-            this.lbGeneralSeedLabel.Size = new System.Drawing.Size(35, 13);
-            this.lbGeneralSeedLabel.TabIndex = 6;
-            this.lbGeneralSeedLabel.Text = "Seed:";
-            // 
-            // textGeneralSeed
-            // 
-            this.textGeneralSeed.Location = new System.Drawing.Point(47, 99);
-            this.textGeneralSeed.Name = "textGeneralSeed";
-            this.textGeneralSeed.Size = new System.Drawing.Size(111, 20);
-            this.textGeneralSeed.TabIndex = 7;
-            // 
-            // btnGeneralGenerateSetting
-            // 
-            this.btnGeneralGenerateSetting.Location = new System.Drawing.Point(9, 42);
-            this.btnGeneralGenerateSetting.Name = "btnGeneralGenerateSetting";
-            this.btnGeneralGenerateSetting.Size = new System.Drawing.Size(112, 51);
-            this.btnGeneralGenerateSetting.TabIndex = 8;
-            this.btnGeneralGenerateSetting.Text = "Generate Settings String";
-            this.btnGeneralGenerateSetting.UseVisualStyleBackColor = true;
-            this.btnGeneralGenerateSetting.Click += new System.EventHandler(this.btnGeneralGenerateSetting_Click);
-            // 
-            // btnGeneralLoadSetting
-            // 
-            this.btnGeneralLoadSetting.Location = new System.Drawing.Point(127, 42);
-            this.btnGeneralLoadSetting.Name = "btnGeneralLoadSetting";
-            this.btnGeneralLoadSetting.Size = new System.Drawing.Size(112, 51);
-            this.btnGeneralLoadSetting.TabIndex = 9;
-            this.btnGeneralLoadSetting.Text = "Load from Settings String";
-            this.btnGeneralLoadSetting.UseVisualStyleBackColor = true;
-            this.btnGeneralLoadSetting.Click += new System.EventHandler(this.btnGeneralLoadSetting_Click);
-            // 
-            // btnGeneralRandomSeed
-            // 
-            this.btnGeneralRandomSeed.Location = new System.Drawing.Point(164, 97);
-            this.btnGeneralRandomSeed.Name = "btnGeneralRandomSeed";
-            this.btnGeneralRandomSeed.Size = new System.Drawing.Size(75, 23);
-            this.btnGeneralRandomSeed.TabIndex = 10;
-            this.btnGeneralRandomSeed.Text = "Random";
-            this.btnGeneralRandomSeed.UseVisualStyleBackColor = true;
-            this.btnGeneralRandomSeed.Click += new System.EventHandler(this.btnGeneralRandomSeed_Click);
+            this.grpSeed.Controls.Add(this.btnSeedRandom);
+            this.grpSeed.Controls.Add(this.textSeedSeed);
+            this.grpSeed.Location = new System.Drawing.Point(12, 88);
+            this.grpSeed.Name = "grpSeed";
+            this.grpSeed.Size = new System.Drawing.Size(246, 52);
+            this.grpSeed.TabIndex = 12;
+            this.grpSeed.TabStop = false;
+            this.grpSeed.Text = "Seed";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 587);
-            this.Controls.Add(this.grpGeneral);
+            this.Controls.Add(this.grpSeed);
+            this.Controls.Add(this.grpSettingString);
             this.Controls.Add(this.picPin);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnSave);
@@ -941,8 +931,10 @@ namespace NEO_TWEWY_Randomizer
             this.grpInfo.ResumeLayout(false);
             this.grpInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
-            this.grpGeneral.ResumeLayout(false);
-            this.grpGeneral.PerformLayout();
+            this.grpSettingString.ResumeLayout(false);
+            this.grpSettingString.PerformLayout();
+            this.grpSeed.ResumeLayout(false);
+            this.grpSeed.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1014,14 +1006,13 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.Label lbInfoFilesLabel;
         private System.Windows.Forms.Label lbInfoStatus;
         private System.Windows.Forms.Label lbInfoFiles;
-        private System.Windows.Forms.Label lbGeneralSettingStringLabel;
-        private System.Windows.Forms.TextBox textGeneralSettingString;
-        private System.Windows.Forms.GroupBox grpGeneral;
-        private System.Windows.Forms.TextBox textGeneralSeed;
-        private System.Windows.Forms.Label lbGeneralSeedLabel;
-        private System.Windows.Forms.Button btnGeneralLoadSetting;
-        private System.Windows.Forms.Button btnGeneralGenerateSetting;
-        private System.Windows.Forms.Button btnGeneralRandomSeed;
+        private System.Windows.Forms.TextBox textSettingStringString;
+        private System.Windows.Forms.GroupBox grpSettingString;
+        private System.Windows.Forms.TextBox textSeedSeed;
+        private System.Windows.Forms.Button btnSettingStringImport;
+        private System.Windows.Forms.Button btnSettingStringGenerate;
+        private System.Windows.Forms.Button btnSeedRandom;
+        private System.Windows.Forms.GroupBox grpSeed;
     }
 }
 

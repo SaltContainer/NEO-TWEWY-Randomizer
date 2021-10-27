@@ -300,7 +300,7 @@ namespace NEO_TWEWY_Randomizer
                     int seed = int.Parse(textSeedSeed.Text);
                     randomizationEngine.Randomize(null, seed);
                     UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Randomized"));
-                    bool result = randomizationEngine.Save(fileDialog.SelectedPath);
+                    bool result = randomizationEngine.Save(fileDialog.SelectedPath, seed);
                     if (result)
                     {
                         UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Saved"));

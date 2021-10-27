@@ -12,10 +12,12 @@ namespace NEO_TWEWY_Randomizer
     {
         private Random rand;
         private DataManipulator dataManipulator;
+        private RandomizationLogger logger;
 
         public RandomizationEngine()
         {
             dataManipulator = new DataManipulator();
+            logger = new RandomizationLogger();
         }
 
         public bool LoadFiles(Dictionary<string, string> fileNames)
@@ -45,20 +47,28 @@ namespace NEO_TWEWY_Randomizer
             Randomize(settings);
         }
 
-        public bool Save(string filePath)
+        public bool Save(string filePath, int seed)
         {
-            return dataManipulator.SaveBundles(filePath);
+            bool result = dataManipulator.SaveBundles(filePath);
+            result = result && logger.SaveLogToFile(string.Format("{0}\\Randomization-Log-{1}.log", filePath, seed.ToString()));
+            return result;
         }
 
         private string RandomizeEnemyData(RandomizationSettings settings)
         {
             string enemyDataScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName);
 
+            EnemyData enemyDataOriginal = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
             EnemyData enemyData = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
+
             enemyData.Target[0].Drop = new List<int> { 5001, 5001, 5001, 5001 };
             enemyData.Target[0].DropRate = new List<float> { 0.70f, 0.70f, 0.70f, 0.70f };
             enemyData.Target[0].Scale = 3.0f;
-            return JsonConvert.SerializeObject(enemyData, Formatting.Indented);
+
+            logger.LogChanges(enemyDataOriginal, enemyData);
+
+            string randomizedScript = JsonConvert.SerializeObject(enemyData, Formatting.Indented);
+            return randomizedScript;
         }
     }
 }

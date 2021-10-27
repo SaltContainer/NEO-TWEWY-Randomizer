@@ -97,6 +97,7 @@
     <Compile Include="Randomizer\Randomizer\Enums\Difficulties.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropRate.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropType.cs" />
+    <Compile Include="Randomizer\Randomizer\RandomizationLogger.cs" />
     <Compile Include="Randomizer\UI\Forms\FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>

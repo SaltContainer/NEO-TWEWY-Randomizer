@@ -17,7 +17,7 @@ namespace NEO_TWEWY_Randomizer
             InitializeComponent();
             InitializeTooltips();
             lbVersion.Text += SourceLinks.GetVersion();
-            SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
+            UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
             GenerateNewSeed();
 
             pinImages = new PinImages();
@@ -55,7 +55,7 @@ namespace NEO_TWEWY_Randomizer
             ttnumChanceWeight.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
         }
 
-        private void SetLoadedFilesLabel(Dictionary<string, string> files)
+        private void UpdateLoadedFilesLabel(Dictionary<string, string> files)
         {
             lbInfoFilesLabel.Text = "";
             lbInfoFiles.Text = "";
@@ -267,14 +267,22 @@ namespace NEO_TWEWY_Randomizer
             Dictionary<string, string> files = new Dictionary<string, string>();
             foreach (var bundleNeeded in FileConstants.Bundles.Values)
             {
-                string fileName = "../4017d8fc-orig.unity3d"; //TODO: Change to openfile dialog
-                files.Add(bundleNeeded.Key, fileName);
+                OpenFileDialog fileDialog = new OpenFileDialog();
+                fileDialog.Filter = "unity3d files (*.unity3d)|*.unity3d|All files (*.*)|*.*";
+                fileDialog.FilterIndex = 0;
+                fileDialog.RestoreDirectory = true;
+                fileDialog.Title = string.Format("Select the {0} bundle file...", bundleNeeded.FileName);
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                    files.Add(bundleNeeded.Key, fileDialog.FileName);
             }
             bool result = randomizationEngine.LoadFiles(files);
             if (result)
             {
-                SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
+                if (randomizationEngine.AreFilesLoaded())
+                    UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
                 btnSave.Enabled = randomizationEngine.AreFilesLoaded();
+                btnOpen.Enabled = !randomizationEngine.AreFilesLoaded();
             }
         }
 
@@ -282,13 +290,26 @@ namespace NEO_TWEWY_Randomizer
         {
             if (Validator.ValidateSeed(textSeedSeed.Text))
             {
-                int seed = int.Parse(textSeedSeed.Text);
-                randomizationEngine.Randomize(null, seed);
-                string path = ".."; //TODO: Change to openfile dialog
-                bool result = randomizationEngine.Save(path);
-                if (result)
+                FolderBrowserDialog fileDialog = new FolderBrowserDialog();
+                fileDialog.RootFolder = Environment.SpecialFolder.Desktop;
+                fileDialog.ShowNewFolderButton = true;
+                fileDialog.Description = "Select a folder to save your randomized bundles to...";
+
+                if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    SetLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Saved"));
+                    int seed = int.Parse(textSeedSeed.Text);
+                    randomizationEngine.Randomize(null, seed);
+                    UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Randomized"));
+                    bool result = randomizationEngine.Save(fileDialog.SelectedPath);
+                    if (result)
+                    {
+                        UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Saved"));
+                        MessageBox.Show("Files saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("An error occured while trying to select a folder. Please retry.", "Folder error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }

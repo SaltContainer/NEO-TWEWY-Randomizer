@@ -18,14 +18,14 @@ namespace NEO_TWEWY_Randomizer
             dataManipulator = new DataManipulator();
         }
 
-        public bool AreFilesLoaded()
-        {
-            return dataManipulator.AreFilesLoaded();
-        }
-
         public bool LoadFiles(Dictionary<string, string> fileNames)
         {
             return dataManipulator.LoadBundles(fileNames);
+        }
+
+        public bool AreFilesLoaded()
+        {
+            return dataManipulator.AreFilesLoaded();
         }
 
         public void Randomize(RandomizationSettings settings)
@@ -35,7 +35,7 @@ namespace NEO_TWEWY_Randomizer
             string enemyDataJson = RandomizeEnemyData(settings);
 
             Dictionary<string, string> scripts = new Dictionary<string, string>
-            { { FileConstants.EnemyDataClassName, enemyDataJson } };
+                { { FileConstants.EnemyDataClassName, enemyDataJson } };
             dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
         }
 

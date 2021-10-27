@@ -76,11 +76,11 @@ namespace NEO_TWEWY_Randomizer
         {
             RandomizationSettings settings = new RandomizationSettings();
 
-            if (radioItemsUnchanged.Checked) settings.NoiseDropType = NoiseDropType.Unchanged;
-            else if (radioItemsShuffleC.Checked) settings.NoiseDropType = NoiseDropType.ShuffleCompletely;
-            else if (radioItemsShuffleS.Checked) settings.NoiseDropType = NoiseDropType.ShuffleSets;
-            else if (radioItemsRandomC.Checked) settings.NoiseDropType = NoiseDropType.RandomCompletely;
-            else if (radioItemsRandomA.Checked) settings.NoiseDropType = NoiseDropType.RandomAllPins;
+            if (radioItemsUnchanged.Checked) settings.DropType = NoiseDropType.Unchanged;
+            else if (radioItemsShuffleC.Checked) settings.DropType = NoiseDropType.ShuffleCompletely;
+            else if (radioItemsShuffleS.Checked) settings.DropType = NoiseDropType.ShuffleSets;
+            else if (radioItemsRandomC.Checked) settings.DropType = NoiseDropType.RandomCompletely;
+            else if (radioItemsRandomA.Checked) settings.DropType = NoiseDropType.RandomAllPins;
 
             settings.IncludeLimitedPins = checkItemsLimited.Checked;
 
@@ -89,12 +89,29 @@ namespace NEO_TWEWY_Randomizer
             if (checkItemsHard.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Hard);
             if (checkItemsUltimate.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
 
+            if (radioChanceUnchanged.Checked) settings.DropRate = NoiseDropRate.Unchanged;
+            else if (radioChanceRandomC.Checked) settings.DropRate = NoiseDropRate.RandomCompletely;
+            else if (radioChanceRandomW.Checked) settings.DropRate = NoiseDropRate.RandomWeighted;
+
+            settings.MinimumDropRate = numChanceMin.Value;
+            settings.MaximumDropRate = numChanceMax.Value;
+
+            if (checkChanceEasy.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Easy);
+            if (checkChanceNormal.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Normal);
+            if (checkChanceHard.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Hard);
+            if (checkChanceUltimate.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
+
+            settings.NoiseDropRateWeights[0] = (uint) numChanceWeightEasy.Value;
+            settings.NoiseDropRateWeights[1] = (uint) numChanceWeightNormal.Value;
+            settings.NoiseDropRateWeights[2] = (uint) numChanceWeightHard.Value;
+            settings.NoiseDropRateWeights[3] = (uint) numChanceWeightUltimate.Value;
+
             return settings;
         }
 
         private void ReadSettings(RandomizationSettings settings)
         {
-            switch (settings.NoiseDropType)
+            switch (settings.DropType)
             {
                 case NoiseDropType.Unchanged:
                     radioItemsUnchanged.Checked = true;
@@ -119,6 +136,32 @@ namespace NEO_TWEWY_Randomizer
             checkItemsNormal.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Normal);
             checkItemsHard.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Hard);
             checkItemsUltimate.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate);
+
+            switch (settings.DropRate)
+            {
+                case NoiseDropRate.Unchanged:
+                    radioChanceUnchanged.Checked = true;
+                    break;
+                case NoiseDropRate.RandomCompletely:
+                    radioChanceRandomC.Checked = true;
+                    break;
+                case NoiseDropRate.RandomWeighted:
+                    radioChanceRandomW.Checked = true;
+                    break;
+            }
+
+            numChanceMin.Value = settings.MinimumDropRate;
+            numChanceMax.Value = settings.MaximumDropRate;
+
+            checkChanceEasy.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Easy);
+            checkChanceNormal.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Normal);
+            checkChanceHard.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Hard);
+            checkChanceUltimate.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate);
+
+            numChanceWeightEasy.Value = settings.NoiseDropRateWeights[0];
+            numChanceWeightNormal.Value = settings.NoiseDropRateWeights[1];
+            numChanceWeightHard.Value = settings.NoiseDropRateWeights[2];
+            numChanceWeightUltimate.Value = settings.NoiseDropRateWeights[3];
         }
 
         private void SetItemsAffectedDifficultiesEnabled(bool value)
@@ -264,15 +307,23 @@ namespace NEO_TWEWY_Randomizer
 
         private void btnSettingStringImport_Click(object sender, EventArgs e)
         {
-            if (Validator.ValidateSettingsString(textSettingStringString.Text))
+            Validator.SettingsStringValidationResult validationResult = Validator.ValidateSettingsString(textSettingStringString.Text);
+            switch (validationResult)
             {
-                RandomizationSettings settings = new RandomizationSettings(textSettingStringString.Text);
-                ReadSettings(settings);
-            }
-            else
-            {
-                MessageBox.Show("There was an error parsing the settings string.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                textSeedSeed.Text = "";
+                case Validator.SettingsStringValidationResult.Valid:
+                    RandomizationSettings settings = new RandomizationSettings(textSettingStringString.Text);
+                    ReadSettings(settings);
+                    MessageBox.Show("Your settings have been imported successfully.", "Settings Imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    break;
+                case Validator.SettingsStringValidationResult.Empty:
+                    MessageBox.Show("The Settings String is empty.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case Validator.SettingsStringValidationResult.NotHex:
+                    MessageBox.Show("There was an error parsing the settings string. It must be a hexadecimal number.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+                case Validator.SettingsStringValidationResult.WrongVersion:
+                    MessageBox.Show("This settings string is for a different version of the randomizer. Please manually select your settings and generate a new one.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
             }
         }
 
@@ -283,7 +334,7 @@ namespace NEO_TWEWY_Randomizer
 
         private void textSeedSeed_Leave(object sender, EventArgs e)
         {
-            if (Validator.ValidateSeed(textSeedSeed.Text))
+            if (!Validator.ValidateSeed(textSeedSeed.Text))
             {
                 MessageBox.Show(string.Format("There was an error parsing the seed. The seed must be a number between {0} and {1}.", int.MinValue, int.MaxValue), "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textSeedSeed.Text = "0";

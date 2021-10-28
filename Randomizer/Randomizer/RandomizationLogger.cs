@@ -22,7 +22,7 @@ namespace NEO_TWEWY_Randomizer
             log += logString;
         }
 
-        public void LogChanges(EnemyData original, EnemyData randomized)
+        public void LogDropTypeChanges(EnemyDataList original, EnemyDataList randomized)
         {
             //TODO: Implement
         }

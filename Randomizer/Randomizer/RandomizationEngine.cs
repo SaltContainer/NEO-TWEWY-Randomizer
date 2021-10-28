@@ -57,15 +57,23 @@ namespace NEO_TWEWY_Randomizer
         private string RandomizeEnemyData(RandomizationSettings settings)
         {
             string enemyDataScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName);
+            string enemyReportScript = dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyReportClassName);
 
-            EnemyData enemyDataOriginal = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
-            EnemyData enemyData = JsonConvert.DeserializeObject<EnemyData>(enemyDataScript);
+            EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
+            EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
+            EnemyReportList enemyReport = JsonConvert.DeserializeObject<EnemyReportList>(enemyReportScript);
 
-            enemyData.Target[0].Drop = new List<int> { 5001, 5001, 5001, 5001 };
-            enemyData.Target[0].DropRate = new List<float> { 0.70f, 0.70f, 0.70f, 0.70f };
-            enemyData.Target[0].Scale = 3.0f;
+            List<EnemyData> listToEditOriginal = enemyDataOriginal.Target.Where(data => enemyReport.Target.Any(report => report.EnemyDataId == data.Id)).ToList();
+            List<EnemyData> listToEdit = enemyData.Target.Where(data => enemyReport.Target.Any(report => report.EnemyDataId == data.Id)).ToList();
 
-            logger.LogChanges(enemyDataOriginal, enemyData);
+            switch (settings.DropType)
+            {
+                case NoiseDropType.ShuffleCompletely:
+                    List<int> pins = listToEditOriginal.SelectMany(data => data.Drop).OrderBy(pin => rand.Next()).ToList();
+                    break;
+            }
+
+            logger.LogDropTypeChanges(enemyDataOriginal, enemyData);
 
             string randomizedScript = JsonConvert.SerializeObject(enemyData, Formatting.Indented);
             return randomizedScript;

@@ -210,6 +210,11 @@ namespace NEO_TWEWY_Randomizer
             SetItemsAffectedDifficultiesEnabled(!radioItemsUnchanged.Checked);
         }
 
+        private void radioItemsShuffleC_CheckedChanged(object sender, EventArgs e)
+        {
+            SetItemsLimitedEnabled(!radioItemsShuffleC.Checked);
+        }
+
         private void radioItemsShuffleS_CheckedChanged(object sender, EventArgs e)
         {
             SetItemsLimitedEnabled(!radioItemsShuffleS.Checked);
@@ -298,7 +303,7 @@ namespace NEO_TWEWY_Randomizer
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
                     int seed = int.Parse(textSeedSeed.Text);
-                    randomizationEngine.Randomize(null, seed);
+                    randomizationEngine.Randomize(GenerateRandomizationSettings(), seed);
                     UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Randomized"));
                     bool result = randomizationEngine.Save(fileDialog.SelectedPath, seed);
                     if (result)

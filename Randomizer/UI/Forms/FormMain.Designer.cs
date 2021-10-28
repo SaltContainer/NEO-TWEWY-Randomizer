@@ -546,6 +546,7 @@ namespace NEO_TWEWY_Randomizer
             this.radioItemsShuffleC.TabIndex = 1;
             this.radioItemsShuffleC.Text = "Shuffle (Completely)";
             this.radioItemsShuffleC.UseVisualStyleBackColor = true;
+            this.radioItemsShuffleC.CheckedChanged += new System.EventHandler(this.radioItemsShuffleC_CheckedChanged);
             // 
             // radioItemsShuffleS
             // 

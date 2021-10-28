@@ -13,5 +13,6 @@ namespace NEO_TWEWY_Randomizer
         public static Dictionary<string, DataBundle> Bundles { get; } = JsonConvert.DeserializeObject<Dictionary<string, DataBundle>>(Resources.bundle_constants);
         public static string TextDataBundleKey { get; } = "text-data";
         public static string EnemyDataClassName { get; } = "EnemyData";
+        public static string EnemyReportClassName { get; } = "EnemyReport";
     }
 }

@@ -7,6 +7,10 @@
 			"EnemyData": {
 				"name": "EnemyData",
 				"attribute": "m_Script"
+			},
+			"EnemyReport": {
+				"name": "EnemyReport",
+				"attribute": "m_Script"
 			}
 		}
 	}

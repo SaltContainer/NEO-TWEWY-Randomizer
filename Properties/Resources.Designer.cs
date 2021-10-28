@@ -61,7 +61,23 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;text-data&quot;: {
+        ///		&quot;key&quot;: &quot;text-data&quot;,
+        ///		&quot;file_name&quot;: &quot;4017d8fc.unity3d&quot;,
+        ///		&quot;cab_directory&quot;: &quot;CAB-69ae4a77338c6711e85a72e9f85eed3c&quot;,
+        ///		&quot;classes&quot;: {
+        ///			&quot;EnemyData&quot;: {
+        ///				&quot;name&quot;: &quot;EnemyData&quot;,
+        ///				&quot;attribute&quot;: &quot;m_Script&quot;
+        ///			},
+        ///			&quot;EnemyReport&quot;: {
+        ///				&quot;name&quot;: &quot;EnemyReport&quot;,
+        ///				&quot;attribute&quot;: &quot;m_Script&quot;
+        ///			}
+        ///		}
+        ///	}
+        ///}.
         /// </summary>
         internal static string bundle_constants {
             get {
@@ -3386,6 +3402,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Make Noise drop random pins while making all pins available this way.
+        ///Pig Noise are included.
         ///This will always affect all difficulties as this is too restrictive otherwise..
         /// </summary>
         internal static string ttradioItemsRandomA {
@@ -3395,7 +3412,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make Noise drop random pins with no other limitations..
+        ///   Looks up a localized string similar to Make Noise drop random pins with no other limitations.
+        ///Pig Noise are included..
         /// </summary>
         internal static string ttradioItemsRandomC {
             get {
@@ -3405,6 +3423,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+        ///Pig Noise are excluded and keep their drops unchanged.
         ///This means that all pins that are obtainable through drops in vanilla are still obtainable
         ///in the same way and no new pins are dropped..
         /// </summary>
@@ -3415,7 +3434,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Take each Noise&apos;s vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+        ///   Looks up a localized string similar to Take each Noise&apos;s vanilla set of dropped pins, and shuffle which Noise drops which set of pins. Pig Noise are excluded and keep their drops unchanged.
         ///The shuffling keeps the corresponding difficulty.
         ///For example, a Nefastraven could end up having a Dixiefrog&apos;s drops
         ///(50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).

@@ -1132,21 +1132,24 @@ The weights scale linearly.</value>
   </data>
   <data name="ttradioItemsRandomA" xml:space="preserve">
     <value>Make Noise drop random pins while making all pins available this way.
+Pig Noise are included.
 This will always affect all difficulties as this is too restrictive otherwise.</value>
     <comment>Random (All Pins) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsRandomC" xml:space="preserve">
-    <value>Make Noise drop random pins with no other limitations.</value>
+    <value>Make Noise drop random pins with no other limitations.
+Pig Noise are included.</value>
     <comment>Random (Completely) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsShuffleC" xml:space="preserve">
     <value>Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+Pig Noise are excluded and keep their drops unchanged.
 This means that all pins that are obtainable through drops in vanilla are still obtainable
 in the same way and no new pins are dropped.</value>
     <comment>Shuffled (Completely) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsShuffleS" xml:space="preserve">
-    <value>Take each Noise's vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+    <value>Take each Noise's vanilla set of dropped pins, and shuffle which Noise drops which set of pins. Pig Noise are excluded and keep their drops unchanged.
 The shuffling keeps the corresponding difficulty.
 For example, a Nefastraven could end up having a Dixiefrog's drops
 (50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).

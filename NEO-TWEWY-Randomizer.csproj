@@ -92,8 +92,10 @@
     <Compile Include="Randomizer\Data\BundleCompressor.cs" />
     <Compile Include="Randomizer\Data\Data.cs" />
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
-    <Compile Include="Randomizer\Data\Data\EnemyData\Enemy.cs" />
     <Compile Include="Randomizer\Data\Data\EnemyData\EnemyData.cs" />
+    <Compile Include="Randomizer\Data\Data\EnemyData\EnemyDataList.cs" />
+    <Compile Include="Randomizer\Data\Data\EnemyReport\EnemyReport.cs" />
+    <Compile Include="Randomizer\Data\Data\EnemyReport\EnemyReportList.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\Difficulties.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropRate.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropType.cs" />

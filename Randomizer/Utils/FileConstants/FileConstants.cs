@@ -11,6 +11,7 @@ namespace NEO_TWEWY_Randomizer
     static class FileConstants
     {
         public static Dictionary<string, DataBundle> Bundles { get; } = JsonConvert.DeserializeObject<Dictionary<string, DataBundle>>(Resources.bundle_constants);
+        public static EnemyDuplicateList EnemyDataDuplicates { get; } = JsonConvert.DeserializeObject<EnemyDuplicateList>(Resources.enemy_sets);
         public static string TextDataBundleKey { get; } = "text-data";
         public static string EnemyDataClassName { get; } = "EnemyData";
         public static string EnemyReportClassName { get; } = "EnemyReport";

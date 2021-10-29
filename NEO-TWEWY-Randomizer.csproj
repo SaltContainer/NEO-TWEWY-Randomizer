@@ -108,6 +108,8 @@
     </Compile>
     <Compile Include="Randomizer\Utils\FileConstants\DataBundle.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\DataClass.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\EnemyDuplicate.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\EnemyDuplicateList.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\FileConstants.cs" />
     <Compile Include="Randomizer\UI\Forms\FormMain.cs">
       <SubType>Form</SubType>
@@ -155,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\bundle_constants.json" />
+    <None Include="Resources\enemy_sets.json" />
     <None Include="Resources\ID001_NoBrand.png" />
   </ItemGroup>
   <ItemGroup>

@@ -200,6 +200,7 @@ namespace NEO_TWEWY_Randomizer
             0,
             0,
             131072});
+            this.numChanceMax.ValueChanged += new System.EventHandler(this.numChance_ValueChanged);
             // 
             // lbChanceMin
             // 

@@ -86,6 +86,15 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string enemy_sets {
+            get {
+                return ResourceManager.GetString("enemy_sets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap ID001_NoBrand {

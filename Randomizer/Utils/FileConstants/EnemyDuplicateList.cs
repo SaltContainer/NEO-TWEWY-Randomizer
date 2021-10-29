@@ -13,7 +13,7 @@ namespace NEO_TWEWY_Randomizer
         public IList<EnemyDuplicate> Duplicates { get; set; }
         [JsonProperty("forced-normal")]
         public IList<EnemyDuplicate> ForcedNormalDrops { get; set; }
-        [JsonProperty("no-drop")]
+        [JsonProperty("no-drops")]
         public IList<EnemyDuplicate> NoDrops { get; set; }
     }
 }

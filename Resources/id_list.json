@@ -1,0 +1,1842 @@
+{
+	"pins": [
+		{
+			"id": 100,
+			"name": "Shockwave"
+		},
+		{
+			"id": 104,
+			"name": "Azamaru"
+		},
+		{
+			"id": 105,
+			"name": "Shishio"
+		},
+		{
+			"id": 101,
+			"name": "Midaregami"
+		},
+		{
+			"id": 102,
+			"name": "Namikuguri"
+		},
+		{
+			"id": 103,
+			"name": "Fuchin"
+		},
+		{
+			"id": 106,
+			"name": "Kurorushi"
+		},
+		{
+			"id": 107,
+			"name": "Honebami"
+		},
+		{
+			"id": 108,
+			"name": "Grizzly"
+		},
+		{
+			"id": 109,
+			"name": "Onimaru"
+		},
+		{
+			"id": 110,
+			"name": "Kitsunegasaki"
+		},
+		{
+			"id": 111,
+			"name": "Yukimitsu"
+		},
+		{
+			"id": 112,
+			"name": "Sayosamonji"
+		},
+		{
+			"id": 113,
+			"name": "Aizen"
+		},
+		{
+			"id": 114,
+			"name": "Spin Twinz"
+		},
+		{
+			"id": 115,
+			"name": "Tsurumaru"
+		},
+		{
+			"id": 116,
+			"name": "Reigetsu"
+		},
+		{
+			"id": 117,
+			"name": "Jupiter of the Monkey II"
+		},
+		{
+			"id": 118,
+			"name": "Hotaru"
+		},
+		{
+			"id": 200,
+			"name": "Grin Reaper"
+		},
+		{
+			"id": 201,
+			"name": "Grunge Punch"
+		},
+		{
+			"id": 202,
+			"name": "Jungle King"
+		},
+		{
+			"id": 203,
+			"name": "Primal Roar"
+		},
+		{
+			"id": 204,
+			"name": "Mosh 'n' Mash"
+		},
+		{
+			"id": 205,
+			"name": "Fangs of Ice"
+		},
+		{
+			"id": 206,
+			"name": "Slashcicle"
+		},
+		{
+			"id": 207,
+			"name": "Right Claw"
+		},
+		{
+			"id": 208,
+			"name": "Wicked Howl"
+		},
+		{
+			"id": 209,
+			"name": "Tigres Assemble!"
+		},
+		{
+			"id": 210,
+			"name": "Rock 'n' Rock"
+		},
+		{
+			"id": 211,
+			"name": "Crusher Rush"
+		},
+		{
+			"id": 212,
+			"name": "Beringei"
+		},
+		{
+			"id": 300,
+			"name": "Just Up Ahead"
+		},
+		{
+			"id": 301,
+			"name": "Honor and Sacrifice"
+		},
+		{
+			"id": 302,
+			"name": "All or Nothing"
+		},
+		{
+			"id": 303,
+			"name": "One Day Closer"
+		},
+		{
+			"id": 304,
+			"name": "Time Is Relative"
+		},
+		{
+			"id": 305,
+			"name": "Got Your Back"
+		},
+		{
+			"id": 306,
+			"name": "Take a Chance"
+		},
+		{
+			"id": 307,
+			"name": "No Turning Back"
+		},
+		{
+			"id": 308,
+			"name": "Trial Without Error"
+		},
+		{
+			"id": 309,
+			"name": "Stinger"
+		},
+		{
+			"id": 310,
+			"name": "No Plan Required"
+		},
+		{
+			"id": 311,
+			"name": "Don't Be Shocked"
+		},
+		{
+			"id": 312,
+			"name": "Cut Me Down"
+		},
+		{
+			"id": 313,
+			"name": "Quench Your Thirst"
+		},
+		{
+			"id": 314,
+			"name": "Try It Again"
+		},
+		{
+			"id": 400,
+			"name": "Force Rounds"
+		},
+		{
+			"id": 401,
+			"name": "Sugar Beam"
+		},
+		{
+			"id": 402,
+			"name": "Nighty-Night Beam"
+		},
+		{
+			"id": 403,
+			"name": "Glitter Beam"
+		},
+		{
+			"id": 404,
+			"name": "Zip-Zap Beam"
+		},
+		{
+			"id": 405,
+			"name": "Stylish Beam"
+		},
+		{
+			"id": 406,
+			"name": "Lovebird Magnum"
+		},
+		{
+			"id": 407,
+			"name": "Garbage Gatling"
+		},
+		{
+			"id": 408,
+			"name": "Top Dog Gatling"
+		},
+		{
+			"id": 409,
+			"name": "Icky Beam"
+		},
+		{
+			"id": 410,
+			"name": "Frog"
+		},
+		{
+			"id": 411,
+			"name": "Freestyle Launcher"
+		},
+		{
+			"id": 412,
+			"name": "Lovely Launcher"
+		},
+		{
+			"id": 413,
+			"name": "Cupid Launcher"
+		},
+		{
+			"id": 414,
+			"name": "Cuddly Launcher"
+		},
+		{
+			"id": 415,
+			"name": "Heartthrob Launcher"
+		},
+		{
+			"id": 416,
+			"name": "Hobblin' Hippo"
+		},
+		{
+			"id": 417,
+			"name": "croaky panic"
+		},
+		{
+			"id": 418,
+			"name": "MONOCROW"
+		},
+		{
+			"id": 419,
+			"name": "The Idol Within"
+		},
+		{
+			"id": 420,
+			"name": "Be My Last"
+		},
+		{
+			"id": 421,
+			"name": "All Burned Out"
+		},
+		{
+			"id": 422,
+			"name": "Aspect of Truth"
+		},
+		{
+			"id": 423,
+			"name": "Live Your Truth"
+		},
+		{
+			"id": 424,
+			"name": "Grus"
+		},
+		{
+			"id": 500,
+			"name": "Rapturous Rabbits"
+		},
+		{
+			"id": 501,
+			"name": "Classical Cacophany"
+		},
+		{
+			"id": 502,
+			"name": "Magical Metamorphosis"
+		},
+		{
+			"id": 503,
+			"name": "Blizzard Bunny"
+		},
+		{
+			"id": 504,
+			"name": "Frosty Friendship"
+		},
+		{
+			"id": 505,
+			"name": "Stellar Self-Portrait"
+		},
+		{
+			"id": 506,
+			"name": "Gorgeous Gemstone"
+		},
+		{
+			"id": 507,
+			"name": "Black Hole Bunny"
+		},
+		{
+			"id": 600,
+			"name": "The Great Magma Escape"
+		},
+		{
+			"id": 601,
+			"name": "The Great Balloon Voyage"
+		},
+		{
+			"id": 602,
+			"name": "The Fluffy Ovine Cloud"
+		},
+		{
+			"id": 603,
+			"name": "The Lonely Space Warrior"
+		},
+		{
+			"id": 604,
+			"name": "The Great Lunar View"
+		},
+		{
+			"id": 605,
+			"name": "The Pyramids' Old Secret"
+		},
+		{
+			"id": 606,
+			"name": "The Ever-Moving Machine"
+		},
+		{
+			"id": 607,
+			"name": "Puffer"
+		},
+		{
+			"id": 608,
+			"name": "Out of Your Mine"
+		},
+		{
+			"id": 609,
+			"name": "Be of Two Mines"
+		},
+		{
+			"id": 610,
+			"name": "Boom in the Night"
+		},
+		{
+			"id": 611,
+			"name": "Chain Is Gonna Come"
+		},
+		{
+			"id": 612,
+			"name": "Back on the Chain Bang"
+		},
+		{
+			"id": 613,
+			"name": "Bad to the Bomb"
+		},
+		{
+			"id": 614,
+			"name": "Snake in the Blast"
+		},
+		{
+			"id": 615,
+			"name": "Bee in Your Bomb-et"
+		},
+		{
+			"id": 616,
+			"name": "I Scream U Scream!"
+		},
+		{
+			"id": 617,
+			"name": "Bloom 4 U"
+		},
+		{
+			"id": 700,
+			"name": "Takanosu"
+		},
+		{
+			"id": 701,
+			"name": "Kumokiri"
+		},
+		{
+			"id": 702,
+			"name": "Taikokane"
+		},
+		{
+			"id": 703,
+			"name": "Kasen Kanesada"
+		},
+		{
+			"id": 704,
+			"name": "Iwatoshi"
+		},
+		{
+			"id": 705,
+			"name": "Omokage"
+		},
+		{
+			"id": 706,
+			"name": "Wolf"
+		},
+		{
+			"id": 800,
+			"name": "Thunder and Lightning"
+		},
+		{
+			"id": 801,
+			"name": "Iris"
+		},
+		{
+			"id": 802,
+			"name": "Caught in the Undertow"
+		},
+		{
+			"id": 803,
+			"name": "Let the Rain Fall Down"
+		},
+		{
+			"id": 804,
+			"name": "Taste of Poison Paradise"
+		},
+		{
+			"id": 805,
+			"name": "Diamonds in the Sky"
+		},
+		{
+			"id": 806,
+			"name": "All Comes Crashing Down"
+		},
+		{
+			"id": 2500,
+			"name": "What a Wicked Game"
+		},
+		{
+			"id": 2501,
+			"name": "Where I Break Free"
+		},
+		{
+			"id": 2502,
+			"name": "Born of Stormy Skies"
+		},
+		{
+			"id": 2503,
+			"name": "Lightning in My Hands"
+		},
+		{
+			"id": 2504,
+			"name": "In the Stars Tonight"
+		},
+		{
+			"id": 2505,
+			"name": "Blinded by the Light"
+		},
+		{
+			"id": 2506,
+			"name": "In My Misery"
+		},
+		{
+			"id": 2507,
+			"name": "Phoenix"
+		},
+		{
+			"id": 900,
+			"name": "Joli bÃ©cot"
+		},
+		{
+			"id": 901,
+			"name": "Angelic Kick"
+		},
+		{
+			"id": 902,
+			"name": "Gust of Gorgeous"
+		},
+		{
+			"id": 903,
+			"name": "Wicked Wind"
+		},
+		{
+			"id": 904,
+			"name": "Sistah Subwoofer"
+		},
+		{
+			"id": 905,
+			"name": "Disco Divekick"
+		},
+		{
+			"id": 906,
+			"name": "Soul Ablaze"
+		},
+		{
+			"id": 907,
+			"name": "Killer Princess"
+		},
+		{
+			"id": 908,
+			"name": "Leo Armo"
+		},
+		{
+			"id": 1000,
+			"name": "Marvelous Crash"
+		},
+		{
+			"id": 1001,
+			"name": "Crater's Kiss"
+		},
+		{
+			"id": 1002,
+			"name": "Cranberry Crystal"
+		},
+		{
+			"id": 1003,
+			"name": "Pink Matador"
+		},
+		{
+			"id": 1004,
+			"name": "Electric Manicure"
+		},
+		{
+			"id": 1005,
+			"name": "Bolt of Beauty"
+		},
+		{
+			"id": 1006,
+			"name": "Rex"
+		},
+		{
+			"id": 1007,
+			"name": "Cherry Bomb"
+		},
+		{
+			"id": 1008,
+			"name": "Jealous Rage"
+		},
+		{
+			"id": 1009,
+			"name": "Bad Romance"
+		},
+		{
+			"id": 1100,
+			"name": "Cold ConyÃ—Cony"
+		},
+		{
+			"id": 1101,
+			"name": "Glacial Getaway"
+		},
+		{
+			"id": 1102,
+			"name": "Polar Princess"
+		},
+		{
+			"id": 1103,
+			"name": "Creepy Crystal"
+		},
+		{
+			"id": 1104,
+			"name": "Velvet Vampire"
+		},
+		{
+			"id": 1105,
+			"name": "Calamitous Candle"
+		},
+		{
+			"id": 1106,
+			"name": "BÃ©rangÃ¨re Lapin"
+		},
+		{
+			"id": 1107,
+			"name": "GrÃ©goire Lapin"
+		},
+		{
+			"id": 1108,
+			"name": "Popguin"
+		},
+		{
+			"id": 1200,
+			"name": "Topo the Generous"
+		},
+		{
+			"id": 1201,
+			"name": "Once Upon a Dream"
+		},
+		{
+			"id": 1202,
+			"name": "Music of the Woods"
+		},
+		{
+			"id": 1203,
+			"name": "Mom's Secret Ingredient"
+		},
+		{
+			"id": 1204,
+			"name": "A Mysterious Gift"
+		},
+		{
+			"id": 1205,
+			"name": "The World Within"
+		},
+		{
+			"id": 1206,
+			"name": "Topo the Ingenious"
+		},
+		{
+			"id": 1207,
+			"name": "My Precious Moments"
+		},
+		{
+			"id": 1208,
+			"name": "Topo the Beloved"
+		},
+		{
+			"id": 1300,
+			"name": "ShoGunãƒ»Void"
+		},
+		{
+			"id": 1301,
+			"name": "ManjuSageãƒ»Void"
+		},
+		{
+			"id": 1302,
+			"name": "EnJoãƒ»Blaze"
+		},
+		{
+			"id": 1303,
+			"name": "KoYoãƒ»Blaze"
+		},
+		{
+			"id": 1304,
+			"name": "Tsubakiãƒ»Frost"
+		},
+		{
+			"id": 1305,
+			"name": "HiGanãƒ»Frost"
+		},
+		{
+			"id": 1306,
+			"name": "InaZumaãƒ»Surge"
+		},
+		{
+			"id": 1307,
+			"name": "RaiJinãƒ»Surge"
+		},
+		{
+			"id": 1308,
+			"name": "Doku Doku Panic"
+		},
+		{
+			"id": 1309,
+			"name": "KeiRyuãƒ»Epoch"
+		},
+		{
+			"id": 1310,
+			"name": "RyuGuãƒ»Void"
+		},
+		{
+			"id": 1311,
+			"name": "HanaDokiãƒ»Void"
+		},
+		{
+			"id": 1312,
+			"name": "Slitherin' Snake"
+		},
+		{
+			"id": 1313,
+			"name": "HoGyokuãƒ»Gleam"
+		},
+		{
+			"id": 1314,
+			"name": "Jelly"
+		},
+		{
+			"id": 1400,
+			"name": "Righteous Rabbit"
+		},
+		{
+			"id": 1401,
+			"name": "Brooding Bunny"
+		},
+		{
+			"id": 1402,
+			"name": "Ring-a-Ling"
+		},
+		{
+			"id": 1403,
+			"name": "Flyin' High"
+		},
+		{
+			"id": 1404,
+			"name": "MelanconyÃ—Melancony"
+		},
+		{
+			"id": 1405,
+			"name": "Conyï½˜Cony"
+		},
+		{
+			"id": 1406,
+			"name": "Seraphic Snow"
+		},
+		{
+			"id": 1407,
+			"name": "Raven"
+		},
+		{
+			"id": 1500,
+			"name": "Balloon Trip"
+		},
+		{
+			"id": 1501,
+			"name": "Riled-Up Ribbon"
+		},
+		{
+			"id": 1502,
+			"name": "Topo the Talented"
+		},
+		{
+			"id": 1503,
+			"name": "Catch a Wave"
+		},
+		{
+			"id": 1504,
+			"name": "Kappa Panic"
+		},
+		{
+			"id": 1505,
+			"name": "A Forlorn Treasure"
+		},
+		{
+			"id": 1506,
+			"name": "Cave of Secrets"
+		},
+		{
+			"id": 1507,
+			"name": "In the Snipeline"
+		},
+		{
+			"id": 1508,
+			"name": "Don't Miss Your Shot"
+		},
+		{
+			"id": 1509,
+			"name": "Any Way You Snipe It"
+		},
+		{
+			"id": 1510,
+			"name": "garagara"
+		},
+		{
+			"id": 1511,
+			"name": "Shot in the Dank"
+		},
+		{
+			"id": 2600,
+			"name": "What Can Never Be"
+		},
+		{
+			"id": 2601,
+			"name": "Stuck in the Middle"
+		},
+		{
+			"id": 2602,
+			"name": "Time in a Bottle"
+		},
+		{
+			"id": 2603,
+			"name": "Stay Gold"
+		},
+		{
+			"id": 2604,
+			"name": "Stay Beautiful"
+		},
+		{
+			"id": 2605,
+			"name": "Let the Storm Rage On"
+		},
+		{
+			"id": 1700,
+			"name": "SuiGenãƒ»Void"
+		},
+		{
+			"id": 1701,
+			"name": "KoChoãƒ»Void"
+		},
+		{
+			"id": 1702,
+			"name": "ShiDareãƒ»Shade"
+		},
+		{
+			"id": 1703,
+			"name": "Tsuzumiãƒ»Echo"
+		},
+		{
+			"id": 1704,
+			"name": "Shiba"
+		},
+		{
+			"id": 1705,
+			"name": "Let's Have Fungis!"
+		},
+		{
+			"id": 1706,
+			"name": "Fuel to the Fire"
+		},
+		{
+			"id": 1707,
+			"name": "Fire in the Belly"
+		},
+		{
+			"id": 1708,
+			"name": "Ifs Ands or Bolts"
+		},
+		{
+			"id": 1709,
+			"name": "Sparks Will Fly"
+		},
+		{
+			"id": 1710,
+			"name": "AraUmiãƒ»Gale"
+		},
+		{
+			"id": 1711,
+			"name": "FuJinãƒ»Gale"
+		},
+		{
+			"id": 1712,
+			"name": "IroGoiãƒ»Shift"
+		},
+		{
+			"id": 1713,
+			"name": "ShoRyuãƒ»Gleam"
+		},
+		{
+			"id": 1800,
+			"name": "The Prismatic Princess"
+		},
+		{
+			"id": 1801,
+			"name": "The Benevolent King"
+		},
+		{
+			"id": 1802,
+			"name": "Top o' Topo"
+		},
+		{
+			"id": 1803,
+			"name": "Petals of Love"
+		},
+		{
+			"id": 1804,
+			"name": "Topo the Adventurous"
+		},
+		{
+			"id": 1805,
+			"name": "Fairytale Memories"
+		},
+		{
+			"id": 1806,
+			"name": "Topo the Famished"
+		},
+		{
+			"id": 1807,
+			"name": "The Enchanted Baker"
+		},
+		{
+			"id": 1808,
+			"name": "An Inseparable Pair"
+		},
+		{
+			"id": 1809,
+			"name": "Hammond's New Home"
+		},
+		{
+			"id": 1810,
+			"name": "Mr. Mew"
+		},
+		{
+			"id": 1901,
+			"name": "KaChuãƒ»Blaze"
+		},
+		{
+			"id": 1902,
+			"name": "AkaFujiãƒ»Blaze"
+		},
+		{
+			"id": 1900,
+			"name": "Firestorm"
+		},
+		{
+			"id": 1903,
+			"name": "GoKaãƒ»Blaze"
+		},
+		{
+			"id": 1904,
+			"name": "Notice Me Lightning"
+		},
+		{
+			"id": 1905,
+			"name": "Oh Em Gee Lightning"
+		},
+		{
+			"id": 1906,
+			"name": "Trendy Tornado"
+		},
+		{
+			"id": 1907,
+			"name": "Giddy Graviton"
+		},
+		{
+			"id": 1908,
+			"name": "Good Mood Graviton"
+		},
+		{
+			"id": 1909,
+			"name": "Relative Absoluteness"
+		},
+		{
+			"id": 1910,
+			"name": "Pachy"
+		},
+		{
+			"id": 2000,
+			"name": "A Day Off Outside"
+		},
+		{
+			"id": 2001,
+			"name": "The Cozy Hilltop Windmill"
+		},
+		{
+			"id": 2002,
+			"name": "The Breezy Ovine Wind"
+		},
+		{
+			"id": 2003,
+			"name": "The Ever-Arctic Treasure"
+		},
+		{
+			"id": 2004,
+			"name": "A Moonlit Night Inside"
+		},
+		{
+			"id": 2005,
+			"name": "The Woolly Triple Axel"
+		},
+		{
+			"id": 1911,
+			"name": "Cursed Croaker"
+		},
+		{
+			"id": 1912,
+			"name": "Roly Poly Cricket"
+		},
+		{
+			"id": 1913,
+			"name": "Thirsty Frog"
+		},
+		{
+			"id": 1914,
+			"name": "Golden Kappa Panic"
+		},
+		{
+			"id": 1915,
+			"name": "Snap Crackle Popcorn"
+		},
+		{
+			"id": 1916,
+			"name": "Sunny Side Skillet"
+		},
+		{
+			"id": 2800,
+			"name": "A Tasty Ovine Snack"
+		},
+		{
+			"id": 2801,
+			"name": "The Gentle Airplane Pilot"
+		},
+		{
+			"id": 2802,
+			"name": "The Song of Friendship"
+		},
+		{
+			"id": 2803,
+			"name": "The Woolly Jazz Player"
+		},
+		{
+			"id": 2804,
+			"name": "Back to the Ewe-ture"
+		},
+		{
+			"id": 2805,
+			"name": "Shark"
+		},
+		{
+			"id": 2806,
+			"name": "Chef Amphibie"
+		},
+		{
+			"id": 2200,
+			"name": "Star Quarterback"
+		},
+		{
+			"id": 2201,
+			"name": "Dine 'n' Dash"
+		},
+		{
+			"id": 2202,
+			"name": "Bolt Boar"
+		},
+		{
+			"id": 2203,
+			"name": "Mr. Fangman"
+		},
+		{
+			"id": 2204,
+			"name": "Burnin' Boar"
+		},
+		{
+			"id": 2205,
+			"name": "HOG FANG"
+		},
+		{
+			"id": 2206,
+			"name": "Big Bang Boar"
+		},
+		{
+			"id": 2207,
+			"name": "Cervus"
+		},
+		{
+			"id": 2300,
+			"name": "UFO Rescue"
+		},
+		{
+			"id": 2301,
+			"name": "Tigre PUNKS"
+		},
+		{
+			"id": 2302,
+			"name": "Bright Chord"
+		},
+		{
+			"id": 2303,
+			"name": "Bootleg Tune"
+		},
+		{
+			"id": 2304,
+			"name": "Discordance"
+		},
+		{
+			"id": 2305,
+			"name": "Maiden Beat"
+		},
+		{
+			"id": 2306,
+			"name": "Aw That Shucks!"
+		},
+		{
+			"id": 2307,
+			"name": "Headliner"
+		},
+		{
+			"id": 2308,
+			"name": "Runaway Rocket"
+		},
+		{
+			"id": 2309,
+			"name": "Clawed Guardian"
+		},
+		{
+			"id": 2310,
+			"name": "HOG Healer"
+		},
+		{
+			"id": 2311,
+			"name": "Rip-Roarin' Red"
+		},
+		{
+			"id": 2312,
+			"name": "Never Too Young"
+		},
+		{
+			"id": 2313,
+			"name": "Lost in Space"
+		},
+		{
+			"id": 2314,
+			"name": "Rainbow Route 66"
+		},
+		{
+			"id": 2315,
+			"name": "Hogway to Heaven"
+		},
+		{
+			"id": 2316,
+			"name": "Heartful Hot Dog"
+		},
+		{
+			"id": 2317,
+			"name": "Rhino"
+		},
+		{
+			"id": 2318,
+			"name": "FANG Defender"
+		},
+		{
+			"id": 2400,
+			"name": "Watch Your Step"
+		},
+		{
+			"id": 2401,
+			"name": "You Can Overcome"
+		},
+		{
+			"id": 2402,
+			"name": "Look Out Below"
+		},
+		{
+			"id": 2403,
+			"name": "Absolute Relativity"
+		},
+		{
+			"id": 2404,
+			"name": "Pig"
+		},
+		{
+			"id": 2900,
+			"name": "Seductive Snare"
+		},
+		{
+			"id": 2901,
+			"name": "Deadly Fragrance"
+		},
+		{
+			"id": 2902,
+			"name": "A Drawn Conclusion"
+		},
+		{
+			"id": 2903,
+			"name": "Gravving at Straws"
+		},
+		{
+			"id": 2904,
+			"name": "Leon"
+		},
+		{
+			"id": 3000,
+			"name": "Tenka Juzumaru"
+		},
+		{
+			"id": 3001,
+			"name": "Tenka Mikazuki"
+		},
+		{
+			"id": 425,
+			"name": "Coochy-Coochy-Coo"
+		},
+		{
+			"id": 3002,
+			"name": "Black Cat Crush"
+		},
+		{
+			"id": 3003,
+			"name": "Black Cat Cards"
+		},
+		{
+			"id": 3004,
+			"name": "Black Cat Comet"
+		},
+		{
+			"id": 3005,
+			"name": "Black Cat Burst"
+		},
+		{
+			"id": 3006,
+			"name": "Black Cat Blades"
+		},
+		{
+			"id": 3007,
+			"name": "Black Cat Burn"
+		},
+		{
+			"id": 3008,
+			"name": "St. Ver's Uppercut"
+		},
+		{
+			"id": 3009,
+			"name": "St. Aestas' Shrapnel"
+		},
+		{
+			"id": 3010,
+			"name": "St. Autumnus' Strike"
+		},
+		{
+			"id": 3011,
+			"name": "St. Hiems' Shotgun"
+		},
+		{
+			"id": 3012,
+			"name": "Charge Punch E"
+		},
+		{
+			"id": 3013,
+			"name": "Snare Trap E"
+		},
+		{
+			"id": 3014,
+			"name": "Just Keep Swimmin'!"
+		},
+		{
+			"id": 3015,
+			"name": "What a Shock!"
+		},
+		{
+			"id": 3016,
+			"name": "Stop the Music!"
+		},
+		{
+			"id": 3017,
+			"name": "Thanks Very Mochi!"
+		},
+		{
+			"id": 3018,
+			"name": "Holy Guacamole!"
+		},
+		{
+			"id": 3019,
+			"name": "Exercisin' Gator"
+		},
+		{
+			"id": 3020,
+			"name": "Handstandin' Panda"
+		},
+		{
+			"id": 5000,
+			"name": "1 Yen"
+		},
+		{
+			"id": 5001,
+			"name": "5 Yen"
+		},
+		{
+			"id": 5002,
+			"name": "10 Yen"
+		},
+		{
+			"id": 5003,
+			"name": "50 Yen"
+		},
+		{
+			"id": 5004,
+			"name": "100 Yen"
+		},
+		{
+			"id": 5005,
+			"name": "500 Yen"
+		},
+		{
+			"id": 5006,
+			"name": "1000 Yen"
+		},
+		{
+			"id": 5007,
+			"name": "5000 Yen"
+		},
+		{
+			"id": 5008,
+			"name": "10000 Yen"
+		},
+		{
+			"id": 5009,
+			"name": "100000 Yen"
+		},
+		{
+			"id": 5100,
+			"name": "Scarletite"
+		},
+		{
+			"id": 5101,
+			"name": "Rare Metal"
+		},
+		{
+			"id": 5102,
+			"name": "Tektite"
+		},
+		{
+			"id": 5103,
+			"name": "Adamantite"
+		},
+		{
+			"id": 5104,
+			"name": "Orichalcum"
+		},
+		{
+			"id": 5105,
+			"name": "Shadow Matter"
+		},
+		{
+			"id": 5106,
+			"name": "Dark Matter"
+		}
+	],
+	"limited-pins": [
+		{
+			"id": 5107,
+			"name": "Axion"
+		},
+		{
+			"id": 5108,
+			"name": "Dilaton"
+		},
+		{
+			"id": 5109,
+			"name": "Dibaryon"
+		},
+		{
+			"id": 5110,
+			"name": "Sfermion"
+		}
+	],
+	"enemies": [
+		{
+			"id": 100,
+			"name": "Mosh Grizzly"
+		},
+		{
+			"id": 101,
+			"name": "Circle Pit Grizzly"
+		},
+		{
+			"id": 102,
+			"name": "Headbangin' Grizzly"
+		},
+		{
+			"id": 190,
+			"name": "Plague Grizzly"
+		},
+		{
+			"id": 200,
+			"name": "Decadraven"
+		},
+		{
+			"id": 201,
+			"name": "Easterraven"
+		},
+		{
+			"id": 202,
+			"name": "Nefastraven"
+		},
+		{
+			"id": 300,
+			"name": "Dixiefrog"
+		},
+		{
+			"id": 301,
+			"name": "Bigbanfrog"
+		},
+		{
+			"id": 302,
+			"name": "Funkfrog"
+		},
+		{
+			"id": 303,
+			"name": "Tradishfrog"
+		},
+		{
+			"id": 390,
+			"name": "Plague Frog"
+		},
+		{
+			"id": 391,
+			"name": "Plague Batrakos"
+		},
+		{
+			"id": 400,
+			"name": "Garage Wolf"
+		},
+		{
+			"id": 401,
+			"name": "Alterna Wolf"
+		},
+		{
+			"id": 402,
+			"name": "Grunge Wolf"
+		},
+		{
+			"id": 490,
+			"name": "Plague Wolf"
+		},
+		{
+			"id": 600,
+			"name": "Jelly Madchester"
+		},
+		{
+			"id": 610,
+			"name": "Jelly Swechno"
+		},
+		{
+			"id": 620,
+			"name": "Jelly Neocoustic"
+		},
+		{
+			"id": 630,
+			"name": "Jelly Germanic"
+		},
+		{
+			"id": 690,
+			"name": "Plague Jelly"
+		},
+		{
+			"id": 691,
+			"name": "Plague Nemopilema"
+		},
+		{
+			"id": 700,
+			"name": "House Rhino"
+		},
+		{
+			"id": 701,
+			"name": "Minimal Rhino"
+		},
+		{
+			"id": 702,
+			"name": "Dub Rhino"
+		},
+		{
+			"id": 800,
+			"name": "Swing Shark"
+		},
+		{
+			"id": 801,
+			"name": "Bebop Shark"
+		},
+		{
+			"id": 802,
+			"name": "Smooth Shark"
+		},
+		{
+			"id": 900,
+			"name": "Pachy R&R"
+		},
+		{
+			"id": 901,
+			"name": "Mammoth R&B"
+		},
+		{
+			"id": 902,
+			"name": "Woolly AOR"
+		},
+		{
+			"id": 910,
+			"name": "Mammoth R&B (Boss)"
+		},
+		{
+			"id": 990,
+			"name": "Plague Pachy"
+		},
+		{
+			"id": 991,
+			"name": "Plague Pachy (Boss)"
+		},
+		{
+			"id": 10100,
+			"name": "Go-Go Beringei"
+		},
+		{
+			"id": 1400,
+			"name": "Proto Puffer"
+		},
+		{
+			"id": 1401,
+			"name": "Oi Puffer"
+		},
+		{
+			"id": 1402,
+			"name": "Emo Puffer"
+		},
+		{
+			"id": 1403,
+			"name": "Hardcore Puffer"
+		},
+		{
+			"id": 1410,
+			"name": "Emo Puffer (Boss)"
+		},
+		{
+			"id": 1500,
+			"name": "Break Stinger"
+		},
+		{
+			"id": 1501,
+			"name": "Drum 'n' Stinger"
+		},
+		{
+			"id": 1502,
+			"name": "Drill 'n' Stinger"
+		},
+		{
+			"id": 1510,
+			"name": "Drum 'n' Stinger (Boss)"
+		},
+		{
+			"id": 1590,
+			"name": "Plague Stinger"
+		},
+		{
+			"id": 1591,
+			"name": "Plague Stinger (Boss)"
+		},
+		{
+			"id": 1000,
+			"name": "J Popguin"
+		},
+		{
+			"id": 1001,
+			"name": "Electro Popguin"
+		},
+		{
+			"id": 1002,
+			"name": "Brit Popguin"
+		},
+		{
+			"id": 1800,
+			"name": "Distortius Rex"
+		},
+		{
+			"id": 1801,
+			"name": "Phasaurus Rex"
+		},
+		{
+			"id": 1802,
+			"name": "Maximizaurus Rex"
+		},
+		{
+			"id": 1810,
+			"name": "Phasaurus Rex (Boss)"
+		},
+		{
+			"id": 1600,
+			"name": "Hardtechnoleon"
+		},
+		{
+			"id": 1601,
+			"name": "Houseleon"
+		},
+		{
+			"id": 1602,
+			"name": "Tropicaleon"
+		},
+		{
+			"id": 1610,
+			"name": "Houseleon (Boss)"
+		},
+		{
+			"id": 10200,
+			"name": "Fuya"
+		},
+		{
+			"id": 20000,
+			"name": "Deep Rivers Societist"
+		},
+		{
+			"id": 20010,
+			"name": "Psyched Societist"
+		},
+		{
+			"id": 100000,
+			"name": "Motoi"
+		},
+		{
+			"id": 21000,
+			"name": "Pureheart"
+		},
+		{
+			"id": 21100,
+			"name": "Psyched Pureheart"
+		},
+		{
+			"id": 22000,
+			"name": "Variabeauty"
+		},
+		{
+			"id": 22100,
+			"name": "Psyched Variabeauty"
+		},
+		{
+			"id": 10300,
+			"name": "Susukichi 1"
+		},
+		{
+			"id": 10301,
+			"name": "Susukichi 2"
+		},
+		{
+			"id": 10500,
+			"name": "Mr. Mew 1"
+		},
+		{
+			"id": 10550,
+			"name": "Mr. Mew 2"
+		},
+		{
+			"id": 10600,
+			"name": "Grus Cantus"
+		},
+		{
+			"id": 510600,
+			"name": "Grus Cantus α"
+		},
+		{
+			"id": 10700,
+			"name": "Iris Cantus"
+		},
+		{
+			"id": 510700,
+			"name": "Iris Cantus α"
+		},
+		{
+			"id": 10800,
+			"name": "Leo Cantus Armo"
+		},
+		{
+			"id": 510800,
+			"name": "Felidae Cantus"
+		},
+		{
+			"id": 10901,
+			"name": "Cervus Cantus"
+		},
+		{
+			"id": 510900,
+			"name": "Cervus Cantus α"
+		},
+		{
+			"id": 11101,
+			"name": "Shiba"
+		},
+		{
+			"id": 511101,
+			"name": "Shiba α"
+		},
+		{
+			"id": 11200,
+			"name": "Soul Pulvis"
+		},
+		{
+			"id": 11300,
+			"name": "Phoenix Cantus"
+		}
+	],
+	"pigs": [
+		{
+			"id": 1203900,
+			"name":"Week 1 Day 2 - Pig 1"
+		},
+		{
+			"id": 1302900,
+			"name":"Week 1 Day 3 - Pig 1"
+		},
+		{
+			"id": 1303900,
+			"name":"Week 1 Day 3 - Pig 2"
+		},
+		{
+			"id": 1408900,
+			"name":"Week 1 Day 4 - Pig 1"
+		},
+		{
+			"id": 1404900,
+			"name":"Week 1 Day 4 - Pig 2"
+		},
+		{
+			"id": 1608900,
+			"name":"Week 1 Day 6 - Pig 1"
+		},
+		{
+			"id": 1605900,
+			"name":"Week 1 Day 6 - Pig 2"
+		},
+		{
+			"id": 1708900,
+			"name":"Week 1 Day 7 - Pig 1"
+		},
+		{
+			"id": 1702900,
+			"name":"Week 1 Day 7 - Pig 2"
+		},
+		{
+			"id": 2101900,
+			"name":"Week 2 Day 1 - Pig 1"
+		},
+		{
+			"id": 2102900,
+			"name":"Week 2 Day 1 - Pig 2"
+		},
+		{
+			"id": 2204900,
+			"name":"Week 2 Day 2 - Pig 1"
+		},
+		{
+			"id": 2205900,
+			"name":"Week 2 Day 2 - Pig 2"
+		},
+		{
+			"id": 2303900,
+			"name":"Week 2 Day 3 - Pig 1"
+		},
+		{
+			"id": 2302900,
+			"name":"Week 2 Day 3 - Pig 2"
+		},
+		{
+			"id": 2402900,
+			"name":"Week 2 Day 4 - Pig 1"
+		},
+		{
+			"id": 2407900,
+			"name":"Week 2 Day 4 - Pig 2"
+		},
+		{
+			"id": 2503900,
+			"name":"Week 2 Day 5 - Pig 1"
+		},
+		{
+			"id": 2510900,
+			"name":"Week 2 Day 5 - Pig 2"
+		},
+		{
+			"id": 2602900,
+			"name":"Week 2 Day 6 - Pig 1"
+		},
+		{
+			"id": 2605900,
+			"name":"Week 2 Day 6 - Pig 2"
+		},
+		{
+			"id": 2715900,
+			"name":"Week 2 Day 7 - Pig 1"
+		},
+		{
+			"id": 2707900,
+			"name":"Week 2 Day 7 - Pig 2"
+		},
+		{
+			"id": 3107900,
+			"name":"Week 3 Day 1 - Pig 1"
+		},
+		{
+			"id": 3110900,
+			"name":"Week 3 Day 1 - Pig 2"
+		},
+		{
+			"id": 3211900,
+			"name":"Week 3 Day 2 - Pig 1"
+		},
+		{
+			"id": 3213900,
+			"name":"Week 3 Day 2 - Pig 2"
+		},
+		{
+			"id": 3302900,
+			"name":"Week 3 Day 3 - Pig 1"
+		},
+		{
+			"id": 3305900,
+			"name":"Week 3 Day 3 - Pig 2"
+		},
+		{
+			"id": 3401900,
+			"name":"Week 3 Day 4 - Pig 1"
+		},
+		{
+			"id": 3402900,
+			"name":"Week 3 Day 4 - Pig 2"
+		},
+		{
+			"id": 3504900,
+			"name":"Week 3 Day 5 - Pig 1"
+		},
+		{
+			"id": 3517900,
+			"name":"Week 3 Day 5 - Pig 2"
+		},
+		{
+			"id": 3501900,
+			"name":"Week 3 Day 5 - Pig 3"
+		},
+		{
+			"id": 3608900,
+			"name":"Week 3 Day 6 - Pig 1"
+		},
+		{
+			"id": 3601900,
+			"name":"Week 3 Day 6 - Pig 2"
+		},
+		{
+			"id": 3716900,
+			"name":"Week 3 Day 7 - Pig 1"
+		},
+		{
+			"id": 3702900,
+			"name":"Week 3 Day 7 - Pig 2"
+		},
+		{
+			"id": 4105900,
+			"name":"Another Day - Pig 1"
+		},
+		{
+			"id": 4106900,
+			"name":"Another Day - Pig 2"
+		},
+		{
+			"id": 4107900,
+			"name":"Another Day - Pig 3"
+		},
+		{
+			"id": 4108900,
+			"name":"Another Day - Pig 4"
+		},
+		{
+			"id": 4109900,
+			"name":"Another Day - Pig 5"
+		}
+	]
+}

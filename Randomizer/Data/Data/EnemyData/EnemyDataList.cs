@@ -10,6 +10,6 @@ namespace NEO_TWEWY_Randomizer
     class EnemyDataList
     {
         [JsonProperty("mTarget")]
-        public IList<EnemyData> Target { get; set; }
+        public IList<EnemyData> Items { get; set; }
     }
 }

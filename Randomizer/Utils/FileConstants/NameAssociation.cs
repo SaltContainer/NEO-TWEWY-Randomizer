@@ -7,9 +7,11 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class EnemyReportList
+    class NameAssociation
     {
-        [JsonProperty("mTarget")]
-        public IList<EnemyReport> Items { get; set; }
+        [JsonProperty("id")]
+        public int Id { get; set; }
+        [JsonProperty("name")]
+        public string Name { get; set; }
     }
 }

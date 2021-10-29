@@ -86,11 +86,52 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;duplicates&quot;: [
+        ///		{
+        ///			&quot;id&quot;: 190,
+        ///			&quot;duplicates&quot; : [191]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 490,
+        ///			&quot;duplicates&quot; : [491]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 10100,
+        ///			&quot;duplicates&quot; : [610100]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 1590,
+        ///			&quot;duplicates&quot; : [1592]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 10200,
+        ///			&quot;duplicates&quot; : [610200]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 20000,
+        ///			&quot;duplicates&quot; : [20001,20002,20003,20004,20005]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 20010,
+        ///			&quot;duplicates&quot; : [20011,20012,20013,20014,20015,620000,620001,620002,620003,620004,620005]
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 100000,
+        ///	 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string enemy_sets {
             get {
                 return ResourceManager.GetString("enemy_sets", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string id_list {
+            get {
+                return ResourceManager.GetString("id_list", resourceCulture);
             }
         }
         

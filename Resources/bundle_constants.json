@@ -1,0 +1,21 @@
+{
+	"text-data": {
+		"key": "text-data",
+		"file_name": "4017d8fc.unity3d",
+		"cab_directory": "CAB-69ae4a77338c6711e85a72e9f85eed3c",
+		"classes": {
+			"EnemyData": {
+				"name": "EnemyData",
+				"attribute": "m_Script"
+			},
+			"EnemyReport": {
+				"name": "EnemyReport",
+				"attribute": "m_Script"
+			},
+			"PigData": {
+				"name": "PigData",
+				"attribute": "m_Script"
+			}
+		}
+	}
+}

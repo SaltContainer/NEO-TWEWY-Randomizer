@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace NEO_TWEWY_Randomizer
 {
-    public partial class Form1 : Form
+    public partial class FormAbout : Form
     {
-        public Form1()
+        public FormAbout()
         {
             InitializeComponent();
+            lbVersion.Text += SourceLinks.GetVersion();
+        }
+
+        private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(SourceLinks.GetGitHubLink());
         }
     }
 }

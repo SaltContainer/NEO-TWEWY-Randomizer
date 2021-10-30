@@ -38,6 +38,7 @@ namespace NEO_TWEWY_Randomizer
 
             scripts.AddRange(GetBaseScripts());
             scripts.AddRange(RandomizeDroppedPins(settings));
+            scripts.AddRange(RandomizeDropRate(settings));
 
             dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
         }
@@ -63,7 +64,7 @@ namespace NEO_TWEWY_Randomizer
             return obtainedScripts;
         }
 
-        private void AdjustEnemyDataDropRate(EnemyDataList enemyData)
+        private void AdjustEnemyDataDroppedPins(EnemyDataList enemyData)
         {
             foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.Duplicates)
             {
@@ -81,6 +82,31 @@ namespace NEO_TWEWY_Randomizer
             {
                 EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
                 enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<int>(original.Drop));
+            }
+        }
+
+        private void AdjustEnemyDataDropRate(EnemyDataList enemyData)
+        {
+            foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.Duplicates)
+            {
+                EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.DropRate = new List<float>(original.DropRate));
+            }
+
+            foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.ForcedNormalDrops)
+            {
+                EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy =>
+                {
+                    enemy.DropRate = new List<float>(original.DropRate);
+                    enemy.DropRate[1] = 1;
+                });
+            }
+
+            foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.NoDrops)
+            {
+                EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.DropRate = new List<float> { 0, 0, 0, 0 });
             }
         }
 
@@ -125,7 +151,7 @@ namespace NEO_TWEWY_Randomizer
                         if (dropHard) data.Drop[2] = scPins[pinId++];
                         if (dropUltimate) data.Drop[3] = scPins[pinId++];
                     }
-                    AdjustEnemyDataDropRate(enemyData);
+                    AdjustEnemyDataDroppedPins(enemyData);
                     break;
 
                 case NoiseDropType.ShuffleSets:
@@ -136,7 +162,7 @@ namespace NEO_TWEWY_Randomizer
                     {
                         listToEdit[i].Drop = ssPins[i];
                     }
-                    AdjustEnemyDataDropRate(enemyData);
+                    AdjustEnemyDataDroppedPins(enemyData);
                     break;
 
                 case NoiseDropType.RandomCompletely:
@@ -150,7 +176,7 @@ namespace NEO_TWEWY_Randomizer
                         if (dropHard) data.Drop[2] = rcPins[rand.Next(rcPins.Count)];
                         if (dropUltimate) data.Drop[3] = rcPins[rand.Next(rcPins.Count)];
                     }
-                    AdjustEnemyDataDropRate(enemyData);
+                    AdjustEnemyDataDroppedPins(enemyData);
                     break;
 
                 case NoiseDropType.RandomAllPins:
@@ -187,7 +213,7 @@ namespace NEO_TWEWY_Randomizer
                             pigsToEdit[e - raEnemyCount].Drop = raPins[rand.Next(raPins.Count)];
                         }
                     }
-                    AdjustEnemyDataDropRate(enemyData);
+                    AdjustEnemyDataDroppedPins(enemyData);
                     break;
             }
 
@@ -198,6 +224,72 @@ namespace NEO_TWEWY_Randomizer
             {
                 { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) },
                 { FileConstants.PigDataClassName, JsonConvert.SerializeObject(pigData, Formatting.Indented) }
+            };
+            return editedScripts;
+        }
+
+        private Dictionary<string, string> RandomizeDropRate(RandomizationSettings settings)
+        {
+            string enemyDataScript = scripts[FileConstants.EnemyDataClassName];
+
+            EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
+            EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
+
+            List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
+            List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
+
+            bool dropEasy = settings.NoiseDropRateDifficulties.Contains(Difficulties.Easy);
+            bool dropNormal = settings.NoiseDropRateDifficulties.Contains(Difficulties.Normal);
+            bool dropHard = settings.NoiseDropRateDifficulties.Contains(Difficulties.Hard);
+            bool dropUltimate = settings.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate);
+
+            double min = (double) (settings.MinimumDropRate / 100M);
+            double max = (double) (settings.MaximumDropRate / 100M);
+
+            switch (settings.DropRate)
+            {
+                case NoiseDropRate.RandomCompletely:
+                    foreach (EnemyData data in listToEdit)
+                    {
+                        if (dropEasy) data.DropRate[0] = (float) Math.Round((rand.NextDouble() * (max-min)) + min, 4);
+                        if (dropNormal) data.DropRate[1] = (float) Math.Round((rand.NextDouble() * (max - min)) + min, 4);
+                        if (dropHard) data.DropRate[2] = (float) Math.Round((rand.NextDouble() * (max - min)) + min, 4);
+                        if (dropUltimate) data.DropRate[3] = (float) Math.Round((rand.NextDouble() * (max - min)) + min, 4);
+                    }
+                    AdjustEnemyDataDropRate(enemyData);
+                    break;
+
+                case NoiseDropRate.RandomWeighted:
+                    List<uint> weightsOn = new List<uint>();
+                    if (dropEasy) weightsOn.Add(settings.NoiseDropRateWeights[0]);
+                    if (dropNormal) weightsOn.Add(settings.NoiseDropRateWeights[1]);
+                    if (dropHard) weightsOn.Add(settings.NoiseDropRateWeights[2]);
+                    if (dropUltimate) weightsOn.Add(settings.NoiseDropRateWeights[3]);
+
+                    uint wMin = weightsOn.Min();
+                    uint wMax = weightsOn.Max();
+                    uint wRange = wMax - wMin;
+
+                    double range = max - min;
+                    double unit = range / (wRange + 1);
+
+                    foreach (EnemyData data in listToEdit)
+                    {
+                        if (dropEasy) data.DropRate[0] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDropRateWeights[0]) * unit)) - (min+((settings.NoiseDropRateWeights[0] - 1) * unit)))) + (min + ((settings.NoiseDropRateWeights[0] - 1) * unit)), 4);
+                        if (dropNormal) data.DropRate[1] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDropRateWeights[1]) * unit)) - (min + ((settings.NoiseDropRateWeights[1] - 1) * unit)))) + (min + ((settings.NoiseDropRateWeights[1] - 1) * unit)), 4);
+                        if (dropHard) data.DropRate[2] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDropRateWeights[2]) * unit)) - (min + ((settings.NoiseDropRateWeights[2] - 1) * unit)))) + (min + ((settings.NoiseDropRateWeights[2] - 1) * unit)), 4);
+                        if (dropUltimate) data.DropRate[3] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDropRateWeights[3]) * unit)) - (min + ((settings.NoiseDropRateWeights[3] - 1) * unit)))) + (min + ((settings.NoiseDropRateWeights[3] - 1) * unit)), 4);
+                    }
+                    
+                    AdjustEnemyDataDropRate(enemyData);
+                    break;
+            }
+
+            logger.LogDropRateChanges(listToEditOriginal, listToEdit);
+
+            Dictionary<string, string> editedScripts = new Dictionary<string, string>
+            {
+                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) }
             };
             return editedScripts;
         }

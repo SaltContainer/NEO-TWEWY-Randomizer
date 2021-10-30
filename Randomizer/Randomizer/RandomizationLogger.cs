@@ -38,6 +38,19 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
+        public void LogDropRateChanges(List<EnemyData> original, List<EnemyData> randomized)
+        {
+            log += "Noise Drop Rates\n========================================\n\n";
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                string enemyName = FileConstants.ItemNames.Enemies.Where(e => e.Id == original[i].Id).First().Name;
+                List<float> dropsOriginal = original[i].DropRate.Select(r => r * 100).ToList();
+                List<float> dropsRandomized = randomized[i].DropRate.Select(r => r * 100).ToList();
+                log += string.Format("{0}\nEasy: {1}%\t\t\t\t\t->\t{2}%\nNormal: {3}%\t\t\t\t\t->\t{4}%\nHard: {5}%\t\t\t\t\t->\t{6}%\nUltimate: {7}%\t\t\t\t\t->\t{8}%\n\n", enemyName, dropsOriginal[0], dropsRandomized[0], dropsOriginal[1], dropsRandomized[1], dropsOriginal[2], dropsRandomized[2], dropsOriginal[3], dropsRandomized[3]);
+            }
+        }
+
         public void LogPigDropChanges(List<PigData> original, List<PigData> randomized)
         {
             log += "Pig Noise Drops\n========================================\n\n";

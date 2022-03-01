@@ -100,6 +100,52 @@ namespace NEO_TWEWY_Randomizer
             this.textSeedSeed = new System.Windows.Forms.TextBox();
             this.btnSeedRandom = new System.Windows.Forms.Button();
             this.grpSeed = new System.Windows.Forms.GroupBox();
+            this.grpPinBrand = new System.Windows.Forms.GroupBox();
+            this.grpPinGeneralStats = new System.Windows.Forms.GroupBox();
+            this.checkPinPower = new System.Windows.Forms.CheckBox();
+            this.checkPinLimit = new System.Windows.Forms.CheckBox();
+            this.checkPinPowerScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinLimitScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinCharge = new System.Windows.Forms.CheckBox();
+            this.checkPinReboot = new System.Windows.Forms.CheckBox();
+            this.checkPinRebootScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinBoot = new System.Windows.Forms.CheckBox();
+            this.checkPinBootScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinRecoverScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinRecover = new System.Windows.Forms.CheckBox();
+            this.radioPinBrandUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioPinBrandShuffle = new System.Windows.Forms.RadioButton();
+            this.radioPinBrandRandomC = new System.Windows.Forms.RadioButton();
+            this.radioPinBrandRandomU = new System.Windows.Forms.RadioButton();
+            this.checkPinAffinity = new System.Windows.Forms.CheckBox();
+            this.grpPinUber = new System.Windows.Forms.GroupBox();
+            this.checkPinMaxLevel = new System.Windows.Forms.CheckBox();
+            this.checkPinSell = new System.Windows.Forms.CheckBox();
+            this.checkPinSellScaling = new System.Windows.Forms.CheckBox();
+            this.checkPinUber = new System.Windows.Forms.CheckBox();
+            this.lbPinUber = new System.Windows.Forms.Label();
+            this.numPinUber = new System.Windows.Forms.NumericUpDown();
+            this.grpPinLeveling = new System.Windows.Forms.GroupBox();
+            this.radioPinEvoUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioPinEvoRandomE = new System.Windows.Forms.RadioButton();
+            this.radioPinEvoRandomC = new System.Windows.Forms.RadioButton();
+            this.checkPinEvoBrand = new System.Windows.Forms.CheckBox();
+            this.radioPinGrowthUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioPinGrowthRandomC = new System.Windows.Forms.RadioButton();
+            this.radioPinGrowthRandomU = new System.Windows.Forms.RadioButton();
+            this.grpPinGrowth = new System.Windows.Forms.GroupBox();
+            this.radioPinGrowthSpecific = new System.Windows.Forms.RadioButton();
+            this.comboPinGrowth = new System.Windows.Forms.ComboBox();
+            this.grpPinEvo = new System.Windows.Forms.GroupBox();
+            this.numPinEvo = new System.Windows.Forms.NumericUpDown();
+            this.lbPinEvo = new System.Windows.Forms.Label();
+            this.grpPinAbility = new System.Windows.Forms.GroupBox();
+            this.checkPinEvoChara = new System.Windows.Forms.CheckBox();
+            this.radioPinAbilityUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioPinAbilityShuffle = new System.Windows.Forms.RadioButton();
+            this.radioPinAbilityRandom = new System.Windows.Forms.RadioButton();
+            this.labPinAbility = new System.Windows.Forms.Label();
+            this.numPinAbility = new System.Windows.Forms.NumericUpDown();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
             this.grpChance.SuspendLayout();
@@ -112,10 +158,21 @@ namespace NEO_TWEWY_Randomizer
             ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightUltimate)).BeginInit();
             this.grpItems.SuspendLayout();
             this.grpItemsDifficulty.SuspendLayout();
+            this.tabPins.SuspendLayout();
             this.grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             this.grpSettingString.SuspendLayout();
             this.grpSeed.SuspendLayout();
+            this.grpPinBrand.SuspendLayout();
+            this.grpPinGeneralStats.SuspendLayout();
+            this.grpPinUber.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinUber)).BeginInit();
+            this.grpPinLeveling.SuspendLayout();
+            this.grpPinGrowth.SuspendLayout();
+            this.grpPinEvo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinEvo)).BeginInit();
+            this.grpPinAbility.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinAbility)).BeginInit();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -583,6 +640,11 @@ namespace NEO_TWEWY_Randomizer
             // 
             // tabPins
             // 
+            this.tabPins.Controls.Add(this.grpPinAbility);
+            this.tabPins.Controls.Add(this.grpPinLeveling);
+            this.tabPins.Controls.Add(this.grpPinUber);
+            this.tabPins.Controls.Add(this.grpPinBrand);
+            this.tabPins.Controls.Add(this.grpPinGeneralStats);
             this.tabPins.Location = new System.Drawing.Point(4, 22);
             this.tabPins.Name = "tabPins";
             this.tabPins.Padding = new System.Windows.Forms.Padding(3);
@@ -873,6 +935,508 @@ namespace NEO_TWEWY_Randomizer
             this.grpSeed.TabStop = false;
             this.grpSeed.Text = "Seed";
             // 
+            // grpPinBrand
+            // 
+            this.grpPinBrand.Controls.Add(this.radioPinBrandUnchanged);
+            this.grpPinBrand.Controls.Add(this.radioPinBrandShuffle);
+            this.grpPinBrand.Controls.Add(this.radioPinBrandRandomC);
+            this.grpPinBrand.Controls.Add(this.radioPinBrandRandomU);
+            this.grpPinBrand.Location = new System.Drawing.Point(261, 6);
+            this.grpPinBrand.Name = "grpPinBrand";
+            this.grpPinBrand.Size = new System.Drawing.Size(181, 120);
+            this.grpPinBrand.TabIndex = 0;
+            this.grpPinBrand.TabStop = false;
+            this.grpPinBrand.Text = "Brand";
+            // 
+            // grpPinGeneralStats
+            // 
+            this.grpPinGeneralStats.Controls.Add(this.checkPinPower);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinPowerScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinLimit);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinLimitScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinReboot);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinRebootScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinBoot);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinBootScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinRecover);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinRecoverScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinCharge);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinSell);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinSellScaling);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinAffinity);
+            this.grpPinGeneralStats.Controls.Add(this.checkPinMaxLevel);
+            this.grpPinGeneralStats.Location = new System.Drawing.Point(6, 6);
+            this.grpPinGeneralStats.Name = "grpPinGeneralStats";
+            this.grpPinGeneralStats.Size = new System.Drawing.Size(248, 236);
+            this.grpPinGeneralStats.TabIndex = 1;
+            this.grpPinGeneralStats.TabStop = false;
+            this.grpPinGeneralStats.Text = "General Stats";
+            // 
+            // checkPinPower
+            // 
+            this.checkPinPower.AutoSize = true;
+            this.checkPinPower.Location = new System.Drawing.Point(11, 21);
+            this.checkPinPower.Name = "checkPinPower";
+            this.checkPinPower.Size = new System.Drawing.Size(56, 17);
+            this.checkPinPower.TabIndex = 0;
+            this.checkPinPower.Text = "Power";
+            this.checkPinPower.UseVisualStyleBackColor = true;
+            // 
+            // checkPinLimit
+            // 
+            this.checkPinLimit.AutoSize = true;
+            this.checkPinLimit.Location = new System.Drawing.Point(11, 44);
+            this.checkPinLimit.Name = "checkPinLimit";
+            this.checkPinLimit.Size = new System.Drawing.Size(47, 17);
+            this.checkPinLimit.TabIndex = 1;
+            this.checkPinLimit.Text = "Limit";
+            this.checkPinLimit.UseVisualStyleBackColor = true;
+            // 
+            // checkPinPowerScaling
+            // 
+            this.checkPinPowerScaling.AutoSize = true;
+            this.checkPinPowerScaling.Location = new System.Drawing.Point(111, 21);
+            this.checkPinPowerScaling.Name = "checkPinPowerScaling";
+            this.checkPinPowerScaling.Size = new System.Drawing.Size(94, 17);
+            this.checkPinPowerScaling.TabIndex = 2;
+            this.checkPinPowerScaling.Text = "Power Scaling";
+            this.checkPinPowerScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinLimitScaling
+            // 
+            this.checkPinLimitScaling.AutoSize = true;
+            this.checkPinLimitScaling.Location = new System.Drawing.Point(111, 44);
+            this.checkPinLimitScaling.Name = "checkPinLimitScaling";
+            this.checkPinLimitScaling.Size = new System.Drawing.Size(85, 17);
+            this.checkPinLimitScaling.TabIndex = 3;
+            this.checkPinLimitScaling.Text = "Limit Scaling";
+            this.checkPinLimitScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinCharge
+            // 
+            this.checkPinCharge.AutoSize = true;
+            this.checkPinCharge.Location = new System.Drawing.Point(11, 136);
+            this.checkPinCharge.Name = "checkPinCharge";
+            this.checkPinCharge.Size = new System.Drawing.Size(86, 17);
+            this.checkPinCharge.TabIndex = 4;
+            this.checkPinCharge.Text = "Charge Time";
+            this.checkPinCharge.UseVisualStyleBackColor = true;
+            // 
+            // checkPinReboot
+            // 
+            this.checkPinReboot.AutoSize = true;
+            this.checkPinReboot.Location = new System.Drawing.Point(11, 67);
+            this.checkPinReboot.Name = "checkPinReboot";
+            this.checkPinReboot.Size = new System.Drawing.Size(87, 17);
+            this.checkPinReboot.TabIndex = 5;
+            this.checkPinReboot.Text = "Reboot Time";
+            this.checkPinReboot.UseVisualStyleBackColor = true;
+            // 
+            // checkPinRebootScaling
+            // 
+            this.checkPinRebootScaling.AutoSize = true;
+            this.checkPinRebootScaling.Location = new System.Drawing.Point(111, 67);
+            this.checkPinRebootScaling.Name = "checkPinRebootScaling";
+            this.checkPinRebootScaling.Size = new System.Drawing.Size(125, 17);
+            this.checkPinRebootScaling.TabIndex = 6;
+            this.checkPinRebootScaling.Text = "Reboot Time Scaling";
+            this.checkPinRebootScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinBoot
+            // 
+            this.checkPinBoot.AutoSize = true;
+            this.checkPinBoot.Location = new System.Drawing.Point(11, 90);
+            this.checkPinBoot.Name = "checkPinBoot";
+            this.checkPinBoot.Size = new System.Drawing.Size(74, 17);
+            this.checkPinBoot.TabIndex = 7;
+            this.checkPinBoot.Text = "Boot Time";
+            this.checkPinBoot.UseVisualStyleBackColor = true;
+            // 
+            // checkPinBootScaling
+            // 
+            this.checkPinBootScaling.AutoSize = true;
+            this.checkPinBootScaling.Location = new System.Drawing.Point(111, 90);
+            this.checkPinBootScaling.Name = "checkPinBootScaling";
+            this.checkPinBootScaling.Size = new System.Drawing.Size(112, 17);
+            this.checkPinBootScaling.TabIndex = 8;
+            this.checkPinBootScaling.Text = "Boot Time Scaling";
+            this.checkPinBootScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinRecoverScaling
+            // 
+            this.checkPinRecoverScaling.AutoSize = true;
+            this.checkPinRecoverScaling.Location = new System.Drawing.Point(111, 113);
+            this.checkPinRecoverScaling.Name = "checkPinRecoverScaling";
+            this.checkPinRecoverScaling.Size = new System.Drawing.Size(131, 17);
+            this.checkPinRecoverScaling.TabIndex = 11;
+            this.checkPinRecoverScaling.Text = "Recover Time Scaling";
+            this.checkPinRecoverScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinRecover
+            // 
+            this.checkPinRecover.AutoSize = true;
+            this.checkPinRecover.Location = new System.Drawing.Point(11, 113);
+            this.checkPinRecover.Name = "checkPinRecover";
+            this.checkPinRecover.Size = new System.Drawing.Size(93, 17);
+            this.checkPinRecover.TabIndex = 10;
+            this.checkPinRecover.Text = "Recover Time";
+            this.checkPinRecover.UseVisualStyleBackColor = true;
+            // 
+            // radioPinBrandUnchanged
+            // 
+            this.radioPinBrandUnchanged.AutoSize = true;
+            this.radioPinBrandUnchanged.Checked = true;
+            this.radioPinBrandUnchanged.Location = new System.Drawing.Point(11, 20);
+            this.radioPinBrandUnchanged.Name = "radioPinBrandUnchanged";
+            this.radioPinBrandUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioPinBrandUnchanged.TabIndex = 0;
+            this.radioPinBrandUnchanged.TabStop = true;
+            this.radioPinBrandUnchanged.Text = "Unchanged";
+            this.radioPinBrandUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioPinBrandShuffle
+            // 
+            this.radioPinBrandShuffle.AutoSize = true;
+            this.radioPinBrandShuffle.Location = new System.Drawing.Point(11, 43);
+            this.radioPinBrandShuffle.Name = "radioPinBrandShuffle";
+            this.radioPinBrandShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioPinBrandShuffle.TabIndex = 1;
+            this.radioPinBrandShuffle.Text = "Shuffle";
+            this.radioPinBrandShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioPinBrandRandomC
+            // 
+            this.radioPinBrandRandomC.AutoSize = true;
+            this.radioPinBrandRandomC.Location = new System.Drawing.Point(11, 66);
+            this.radioPinBrandRandomC.Name = "radioPinBrandRandomC";
+            this.radioPinBrandRandomC.Size = new System.Drawing.Size(125, 17);
+            this.radioPinBrandRandomC.TabIndex = 2;
+            this.radioPinBrandRandomC.Text = "Random (Completely)";
+            this.radioPinBrandRandomC.UseVisualStyleBackColor = true;
+            // 
+            // radioPinBrandRandomU
+            // 
+            this.radioPinBrandRandomU.AutoSize = true;
+            this.radioPinBrandRandomU.Location = new System.Drawing.Point(11, 89);
+            this.radioPinBrandRandomU.Name = "radioPinBrandRandomU";
+            this.radioPinBrandRandomU.Size = new System.Drawing.Size(110, 17);
+            this.radioPinBrandRandomU.TabIndex = 3;
+            this.radioPinBrandRandomU.Text = "Random (Uniform)";
+            this.radioPinBrandRandomU.UseVisualStyleBackColor = true;
+            // 
+            // checkPinAffinity
+            // 
+            this.checkPinAffinity.AutoSize = true;
+            this.checkPinAffinity.Location = new System.Drawing.Point(11, 182);
+            this.checkPinAffinity.Name = "checkPinAffinity";
+            this.checkPinAffinity.Size = new System.Drawing.Size(57, 17);
+            this.checkPinAffinity.TabIndex = 12;
+            this.checkPinAffinity.Text = "Affinity";
+            this.checkPinAffinity.UseVisualStyleBackColor = true;
+            // 
+            // grpPinUber
+            // 
+            this.grpPinUber.Controls.Add(this.numPinUber);
+            this.grpPinUber.Controls.Add(this.lbPinUber);
+            this.grpPinUber.Controls.Add(this.checkPinUber);
+            this.grpPinUber.Location = new System.Drawing.Point(261, 132);
+            this.grpPinUber.Name = "grpPinUber";
+            this.grpPinUber.Size = new System.Drawing.Size(181, 110);
+            this.grpPinUber.TabIndex = 2;
+            this.grpPinUber.TabStop = false;
+            this.grpPinUber.Text = "Uber";
+            // 
+            // checkPinMaxLevel
+            // 
+            this.checkPinMaxLevel.AutoSize = true;
+            this.checkPinMaxLevel.Location = new System.Drawing.Point(11, 205);
+            this.checkPinMaxLevel.Name = "checkPinMaxLevel";
+            this.checkPinMaxLevel.Size = new System.Drawing.Size(75, 17);
+            this.checkPinMaxLevel.TabIndex = 13;
+            this.checkPinMaxLevel.Text = "Max Level";
+            this.checkPinMaxLevel.UseVisualStyleBackColor = true;
+            // 
+            // checkPinSell
+            // 
+            this.checkPinSell.AutoSize = true;
+            this.checkPinSell.Location = new System.Drawing.Point(11, 159);
+            this.checkPinSell.Name = "checkPinSell";
+            this.checkPinSell.Size = new System.Drawing.Size(70, 17);
+            this.checkPinSell.TabIndex = 14;
+            this.checkPinSell.Text = "Sell Price";
+            this.checkPinSell.UseVisualStyleBackColor = true;
+            // 
+            // checkPinSellScaling
+            // 
+            this.checkPinSellScaling.AutoSize = true;
+            this.checkPinSellScaling.Location = new System.Drawing.Point(111, 159);
+            this.checkPinSellScaling.Name = "checkPinSellScaling";
+            this.checkPinSellScaling.Size = new System.Drawing.Size(108, 17);
+            this.checkPinSellScaling.TabIndex = 15;
+            this.checkPinSellScaling.Text = "Sell Price Scaling";
+            this.checkPinSellScaling.UseVisualStyleBackColor = true;
+            // 
+            // checkPinUber
+            // 
+            this.checkPinUber.AutoSize = true;
+            this.checkPinUber.Location = new System.Drawing.Point(11, 21);
+            this.checkPinUber.Name = "checkPinUber";
+            this.checkPinUber.Size = new System.Drawing.Size(79, 17);
+            this.checkPinUber.TabIndex = 0;
+            this.checkPinUber.Text = "Randomize";
+            this.checkPinUber.UseVisualStyleBackColor = true;
+            // 
+            // lbPinUber
+            // 
+            this.lbPinUber.AutoSize = true;
+            this.lbPinUber.Location = new System.Drawing.Point(10, 56);
+            this.lbPinUber.Name = "lbPinUber";
+            this.lbPinUber.Size = new System.Drawing.Size(126, 13);
+            this.lbPinUber.TabIndex = 2;
+            this.lbPinUber.Text = "Percentage of Uber Pins:";
+            // 
+            // numPinUber
+            // 
+            this.numPinUber.Location = new System.Drawing.Point(11, 72);
+            this.numPinUber.Name = "numPinUber";
+            this.numPinUber.Size = new System.Drawing.Size(120, 20);
+            this.numPinUber.TabIndex = 3;
+            this.numPinUber.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // grpPinLeveling
+            // 
+            this.grpPinLeveling.Controls.Add(this.grpPinEvo);
+            this.grpPinLeveling.Controls.Add(this.grpPinGrowth);
+            this.grpPinLeveling.Location = new System.Drawing.Point(448, 6);
+            this.grpPinLeveling.Name = "grpPinLeveling";
+            this.grpPinLeveling.Size = new System.Drawing.Size(314, 268);
+            this.grpPinLeveling.TabIndex = 3;
+            this.grpPinLeveling.TabStop = false;
+            this.grpPinLeveling.Text = "Leveling";
+            // 
+            // radioPinEvoUnchanged
+            // 
+            this.radioPinEvoUnchanged.AutoSize = true;
+            this.radioPinEvoUnchanged.Checked = true;
+            this.radioPinEvoUnchanged.Location = new System.Drawing.Point(11, 21);
+            this.radioPinEvoUnchanged.Name = "radioPinEvoUnchanged";
+            this.radioPinEvoUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioPinEvoUnchanged.TabIndex = 4;
+            this.radioPinEvoUnchanged.TabStop = true;
+            this.radioPinEvoUnchanged.Text = "Unchanged";
+            this.radioPinEvoUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioPinEvoRandomE
+            // 
+            this.radioPinEvoRandomE.AutoSize = true;
+            this.radioPinEvoRandomE.Location = new System.Drawing.Point(11, 44);
+            this.radioPinEvoRandomE.Name = "radioPinEvoRandomE";
+            this.radioPinEvoRandomE.Size = new System.Drawing.Size(117, 17);
+            this.radioPinEvoRandomE.TabIndex = 6;
+            this.radioPinEvoRandomE.Text = "Randomize Existing";
+            this.radioPinEvoRandomE.UseVisualStyleBackColor = true;
+            // 
+            // radioPinEvoRandomC
+            // 
+            this.radioPinEvoRandomC.AutoSize = true;
+            this.radioPinEvoRandomC.Location = new System.Drawing.Point(11, 67);
+            this.radioPinEvoRandomC.Name = "radioPinEvoRandomC";
+            this.radioPinEvoRandomC.Size = new System.Drawing.Size(125, 17);
+            this.radioPinEvoRandomC.TabIndex = 7;
+            this.radioPinEvoRandomC.Text = "Random (Completely)";
+            this.radioPinEvoRandomC.UseVisualStyleBackColor = true;
+            // 
+            // checkPinEvoBrand
+            // 
+            this.checkPinEvoBrand.AutoSize = true;
+            this.checkPinEvoBrand.Location = new System.Drawing.Point(150, 22);
+            this.checkPinEvoBrand.Name = "checkPinEvoBrand";
+            this.checkPinEvoBrand.Size = new System.Drawing.Size(114, 17);
+            this.checkPinEvoBrand.TabIndex = 8;
+            this.checkPinEvoBrand.Text = "Force Same Brand";
+            this.checkPinEvoBrand.UseVisualStyleBackColor = true;
+            // 
+            // radioPinGrowthUnchanged
+            // 
+            this.radioPinGrowthUnchanged.AutoSize = true;
+            this.radioPinGrowthUnchanged.Checked = true;
+            this.radioPinGrowthUnchanged.Location = new System.Drawing.Point(11, 19);
+            this.radioPinGrowthUnchanged.Name = "radioPinGrowthUnchanged";
+            this.radioPinGrowthUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioPinGrowthUnchanged.TabIndex = 4;
+            this.radioPinGrowthUnchanged.TabStop = true;
+            this.radioPinGrowthUnchanged.Text = "Unchanged";
+            this.radioPinGrowthUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioPinGrowthRandomC
+            // 
+            this.radioPinGrowthRandomC.AutoSize = true;
+            this.radioPinGrowthRandomC.Location = new System.Drawing.Point(11, 42);
+            this.radioPinGrowthRandomC.Name = "radioPinGrowthRandomC";
+            this.radioPinGrowthRandomC.Size = new System.Drawing.Size(125, 17);
+            this.radioPinGrowthRandomC.TabIndex = 4;
+            this.radioPinGrowthRandomC.Text = "Random (Completely)";
+            this.radioPinGrowthRandomC.UseVisualStyleBackColor = true;
+            // 
+            // radioPinGrowthRandomU
+            // 
+            this.radioPinGrowthRandomU.AutoSize = true;
+            this.radioPinGrowthRandomU.Location = new System.Drawing.Point(11, 65);
+            this.radioPinGrowthRandomU.Name = "radioPinGrowthRandomU";
+            this.radioPinGrowthRandomU.Size = new System.Drawing.Size(110, 17);
+            this.radioPinGrowthRandomU.TabIndex = 4;
+            this.radioPinGrowthRandomU.Text = "Random (Uniform)";
+            this.radioPinGrowthRandomU.UseVisualStyleBackColor = true;
+            // 
+            // grpPinGrowth
+            // 
+            this.grpPinGrowth.Controls.Add(this.comboPinGrowth);
+            this.grpPinGrowth.Controls.Add(this.radioPinGrowthUnchanged);
+            this.grpPinGrowth.Controls.Add(this.radioPinGrowthRandomC);
+            this.grpPinGrowth.Controls.Add(this.radioPinGrowthRandomU);
+            this.grpPinGrowth.Controls.Add(this.radioPinGrowthSpecific);
+            this.grpPinGrowth.Location = new System.Drawing.Point(6, 19);
+            this.grpPinGrowth.Name = "grpPinGrowth";
+            this.grpPinGrowth.Size = new System.Drawing.Size(302, 101);
+            this.grpPinGrowth.TabIndex = 9;
+            this.grpPinGrowth.TabStop = false;
+            this.grpPinGrowth.Text = "Growth Speed";
+            // 
+            // radioPinGrowthSpecific
+            // 
+            this.radioPinGrowthSpecific.AutoSize = true;
+            this.radioPinGrowthSpecific.Location = new System.Drawing.Point(150, 21);
+            this.radioPinGrowthSpecific.Name = "radioPinGrowthSpecific";
+            this.radioPinGrowthSpecific.Size = new System.Drawing.Size(134, 17);
+            this.radioPinGrowthSpecific.TabIndex = 5;
+            this.radioPinGrowthSpecific.Text = "Specific Growth Speed";
+            this.radioPinGrowthSpecific.UseVisualStyleBackColor = true;
+            // 
+            // comboPinGrowth
+            // 
+            this.comboPinGrowth.FormattingEnabled = true;
+            this.comboPinGrowth.Location = new System.Drawing.Point(150, 44);
+            this.comboPinGrowth.Name = "comboPinGrowth";
+            this.comboPinGrowth.Size = new System.Drawing.Size(134, 21);
+            this.comboPinGrowth.TabIndex = 6;
+            // 
+            // grpPinEvo
+            // 
+            this.grpPinEvo.Controls.Add(this.checkPinEvoBrand);
+            this.grpPinEvo.Controls.Add(this.checkPinEvoChara);
+            this.grpPinEvo.Controls.Add(this.lbPinEvo);
+            this.grpPinEvo.Controls.Add(this.numPinEvo);
+            this.grpPinEvo.Controls.Add(this.radioPinEvoUnchanged);
+            this.grpPinEvo.Controls.Add(this.radioPinEvoRandomE);
+            this.grpPinEvo.Controls.Add(this.radioPinEvoRandomC);
+            this.grpPinEvo.Location = new System.Drawing.Point(6, 126);
+            this.grpPinEvo.Name = "grpPinEvo";
+            this.grpPinEvo.Size = new System.Drawing.Size(302, 136);
+            this.grpPinEvo.TabIndex = 10;
+            this.grpPinEvo.TabStop = false;
+            this.grpPinEvo.Text = "Evolution";
+            // 
+            // numPinEvo
+            // 
+            this.numPinEvo.Location = new System.Drawing.Point(148, 90);
+            this.numPinEvo.Name = "numPinEvo";
+            this.numPinEvo.Size = new System.Drawing.Size(134, 20);
+            this.numPinEvo.TabIndex = 9;
+            this.numPinEvo.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // lbPinEvo
+            // 
+            this.lbPinEvo.AutoSize = true;
+            this.lbPinEvo.Location = new System.Drawing.Point(147, 74);
+            this.lbPinEvo.Name = "lbPinEvo";
+            this.lbPinEvo.Size = new System.Drawing.Size(144, 13);
+            this.lbPinEvo.TabIndex = 10;
+            this.lbPinEvo.Text = "Percentage of Evolving Pins:";
+            // 
+            // grpPinAbility
+            // 
+            this.grpPinAbility.Controls.Add(this.numPinAbility);
+            this.grpPinAbility.Controls.Add(this.labPinAbility);
+            this.grpPinAbility.Controls.Add(this.radioPinAbilityUnchanged);
+            this.grpPinAbility.Controls.Add(this.radioPinAbilityShuffle);
+            this.grpPinAbility.Controls.Add(this.radioPinAbilityRandom);
+            this.grpPinAbility.Location = new System.Drawing.Point(6, 248);
+            this.grpPinAbility.Name = "grpPinAbility";
+            this.grpPinAbility.Size = new System.Drawing.Size(324, 103);
+            this.grpPinAbility.TabIndex = 4;
+            this.grpPinAbility.TabStop = false;
+            this.grpPinAbility.Text = "Ability";
+            // 
+            // checkPinEvoChara
+            // 
+            this.checkPinEvoChara.AutoSize = true;
+            this.checkPinEvoChara.Location = new System.Drawing.Point(150, 45);
+            this.checkPinEvoChara.Name = "checkPinEvoChara";
+            this.checkPinEvoChara.Size = new System.Drawing.Size(149, 17);
+            this.checkPinEvoChara.TabIndex = 11;
+            this.checkPinEvoChara.Text = "Allow Chara.-specific Evo.";
+            this.checkPinEvoChara.UseVisualStyleBackColor = true;
+            // 
+            // radioPinAbilityUnchanged
+            // 
+            this.radioPinAbilityUnchanged.AutoSize = true;
+            this.radioPinAbilityUnchanged.Checked = true;
+            this.radioPinAbilityUnchanged.Location = new System.Drawing.Point(11, 19);
+            this.radioPinAbilityUnchanged.Name = "radioPinAbilityUnchanged";
+            this.radioPinAbilityUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioPinAbilityUnchanged.TabIndex = 12;
+            this.radioPinAbilityUnchanged.Text = "Unchanged";
+            this.radioPinAbilityUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioPinAbilityShuffle
+            // 
+            this.radioPinAbilityShuffle.AutoSize = true;
+            this.radioPinAbilityShuffle.Location = new System.Drawing.Point(11, 42);
+            this.radioPinAbilityShuffle.Name = "radioPinAbilityShuffle";
+            this.radioPinAbilityShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioPinAbilityShuffle.TabIndex = 13;
+            this.radioPinAbilityShuffle.Text = "Shuffle";
+            this.radioPinAbilityShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioPinAbilityRandom
+            // 
+            this.radioPinAbilityRandom.AutoSize = true;
+            this.radioPinAbilityRandom.Location = new System.Drawing.Point(11, 65);
+            this.radioPinAbilityRandom.Name = "radioPinAbilityRandom";
+            this.radioPinAbilityRandom.Size = new System.Drawing.Size(125, 17);
+            this.radioPinAbilityRandom.TabIndex = 14;
+            this.radioPinAbilityRandom.Text = "Random (Completely)";
+            this.radioPinAbilityRandom.UseVisualStyleBackColor = true;
+            // 
+            // labPinAbility
+            // 
+            this.labPinAbility.AutoSize = true;
+            this.labPinAbility.Location = new System.Drawing.Point(145, 21);
+            this.labPinAbility.Name = "labPinAbility";
+            this.labPinAbility.Size = new System.Drawing.Size(160, 13);
+            this.labPinAbility.TabIndex = 4;
+            this.labPinAbility.Text = "Percentage of Pins with Abilities:";
+            // 
+            // numPinAbility
+            // 
+            this.numPinAbility.Location = new System.Drawing.Point(146, 39);
+            this.numPinAbility.Name = "numPinAbility";
+            this.numPinAbility.Size = new System.Drawing.Size(139, 20);
+            this.numPinAbility.TabIndex = 4;
+            this.numPinAbility.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -885,9 +1449,9 @@ namespace NEO_TWEWY_Randomizer
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnAbout);
             this.Controls.Add(this.lbVersion);
+            this.Controls.Add(this.tabsMain);
             this.Controls.Add(this.linkSource);
             this.Controls.Add(this.grpInfo);
-            this.Controls.Add(this.tabsMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 626);
             this.Name = "FormMain";
@@ -908,12 +1472,29 @@ namespace NEO_TWEWY_Randomizer
             this.grpItems.PerformLayout();
             this.grpItemsDifficulty.ResumeLayout(false);
             this.grpItemsDifficulty.PerformLayout();
+            this.tabPins.ResumeLayout(false);
             this.grpInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).EndInit();
             this.grpSettingString.ResumeLayout(false);
             this.grpSettingString.PerformLayout();
             this.grpSeed.ResumeLayout(false);
             this.grpSeed.PerformLayout();
+            this.grpPinBrand.ResumeLayout(false);
+            this.grpPinBrand.PerformLayout();
+            this.grpPinGeneralStats.ResumeLayout(false);
+            this.grpPinGeneralStats.PerformLayout();
+            this.grpPinUber.ResumeLayout(false);
+            this.grpPinUber.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinUber)).EndInit();
+            this.grpPinLeveling.ResumeLayout(false);
+            this.grpPinGrowth.ResumeLayout(false);
+            this.grpPinGrowth.PerformLayout();
+            this.grpPinEvo.ResumeLayout(false);
+            this.grpPinEvo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinEvo)).EndInit();
+            this.grpPinAbility.ResumeLayout(false);
+            this.grpPinAbility.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numPinAbility)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -990,6 +1571,52 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.Button btnSettingStringGenerate;
         private System.Windows.Forms.Button btnSeedRandom;
         private System.Windows.Forms.GroupBox grpSeed;
+        private System.Windows.Forms.GroupBox grpPinAbility;
+        private System.Windows.Forms.NumericUpDown numPinAbility;
+        private System.Windows.Forms.Label labPinAbility;
+        private System.Windows.Forms.RadioButton radioPinAbilityUnchanged;
+        private System.Windows.Forms.RadioButton radioPinAbilityShuffle;
+        private System.Windows.Forms.RadioButton radioPinAbilityRandom;
+        private System.Windows.Forms.GroupBox grpPinLeveling;
+        private System.Windows.Forms.GroupBox grpPinEvo;
+        private System.Windows.Forms.CheckBox checkPinEvoBrand;
+        private System.Windows.Forms.CheckBox checkPinEvoChara;
+        private System.Windows.Forms.Label lbPinEvo;
+        private System.Windows.Forms.NumericUpDown numPinEvo;
+        private System.Windows.Forms.RadioButton radioPinEvoUnchanged;
+        private System.Windows.Forms.RadioButton radioPinEvoRandomE;
+        private System.Windows.Forms.RadioButton radioPinEvoRandomC;
+        private System.Windows.Forms.GroupBox grpPinGrowth;
+        private System.Windows.Forms.ComboBox comboPinGrowth;
+        private System.Windows.Forms.RadioButton radioPinGrowthUnchanged;
+        private System.Windows.Forms.RadioButton radioPinGrowthRandomC;
+        private System.Windows.Forms.RadioButton radioPinGrowthRandomU;
+        private System.Windows.Forms.RadioButton radioPinGrowthSpecific;
+        private System.Windows.Forms.GroupBox grpPinUber;
+        private System.Windows.Forms.NumericUpDown numPinUber;
+        private System.Windows.Forms.Label lbPinUber;
+        private System.Windows.Forms.CheckBox checkPinUber;
+        private System.Windows.Forms.GroupBox grpPinBrand;
+        private System.Windows.Forms.RadioButton radioPinBrandUnchanged;
+        private System.Windows.Forms.RadioButton radioPinBrandShuffle;
+        private System.Windows.Forms.RadioButton radioPinBrandRandomC;
+        private System.Windows.Forms.RadioButton radioPinBrandRandomU;
+        private System.Windows.Forms.GroupBox grpPinGeneralStats;
+        private System.Windows.Forms.CheckBox checkPinPower;
+        private System.Windows.Forms.CheckBox checkPinPowerScaling;
+        private System.Windows.Forms.CheckBox checkPinLimit;
+        private System.Windows.Forms.CheckBox checkPinLimitScaling;
+        private System.Windows.Forms.CheckBox checkPinReboot;
+        private System.Windows.Forms.CheckBox checkPinRebootScaling;
+        private System.Windows.Forms.CheckBox checkPinBoot;
+        private System.Windows.Forms.CheckBox checkPinBootScaling;
+        private System.Windows.Forms.CheckBox checkPinRecover;
+        private System.Windows.Forms.CheckBox checkPinRecoverScaling;
+        private System.Windows.Forms.CheckBox checkPinCharge;
+        private System.Windows.Forms.CheckBox checkPinSell;
+        private System.Windows.Forms.CheckBox checkPinSellScaling;
+        private System.Windows.Forms.CheckBox checkPinAffinity;
+        private System.Windows.Forms.CheckBox checkPinMaxLevel;
     }
 }
 

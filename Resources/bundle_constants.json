@@ -15,6 +15,10 @@
 			"PigData": {
 				"name": "PigData",
 				"attribute": "m_Script"
+			},
+			"Badge": {
+				"name": "Badge",
+				"attribute": "m_Script"
 			}
 		}
 	}

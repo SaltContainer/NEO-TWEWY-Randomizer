@@ -22,16 +22,68 @@ namespace NEO_TWEWY_Randomizer
             InitializeDataStructures();
         }
 
-        private bool IsBitSet(int num, int pos)
-        {
-            return (num & (1 << pos)) != 0;
-        }
-
         private void InitializeDataStructures()
         {
             NoiseDropTypeDifficulties = new List<Difficulties>();
             NoiseDropRateDifficulties = new List<Difficulties>();
             NoiseDropRateWeights = new List<uint> { 0,0,0,0 };
+        }
+
+        private uint MakeBitMask(int left, int right)
+        {
+            return (uint)((1 << left) - 1 - ((1 << right) - 1));
+        }
+
+        private string AppendToSettingsString(string hexString, uint bitsToAppend, int amountOfBits, int position)
+        {
+            int stringPos = position / 4;
+            int bitOfPos = position % 4;
+            int actualPos = hexString.Length - 1 - stringPos;
+
+            uint bitsLeft = bitsToAppend;
+
+            string editedString = hexString;
+
+            int lastNum = 0;
+            if (actualPos > -1)
+            {
+                lastNum = int.Parse(hexString.Substring(actualPos, 1), System.Globalization.NumberStyles.HexNumber);
+                editedString = hexString.Substring(actualPos + 1);
+            }
+            lastNum &= (int)MakeBitMask(bitOfPos, 0);
+            lastNum += (int)(MakeBitMask(4, bitOfPos) & (bitsToAppend << bitOfPos));
+
+            editedString = lastNum.ToString("X") + editedString;
+
+            int amountLeft = amountOfBits - (4 - bitOfPos);
+            if (amountLeft > 0) bitsLeft = bitsToAppend >> (4 - bitOfPos);
+
+            for (int i = amountLeft; i > 0; i -= 4)
+            {
+                uint newNum = 0b1111 & bitsLeft;
+                bitsLeft >>= 4;
+                editedString = newNum.ToString("X") + editedString;
+            }
+
+            return editedString;
+        }
+
+        private uint GetBitsFromSettingsString(string hexString, int position, int amount)
+        {
+            int leftPos = (position + amount) / 4;
+            int bitOfLeftPos = (position + amount) % 4;
+            int rightPos = position / 4;
+            int bitOfRightPos = position % 4;
+
+            int actualLeftPos = hexString.Length - 1 - leftPos;
+            int actualRightPos = hexString.Length - 1 - rightPos;
+            int lengthNeeded = actualRightPos - actualLeftPos + 1;
+
+            uint baseNumber = uint.Parse(hexString.Substring(actualLeftPos, lengthNeeded), System.Globalization.NumberStyles.HexNumber);
+
+            uint mask = MakeBitMask((lengthNeeded-1)*4 + bitOfLeftPos, bitOfRightPos);
+
+            return (baseNumber & mask) >> bitOfRightPos;
         }
 
         private void CorrectSettingValues()
@@ -51,40 +103,32 @@ namespace NEO_TWEWY_Randomizer
             if (Validator.ValidateSettingsString(settingsString) == Validator.SettingsStringValidationResult.Valid)
             {
                 settingsString = settingsString.PadLeft(Validator.SettingsStringMinimumLength, '0');
-                int l = settingsString.Length;
 
-                int droppedPins = int.Parse(settingsString.Substring(l - 2, 1), System.Globalization.NumberStyles.HexNumber);
-                DropType = (NoiseDropType)(droppedPins & 0b0111);
+                DropType = (NoiseDropType) GetBitsFromSettingsString(settingsString, 4, 3);
+                IncludeLimitedPins = GetBitsFromSettingsString(settingsString, 7, 1) == 1;
 
-                IncludeLimitedPins = IsBitSet(droppedPins, 3);
+                if (GetBitsFromSettingsString(settingsString, 8, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Easy);
+                if (GetBitsFromSettingsString(settingsString, 9, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Normal);
+                if (GetBitsFromSettingsString(settingsString, 10, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Hard);
+                if (GetBitsFromSettingsString(settingsString, 11, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
 
-                int droppedPinsDifficulties = int.Parse(settingsString.Substring(l - 3, 1), System.Globalization.NumberStyles.HexNumber);
-                if (IsBitSet(droppedPinsDifficulties, 0)) NoiseDropTypeDifficulties.Add(Difficulties.Easy);
-                if (IsBitSet(droppedPinsDifficulties, 1)) NoiseDropTypeDifficulties.Add(Difficulties.Normal);
-                if (IsBitSet(droppedPinsDifficulties, 2)) NoiseDropTypeDifficulties.Add(Difficulties.Hard);
-                if (IsBitSet(droppedPinsDifficulties, 3)) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
+                DropRate = (NoiseDropRate) GetBitsFromSettingsString(settingsString, 12, 2);
 
-                int dropRateCategory = int.Parse(settingsString.Substring(l - 4, 1), System.Globalization.NumberStyles.HexNumber);
-                DropRate = (NoiseDropRate)(dropRateCategory & 0b0011);
-
-                int minDropRatePartial = int.Parse(settingsString.Substring(l - 7, 3), System.Globalization.NumberStyles.HexNumber);
-                int minDropRate = (minDropRatePartial << 2) + (dropRateCategory >> 2);
+                uint minDropRate = GetBitsFromSettingsString(settingsString, 14, 14);
                 MinimumDropRate = minDropRate / 100M;
 
-                int maxDropRate = int.Parse(settingsString.Substring(l - 11, 4), System.Globalization.NumberStyles.HexNumber);
-                MaximumDropRate = (maxDropRate & 0b0011_1111_1111_1111) / 100M;
+                uint maxDropRate = GetBitsFromSettingsString(settingsString, 28, 14);
+                MaximumDropRate = maxDropRate / 100M;
 
-                int dropRateDifficultiesPartial = int.Parse(settingsString.Substring(l - 12, 1), System.Globalization.NumberStyles.HexNumber);
-                if (IsBitSet(maxDropRate, 14)) NoiseDropRateDifficulties.Add(Difficulties.Easy);
-                if (IsBitSet(maxDropRate, 15)) NoiseDropRateDifficulties.Add(Difficulties.Normal);
-                if (IsBitSet(dropRateDifficultiesPartial, 0)) NoiseDropRateDifficulties.Add(Difficulties.Hard);
-                if (IsBitSet(dropRateDifficultiesPartial, 1)) NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
+                if (GetBitsFromSettingsString(settingsString, 42, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Easy);
+                if (GetBitsFromSettingsString(settingsString, 43, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Normal);
+                if (GetBitsFromSettingsString(settingsString, 44, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Hard);
+                if (GetBitsFromSettingsString(settingsString, 45, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
 
-                uint dropRateWeights = uint.Parse(settingsString.Substring(l - 19, 7), System.Globalization.NumberStyles.HexNumber);
-                NoiseDropRateWeights[0] = ((dropRateWeights & 0b0000_0000_0000_0000_0000_0001_1111) << 2) + ((((uint) dropRateDifficultiesPartial) & 0b1100) >> 2);
-                NoiseDropRateWeights[1] = (dropRateWeights & 0b0000_0000_0000_0000_1111_1110_0000) >> 5;
-                NoiseDropRateWeights[2] = (dropRateWeights & 0b0000_0000_0111_1111_0000_0000_0000) >> 12;
-                NoiseDropRateWeights[3] = (dropRateWeights & 0b0011_1111_1000_0000_0000_0000_0000) >> 19;
+                NoiseDropRateWeights[0] = GetBitsFromSettingsString(settingsString, 46, 7);
+                NoiseDropRateWeights[1] = GetBitsFromSettingsString(settingsString, 53, 7);
+                NoiseDropRateWeights[2] = GetBitsFromSettingsString(settingsString, 60, 7);
+                NoiseDropRateWeights[3] = GetBitsFromSettingsString(settingsString, 67, 7);
 
                 CorrectSettingValues();
             }
@@ -94,39 +138,29 @@ namespace NEO_TWEWY_Randomizer
         {
             string settingsString = "";
 
-            settingsString = Validator.SettingsStringVersion.ToString("X") + settingsString;
+            settingsString = AppendToSettingsString(settingsString, (uint)Validator.SettingsStringVersion, 4, 0);
 
-            int droppedPins = (int) DropType;
-            if (IncludeLimitedPins) droppedPins += 0b1000;
-            settingsString = droppedPins.ToString("X") + settingsString;
+            settingsString = AppendToSettingsString(settingsString, (uint)DropType, 3, 4);
+            settingsString = AppendToSettingsString(settingsString, IncludeLimitedPins ? 1u : 0u, 1, 7);
 
-            int droppedPinsDifficulties = 0;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Easy)) droppedPinsDifficulties += 0b0001;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Normal)) droppedPinsDifficulties += 0b0010;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Hard)) droppedPinsDifficulties += 0b0100;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate)) droppedPinsDifficulties += 0b1000;
-            settingsString = droppedPinsDifficulties.ToString("X") + settingsString;
+            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 8);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 9);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Hard) ? 1u : 0u, 1, 10);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u, 1, 11);
 
-            uint dropRatePartialBytes = 0;
-            uint dropRateType = (uint) DropRate;
-            uint minimumDropRate = (uint) (MinimumDropRate * 100);
-            uint maximumDropRate = (uint) (MaximumDropRate * 100);
-            dropRatePartialBytes += dropRateType & 0b0000_0000_0000_0000_0000_0000_0000_0011;
-            dropRatePartialBytes += (minimumDropRate << 2) & 0b0000_0000_0000_0000_1111_1111_1111_1100;
-            dropRatePartialBytes += (maximumDropRate << 16) & 0b0011_1111_1111_1111_0000_0000_0000_0000;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Easy)) dropRatePartialBytes += 0b0100_0000_0000_0000_0000_0000_0000_0000;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Normal)) dropRatePartialBytes += 0b1000_0000_0000_0000_0000_0000_0000_0000;
-            settingsString = dropRatePartialBytes.ToString("X") + settingsString;
+            settingsString = AppendToSettingsString(settingsString, (uint)DropRate, 2, 12);
+            settingsString = AppendToSettingsString(settingsString, (uint)(MinimumDropRate * 100), 14, 14);
+            settingsString = AppendToSettingsString(settingsString, (uint)(MaximumDropRate * 100), 14, 28);
 
-            uint dropRatePartialBytes2 = 0;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Hard)) dropRatePartialBytes2 += 0b0000_0000_0000_0000_0000_0000_0000_0001;
-            if (NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate)) dropRatePartialBytes2 += 0b0000_0000_0000_0000_0000_0000_0000_0010;
-            dropRatePartialBytes2 += (NoiseDropRateWeights[0] << 2) & 0b0000_0000_0000_0000_0000_0001_1111_1100;
-            dropRatePartialBytes2 += (NoiseDropRateWeights[1] << 9) & 0b0000_0000_0000_0000_1111_1110_0000_0000;
-            dropRatePartialBytes2 += (NoiseDropRateWeights[2] << 16) & 0b0000_0000_0111_1111_0000_0000_0000_0000;
-            dropRatePartialBytes2 += (NoiseDropRateWeights[3] << 23) & 0b0011_1111_1000_0000_0000_0000_0000_0000;
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 42);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 43);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Hard) ? 1u : 0u, 1, 44);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u, 1, 45);
 
-            settingsString = dropRatePartialBytes2.ToString("X") + settingsString;
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[0], 7, 46);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[1], 7, 53);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[2], 7, 60);
+            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[3], 7, 67);
 
             return settingsString;
         }

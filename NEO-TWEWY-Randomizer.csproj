@@ -101,6 +101,11 @@
     <Compile Include="Randomizer\Randomizer\Enums\Difficulties.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropRate.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropType.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\PinGrowthRandomization.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\PinEvolution.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\PinAbility.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\PinBrand.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\PinGrowth.cs" />
     <Compile Include="Randomizer\Randomizer\RandomizationLogger.cs" />
     <Compile Include="Randomizer\UI\Forms\FormAbout.cs">
       <SubType>Form</SubType>

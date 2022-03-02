@@ -1838,5 +1838,27 @@
 			"id": 4109900,
 			"name":"Another Day - Pig 5"
 		}
+	],
+	"growth-classes": [
+		{
+			"id": 0,
+			"name":"Very Fast"
+		},
+		{
+			"id": 1,
+			"name":"Fast"
+		},
+		{
+			"id": 2,
+			"name":"Normal"
+		},
+		{
+			"id": 4,
+			"name":"Slow"
+		},
+		{
+			"id": 5,
+			"name":"Very Slow"
+		}
 	]
 }

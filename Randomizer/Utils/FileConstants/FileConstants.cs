@@ -17,5 +17,6 @@ namespace NEO_TWEWY_Randomizer
         public static string EnemyDataClassName { get; } = "EnemyData";
         public static string EnemyReportClassName { get; } = "EnemyReport";
         public static string PigDataClassName { get; } = "PigData";
+        public static string BadgeClassName { get; } = "Badge";
     }
 }

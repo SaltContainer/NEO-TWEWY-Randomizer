@@ -15,16 +15,28 @@ namespace NEO_TWEWY_Randomizer
         public FormMain()
         {
             InitializeComponent();
+            InitializeComponentValues();
             InitializeTooltips();
-            lbVersion.Text += SourceLinks.GetVersion();
-            UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
-            GenerateNewSeed();
 
-            pinImages = new PinImages();
-            picPin.Image = pinImages.GetRandomImage();
+            GenerateNewSeed();
             randomizationEngine = new RandomizationEngine();
         }
 
+        #region Component Values
+        private void InitializeComponentValues()
+        {
+            lbVersion.Text += SourceLinks.GetVersion();
+            UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
+
+            comboPinGrowth.DataSource = FileConstants.ItemNames.GrowthRates;
+            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)PinGrowth.Normal).First();
+
+            pinImages = new PinImages();
+            picPin.Image = pinImages.GetRandomImage();
+        }
+        #endregion
+
+        #region Tooltips
         private void InitializeTooltips()
         {
             ttradioItemsUnchanged.SetToolTip(radioItemsUnchanged, Resources.ttradioItemsUnchanged);
@@ -54,24 +66,9 @@ namespace NEO_TWEWY_Randomizer
             ttnumChanceWeight.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
             ttnumChanceWeight.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
         }
+        #endregion
 
-        private void UpdateLoadedFilesLabel(Dictionary<string, string> files)
-        {
-            lbInfoFilesLabel.Text = "";
-            lbInfoFiles.Text = "";
-            foreach (var file in files)
-            {
-                lbInfoFilesLabel.Text += string.Format("{0}:\n", FileConstants.Bundles[file.Key].FileName);
-                lbInfoFiles.Text += string.Format("{0}\n", file.Value);
-            }
-        }
-
-        private void GenerateNewSeed()
-        {
-            Random rand = new Random();
-            textSeedSeed.Text = rand.Next().ToString();
-        }
-
+        #region Create Settings from Form
         private RandomizationSettings GenerateRandomizationSettings()
         {
             RandomizationSettings settings = new RandomizationSettings();
@@ -108,7 +105,9 @@ namespace NEO_TWEWY_Randomizer
 
             return settings;
         }
+        #endregion
 
+        #region Adjust Form from Settings
         private void ReadSettings(RandomizationSettings settings)
         {
             switch (settings.DropType)
@@ -163,7 +162,9 @@ namespace NEO_TWEWY_Randomizer
             numChanceWeightHard.Value = settings.NoiseDropRateWeights[2];
             numChanceWeightUltimate.Value = settings.NoiseDropRateWeights[3];
         }
+        #endregion
 
+        #region Form Enabling/Disabling Interactions
         private void SetItemsAffectedDifficultiesEnabled(bool value)
         {
             checkItemsEasy.Enabled = value;
@@ -199,9 +200,29 @@ namespace NEO_TWEWY_Randomizer
             numChanceMax.Enabled = value;
         }
 
-        private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SetPinAbilityPercentageEnabled(bool value)
         {
-            System.Diagnostics.Process.Start(SourceLinks.GetGitHubLink());
+            numPinAbility.Enabled = value;
+        }
+
+        private void SetPinUberPercentageEnabled(bool value)
+        {
+            numPinUber.Enabled = value;
+        }
+
+        private void SetPinGrowthSpecificEnabled(bool value)
+        {
+            comboPinGrowth.Enabled = value;
+        }
+
+        private void SetPinEvoForceBrandEnabled(bool value)
+        {
+            checkPinEvoBrand.Enabled = value;
+        }
+
+        private void SetPinEvoPercentageEnabled(bool value)
+        {
+            numPinEvo.Enabled = value;
         }
 
         private void radioItemsUnchanged_CheckedChanged(object sender, EventArgs e)
@@ -267,6 +288,77 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
+        private void radioPinAbilityUnchanged_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinAbilityPercentageEnabled(false);
+        }
+
+        private void radioPinAbilityShuffle_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinAbilityPercentageEnabled(false);
+        }
+
+        private void radioPinAbilityRandom_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinAbilityPercentageEnabled(true);
+        }
+
+        private void checkPinUber_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinUberPercentageEnabled(checkPinUber.Checked);
+        }
+
+        private void radioPinGrowthUnchanged_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinGrowthSpecificEnabled(false);
+        }
+
+        private void radioPinGrowthRandomC_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinGrowthSpecificEnabled(false);
+        }
+
+        private void radioPinGrowthRandomU_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinGrowthSpecificEnabled(false);
+        }
+
+        private void radioPinGrowthSpecific_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinGrowthSpecificEnabled(true);
+        }
+
+        private void radioPinEvoUnchanged_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinEvoForceBrandEnabled(false);
+            SetPinEvoPercentageEnabled(false);
+        }
+
+        private void radioPinEvoRandomE_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinEvoForceBrandEnabled(true);
+            SetPinEvoPercentageEnabled(false);
+        }
+
+        private void radioPinEvoRandomC_CheckedChanged(object sender, EventArgs e)
+        {
+            SetPinEvoForceBrandEnabled(true);
+            SetPinEvoPercentageEnabled(true);
+        }
+        #endregion
+
+        #region File Handling
+        private void UpdateLoadedFilesLabel(Dictionary<string, string> files)
+        {
+            lbInfoFilesLabel.Text = "";
+            lbInfoFiles.Text = "";
+            foreach (var file in files)
+            {
+                lbInfoFilesLabel.Text += string.Format("{0}:\n", FileConstants.Bundles[file.Key].FileName);
+                lbInfoFiles.Text += string.Format("{0}\n", file.Value);
+            }
+        }
+
         private void btnOpen_Click(object sender, EventArgs e)
         {
             Dictionary<string, string> files = new Dictionary<string, string>();
@@ -318,13 +410,22 @@ namespace NEO_TWEWY_Randomizer
                 }
             }
         }
+        #endregion File Handling
+
+        #region About/Link
+        private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start(SourceLinks.GetGitHubLink());
+        }
 
         private void btnAbout_Click(object sender, EventArgs e)
         {
             FormAbout form = new FormAbout();
             form.ShowDialog();
         }
+        #endregion
 
+        #region Settings String and Seed Control
         private void btnSettingStringGenerate_Click(object sender, EventArgs e)
         {
             RandomizationSettings settings = GenerateRandomizationSettings();
@@ -353,6 +454,12 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
+        private void GenerateNewSeed()
+        {
+            Random rand = new Random();
+            textSeedSeed.Text = rand.Next().ToString();
+        }
+
         private void textSeedSeed_Click(object sender, EventArgs e)
         {
             GenerateNewSeed();
@@ -366,5 +473,6 @@ namespace NEO_TWEWY_Randomizer
                 textSeedSeed.Text = "0";
             }
         }
+        #endregion
     }
 }

@@ -17,5 +17,7 @@ namespace NEO_TWEWY_Randomizer
         public IList<NameAssociation> Enemies { get; set; }
         [JsonProperty("pigs")]
         public IList<NameAssociation> Pigs { get; set; }
+        [JsonProperty("growth-classes")]
+        public IList<NameAssociation> GrowthRates { get; set; }
     }
 }

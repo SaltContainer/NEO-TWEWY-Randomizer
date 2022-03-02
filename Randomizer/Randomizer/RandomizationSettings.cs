@@ -17,6 +17,33 @@ namespace NEO_TWEWY_Randomizer
         public List<Difficulties> NoiseDropRateDifficulties { get; set; }
         public List<uint> NoiseDropRateWeights { get; set; }
 
+        public bool PinPower { get; set; }
+        public bool PinPowerScaling { get; set; }
+        public bool PinLimit { get; set; }
+        public bool PinLimitScaling { get; set; }
+        public bool PinReboot { get; set; }
+        public bool PinRebootScaling { get; set; }
+        public bool PinBoot { get; set; }
+        public bool PinBootScaling { get; set; }
+        public bool PinRecover { get; set; }
+        public bool PinRecoverScaling { get; set; }
+        public bool PinCharge { get; set; }
+        public bool PinSell { get; set; }
+        public bool PinSellScaling { get; set; }
+        public bool PinAffinity { get; set; }
+        public bool PinMaxLevel { get; set; }
+        public PinBrand PinBrandChoice { get; set; }
+        public bool PinUber { get; set; }
+        public uint PinUberPercentage { get; set; }
+        public PinAbility PinAbilityChoice { get; set; }
+        public uint PinAbilityPercentage { get; set; }
+        public PinGrowthRandomization PinGrowthChoice { get; set; }
+        public PinGrowth PinGrowthSpecific { get; set; }
+        public PinEvolution PinEvolutionChoice { get; set; }
+        public bool PinEvoForceBrand { get; set; }
+        public bool PinAllowCharaEvo { get; set; }
+        public uint PinEvoPercentage { get; set; }
+
         public RandomizationSettings()
         {
             InitializeDataStructures();
@@ -93,7 +120,15 @@ namespace NEO_TWEWY_Randomizer
             MinimumDropRate = Math.Max(Math.Min(MinimumDropRate, 100M), 0.01M);
             MaximumDropRate = Math.Max(Math.Min(MaximumDropRate, 100M), 0.01M);
             if (MinimumDropRate > MaximumDropRate) MaximumDropRate = MinimumDropRate;
-            NoiseDropRateWeights.Select(weight => Math.Max(Math.Min(weight, 100), 1));
+            NoiseDropRateWeights = NoiseDropRateWeights.Select(weight => Math.Max(Math.Min(weight, 100), 1)).ToList();
+
+            if (!Enum.IsDefined(typeof(PinBrand), PinBrandChoice)) PinBrandChoice = PinBrand.Unchanged;
+            PinUberPercentage = Math.Max(Math.Min(PinUberPercentage, 100), 1);
+            if (!Enum.IsDefined(typeof(PinAbility), PinAbilityChoice)) PinAbilityChoice = PinAbility.Unchanged;
+            PinAbilityPercentage = Math.Max(Math.Min(PinAbilityPercentage, 100), 1);
+            if (!Enum.IsDefined(typeof(PinGrowthRandomization), PinGrowthChoice)) PinGrowthChoice = PinGrowthRandomization.Unchanged;
+            if (!Enum.IsDefined(typeof(PinGrowth), PinGrowthSpecific) || PinGrowthSpecific == PinGrowth.Other) PinGrowthSpecific = PinGrowth.Normal;
+            PinEvoPercentage = Math.Max(Math.Min(PinEvoPercentage, 100), 1);
         }
 
         public RandomizationSettings(string settingsString)

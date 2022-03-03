@@ -167,6 +167,8 @@ namespace NEO_TWEWY_Randomizer
 
                 case NoiseDropType.RandomCompletely:
                     List<int> rcPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                    rcPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
+                    rcPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
                     if (limited) rcPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
 
                     foreach (EnemyData data in listToEdit)
@@ -181,6 +183,8 @@ namespace NEO_TWEWY_Randomizer
 
                 case NoiseDropType.RandomAllPins:
                     List<int> raPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                    raPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
+                    raPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
                     if (limited) raPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
 
                     int raEnemyCount = listToEdit.Count;

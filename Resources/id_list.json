@@ -1247,7 +1247,9 @@
 		{
 			"id": 3020,
 			"name": "Handstandin' Panda"
-		},
+		}
+	],
+	"yen-pins": [
 		{
 			"id": 5000,
 			"name": "1 Yen"
@@ -1287,7 +1289,9 @@
 		{
 			"id": 5009,
 			"name": "100000 Yen"
-		},
+		}
+	],
+	"gem-pins": [
 		{
 			"id": 5100,
 			"name": "Scarletite"

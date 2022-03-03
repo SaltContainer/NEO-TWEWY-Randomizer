@@ -41,7 +41,7 @@ namespace NEO_TWEWY_Randomizer
         public PinGrowth PinGrowthSpecific { get; set; }
         public PinEvolution PinEvolutionChoice { get; set; }
         public bool PinEvoForceBrand { get; set; }
-        public bool PinAllowCharaEvo { get; set; }
+        public bool PinEvoCharaEvos { get; set; }
         public uint PinEvoPercentage { get; set; }
 
         public RandomizationSettings()
@@ -148,10 +148,8 @@ namespace NEO_TWEWY_Randomizer
                 if (GetBitsFromSettingsString(settingsString, 11, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
 
                 DropRate = (NoiseDropRate) GetBitsFromSettingsString(settingsString, 12, 2);
-
                 uint minDropRate = GetBitsFromSettingsString(settingsString, 14, 14);
                 MinimumDropRate = minDropRate / 100M;
-
                 uint maxDropRate = GetBitsFromSettingsString(settingsString, 28, 14);
                 MaximumDropRate = maxDropRate / 100M;
 
@@ -164,6 +162,38 @@ namespace NEO_TWEWY_Randomizer
                 NoiseDropRateWeights[1] = GetBitsFromSettingsString(settingsString, 53, 7);
                 NoiseDropRateWeights[2] = GetBitsFromSettingsString(settingsString, 60, 7);
                 NoiseDropRateWeights[3] = GetBitsFromSettingsString(settingsString, 67, 7);
+
+                PinPower = GetBitsFromSettingsString(settingsString, 74, 1) == 1;
+                PinPowerScaling = GetBitsFromSettingsString(settingsString, 75, 1) == 1;
+                PinLimit = GetBitsFromSettingsString(settingsString, 76, 1) == 1;
+                PinLimitScaling = GetBitsFromSettingsString(settingsString, 77, 1) == 1;
+                PinReboot = GetBitsFromSettingsString(settingsString, 78, 1) == 1;
+                PinRebootScaling = GetBitsFromSettingsString(settingsString, 79, 1) == 1;
+                PinBoot = GetBitsFromSettingsString(settingsString, 80, 1) == 1;
+                PinBootScaling = GetBitsFromSettingsString(settingsString, 81, 1) == 1;
+                PinRecover = GetBitsFromSettingsString(settingsString, 82, 1) == 1;
+                PinRecoverScaling = GetBitsFromSettingsString(settingsString, 83, 1) == 1;
+                PinCharge = GetBitsFromSettingsString(settingsString, 84, 1) == 1;
+                PinSell = GetBitsFromSettingsString(settingsString, 85, 1) == 1;
+                PinSellScaling = GetBitsFromSettingsString(settingsString, 86, 1) == 1;
+                PinAffinity = GetBitsFromSettingsString(settingsString, 87, 1) == 1;
+                PinMaxLevel = GetBitsFromSettingsString(settingsString, 88, 1) == 1;
+
+                PinBrandChoice = (PinBrand) GetBitsFromSettingsString(settingsString, 89, 2);
+
+                PinUber = GetBitsFromSettingsString(settingsString, 91, 1) == 1;
+                PinUberPercentage = GetBitsFromSettingsString(settingsString, 92, 7);
+
+                PinAbilityChoice = (PinAbility) GetBitsFromSettingsString(settingsString, 99, 2);
+                PinAbilityPercentage = GetBitsFromSettingsString(settingsString, 101, 7);
+
+                PinGrowthChoice = (PinGrowthRandomization) GetBitsFromSettingsString(settingsString, 108, 2);
+                PinGrowthSpecific = (PinGrowth) GetBitsFromSettingsString(settingsString, 110, 3);
+
+                PinEvolutionChoice = (PinEvolution) GetBitsFromSettingsString(settingsString, 113, 2);
+                PinEvoForceBrand = GetBitsFromSettingsString(settingsString, 115, 1) == 1;
+                PinEvoCharaEvos = GetBitsFromSettingsString(settingsString, 116, 1) == 1;
+                PinEvoPercentage = GetBitsFromSettingsString(settingsString, 117, 7);
 
                 CorrectSettingValues();
             }
@@ -196,6 +226,38 @@ namespace NEO_TWEWY_Randomizer
             settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[1], 7, 53);
             settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[2], 7, 60);
             settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[3], 7, 67);
+
+            settingsString = AppendToSettingsString(settingsString, PinPower ? 1u : 0u, 1, 74);
+            settingsString = AppendToSettingsString(settingsString, PinPowerScaling ? 1u : 0u, 1, 75);
+            settingsString = AppendToSettingsString(settingsString, PinLimit ? 1u : 0u, 1, 76);
+            settingsString = AppendToSettingsString(settingsString, PinLimitScaling ? 1u : 0u, 1, 77);
+            settingsString = AppendToSettingsString(settingsString, PinReboot ? 1u : 0u, 1, 78);
+            settingsString = AppendToSettingsString(settingsString, PinRebootScaling ? 1u : 0u, 1, 79);
+            settingsString = AppendToSettingsString(settingsString, PinBoot ? 1u : 0u, 1, 80);
+            settingsString = AppendToSettingsString(settingsString, PinBootScaling ? 1u : 0u, 1, 81);
+            settingsString = AppendToSettingsString(settingsString, PinRecover ? 1u : 0u, 1, 82);
+            settingsString = AppendToSettingsString(settingsString, PinRecoverScaling ? 1u : 0u, 1, 83);
+            settingsString = AppendToSettingsString(settingsString, PinCharge ? 1u : 0u, 1, 84);
+            settingsString = AppendToSettingsString(settingsString, PinSell ? 1u : 0u, 1, 85);
+            settingsString = AppendToSettingsString(settingsString, PinSellScaling ? 1u : 0u, 1, 86);
+            settingsString = AppendToSettingsString(settingsString, PinAffinity ? 1u : 0u, 1, 87);
+            settingsString = AppendToSettingsString(settingsString, PinMaxLevel ? 1u : 0u, 1, 88);
+
+            settingsString = AppendToSettingsString(settingsString, (uint)PinBrandChoice, 2, 89);
+
+            settingsString = AppendToSettingsString(settingsString, PinUber ? 1u : 0u, 1, 91);
+            settingsString = AppendToSettingsString(settingsString, PinUberPercentage, 7, 92);
+
+            settingsString = AppendToSettingsString(settingsString, (uint)PinAbilityChoice, 2, 99);
+            settingsString = AppendToSettingsString(settingsString, PinAbilityPercentage, 7, 101);
+
+            settingsString = AppendToSettingsString(settingsString, (uint)PinGrowthChoice, 2, 108);
+            settingsString = AppendToSettingsString(settingsString, (uint)PinGrowthSpecific, 3, 110);
+
+            settingsString = AppendToSettingsString(settingsString, (uint)PinEvolutionChoice, 2, 113);
+            settingsString = AppendToSettingsString(settingsString, PinEvoForceBrand ? 1u : 0u, 1, 115);
+            settingsString = AppendToSettingsString(settingsString, PinEvoCharaEvos ? 1u : 0u, 1, 116);
+            settingsString = AppendToSettingsString(settingsString, PinEvoPercentage, 7, 117);
 
             return settingsString;
         }

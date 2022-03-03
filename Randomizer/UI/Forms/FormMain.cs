@@ -103,6 +103,48 @@ namespace NEO_TWEWY_Randomizer
             settings.NoiseDropRateWeights[2] = (uint) numChanceWeightHard.Value;
             settings.NoiseDropRateWeights[3] = (uint) numChanceWeightUltimate.Value;
 
+            settings.PinPower = checkPinPower.Checked;
+            settings.PinPowerScaling = checkPinPowerScaling.Checked;
+            settings.PinLimit = checkPinLimit.Checked;
+            settings.PinLimitScaling = checkPinLimitScaling.Checked;
+            settings.PinReboot = checkPinReboot.Checked;
+            settings.PinRebootScaling = checkPinRebootScaling.Checked;
+            settings.PinBoot = checkPinBoot.Checked;
+            settings.PinBootScaling = checkPinBootScaling.Checked;
+            settings.PinRecover = checkPinRecover.Checked;
+            settings.PinRecoverScaling = checkPinRecoverScaling.Checked;
+            settings.PinCharge = checkPinCharge.Checked;
+            settings.PinSell = checkPinSell.Checked;
+            settings.PinSellScaling = checkPinSellScaling.Checked;
+            settings.PinAffinity = checkPinAffinity.Checked;
+            settings.PinMaxLevel = checkPinMaxLevel.Checked;
+
+            if (radioPinBrandUnchanged.Checked) settings.PinBrandChoice = PinBrand.Unchanged;
+            else if (radioPinBrandShuffle.Checked) settings.PinBrandChoice = PinBrand.Shuffle;
+            else if (radioPinBrandRandomC.Checked) settings.PinBrandChoice = PinBrand.RandomCompletely;
+            else if (radioPinBrandRandomU.Checked) settings.PinBrandChoice = PinBrand.RandomUniform;
+
+            settings.PinUber = checkPinUber.Checked;
+            settings.PinUberPercentage = (uint) numPinUber.Value;
+
+            if (radioPinAbilityUnchanged.Checked) settings.PinAbilityChoice = PinAbility.Unchanged;
+            else if (radioPinAbilityShuffle.Checked) settings.PinAbilityChoice = PinAbility.Shuffle;
+            else if (radioPinAbilityRandom.Checked) settings.PinAbilityChoice = PinAbility.RandomCompletely;
+            settings.PinAbilityPercentage = (uint) numPinAbility.Value;
+
+            if (radioPinGrowthUnchanged.Checked) settings.PinGrowthChoice = PinGrowthRandomization.Unchanged;
+            else if (radioPinGrowthRandomC.Checked) settings.PinGrowthChoice = PinGrowthRandomization.RandomCompletely;
+            else if (radioPinGrowthRandomU.Checked) settings.PinGrowthChoice = PinGrowthRandomization.RandomUniform;
+            else if (radioPinGrowthSpecific.Checked) settings.PinGrowthChoice = PinGrowthRandomization.Specific;
+            settings.PinGrowthSpecific = (PinGrowth) ((NameAssociation)comboPinGrowth.SelectedItem).Id;
+
+            if (radioPinEvoUnchanged.Checked) settings.PinEvolutionChoice = PinEvolution.Unchanged;
+            else if (radioPinEvoRandomE.Checked) settings.PinEvolutionChoice = PinEvolution.RandomExisting;
+            else if (radioPinEvoRandomC.Checked) settings.PinEvolutionChoice = PinEvolution.RandomCompletely;
+            settings.PinEvoForceBrand = checkPinEvoBrand.Checked;
+            settings.PinEvoCharaEvos = checkPinEvoChara.Checked;
+            settings.PinEvoPercentage = (uint)numPinEvo.Value;
+
             return settings;
         }
         #endregion
@@ -161,6 +203,88 @@ namespace NEO_TWEWY_Randomizer
             numChanceWeightNormal.Value = settings.NoiseDropRateWeights[1];
             numChanceWeightHard.Value = settings.NoiseDropRateWeights[2];
             numChanceWeightUltimate.Value = settings.NoiseDropRateWeights[3];
+
+            checkPinPower.Checked = settings.PinPower;
+            checkPinPowerScaling.Checked = settings.PinPowerScaling;
+            checkPinLimit.Checked = settings.PinLimit;
+            checkPinLimitScaling.Checked = settings.PinLimitScaling;
+            checkPinReboot.Checked = settings.PinReboot;
+            checkPinRebootScaling.Checked = settings.PinRebootScaling;
+            checkPinBoot.Checked = settings.PinBoot;
+            checkPinBootScaling.Checked = settings.PinBootScaling;
+            checkPinRecover.Checked = settings.PinRecover;
+            checkPinRecoverScaling.Checked = settings.PinRecoverScaling;
+            checkPinCharge.Checked = settings.PinCharge;
+            checkPinSell.Checked = settings.PinSell;
+            checkPinSellScaling.Checked = settings.PinSellScaling;
+            checkPinAffinity.Checked = settings.PinAffinity;
+            checkPinMaxLevel.Checked = settings.PinMaxLevel;
+
+            switch (settings.PinBrandChoice)
+            {
+                case PinBrand.Unchanged:
+                    radioPinBrandUnchanged.Checked = true;
+                    break;
+                case PinBrand.Shuffle:
+                    radioPinBrandShuffle.Checked = true;
+                    break;
+                case PinBrand.RandomCompletely:
+                    radioPinBrandRandomC.Checked = true;
+                    break;
+                case PinBrand.RandomUniform:
+                    radioPinBrandRandomU.Checked = true;
+                    break;
+            }
+
+            checkPinUber.Checked = settings.PinUber;
+            numPinUber.Value = settings.PinUberPercentage;
+
+            switch (settings.PinAbilityChoice)
+            {
+                case PinAbility.Unchanged:
+                    radioPinAbilityUnchanged.Checked = true;
+                    break;
+                case PinAbility.Shuffle:
+                    radioPinAbilityShuffle.Checked = true;
+                    break;
+                case PinAbility.RandomCompletely:
+                    radioPinAbilityRandom.Checked = true;
+                    break;
+            }
+            numPinAbility.Value = settings.PinAbilityPercentage;
+
+            switch (settings.PinGrowthChoice)
+            {
+                case PinGrowthRandomization.Unchanged:
+                    radioPinGrowthUnchanged.Checked = true;
+                    break;
+                case PinGrowthRandomization.RandomCompletely:
+                    radioPinGrowthRandomC.Checked = true;
+                    break;
+                case PinGrowthRandomization.RandomUniform:
+                    radioPinGrowthRandomU.Checked = true;
+                    break;
+                case PinGrowthRandomization.Specific:
+                    radioPinGrowthSpecific.Checked = true;
+                    break;
+            }
+            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinGrowthSpecific).First();
+
+            switch (settings.PinEvolutionChoice)
+            {
+                case PinEvolution.Unchanged:
+                    radioPinEvoUnchanged.Checked = true;
+                    break;
+                case PinEvolution.RandomExisting:
+                    radioPinEvoRandomE.Checked = true;
+                    break;
+                case PinEvolution.RandomCompletely:
+                    radioPinEvoRandomC.Checked = true;
+                    break;
+            }
+            checkPinEvoBrand.Checked = settings.PinEvoForceBrand;
+            checkPinEvoChara.Checked = settings.PinEvoCharaEvos;
+            numPinEvo.Value = settings.PinEvoPercentage;
         }
         #endregion
 

@@ -1860,5 +1860,71 @@
 			"id": 5,
 			"name":"Very Slow"
 		}
+	],
+	"brands": [
+		{
+			"id": 0,
+			"name":"Unbranded"
+		},
+		{
+			"id": 1,
+			"name":"Top o' Topo"
+		},
+		{
+			"id": 2,
+			"name":"Joli bécot"
+		},
+		{
+			"id": 3,
+			"name":"Tigre PUNKS"
+		},
+		{
+			"id": 4,
+			"name":"Cony×Cony"
+		},
+		{
+			"id": 5,
+			"name":"RyuGu"
+		},
+		{
+			"id": 6,
+			"name":"garagara"
+		},
+		{
+			"id": 7,
+			"name":"IL CAVALLO DEL RE"
+		},
+		{
+			"id": 8,
+			"name":"Shepherd House"
+		},
+		{
+			"id": 9,
+			"name":"Jupiter of the Monkey"
+		},
+		{
+			"id": 10,
+			"name":"MONOCROW"
+		},
+		{
+			"id": 11,
+			"name":"NATURAL PUPPY"
+		},
+		{
+			"id": 12,
+			"name":"HOG FANG"
+		},
+		{
+			"id": 13,
+			"name":"Gatto Nero"
+		},
+		{
+			"id": 14,
+			"name":"croaky panic"
+		},
+		{
+			"id": 15,
+			"name":"BLACK HONEY CHILI COOKIE"
+		}
 	]
 }

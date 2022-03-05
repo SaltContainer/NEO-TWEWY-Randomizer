@@ -71,6 +71,20 @@ namespace NEO_TWEWY_Randomizer
             log += "\n";
         }
 
+        public void LogPinStatsChanges(List<Badge> original, List<Badge> randomized)
+        {
+            log += "Pin Stats\n========================================\n\n";
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                string pinName = FileConstants.ItemNames.Pins.Where(p => p.Id == original[i].Id).First().Name;
+                Badge pinOriginal = original[i];
+                Badge pinRandomized = randomized[i];
+                log += string.Format("{0}\n{1,-11}: {2,-4} (+{3,-3})           -> {4,-4} (+{5,-3})\n", pinName, "Power", pinOriginal.Power, pinOriginal.PowerScaling, pinRandomized.Power, pinRandomized.PowerScaling);
+                log += string.Format("{0,-11}: {1,-4} uses/secs (+{2,-3}) -> {3,-4} uses/secs (+{4,-3})\n\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling);
+            }
+        }
+
         public bool SaveLogToFile(string fileName)
         {
             try

@@ -8,12 +8,12 @@ namespace NEO_TWEWY_Randomizer
 {
     class RandomizationSettings
     {
-        public NoiseDropType DropType { get; set; }
-        public bool IncludeLimitedPins { get; set; }
+        public NoiseDropType NoiseDropTypeChoice { get; set; }
+        public bool NoiseIncludeLimitedPins { get; set; }
         public List<Difficulties> NoiseDropTypeDifficulties { get; set; }
-        public NoiseDropRate DropRate { get; set; }
-        public decimal MinimumDropRate { get; set; }
-        public decimal MaximumDropRate { get; set; }
+        public NoiseDropRate NoiseDropRateChoice { get; set; }
+        public decimal NoiseMinimumDropRate { get; set; }
+        public decimal NoiseMaximumDropRate { get; set; }
         public List<Difficulties> NoiseDropRateDifficulties { get; set; }
         public List<uint> NoiseDropRateWeights { get; set; }
 
@@ -41,7 +41,7 @@ namespace NEO_TWEWY_Randomizer
         public PinGrowth PinGrowthSpecific { get; set; }
         public PinEvolution PinEvolutionChoice { get; set; }
         public bool PinEvoForceBrand { get; set; }
-        public bool PinEvoCharaEvos { get; set; }
+        public bool PinRemoveCharaEvos { get; set; }
         public uint PinEvoPercentage { get; set; }
 
         public RandomizationSettings()
@@ -115,11 +115,11 @@ namespace NEO_TWEWY_Randomizer
 
         private void CorrectSettingValues()
         {
-            if (!Enum.IsDefined(typeof(NoiseDropType), DropType)) DropType = NoiseDropType.Unchanged;
-            if (!Enum.IsDefined(typeof(NoiseDropRate), DropRate)) DropRate = NoiseDropRate.Unchanged;
-            MinimumDropRate = Math.Max(Math.Min(MinimumDropRate, 100M), 0.01M);
-            MaximumDropRate = Math.Max(Math.Min(MaximumDropRate, 100M), 0.01M);
-            if (MinimumDropRate > MaximumDropRate) MaximumDropRate = MinimumDropRate;
+            if (!Enum.IsDefined(typeof(NoiseDropType), NoiseDropTypeChoice)) NoiseDropTypeChoice = NoiseDropType.Unchanged;
+            if (!Enum.IsDefined(typeof(NoiseDropRate), NoiseDropRateChoice)) NoiseDropRateChoice = NoiseDropRate.Unchanged;
+            NoiseMinimumDropRate = Math.Max(Math.Min(NoiseMinimumDropRate, 100M), 0.01M);
+            NoiseMaximumDropRate = Math.Max(Math.Min(NoiseMaximumDropRate, 100M), 0.01M);
+            if (NoiseMinimumDropRate > NoiseMaximumDropRate) NoiseMaximumDropRate = NoiseMinimumDropRate;
             NoiseDropRateWeights = NoiseDropRateWeights.Select(weight => Math.Max(Math.Min(weight, 100), 1)).ToList();
 
             if (!Enum.IsDefined(typeof(PinBrand), PinBrandChoice)) PinBrandChoice = PinBrand.Unchanged;
@@ -139,19 +139,19 @@ namespace NEO_TWEWY_Randomizer
             {
                 settingsString = settingsString.PadLeft(Validator.SettingsStringMinimumLength, '0');
 
-                DropType = (NoiseDropType) GetBitsFromSettingsString(settingsString, 4, 3);
-                IncludeLimitedPins = GetBitsFromSettingsString(settingsString, 7, 1) == 1;
+                NoiseDropTypeChoice = (NoiseDropType) GetBitsFromSettingsString(settingsString, 4, 3);
+                NoiseIncludeLimitedPins = GetBitsFromSettingsString(settingsString, 7, 1) == 1;
 
                 if (GetBitsFromSettingsString(settingsString, 8, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Easy);
                 if (GetBitsFromSettingsString(settingsString, 9, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Normal);
                 if (GetBitsFromSettingsString(settingsString, 10, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Hard);
                 if (GetBitsFromSettingsString(settingsString, 11, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
 
-                DropRate = (NoiseDropRate) GetBitsFromSettingsString(settingsString, 12, 2);
+                NoiseDropRateChoice = (NoiseDropRate) GetBitsFromSettingsString(settingsString, 12, 2);
                 uint minDropRate = GetBitsFromSettingsString(settingsString, 14, 14);
-                MinimumDropRate = minDropRate / 100M;
+                NoiseMinimumDropRate = minDropRate / 100M;
                 uint maxDropRate = GetBitsFromSettingsString(settingsString, 28, 14);
-                MaximumDropRate = maxDropRate / 100M;
+                NoiseMaximumDropRate = maxDropRate / 100M;
 
                 if (GetBitsFromSettingsString(settingsString, 42, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Easy);
                 if (GetBitsFromSettingsString(settingsString, 43, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Normal);
@@ -192,7 +192,7 @@ namespace NEO_TWEWY_Randomizer
 
                 PinEvolutionChoice = (PinEvolution) GetBitsFromSettingsString(settingsString, 113, 2);
                 PinEvoForceBrand = GetBitsFromSettingsString(settingsString, 115, 1) == 1;
-                PinEvoCharaEvos = GetBitsFromSettingsString(settingsString, 116, 1) == 1;
+                PinRemoveCharaEvos = GetBitsFromSettingsString(settingsString, 116, 1) == 1;
                 PinEvoPercentage = GetBitsFromSettingsString(settingsString, 117, 7);
 
                 CorrectSettingValues();
@@ -205,17 +205,17 @@ namespace NEO_TWEWY_Randomizer
 
             settingsString = AppendToSettingsString(settingsString, (uint)Validator.SettingsStringVersion, 4, 0);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)DropType, 3, 4);
-            settingsString = AppendToSettingsString(settingsString, IncludeLimitedPins ? 1u : 0u, 1, 7);
+            settingsString = AppendToSettingsString(settingsString, (uint)NoiseDropTypeChoice, 3, 4);
+            settingsString = AppendToSettingsString(settingsString, NoiseIncludeLimitedPins ? 1u : 0u, 1, 7);
 
             settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 8);
             settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 9);
             settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Hard) ? 1u : 0u, 1, 10);
             settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u, 1, 11);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)DropRate, 2, 12);
-            settingsString = AppendToSettingsString(settingsString, (uint)(MinimumDropRate * 100), 14, 14);
-            settingsString = AppendToSettingsString(settingsString, (uint)(MaximumDropRate * 100), 14, 28);
+            settingsString = AppendToSettingsString(settingsString, (uint)NoiseDropRateChoice, 2, 12);
+            settingsString = AppendToSettingsString(settingsString, (uint)(NoiseMinimumDropRate * 100), 14, 14);
+            settingsString = AppendToSettingsString(settingsString, (uint)(NoiseMaximumDropRate * 100), 14, 28);
 
             settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 42);
             settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 43);
@@ -256,7 +256,7 @@ namespace NEO_TWEWY_Randomizer
 
             settingsString = AppendToSettingsString(settingsString, (uint)PinEvolutionChoice, 2, 113);
             settingsString = AppendToSettingsString(settingsString, PinEvoForceBrand ? 1u : 0u, 1, 115);
-            settingsString = AppendToSettingsString(settingsString, PinEvoCharaEvos ? 1u : 0u, 1, 116);
+            settingsString = AppendToSettingsString(settingsString, PinRemoveCharaEvos ? 1u : 0u, 1, 116);
             settingsString = AppendToSettingsString(settingsString, PinEvoPercentage, 7, 117);
 
             return settingsString;

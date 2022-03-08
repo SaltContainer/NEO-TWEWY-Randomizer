@@ -73,25 +73,25 @@ namespace NEO_TWEWY_Randomizer
         {
             RandomizationSettings settings = new RandomizationSettings();
 
-            if (radioItemsUnchanged.Checked) settings.DropType = NoiseDropType.Unchanged;
-            else if (radioItemsShuffleC.Checked) settings.DropType = NoiseDropType.ShuffleCompletely;
-            else if (radioItemsShuffleS.Checked) settings.DropType = NoiseDropType.ShuffleSets;
-            else if (radioItemsRandomC.Checked) settings.DropType = NoiseDropType.RandomCompletely;
-            else if (radioItemsRandomA.Checked) settings.DropType = NoiseDropType.RandomAllPins;
+            if (radioItemsUnchanged.Checked) settings.NoiseDropTypeChoice = NoiseDropType.Unchanged;
+            else if (radioItemsShuffleC.Checked) settings.NoiseDropTypeChoice = NoiseDropType.ShuffleCompletely;
+            else if (radioItemsShuffleS.Checked) settings.NoiseDropTypeChoice = NoiseDropType.ShuffleSets;
+            else if (radioItemsRandomC.Checked) settings.NoiseDropTypeChoice = NoiseDropType.RandomCompletely;
+            else if (radioItemsRandomA.Checked) settings.NoiseDropTypeChoice = NoiseDropType.RandomAllPins;
 
-            settings.IncludeLimitedPins = checkItemsLimited.Checked;
+            settings.NoiseIncludeLimitedPins = checkItemsLimited.Checked;
 
             if (checkItemsEasy.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Easy);
             if (checkItemsNormal.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Normal);
             if (checkItemsHard.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Hard);
             if (checkItemsUltimate.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
 
-            if (radioChanceUnchanged.Checked) settings.DropRate = NoiseDropRate.Unchanged;
-            else if (radioChanceRandomC.Checked) settings.DropRate = NoiseDropRate.RandomCompletely;
-            else if (radioChanceRandomW.Checked) settings.DropRate = NoiseDropRate.RandomWeighted;
+            if (radioChanceUnchanged.Checked) settings.NoiseDropRateChoice = NoiseDropRate.Unchanged;
+            else if (radioChanceRandomC.Checked) settings.NoiseDropRateChoice = NoiseDropRate.RandomCompletely;
+            else if (radioChanceRandomW.Checked) settings.NoiseDropRateChoice = NoiseDropRate.RandomWeighted;
 
-            settings.MinimumDropRate = numChanceMin.Value;
-            settings.MaximumDropRate = numChanceMax.Value;
+            settings.NoiseMinimumDropRate = numChanceMin.Value;
+            settings.NoiseMaximumDropRate = numChanceMax.Value;
 
             if (checkChanceEasy.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Easy);
             if (checkChanceNormal.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Normal);
@@ -142,7 +142,7 @@ namespace NEO_TWEWY_Randomizer
             else if (radioPinEvoRandomE.Checked) settings.PinEvolutionChoice = PinEvolution.RandomExisting;
             else if (radioPinEvoRandomC.Checked) settings.PinEvolutionChoice = PinEvolution.RandomCompletely;
             settings.PinEvoForceBrand = checkPinEvoBrand.Checked;
-            settings.PinEvoCharaEvos = checkPinEvoChara.Checked;
+            settings.PinRemoveCharaEvos = checkPinEvoChara.Checked;
             settings.PinEvoPercentage = (uint)numPinEvo.Value;
 
             return settings;
@@ -152,7 +152,7 @@ namespace NEO_TWEWY_Randomizer
         #region Adjust Form from Settings
         private void ReadSettings(RandomizationSettings settings)
         {
-            switch (settings.DropType)
+            switch (settings.NoiseDropTypeChoice)
             {
                 case NoiseDropType.Unchanged:
                     radioItemsUnchanged.Checked = true;
@@ -171,14 +171,14 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            checkItemsLimited.Checked = settings.IncludeLimitedPins;
+            checkItemsLimited.Checked = settings.NoiseIncludeLimitedPins;
 
             checkItemsEasy.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Easy);
             checkItemsNormal.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Normal);
             checkItemsHard.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Hard);
             checkItemsUltimate.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate);
 
-            switch (settings.DropRate)
+            switch (settings.NoiseDropRateChoice)
             {
                 case NoiseDropRate.Unchanged:
                     radioChanceUnchanged.Checked = true;
@@ -191,8 +191,8 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            numChanceMin.Value = settings.MinimumDropRate;
-            numChanceMax.Value = settings.MaximumDropRate;
+            numChanceMin.Value = settings.NoiseMinimumDropRate;
+            numChanceMax.Value = settings.NoiseMaximumDropRate;
 
             checkChanceEasy.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Easy);
             checkChanceNormal.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Normal);
@@ -283,7 +283,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
             checkPinEvoBrand.Checked = settings.PinEvoForceBrand;
-            checkPinEvoChara.Checked = settings.PinEvoCharaEvos;
+            checkPinEvoChara.Checked = settings.PinRemoveCharaEvos;
             numPinEvo.Value = settings.PinEvoPercentage;
         }
         #endregion

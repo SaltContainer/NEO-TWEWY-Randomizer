@@ -1672,263 +1672,391 @@
 	"pigs": [
 		{
 			"id": 1203900,
-			"name":"Week 1 Day 2 - Pig 1"
+			"name": "Week 1 Day 2 - Pig 1"
 		},
 		{
 			"id": 1302900,
-			"name":"Week 1 Day 3 - Pig 1"
+			"name": "Week 1 Day 3 - Pig 1"
 		},
 		{
 			"id": 1303900,
-			"name":"Week 1 Day 3 - Pig 2"
+			"name": "Week 1 Day 3 - Pig 2"
 		},
 		{
 			"id": 1408900,
-			"name":"Week 1 Day 4 - Pig 1"
+			"name": "Week 1 Day 4 - Pig 1"
 		},
 		{
 			"id": 1404900,
-			"name":"Week 1 Day 4 - Pig 2"
+			"name": "Week 1 Day 4 - Pig 2"
 		},
 		{
 			"id": 1608900,
-			"name":"Week 1 Day 6 - Pig 1"
+			"name": "Week 1 Day 6 - Pig 1"
 		},
 		{
 			"id": 1605900,
-			"name":"Week 1 Day 6 - Pig 2"
+			"name": "Week 1 Day 6 - Pig 2"
 		},
 		{
 			"id": 1708900,
-			"name":"Week 1 Day 7 - Pig 1"
+			"name": "Week 1 Day 7 - Pig 1"
 		},
 		{
 			"id": 1702900,
-			"name":"Week 1 Day 7 - Pig 2"
+			"name": "Week 1 Day 7 - Pig 2"
 		},
 		{
 			"id": 2101900,
-			"name":"Week 2 Day 1 - Pig 1"
+			"name": "Week 2 Day 1 - Pig 1"
 		},
 		{
 			"id": 2102900,
-			"name":"Week 2 Day 1 - Pig 2"
+			"name": "Week 2 Day 1 - Pig 2"
 		},
 		{
 			"id": 2204900,
-			"name":"Week 2 Day 2 - Pig 1"
+			"name": "Week 2 Day 2 - Pig 1"
 		},
 		{
 			"id": 2205900,
-			"name":"Week 2 Day 2 - Pig 2"
+			"name": "Week 2 Day 2 - Pig 2"
 		},
 		{
 			"id": 2303900,
-			"name":"Week 2 Day 3 - Pig 1"
+			"name": "Week 2 Day 3 - Pig 1"
 		},
 		{
 			"id": 2302900,
-			"name":"Week 2 Day 3 - Pig 2"
+			"name": "Week 2 Day 3 - Pig 2"
 		},
 		{
 			"id": 2402900,
-			"name":"Week 2 Day 4 - Pig 1"
+			"name": "Week 2 Day 4 - Pig 1"
 		},
 		{
 			"id": 2407900,
-			"name":"Week 2 Day 4 - Pig 2"
+			"name": "Week 2 Day 4 - Pig 2"
 		},
 		{
 			"id": 2503900,
-			"name":"Week 2 Day 5 - Pig 1"
+			"name": "Week 2 Day 5 - Pig 1"
 		},
 		{
 			"id": 2510900,
-			"name":"Week 2 Day 5 - Pig 2"
+			"name": "Week 2 Day 5 - Pig 2"
 		},
 		{
 			"id": 2602900,
-			"name":"Week 2 Day 6 - Pig 1"
+			"name": "Week 2 Day 6 - Pig 1"
 		},
 		{
 			"id": 2605900,
-			"name":"Week 2 Day 6 - Pig 2"
+			"name": "Week 2 Day 6 - Pig 2"
 		},
 		{
 			"id": 2715900,
-			"name":"Week 2 Day 7 - Pig 1"
+			"name": "Week 2 Day 7 - Pig 1"
 		},
 		{
 			"id": 2707900,
-			"name":"Week 2 Day 7 - Pig 2"
+			"name": "Week 2 Day 7 - Pig 2"
 		},
 		{
 			"id": 3107900,
-			"name":"Week 3 Day 1 - Pig 1"
+			"name": "Week 3 Day 1 - Pig 1"
 		},
 		{
 			"id": 3110900,
-			"name":"Week 3 Day 1 - Pig 2"
+			"name": "Week 3 Day 1 - Pig 2"
 		},
 		{
 			"id": 3211900,
-			"name":"Week 3 Day 2 - Pig 1"
+			"name": "Week 3 Day 2 - Pig 1"
 		},
 		{
 			"id": 3213900,
-			"name":"Week 3 Day 2 - Pig 2"
+			"name": "Week 3 Day 2 - Pig 2"
 		},
 		{
 			"id": 3302900,
-			"name":"Week 3 Day 3 - Pig 1"
+			"name": "Week 3 Day 3 - Pig 1"
 		},
 		{
 			"id": 3305900,
-			"name":"Week 3 Day 3 - Pig 2"
+			"name": "Week 3 Day 3 - Pig 2"
 		},
 		{
 			"id": 3401900,
-			"name":"Week 3 Day 4 - Pig 1"
+			"name": "Week 3 Day 4 - Pig 1"
 		},
 		{
 			"id": 3402900,
-			"name":"Week 3 Day 4 - Pig 2"
+			"name": "Week 3 Day 4 - Pig 2"
 		},
 		{
 			"id": 3504900,
-			"name":"Week 3 Day 5 - Pig 1"
+			"name": "Week 3 Day 5 - Pig 1"
 		},
 		{
 			"id": 3517900,
-			"name":"Week 3 Day 5 - Pig 2"
+			"name": "Week 3 Day 5 - Pig 2"
 		},
 		{
 			"id": 3501900,
-			"name":"Week 3 Day 5 - Pig 3"
+			"name": "Week 3 Day 5 - Pig 3"
 		},
 		{
 			"id": 3608900,
-			"name":"Week 3 Day 6 - Pig 1"
+			"name": "Week 3 Day 6 - Pig 1"
 		},
 		{
 			"id": 3601900,
-			"name":"Week 3 Day 6 - Pig 2"
+			"name": "Week 3 Day 6 - Pig 2"
 		},
 		{
 			"id": 3716900,
-			"name":"Week 3 Day 7 - Pig 1"
+			"name": "Week 3 Day 7 - Pig 1"
 		},
 		{
 			"id": 3702900,
-			"name":"Week 3 Day 7 - Pig 2"
+			"name": "Week 3 Day 7 - Pig 2"
 		},
 		{
 			"id": 4105900,
-			"name":"Another Day - Pig 1"
+			"name": "Another Day - Pig 1"
 		},
 		{
 			"id": 4106900,
-			"name":"Another Day - Pig 2"
+			"name": "Another Day - Pig 2"
 		},
 		{
 			"id": 4107900,
-			"name":"Another Day - Pig 3"
+			"name": "Another Day - Pig 3"
 		},
 		{
 			"id": 4108900,
-			"name":"Another Day - Pig 4"
+			"name": "Another Day - Pig 4"
 		},
 		{
 			"id": 4109900,
-			"name":"Another Day - Pig 5"
+			"name": "Another Day - Pig 5"
 		}
 	],
 	"growth-classes": [
 		{
 			"id": 0,
-			"name":"Very Fast"
+			"name": "Very Fast"
 		},
 		{
 			"id": 1,
-			"name":"Fast"
+			"name": "Fast"
 		},
 		{
 			"id": 2,
-			"name":"Normal"
+			"name": "Normal"
+		},
+		{
+			"id": 3,
+			"name": "Somewhat Slow"
 		},
 		{
 			"id": 4,
-			"name":"Slow"
+			"name": "Slow"
 		},
 		{
 			"id": 5,
-			"name":"Very Slow"
+			"name": "Very Slow"
 		}
 	],
 	"brands": [
 		{
 			"id": 0,
-			"name":"Unbranded"
+			"name": "Unbranded"
 		},
 		{
 			"id": 1,
-			"name":"Top o' Topo"
+			"name": "Top o' Topo"
 		},
 		{
 			"id": 2,
-			"name":"Joli bécot"
+			"name": "Joli bécot"
 		},
 		{
 			"id": 3,
-			"name":"Tigre PUNKS"
+			"name": "Tigre PUNKS"
 		},
 		{
 			"id": 4,
-			"name":"Cony×Cony"
+			"name": "Cony×Cony"
 		},
 		{
 			"id": 5,
-			"name":"RyuGu"
+			"name": "RyuGu"
 		},
 		{
 			"id": 6,
-			"name":"garagara"
+			"name": "garagara"
 		},
 		{
 			"id": 7,
-			"name":"IL CAVALLO DEL RE"
+			"name": "IL CAVALLO DEL RE"
 		},
 		{
 			"id": 8,
-			"name":"Shepherd House"
+			"name": "Shepherd House"
 		},
 		{
 			"id": 9,
-			"name":"Jupiter of the Monkey"
+			"name": "Jupiter of the Monkey"
 		},
 		{
 			"id": 10,
-			"name":"MONOCROW"
+			"name": "MONOCROW"
 		},
 		{
 			"id": 11,
-			"name":"NATURAL PUPPY"
+			"name": "NATURAL PUPPY"
 		},
 		{
 			"id": 12,
-			"name":"HOG FANG"
+			"name": "HOG FANG"
 		},
 		{
 			"id": 13,
-			"name":"Gatto Nero"
+			"name": "Gatto Nero"
 		},
 		{
 			"id": 14,
-			"name":"croaky panic"
+			"name": "croaky panic"
 		},
 		{
 			"id": 15,
-			"name":"BLACK HONEY CHILI COOKIE"
+			"name": "BLACK HONEY CHILI COOKIE"
+		}
+	],
+	"affinities": [
+		{
+			"id": 0,
+			"name": "None"
+		},
+		{
+			"id": 1,
+			"name": "Fire"
+		},
+		{
+			"id": 2,
+			"name": "Ice"
+		},
+		{
+			"id": 3,
+			"name": "Electric"
+		},
+		{
+			"id": 4,
+			"name": "Wind"
+		},
+		{
+			"id": 5,
+			"name": "Water"
+		},
+		{
+			"id": 6,
+			"name": "Stone"
+		},
+		{
+			"id": 7,
+			"name": "Time"
+		},
+		{
+			"id": 8,
+			"name": "Sound"
+		},
+		{
+			"id": 9,
+			"name": "Darkness"
+		},
+		{
+			"id": 10,
+			"name": "Light"
+		},
+		{
+			"id": 11,
+			"name": "Kinesis"
+		},
+		{
+			"id": 12,
+			"name": "Burst"
+		},
+		{
+			"id": 13,
+			"name": "Gravity"
+		},
+		{
+			"id": 23,
+			"name": "Poison"
+		}
+	],
+	"pin-abilities": [
+		{
+			"id": 133,
+			"name": "HP Vampire"
+		},
+		{
+			"id": 134,
+			"name": "HP Vampire II"
+		},
+		{
+			"id": 1001,
+			"name": "Rear Assassin"
+		},
+		{
+			"id": 1002,
+			"name": "Downed Assassin"
+		},
+		{
+			"id": 1003,
+			"name": "Auto-Combo"
+		},
+		{
+			"id": 1004,
+			"name": "Knockback Assassin"
+		},
+		{
+			"id": 1005,
+			"name": "Auto-Combo"
+		},
+		{
+			"id": 1010,
+			"name": "Auto-Target"
+		},
+		{
+			"id": 1011,
+			"name": "Aerial Assassin"
+		},
+		{
+			"id": 1012,
+			"name": "Aerial Assault"
+		},
+		{
+			"id": 1013,
+			"name": "Killing Blow"
+		},
+		{
+			"id": 1014,
+			"name": "Groove Boost II"
+		},
+		{
+			"id": 1015,
+			"name": "Frozen Fatality"
+		},
+		{
+			"id": 2010,
+			"name": "Vibing: Rock & Ice"
+		},
+		{
+			"id": 2011,
+			"name": "Take Five"
 		}
 	]
 }

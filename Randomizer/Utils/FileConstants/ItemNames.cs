@@ -25,5 +25,9 @@ namespace NEO_TWEWY_Randomizer
         public IList<NameAssociation> GrowthRates { get; set; }
         [JsonProperty("brands")]
         public IList<NameAssociation> Brands { get; set; }
+        [JsonProperty("affinities")]
+        public IList<NameAssociation> Affinities { get; set; }
+        [JsonProperty("pin-abilities")]
+        public IList<NameAssociation> PinAbilities { get; set; }
     }
 }

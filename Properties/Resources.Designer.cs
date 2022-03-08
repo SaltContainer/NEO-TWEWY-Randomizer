@@ -74,10 +74,18 @@ namespace NEO_TWEWY_Randomizer.Properties {
         ///			&quot;EnemyReport&quot;: {
         ///				&quot;name&quot;: &quot;EnemyReport&quot;,
         ///				&quot;attribute&quot;: &quot;m_Script&quot;
-        ///			}
-        ///		}
-        ///	}
-        ///}.
+        ///			},
+        ///			&quot;PigData&quot;: {
+        ///				&quot;name&quot;: &quot;PigData&quot;,
+        ///				&quot;attribute&quot;: &quot;m_Script&quot;
+        ///			},
+        ///			&quot;Badge&quot;: {
+        ///				&quot;name&quot;: &quot;Badge&quot;,
+        ///				&quot;attribute&quot;: &quot;m_Script&quot;
+        ///			},
+        ///			&quot;Psychic&quot;: {
+        ///				&quot;name&quot;: &quot;Psychic&quot;,
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string bundle_constants {
             get {
@@ -127,7 +135,50 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;pins&quot;: [
+        ///		{
+        ///			&quot;id&quot;: 100,
+        ///			&quot;name&quot;: &quot;Shockwave&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 104,
+        ///			&quot;name&quot;: &quot;Azamaru&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 105,
+        ///			&quot;name&quot;: &quot;Shishio&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 101,
+        ///			&quot;name&quot;: &quot;Midaregami&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 102,
+        ///			&quot;name&quot;: &quot;Namikuguri&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 103,
+        ///			&quot;name&quot;: &quot;Fuchin&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 106,
+        ///			&quot;name&quot;: &quot;Kurorushi&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 107,
+        ///			&quot;name&quot;: &quot;Honebami&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 108,
+        ///			&quot;name&quot;: &quot;Grizzly&quot;
+        ///		},
+        ///		{
+        ///			&quot;id&quot;: 109,
+        ///			&quot;name&quot;: &quot;Onimaru&quot;
+        ///		},
+        ///		{
+        ///		 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string id_list {
             get {

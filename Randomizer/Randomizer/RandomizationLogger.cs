@@ -77,11 +77,41 @@ namespace NEO_TWEWY_Randomizer
 
             for (int i = 0; i < original.Count; i++)
             {
-                string pinName = FileConstants.ItemNames.Pins.Where(p => p.Id == original[i].Id).First().Name;
                 Badge pinOriginal = original[i];
                 Badge pinRandomized = randomized[i];
-                log += string.Format("{0}\n{1,-11}: {2,-4} (+{3,-3})           -> {4,-4} (+{5,-3})\n", pinName, "Power", pinOriginal.Power, pinOriginal.PowerScaling, pinRandomized.Power, pinRandomized.PowerScaling);
-                log += string.Format("{0,-11}: {1,-4} uses/secs (+{2,-3}) -> {3,-4} uses/secs (+{4,-3})\n\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling);
+                log += string.Format("{0}\n", FileConstants.ItemNames.Pins.Where(p => p.Id == original[i].Id).First().Name);
+                log += string.Format("{0,-14}: {1,-4} (+{2,-3})               -> {3,-4} (+{4,-3})\n", "Power", pinOriginal.Power, pinOriginal.PowerScaling, pinRandomized.Power, pinRandomized.PowerScaling);
+                log += string.Format("{0,-14}: {1,-4} uses/secs (+{2,-3})     -> {3,-4} uses/secs (+{4,-3})\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling);
+                log += string.Format("{0,-14}: {1,-4} secs (-{2,-3})          -> {3,-4} secs (-{4,-3})\n", "Reboot", pinOriginal.Reboot, pinOriginal.RebootScaling, pinRandomized.Reboot, pinRandomized.RebootScaling);
+                log += string.Format("{0,-14}: {1,-3} secs (-{2,-3})           -> {3,-3} secs (-{4,-3})\n", "Boot", pinOriginal.Boot, pinOriginal.BootScaling, pinRandomized.Boot, pinRandomized.BootScaling);
+                log += string.Format("{0,-14}: {1,-4} secs (-{2,-3})          -> {3,-4} secs (-{4,-3})\n", "Recover", pinOriginal.Recover, pinOriginal.RecoverScaling, pinRandomized.Recover, pinRandomized.RecoverScaling);
+                log += string.Format("{0,-14}: {1,-3} secs                  -> {2,-3} secs\n", "Charge", pinOriginal.Charge, pinRandomized.Charge);
+                log += string.Format("{0,-14}: {1,-5} ¥ (+{2,-4})           -> {3,-5} ¥ (+{4,-4})\n", "Sell Price", pinOriginal.SellPrice, pinOriginal.SellPriceScaling, pinRandomized.SellPrice, pinRandomized.SellPriceScaling);
+                log += string.Format("{0,-14}: {1,-8}                  -> {2,-8}\n", "Affinity", FileConstants.ItemNames.Affinities.Where(a => a.Id == pinOriginal.MashUpAffinity).First().Name, FileConstants.ItemNames.Affinities.Where(a => a.Id == pinRandomized.MashUpAffinity).First().Name);
+                log += string.Format("{0,-14}: {1,-2}                        -> {2,-2}\n", "Max Level", pinOriginal.MaxLevel, pinRandomized.MaxLevel);
+                log += string.Format("{0,-14}: {1,-24}  -> {2,-24}\n", "Brand", FileConstants.ItemNames.Brands.Where(b => b.Id == pinOriginal.Brand).First().Name, FileConstants.ItemNames.Brands.Where(b => b.Id == pinRandomized.Brand).First().Name);
+                log += string.Format("{0,-14}: {1,-3}                       -> {2,-3}\n", "Uber", pinOriginal.Uber == 1 ? "Yes" : "No", pinRandomized.Uber == 1 ? "Yes" : "No");
+                log += string.Format("{0,-14}: {1,-18}        -> {2,-18}\n", "Ability", pinOriginal.Abilities.Count > 0 ? FileConstants.ItemNames.PinAbilities.Where(a => a.Id == pinOriginal.Abilities[0]).First().Name : "None", pinRandomized.Abilities.Count > 0 ? FileConstants.ItemNames.PinAbilities.Where(a => a.Id == pinRandomized.Abilities[0]).First().Name : "None");
+                log += string.Format("{0,-14}: {1,-13}             -> {2,-13}\n", "Growth", FileConstants.ItemNames.GrowthRates.Where(g => g.Id == pinOriginal.Growth).First().Name, FileConstants.ItemNames.GrowthRates.Where(g => g.Id == pinRandomized.Growth).First().Name);
+                log += string.Format("{0,-14}: {1,-25} -> {2,-25}\n", "Global Evo", pinOriginal.EvolutionSingle != -1 ? FileConstants.ItemNames.Pins.Where(p => p.Id == pinOriginal.EvolutionSingle).First().Name : "None", pinRandomized.EvolutionSingle != -1 ? FileConstants.ItemNames.Pins.Where(p => p.Id == pinRandomized.EvolutionSingle).First().Name : "None");
+
+                List<int> charaEvoPinsOriginal = new List<int>(pinOriginal.EvolutionList);
+                List<int> charaEvoPinsRandomized = new List<int>(pinRandomized.EvolutionList);
+                if (charaEvoPinsOriginal.Count == 0) charaEvoPinsOriginal.AddRange(Enumerable.Repeat(-1, 7));
+                if (charaEvoPinsRandomized.Count == 0) charaEvoPinsRandomized.AddRange(Enumerable.Repeat(-1, 7));
+
+                for (int j=0; j<charaEvoPinsOriginal.Count; j++)
+                {
+                    if (charaEvoPinsOriginal[j] != -1 || charaEvoPinsRandomized[j] != -1)
+                    {
+                        string character = FileConstants.ItemNames.Characters.Where(c => c.Id == j + 1).First().Name;
+                        string pinNameOriginal = charaEvoPinsOriginal[j] != -1 ? FileConstants.ItemNames.Pins.Where(p => p.Id == pinOriginal.EvolutionList[j]).First().Name : "None";
+                        string pinNameRandomized = charaEvoPinsRandomized[j] != -1 ? FileConstants.ItemNames.Pins.Where(p => p.Id == pinRandomized.EvolutionList[j]).First().Name : "None";
+                        log += string.Format("{0,-14}: {1,-25} -> {2,-25}\n", character + " Evo", pinNameOriginal, pinNameRandomized);
+                    }
+                }
+
+                log += "\n";
             }
         }
 

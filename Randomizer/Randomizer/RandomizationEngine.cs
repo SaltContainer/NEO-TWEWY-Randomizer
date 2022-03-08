@@ -364,15 +364,15 @@ namespace NEO_TWEWY_Randomizer
             if (settings.PinRebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1, 1));
 
             if (settings.PinBoot) listToEdit.ForEach(p => p.Boot = Math.Max(0, NextRoundedFloatRange(-6, 6, 1)));
-            if (settings.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, (p.Boot - 1) / (p.MaxLevel - 1) - 0.1, 1));
+            if (settings.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, (p.Boot) / (p.MaxLevel - 1) - 0.1, 1));
 
             if (settings.PinRecover) listToEdit.ForEach(p => p.Recover = p.Reboot + NextRoundedFloatRange(0, 6, 1));
-            if (settings.PinRecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1, 1));
+            if (settings.PinRecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Recover - 1) / (p.MaxLevel - 1) - 0.1), 1));
 
             if (settings.PinCharge) listToEdit.ForEach(p => p.Charge = NextRoundedFloatRange(0, 2, 1));
 
             if (settings.PinSell) listToEdit.ForEach(p => p.SellPrice = rand.Next(500, 10001));
-            if (settings.PinSellScaling) listToEdit.ForEach(p => p.RecoverScaling = rand.Next(500, 2001));
+            if (settings.PinSellScaling) listToEdit.ForEach(p => p.SellPriceScaling = rand.Next(500, 2001));
 
             if (settings.PinAffinity)
             {

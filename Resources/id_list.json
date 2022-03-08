@@ -482,7 +482,7 @@
 		},
 		{
 			"id": 900,
-			"name": "Joli bÃ©cot"
+			"name": "Joli bécot"
 		},
 		{
 			"id": 901,
@@ -558,7 +558,7 @@
 		},
 		{
 			"id": 1100,
-			"name": "Cold ConyÃ—Cony"
+			"name": "Cold Cony×Cony"
 		},
 		{
 			"id": 1101,
@@ -582,11 +582,11 @@
 		},
 		{
 			"id": 1106,
-			"name": "BÃ©rangÃ¨re Lapin"
+			"name": "Bérangère Lapin"
 		},
 		{
 			"id": 1107,
-			"name": "GrÃ©goire Lapin"
+			"name": "Grégoire Lapin"
 		},
 		{
 			"id": 1108,
@@ -630,35 +630,35 @@
 		},
 		{
 			"id": 1300,
-			"name": "ShoGunãƒ»Void"
+			"name": "ShoGun・Void"
 		},
 		{
 			"id": 1301,
-			"name": "ManjuSageãƒ»Void"
+			"name": "ManjuSage・Void"
 		},
 		{
 			"id": 1302,
-			"name": "EnJoãƒ»Blaze"
+			"name": "EnJo・Blaze"
 		},
 		{
 			"id": 1303,
-			"name": "KoYoãƒ»Blaze"
+			"name": "KoYo・Blaze"
 		},
 		{
 			"id": 1304,
-			"name": "Tsubakiãƒ»Frost"
+			"name": "Tsubaki・Frost"
 		},
 		{
 			"id": 1305,
-			"name": "HiGanãƒ»Frost"
+			"name": "HiGan・Frost"
 		},
 		{
 			"id": 1306,
-			"name": "InaZumaãƒ»Surge"
+			"name": "InaZuma・Surge"
 		},
 		{
 			"id": 1307,
-			"name": "RaiJinãƒ»Surge"
+			"name": "RaiJin・Surge"
 		},
 		{
 			"id": 1308,
@@ -666,15 +666,15 @@
 		},
 		{
 			"id": 1309,
-			"name": "KeiRyuãƒ»Epoch"
+			"name": "KeiRyu・Epoch"
 		},
 		{
 			"id": 1310,
-			"name": "RyuGuãƒ»Void"
+			"name": "RyuGu・Void"
 		},
 		{
 			"id": 1311,
-			"name": "HanaDokiãƒ»Void"
+			"name": "HanaDoki・Void"
 		},
 		{
 			"id": 1312,
@@ -682,7 +682,7 @@
 		},
 		{
 			"id": 1313,
-			"name": "HoGyokuãƒ»Gleam"
+			"name": "HoGyoku・Gleam"
 		},
 		{
 			"id": 1314,
@@ -706,11 +706,11 @@
 		},
 		{
 			"id": 1404,
-			"name": "MelanconyÃ—Melancony"
+			"name": "Melancony×Melancony"
 		},
 		{
 			"id": 1405,
-			"name": "Conyï½˜Cony"
+			"name": "ConyｘCony"
 		},
 		{
 			"id": 1406,
@@ -794,19 +794,19 @@
 		},
 		{
 			"id": 1700,
-			"name": "SuiGenãƒ»Void"
+			"name": "SuiGen・Void"
 		},
 		{
 			"id": 1701,
-			"name": "KoChoãƒ»Void"
+			"name": "KoCho・Void"
 		},
 		{
 			"id": 1702,
-			"name": "ShiDareãƒ»Shade"
+			"name": "ShiDare・Shade"
 		},
 		{
 			"id": 1703,
-			"name": "Tsuzumiãƒ»Echo"
+			"name": "Tsuzumi・Echo"
 		},
 		{
 			"id": 1704,
@@ -834,19 +834,19 @@
 		},
 		{
 			"id": 1710,
-			"name": "AraUmiãƒ»Gale"
+			"name": "AraUmi・Gale"
 		},
 		{
 			"id": 1711,
-			"name": "FuJinãƒ»Gale"
+			"name": "FuJin・Gale"
 		},
 		{
 			"id": 1712,
-			"name": "IroGoiãƒ»Shift"
+			"name": "IroGoi・Shift"
 		},
 		{
 			"id": 1713,
-			"name": "ShoRyuãƒ»Gleam"
+			"name": "ShoRyu・Gleam"
 		},
 		{
 			"id": 1800,
@@ -894,11 +894,11 @@
 		},
 		{
 			"id": 1901,
-			"name": "KaChuãƒ»Blaze"
+			"name": "KaChu・Blaze"
 		},
 		{
 			"id": 1902,
-			"name": "AkaFujiãƒ»Blaze"
+			"name": "AkaFuji・Blaze"
 		},
 		{
 			"id": 1900,
@@ -906,7 +906,7 @@
 		},
 		{
 			"id": 1903,
-			"name": "GoKaãƒ»Blaze"
+			"name": "GoKa・Blaze"
 		},
 		{
 			"id": 1904,
@@ -2057,6 +2057,36 @@
 		{
 			"id": 2011,
 			"name": "Take Five"
+		}
+	],
+	"characters": [
+		{
+			"id": 1,
+			"name": "Rindo"
+		},
+		{
+			"id": 2,
+			"name": "Shoka"
+		},
+		{
+			"id": 3,
+			"name": "Fret"
+		},
+		{
+			"id": 4,
+			"name": "Nagi"
+		},
+		{
+			"id": 5,
+			"name": "Beat"
+		},
+		{
+			"id": 6,
+			"name": "Neku"
+		},
+		{
+			"id": 7,
+			"name": "Minamimoto"
 		}
 	]
 }

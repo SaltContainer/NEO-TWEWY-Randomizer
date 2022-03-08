@@ -29,5 +29,7 @@ namespace NEO_TWEWY_Randomizer
         public IList<NameAssociation> Affinities { get; set; }
         [JsonProperty("pin-abilities")]
         public IList<NameAssociation> PinAbilities { get; set; }
+        [JsonProperty("characters")]
+        public IList<NameAssociation> Characters { get; set; }
     }
 }

@@ -25,7 +25,7 @@ namespace NEO_TWEWY_Randomizer
         #region Component Values
         private void InitializeComponentValues()
         {
-            lbVersion.Text += SourceLinks.GetVersion();
+            lbVersion.Text = string.Format("NEO: The World Ends With You Randomizer - Version {0}", SourceLinks.GetSmallVersion());
             UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
 
             comboPinGrowth.DataSource = FileConstants.ItemNames.GrowthRates;

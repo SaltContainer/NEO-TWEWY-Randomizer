@@ -39,32 +39,70 @@ namespace NEO_TWEWY_Randomizer
         #region Tooltips
         private void InitializeTooltips()
         {
-            ttradioItemsUnchanged.SetToolTip(radioItemsUnchanged, Resources.ttradioItemsUnchanged);
-            ttradioItemsShuffleC.SetToolTip(radioItemsShuffleC, Resources.ttradioItemsShuffleC);
-            ttradioItemsShuffleS.SetToolTip(radioItemsShuffleS, Resources.ttradioItemsShuffleS);
-            ttradioItemsRandomC.SetToolTip(radioItemsRandomC, Resources.ttradioItemsRandomC);
-            ttradioItemsRandomA.SetToolTip(radioItemsRandomA, Resources.ttradioItemsRandomA);
-            ttcheckItemsLimited.SetToolTip(checkItemsLimited, Resources.ttcheckItemsLimited);
-            ttgrpItemsDifficulty.SetToolTip(grpItemsDifficulty, Resources.ttgrpItemsDifficulty);
-            ttgrpItemsDifficulty.SetToolTip(checkItemsEasy, Resources.ttgrpItemsDifficulty);
-            ttgrpItemsDifficulty.SetToolTip(checkItemsNormal, Resources.ttgrpItemsDifficulty);
-            ttgrpItemsDifficulty.SetToolTip(checkItemsHard, Resources.ttgrpItemsDifficulty);
-            ttgrpItemsDifficulty.SetToolTip(checkItemsUltimate, Resources.ttgrpItemsDifficulty);
+            ttFormMain.SetToolTip(radioItemsUnchanged, Resources.ttradioItemsUnchanged);
+            ttFormMain.SetToolTip(radioItemsShuffleC, Resources.ttradioItemsShuffleC);
+            ttFormMain.SetToolTip(radioItemsShuffleS, Resources.ttradioItemsShuffleS);
+            ttFormMain.SetToolTip(radioItemsRandomC, Resources.ttradioItemsRandomC);
+            ttFormMain.SetToolTip(radioItemsRandomA, Resources.ttradioItemsRandomA);
+            ttFormMain.SetToolTip(checkItemsLimited, Resources.ttcheckItemsLimited);
+            ttFormMain.SetToolTip(grpItemsDifficulty, Resources.ttgrpItemsDifficulty);
+            ttFormMain.SetToolTip(checkItemsEasy, Resources.ttgrpItemsDifficulty);
+            ttFormMain.SetToolTip(checkItemsNormal, Resources.ttgrpItemsDifficulty);
+            ttFormMain.SetToolTip(checkItemsHard, Resources.ttgrpItemsDifficulty);
+            ttFormMain.SetToolTip(checkItemsUltimate, Resources.ttgrpItemsDifficulty);
 
-            ttradioChanceUnchanged.SetToolTip(radioChanceUnchanged, Resources.ttradioChanceUnchanged);
-            ttradioChanceRandomC.SetToolTip(radioChanceRandomC, Resources.ttradioChanceRandomC);
-            ttradioChanceRandomW.SetToolTip(radioChanceRandomW, Resources.ttradioChanceRandomW);
-            ttgrpChanceDifficulty.SetToolTip(grpChanceDifficulty, Resources.ttgrpChanceDifficulty);
-            ttgrpChanceDifficulty.SetToolTip(checkChanceEasy, Resources.ttgrpChanceDifficulty);
-            ttgrpChanceDifficulty.SetToolTip(checkChanceNormal, Resources.ttgrpChanceDifficulty);
-            ttgrpChanceDifficulty.SetToolTip(checkChanceHard, Resources.ttgrpChanceDifficulty);
-            ttgrpChanceDifficulty.SetToolTip(checkChanceUltimate, Resources.ttgrpChanceDifficulty);
-            ttnumChanceMin.SetToolTip(numChanceMin, Resources.ttnumChanceMin);
-            ttnumChanceMax.SetToolTip(numChanceMax, Resources.ttnumChanceMax);
-            ttnumChanceWeight.SetToolTip(numChanceWeightEasy, Resources.ttnumChanceWeight);
-            ttnumChanceWeight.SetToolTip(numChanceWeightNormal, Resources.ttnumChanceWeight);
-            ttnumChanceWeight.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
-            ttnumChanceWeight.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
+            ttFormMain.SetToolTip(radioChanceUnchanged, Resources.ttradioChanceUnchanged);
+            ttFormMain.SetToolTip(radioChanceRandomC, Resources.ttradioChanceRandomC);
+            ttFormMain.SetToolTip(radioChanceRandomW, Resources.ttradioChanceRandomW);
+            ttFormMain.SetToolTip(grpChanceDifficulty, Resources.ttgrpChanceDifficulty);
+            ttFormMain.SetToolTip(checkChanceEasy, Resources.ttgrpChanceDifficulty);
+            ttFormMain.SetToolTip(checkChanceNormal, Resources.ttgrpChanceDifficulty);
+            ttFormMain.SetToolTip(checkChanceHard, Resources.ttgrpChanceDifficulty);
+            ttFormMain.SetToolTip(checkChanceUltimate, Resources.ttgrpChanceDifficulty);
+            ttFormMain.SetToolTip(numChanceMin, Resources.ttnumChanceMin);
+            ttFormMain.SetToolTip(numChanceMax, Resources.ttnumChanceMax);
+            ttFormMain.SetToolTip(numChanceWeightEasy, Resources.ttnumChanceWeight);
+            ttFormMain.SetToolTip(numChanceWeightNormal, Resources.ttnumChanceWeight);
+            ttFormMain.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
+            ttFormMain.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
+
+            ttFormMain.SetToolTip(checkPinPower, Resources.ttcheckPinPower);
+            ttFormMain.SetToolTip(checkPinPowerScaling, Resources.ttcheckPinPowerScaling);
+            ttFormMain.SetToolTip(checkPinLimit, Resources.ttcheckPinLimit);
+            ttFormMain.SetToolTip(checkPinLimitScaling, Resources.ttcheckPinLimitScaling);
+            ttFormMain.SetToolTip(checkPinReboot, Resources.ttcheckPinReboot);
+            ttFormMain.SetToolTip(checkPinRebootScaling, Resources.ttcheckPinRebootScaling);
+            ttFormMain.SetToolTip(checkPinBoot, Resources.ttcheckPinBoot);
+            ttFormMain.SetToolTip(checkPinBootScaling, Resources.ttcheckPinBootScaling);
+            ttFormMain.SetToolTip(checkPinRecover, Resources.ttcheckPinRecover);
+            ttFormMain.SetToolTip(checkPinRecoverScaling, Resources.ttcheckPinRecoverScaling);
+            ttFormMain.SetToolTip(checkPinCharge, Resources.ttcheckPinCharge);
+            ttFormMain.SetToolTip(checkPinSell, Resources.ttcheckPinSell);
+            ttFormMain.SetToolTip(checkPinSellScaling, Resources.ttcheckPinSellScaling);
+            ttFormMain.SetToolTip(checkPinAffinity, Resources.ttcheckPinAffinity);
+            ttFormMain.SetToolTip(checkPinMaxLevel, Resources.ttcheckPinMaxLevel);
+
+            ttFormMain.SetToolTip(radioPinBrandUnchanged, Resources.ttradioPinBrandUnchanged);
+            ttFormMain.SetToolTip(radioPinBrandShuffle, Resources.ttradioPinBrandShuffle);
+            ttFormMain.SetToolTip(radioPinBrandRandomC, Resources.ttradioPinBrandRandomC);
+            ttFormMain.SetToolTip(radioPinBrandRandomU, Resources.ttradioPinBrandRandomU);
+            ttFormMain.SetToolTip(checkPinUber, Resources.ttcheckPinUber);
+            ttFormMain.SetToolTip(numPinUber, Resources.ttnumPinUber);
+            ttFormMain.SetToolTip(radioPinAbilityUnchanged, Resources.ttradioPinAbilityUnchanged);
+            ttFormMain.SetToolTip(radioPinAbilityShuffle, Resources.ttradioPinAbilityShuffle);
+            ttFormMain.SetToolTip(radioPinAbilityRandom, Resources.ttradioPinAbilityRandom);
+            ttFormMain.SetToolTip(numPinAbility, Resources.ttnumPinAbility);
+            ttFormMain.SetToolTip(radioPinGrowthUnchanged, Resources.ttradioPinGrowthUnchanged);
+            ttFormMain.SetToolTip(radioPinGrowthRandomC, Resources.ttradioPinGrowthRandomC);
+            ttFormMain.SetToolTip(radioPinGrowthRandomU, Resources.ttradioPinGrowthRandomU);
+            ttFormMain.SetToolTip(radioPinGrowthSpecific, Resources.ttradioPinGrowthSpecific);
+            ttFormMain.SetToolTip(comboPinGrowth, Resources.ttcomboPinGrowth);
+            ttFormMain.SetToolTip(radioPinEvoUnchanged, Resources.ttradioPinEvoUnchanged);
+            ttFormMain.SetToolTip(radioPinEvoRandomE, Resources.ttradioPinEvoRandomE);
+            ttFormMain.SetToolTip(radioPinEvoRandomC, Resources.ttradioPinEvoRandomC);
+            ttFormMain.SetToolTip(checkPinEvoBrand, Resources.ttcheckPinEvoBrand);
+            ttFormMain.SetToolTip(checkPinEvoChara, Resources.ttcheckPinEvoChara);
+            ttFormMain.SetToolTip(numPinEvo, Resources.ttnumPinEvo);
         }
         #endregion
 

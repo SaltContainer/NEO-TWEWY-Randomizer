@@ -3417,7 +3417,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)..
+        ///   Looks up a localized string similar to   Limited Pins for Dropped Pins
+        ///Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)..
         /// </summary>
         internal static string ttcheckItemsLimited {
             get {
@@ -3426,7 +3427,239 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checked Difficulties are included in the randomization..
+        ///   Looks up a localized string similar to   Pin Affinity
+        ///Randomize every pin&apos;s Affinity.
+        ///There are NO checks to ensure that at least one damaging pin of each Affinity exists..
+        /// </summary>
+        internal static string ttcheckPinAffinity {
+            get {
+                return ResourceManager.GetString("ttcheckPinAffinity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Boot Time Stat
+        ///Randomize every pin&apos;s Boot Time Stat within the range 0-6 (decimals possible), with 0 being the
+        ///value 50% of the time.
+        ///This value is the time it takes, in seconds, for the pin to boot at the start of battle at Level 1.
+        ///This is unused in vanilla, with every pin having a value of 0.
+        ///There is no way to see the exact value in-game..
+        /// </summary>
+        internal static string ttcheckPinBoot {
+            get {
+                return ResourceManager.GetString("ttcheckPinBoot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Boot Time Stat Scaling
+        ///Randomize the scaling of every pin&apos;s Boot Time Stat where the lowest value possible for Boot Time
+        ///when mastered is 0 seconds, and the highest value possible is the same as the value at Level 1.
+        ///This value is how much Boot Time is lowered by on each level up. In vanilla, this value is always 0,
+        ///since Boot Time is unused..
+        /// </summary>
+        internal static string ttcheckPinBootScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinBootScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Charge Time Stat
+        ///Randomize every pin&apos;s Charge Time Stat within the range 0-2 (decimals possible).
+        ///This value is the time it takes, in seconds, for the pin&apos;s psych to charge.
+        ///There is no way to see the exact value in-game..
+        /// </summary>
+        internal static string ttcheckPinCharge {
+            get {
+                return ResourceManager.GetString("ttcheckPinCharge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Force Evolutions to be the Same Brand
+        ///Force the pin that evolves and the pin that is evolved into to be the same brand.
+        ///Brand randomization takes place BEFORE evolution randomization..
+        /// </summary>
+        internal static string ttcheckPinEvoBrand {
+            get {
+                return ResourceManager.GetString("ttcheckPinEvoBrand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Remove Character-Specific Evolutions
+        ///Remove all character-specific evolutions and make them global.
+        ///This change is ALWAYS applied if selected, even if pin evolutions are set to Unchanged..
+        /// </summary>
+        internal static string ttcheckPinEvoChara {
+            get {
+                return ResourceManager.GetString("ttcheckPinEvoChara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Limit Stat
+        ///Randomize every pin&apos;s Limit Stat within the range 3-10 (integers only).
+        ///This value is the amount of uses or the amount of time the pin can be used for before it needs to
+        ///reboot, at Level 1..
+        /// </summary>
+        internal static string ttcheckPinLimit {
+            get {
+                return ResourceManager.GetString("ttcheckPinLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Limit Stat Scaling
+        ///Randomize the scaling of every pin&apos;s Limit Stat within the range 0-2 (integers only).
+        ///This value is how much Limit is gained on each level up. In vanilla, this value is always 0 for
+        ///damaging pins and varies for non-damaging pins..
+        /// </summary>
+        internal static string ttcheckPinLimitScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinLimitScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Max Level
+        ///Randomize the level at which pins are mastered within the range 2-10 (integers only)..
+        /// </summary>
+        internal static string ttcheckPinMaxLevel {
+            get {
+                return ResourceManager.GetString("ttcheckPinMaxLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Power Stat
+        ///Randomize every pin&apos;s Power Stat within the range 50-1400 (integers only).
+        ///This value is the pin&apos;s Power at Level 1..
+        /// </summary>
+        internal static string ttcheckPinPower {
+            get {
+                return ResourceManager.GetString("ttcheckPinPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Power Stat Scaling
+        ///Randomize the scaling of every pin&apos;s Power Stat within the range 0-100 (integers only).
+        ///This value is the amount of Power gained on each level up. In vanilla, this value is always 20 for
+        ///damaging pins and 0 for non-damaging pins..
+        /// </summary>
+        internal static string ttcheckPinPowerScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinPowerScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Reboot Time Stat
+        ///Randomize every pin&apos;s Reboot Time Stat within the range 5-20 (decimals possible).
+        ///This value is the time it takes, in seconds, to reboot the pin at Level 1..
+        /// </summary>
+        internal static string ttcheckPinReboot {
+            get {
+                return ResourceManager.GetString("ttcheckPinReboot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Reboot Time Stat Scaling
+        ///Randomize the scaling of every pin&apos;s Reboot Time Stat where the lowest value possible for Reboot
+        ///Time when mastered is about 1 second, and the highest value possible is the same as the value at
+        ///Level 1.
+        ///This value is how much Reboot Time is lowered by on each level up. In vanilla, this value is always 0,
+        ///except for Rip-Roarin&apos; Red, where it is 2..
+        /// </summary>
+        internal static string ttcheckPinRebootScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinRebootScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Recover Time Stat
+        ///Randomize every pin&apos;s Recover Time Stat. This takes the Reboot Time and adds a value in the
+        ///range 0-6 (decimals possible) to it.
+        ///This value is the time it takes, in seconds, for the pin to slowly recharge when it is unused, at Level 1.
+        ///In vanilla, this value is about 1.5x the value of the Reboot Time.
+        ///It is important to note that if Reboot Time is randomized but not Recover Time, this Randomizer
+        ///does NOT re-adjust the Recover Time to be 1.5x the value of the Reboot Time; these  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ttcheckPinRecover {
+            get {
+                return ResourceManager.GetString("ttcheckPinRecover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Recover Time Stat Scaling
+        ///Randomize the scaling of every pin&apos;s Recover Time Stat where the lowest value possible for
+        ///Recover Time when mastered is about 1 second, and the highest value possible is the same as the
+        ///value at Level 1.
+        ///This value is how much Recover Time is lowered by on each level up. In vanilla, this value is always 0..
+        /// </summary>
+        internal static string ttcheckPinRecoverScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinRecoverScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Sell Price
+        ///Randomize every pin&apos;s Sell Price within the range 500-10000 (integers only).
+        ///This value is the price this pin sells for at shops, at Level 1.
+        ///It is important to note that this also randomizes the Sell Price of pins that cannot be sold in vanilla.
+        ///Generally those are pins that you cannot get more than one of..
+        /// </summary>
+        internal static string ttcheckPinSell {
+            get {
+                return ResourceManager.GetString("ttcheckPinSell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Pin Sell Price Scaling
+        ///Randomize the scaling of every pin&apos;s Sell Price within the range 500-2000 (integers only).
+        ///This value is how much the Sell Price of this pin increases by on each level up. In vanilla, this value
+        ///is about 0.2x the base Sell Price.
+        ///It is important to note that this also randomizes the Sell Price Scaling of pins that cannot be sold in
+        ///vanilla. Generally those are pins that you cannot get more than one of..
+        /// </summary>
+        internal static string ttcheckPinSellScaling {
+            get {
+                return ResourceManager.GetString("ttcheckPinSellScaling", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Uber Pins
+        ///Randomize each pin&apos;s Uber status..
+        /// </summary>
+        internal static string ttcheckPinUber {
+            get {
+                return ResourceManager.GetString("ttcheckPinUber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Specific Pin Growth Speed Selection
+        ///The growth speed to apply to all pins.
+        ///The choices include the unused &quot;Somewhat Slow&quot; growth speed, which is between &quot;Normal&quot; and
+        ///&quot;Slow&quot;..
+        /// </summary>
+        internal static string ttcomboPinGrowth {
+            get {
+                return ResourceManager.GetString("ttcomboPinGrowth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Included Difficulties for Drop Rates
+        ///Checked Difficulties are included in the randomization..
         /// </summary>
         internal static string ttgrpChanceDifficulty {
             get {
@@ -3435,7 +3668,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Checked Difficulties are included in the randomization..
+        ///   Looks up a localized string similar to   Included Difficulties for Dropped Pins
+        ///Checked Difficulties are included in the randomization..
         /// </summary>
         internal static string ttgrpItemsDifficulty {
             get {
@@ -3444,7 +3678,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The maximum drop rate. All randomized drop rates will be lower or equal to this number..
+        ///   Looks up a localized string similar to   Maximum Drop Rate
+        ///The maximum drop rate. All randomized drop rates will be lower than or equal to this number..
         /// </summary>
         internal static string ttnumChanceMax {
             get {
@@ -3453,7 +3688,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The minimum drop rate. All randomized drop rates will be higher or equal to this number..
+        ///   Looks up a localized string similar to   Minimum Drop Rate
+        ///The minimum drop rate. All randomized drop rates will be higher than or equal to this number..
         /// </summary>
         internal static string ttnumChanceMin {
             get {
@@ -3462,7 +3698,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The weights with which to randomize the drop rates for each difficulty..
+        ///   Looks up a localized string similar to   Drop Rate Weights
+        ///The weights with which to randomize the drop rates for each difficulty..
         /// </summary>
         internal static string ttnumChanceWeight {
             get {
@@ -3471,7 +3708,38 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make the drop rates completely random between the minimum and maximum drop rates..
+        ///   Looks up a localized string similar to   Percentage of Pins with Abilities
+        ///The percentage of pins that will have an ability if the option &quot;Random (Completely)&quot; is chosen..
+        /// </summary>
+        internal static string ttnumPinAbility {
+            get {
+                return ResourceManager.GetString("ttnumPinAbility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Percentage of Pins that Evolve
+        ///The percentage of pins that will evolve if the option &quot;Random (Completely)&quot; is chosen..
+        /// </summary>
+        internal static string ttnumPinEvo {
+            get {
+                return ResourceManager.GetString("ttnumPinEvo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Percentage of Uber Pins
+        ///The percentage of pins that will be Uber if pins&apos; Uber status is randomized..
+        /// </summary>
+        internal static string ttnumPinUber {
+            get {
+                return ResourceManager.GetString("ttnumPinUber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Drop Rates
+        ///Make the drop rates completely random between the minimum and maximum drop rates..
         /// </summary>
         internal static string ttradioChanceRandomC {
             get {
@@ -3480,10 +3748,11 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make the drop rates random but somewhat controlled with weights.
+        ///   Looks up a localized string similar to   Random (Weighted) Drop Rates
+        ///Make the drop rates random but somewhat controlled with weights.
         ///This allows for certain difficulties to have lower/higher drop rates.
-        ///The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while
-        ///the difficulty with the highest weight will have drop rates closer to the maximum drop rate.
+        ///The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while the
+        ///difficulty with the highest weight will have drop rates closer to the maximum drop rate.
         ///The weights scale linearly..
         /// </summary>
         internal static string ttradioChanceRandomW {
@@ -3493,7 +3762,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Don&apos;t change the drop rates..
+        ///   Looks up a localized string similar to   Unchanged Drop Rates
+        ///Don&apos;t change the drop rates..
         /// </summary>
         internal static string ttradioChanceUnchanged {
             get {
@@ -3502,7 +3772,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make Noise drop random pins while making all pins available this way.
+        ///   Looks up a localized string similar to   Random (All Pins) Dropped Pins
+        ///Make Noise drop random pins while making all pins available this way.
         ///Pig Noise are included.
         ///This will always affect all difficulties as this is too restrictive otherwise..
         /// </summary>
@@ -3513,7 +3784,8 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Make Noise drop random pins with no other limitations.
+        ///   Looks up a localized string similar to   Random (Completely) Dropped Pins
+        ///Make Noise drop random pins with no other limitations.
         ///Pig Noise are included..
         /// </summary>
         internal static string ttradioItemsRandomC {
@@ -3523,10 +3795,11 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+        ///   Looks up a localized string similar to   Shuffled (Completely) Dropped Pins
+        ///Take the full vanilla set of dropped pins, and randomize which Noise drops what.
         ///Pig Noise are excluded and keep their drops unchanged.
-        ///This means that all pins that are obtainable through drops in vanilla are still obtainable
-        ///in the same way and no new pins are dropped..
+        ///This means that all pins that are obtainable through drops in vanilla are still obtainable in the same
+        ///way and no new pins are dropped..
         /// </summary>
         internal static string ttradioItemsShuffleC {
             get {
@@ -3535,12 +3808,14 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Take each Noise&apos;s vanilla set of dropped pins, and shuffle which Noise drops which set of pins. Pig Noise are excluded and keep their drops unchanged.
+        ///   Looks up a localized string similar to   Shuffled (Sets) Dropped Pins
+        ///Take each Noise&apos;s vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+        ///Pig Noise are excluded and keep their drops unchanged.
         ///The shuffling keeps the corresponding difficulty.
-        ///For example, a Nefastraven could end up having a Dixiefrog&apos;s drops
-        ///(50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).
-        ///This means that all pins that are obtainable through drops in vanilla are still obtainable
-        ///in the same way and no new pins are dropped..
+        ///For example, a Nefastraven could end up having a Dixiefrog&apos;s drops (50 Yen on Easy, 100 Yen on
+        ///Normal, 500 Yen on Hard and 1 Yen on Ultimate).
+        ///This means that all pins that are obtainable through drops in vanilla are still obtainable in the same
+        ///way and no new pins are dro [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ttradioItemsShuffleS {
             get {
@@ -3549,11 +3824,164 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Don&apos;t change what pins Noise drop..
+        ///   Looks up a localized string similar to   Unchanged Dropped Pins
+        ///Don&apos;t change what pins Noise drop..
         /// </summary>
         internal static string ttradioItemsUnchanged {
             get {
                 return ResourceManager.GetString("ttradioItemsUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Pin Abilities
+        ///Make each pin have a random ability with no other limitations.
+        ///This only allows abilities that pins can normally have in vanilla..
+        /// </summary>
+        internal static string ttradioPinAbilityRandom {
+            get {
+                return ResourceManager.GetString("ttradioPinAbilityRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Pin Abilities
+        ///Randomize the ability of each pin while keeping the same amount of pins that have each ability in
+        ///vanilla..
+        /// </summary>
+        internal static string ttradioPinAbilityShuffle {
+            get {
+                return ResourceManager.GetString("ttradioPinAbilityShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Pin Abilities
+        ///Don&apos;t change the ability of any pin..
+        /// </summary>
+        internal static string ttradioPinAbilityUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioPinAbilityUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Pin Brands
+        ///Make each pin have a random brand with no other limitations.
+        ///This also includes the BLACK HONEY CHILI COOKIE brand, which does not have pins in vanilla..
+        /// </summary>
+        internal static string ttradioPinBrandRandomC {
+            get {
+                return ResourceManager.GetString("ttradioPinBrandRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Uniform) Pin Brands
+        ///Make each pin have a random brand while making all brands have the same amount of pins, give
+        ///or take one (19-20 pins).
+        ///This also includes the BLACK HONEY CHILI COOKIE brand, which does not have pins in vanilla..
+        /// </summary>
+        internal static string ttradioPinBrandRandomU {
+            get {
+                return ResourceManager.GetString("ttradioPinBrandRandomU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Pin Brands
+        ///Randomize the brand of each pin while keeping the same amount of pins assigned to each brand as
+        ///in vanilla..
+        /// </summary>
+        internal static string ttradioPinBrandShuffle {
+            get {
+                return ResourceManager.GetString("ttradioPinBrandShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Pin Brands
+        ///Don&apos;t change the brand of any pin..
+        /// </summary>
+        internal static string ttradioPinBrandUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioPinBrandUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Pin Evolutions
+        ///Make each pin have a random evolution with no other limitations. About 33% of all evolutions will
+        ///be character-specific unless those are removed.
+        ///There are NO checks to prevent circular evolutions..
+        /// </summary>
+        internal static string ttradioPinEvoRandomC {
+            get {
+                return ResourceManager.GetString("ttradioPinEvoRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Randomize Existing Pin Evolutions
+        ///Make each pin that already evolves evolve into a random pin.
+        ///There are NO checks to prevent circular evolutions..
+        /// </summary>
+        internal static string ttradioPinEvoRandomE {
+            get {
+                return ResourceManager.GetString("ttradioPinEvoRandomE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Pin Evolutions
+        ///Don&apos;t change the existing pin evolutions..
+        /// </summary>
+        internal static string ttradioPinEvoUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioPinEvoUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Pin Growth Speeds
+        ///Make each pin have a random growth speed with no other limitations.
+        ///This includes the unused &quot;Somewhat Slow&quot; growth speed, which is between &quot;Normal&quot; and &quot;Slow&quot;..
+        /// </summary>
+        internal static string ttradioPinGrowthRandomC {
+            get {
+                return ResourceManager.GetString("ttradioPinGrowthRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Uniform) Pin Growth Speeds
+        ///Make each pin have a random growth speed while making all growth speeds have the same
+        ///amount of pins (52 pins).
+        ///This includes the unused &quot;Somewhat Slow&quot; growth speed, which is between &quot;Normal&quot; and &quot;Slow&quot;..
+        /// </summary>
+        internal static string ttradioPinGrowthRandomU {
+            get {
+                return ResourceManager.GetString("ttradioPinGrowthRandomU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Specific Pin Growth Speed
+        ///Make all pins have a specific growth speed..
+        /// </summary>
+        internal static string ttradioPinGrowthSpecific {
+            get {
+                return ResourceManager.GetString("ttradioPinGrowthSpecific", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Pin Growth Speeds
+        ///Don&apos;t change the growth speed of any pin..
+        /// </summary>
+        internal static string ttradioPinGrowthUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioPinGrowthUnchanged", resourceCulture);
             }
         }
     }

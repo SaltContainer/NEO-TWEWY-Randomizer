@@ -22,6 +22,7 @@ namespace NEO_TWEWY_Randomizer
             log += logString;
         }
 
+        #region Noise Drops
         public void LogDropTypeChanges(List<EnemyData> original, List<EnemyData> randomized)
         {
             log += "Noise Drops\n========================================\n\n";
@@ -49,7 +50,7 @@ namespace NEO_TWEWY_Randomizer
                 string enemyName = FileConstants.ItemNames.Enemies.Where(e => e.Id == original[i].Id).First().Name;
                 List<float> dropsOriginal = original[i].DropRate.Select(r => r * 100).ToList();
                 List<float> dropsRandomized = randomized[i].DropRate.Select(r => r * 100).ToList();
-                log += string.Format("{0}\n{1,-8}: {2,-6}% -> {3}%\n{4,-8}: {5,-6}% -> {6}%\n{7,-8}: {8,-6}% -> {9}%\n{10,-8}: {11,-6}% -> {12}%\n\n", enemyName, "Easy", dropsOriginal[0], dropsRandomized[0], "Normal", dropsOriginal[1], dropsRandomized[1], "Hard", dropsOriginal[2], dropsRandomized[2], "Ultimate", dropsOriginal[3], dropsRandomized[3]);
+                log += string.Format("{0}\n{1,-8}: {2,-6:F2}% -> {3:F2}%\n{4,-8}: {5,-6:F2}% -> {6:F2}%\n{7,-8}: {8,-6:F2}% -> {9:F2}%\n{10,-8}: {11,-6:F2}% -> {12:F2}%\n\n", enemyName, "Easy", dropsOriginal[0], dropsRandomized[0], "Normal", dropsOriginal[1], dropsRandomized[1], "Hard", dropsOriginal[2], dropsRandomized[2], "Ultimate", dropsOriginal[3], dropsRandomized[3]);
             }
         }
 
@@ -70,7 +71,9 @@ namespace NEO_TWEWY_Randomizer
 
             log += "\n";
         }
+        #endregion
 
+        #region Pin Stats
         public void LogPinStatsChanges(List<Badge> original, List<Badge> randomized)
         {
             log += "Pin Stats\n========================================\n\n";
@@ -81,11 +84,11 @@ namespace NEO_TWEWY_Randomizer
                 Badge pinRandomized = randomized[i];
                 log += string.Format("{0}\n", FileConstants.ItemNames.Pins.Where(p => p.Id == original[i].Id).First().Name);
                 log += string.Format("{0,-14}: {1,-4} (+{2,-3})               -> {3,-4} (+{4,-3})\n", "Power", pinOriginal.Power, pinOriginal.PowerScaling, pinRandomized.Power, pinRandomized.PowerScaling);
-                log += string.Format("{0,-14}: {1,-4} uses/secs (+{2,-3})     -> {3,-4} uses/secs (+{4,-3})\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling);
-                log += string.Format("{0,-14}: {1,-4} secs (-{2,-3})          -> {3,-4} secs (-{4,-3})\n", "Reboot", pinOriginal.Reboot, pinOriginal.RebootScaling, pinRandomized.Reboot, pinRandomized.RebootScaling);
-                log += string.Format("{0,-14}: {1,-3} secs (-{2,-3})           -> {3,-3} secs (-{4,-3})\n", "Boot", pinOriginal.Boot, pinOriginal.BootScaling, pinRandomized.Boot, pinRandomized.BootScaling);
-                log += string.Format("{0,-14}: {1,-4} secs (-{2,-3})          -> {3,-4} secs (-{4,-3})\n", "Recover", pinOriginal.Recover, pinOriginal.RecoverScaling, pinRandomized.Recover, pinRandomized.RecoverScaling);
-                log += string.Format("{0,-14}: {1,-3} secs                  -> {2,-3} secs\n", "Charge", pinOriginal.Charge, pinRandomized.Charge);
+                log += string.Format("{0,-14}: {1,-4:F1} uses/secs (+{2,-3:F1})     -> {3,-4:F2} uses/secs (+{4,-3:F1})\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling);
+                log += string.Format("{0,-14}: {1,-4:F1} secs (-{2,-3:F1})          -> {3,-4:F1} secs (-{4,-3:F1})\n", "Reboot", pinOriginal.Reboot, pinOriginal.RebootScaling, pinRandomized.Reboot, pinRandomized.RebootScaling);
+                log += string.Format("{0,-14}: {1,-3:F1} secs (-{2,-3:F1})           -> {3,-3:F1} secs (-{4,-3:F1})\n", "Boot", pinOriginal.Boot, pinOriginal.BootScaling, pinRandomized.Boot, pinRandomized.BootScaling);
+                log += string.Format("{0,-14}: {1,-4:F1} secs (-{2,-3:F1})          -> {3,-4:F1} secs (-{4,-3:F1})\n", "Recover", pinOriginal.Recover, pinOriginal.RecoverScaling, pinRandomized.Recover, pinRandomized.RecoverScaling);
+                log += string.Format("{0,-14}: {1,-3:F1} secs                  -> {2,-3:F1} secs\n", "Charge", pinOriginal.Charge, pinRandomized.Charge);
                 log += string.Format("{0,-14}: {1,-5} ¥ (+{2,-4})           -> {3,-5} ¥ (+{4,-4})\n", "Sell Price", pinOriginal.SellPrice, pinOriginal.SellPriceScaling, pinRandomized.SellPrice, pinRandomized.SellPriceScaling);
                 log += string.Format("{0,-14}: {1,-8}                  -> {2,-8}\n", "Affinity", FileConstants.ItemNames.Affinities.Where(a => a.Id == pinOriginal.MashUpAffinity).First().Name, FileConstants.ItemNames.Affinities.Where(a => a.Id == pinRandomized.MashUpAffinity).First().Name);
                 log += string.Format("{0,-14}: {1,-2}                        -> {2,-2}\n", "Max Level", pinOriginal.MaxLevel, pinRandomized.MaxLevel);
@@ -114,6 +117,7 @@ namespace NEO_TWEWY_Randomizer
                 log += "\n";
             }
         }
+        #endregion
 
         public bool SaveLogToFile(string fileName)
         {

@@ -311,7 +311,7 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) }
+                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(2)) }
             };
             return editedScripts;
         }
@@ -361,10 +361,10 @@ namespace NEO_TWEWY_Randomizer
             if (settings.PinLimitScaling) listToEdit.ForEach(p => p.LimitScaling = rand.Next(0, 3));
 
             if (settings.PinReboot) listToEdit.ForEach(p => p.Reboot = NextRoundedFloatRange(5, 20, 1));
-            if (settings.PinRebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1, 1));
+            if (settings.PinRebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1), 1));
 
             if (settings.PinBoot) listToEdit.ForEach(p => p.Boot = Math.Max(0, NextRoundedFloatRange(-6, 6, 1)));
-            if (settings.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, (p.Boot) / (p.MaxLevel - 1) - 0.1, 1));
+            if (settings.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Boot) / (p.MaxLevel - 1) - 0.1), 1));
 
             if (settings.PinRecover) listToEdit.ForEach(p => p.Recover = p.Reboot + NextRoundedFloatRange(0, 6, 1));
             if (settings.PinRecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Recover - 1) / (p.MaxLevel - 1) - 0.1), 1));
@@ -528,21 +528,18 @@ namespace NEO_TWEWY_Randomizer
                             if (settings.PinEvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == listToEdit[pins[i]].Brand).Select(p => p.Id).ToList();
                             else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
 
-                            if (settings.PinEvoForceBrand)
+                            bool single = rand.Next(3) < 2;
+                            if (single)
                             {
-                                bool single = rand.Next(3) < 2;
-                                if (single)
-                                {
-                                    listToEdit[pins[i]].EvolutionSingle = possibleEvos[rand.Next(possibleEvos.Count)];
-                                    listToEdit[pins[i]].EvolutionList.Clear();
-                                }
-                                else
-                                {
-                                    int chara = rand.Next(7);
-                                    listToEdit[pins[i]].EvolutionSingle = -1;
-                                    listToEdit[pins[i]].EvolutionList = Enumerable.Repeat(-1, 7).ToList();
-                                    listToEdit[pins[i]].EvolutionList[chara] = possibleEvos[rand.Next(possibleEvos.Count)];
-                                }
+                                listToEdit[pins[i]].EvolutionSingle = possibleEvos[rand.Next(possibleEvos.Count)];
+                                listToEdit[pins[i]].EvolutionList.Clear();
+                            }
+                            else
+                            {
+                                int chara = rand.Next(7);
+                                listToEdit[pins[i]].EvolutionSingle = -1;
+                                listToEdit[pins[i]].EvolutionList = Enumerable.Repeat(-1, 7).ToList();
+                                listToEdit[pins[i]].EvolutionList[chara] = possibleEvos[rand.Next(possibleEvos.Count)];
                             }
                             listToEdit[pins[i]].EvolutionLevel = listToEdit[pins[i]].MaxLevel;
                         }
@@ -560,7 +557,11 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (Badge data in listToEdit)
                 {
-                    if (data.EvolutionList.Count > 0) data.EvolutionSingle = data.EvolutionList.Where(i => i != -1).First();
+                    if (data.EvolutionList.Count > 0)
+                    {
+                        data.EvolutionSingle = data.EvolutionList.Where(i => i != -1).First();
+                        data.EvolutionList.Clear();
+                    }
                 }
             }
 
@@ -568,7 +569,7 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.BadgeClassName, JsonConvert.SerializeObject(pinData, Formatting.Indented) },
+                { FileConstants.BadgeClassName, JsonConvert.SerializeObject(pinData, Formatting.Indented, new FloatFormatConverter(1)) },
                 { FileConstants.AttackHitClassName, JsonConvert.SerializeObject(attackHitData, Formatting.Indented) }
             };
             return editedScripts;

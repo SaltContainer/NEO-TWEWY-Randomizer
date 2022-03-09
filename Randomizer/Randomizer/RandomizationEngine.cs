@@ -18,7 +18,6 @@ namespace NEO_TWEWY_Randomizer
         public RandomizationEngine()
         {
             dataManipulator = new DataManipulator();
-            logger = new RandomizationLogger();
             scripts = new Dictionary<string, string>();
         }
 
@@ -35,6 +34,9 @@ namespace NEO_TWEWY_Randomizer
         public void Randomize(RandomizationSettings settings)
         {
             if (rand == null) rand = new Random();
+
+            logger = new RandomizationLogger();
+            logger.LogSettings(settings);
 
             scripts.AddRange(GetBaseScripts());
             scripts.AddRange(RandomizeDroppedPins(settings));

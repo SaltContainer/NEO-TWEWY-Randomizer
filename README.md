@@ -1,7 +1,7 @@
 # NEO-TWEWY-Randomizer
 This is a Randomizer for NEO: The World Ends With You.
 
-![Picture showing the application](https://i.imgur.com/ehKC9OM.png "The Randomizer")<br>
+![Picture showing the application](https://i.imgur.com/e5sp2lp.png "The Randomizer")<br>
 
 The most recent version can be downloaded from the releases page. Supported features are described further down.
 

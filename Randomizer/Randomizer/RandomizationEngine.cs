@@ -313,7 +313,7 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(2)) }
+                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(4)) }
             };
             return editedScripts;
         }

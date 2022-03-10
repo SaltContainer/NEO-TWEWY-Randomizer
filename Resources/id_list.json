@@ -482,7 +482,7 @@
 		},
 		{
 			"id": 900,
-			"name": "Joli bÃ©cot"
+			"name": "Joli bécot"
 		},
 		{
 			"id": 901,
@@ -558,7 +558,7 @@
 		},
 		{
 			"id": 1100,
-			"name": "Cold ConyÃ—Cony"
+			"name": "Cold Cony×Cony"
 		},
 		{
 			"id": 1101,
@@ -582,11 +582,11 @@
 		},
 		{
 			"id": 1106,
-			"name": "BÃ©rangÃ¨re Lapin"
+			"name": "Bérangère Lapin"
 		},
 		{
 			"id": 1107,
-			"name": "GrÃ©goire Lapin"
+			"name": "Grégoire Lapin"
 		},
 		{
 			"id": 1108,
@@ -630,35 +630,35 @@
 		},
 		{
 			"id": 1300,
-			"name": "ShoGunãƒ»Void"
+			"name": "ShoGun・Void"
 		},
 		{
 			"id": 1301,
-			"name": "ManjuSageãƒ»Void"
+			"name": "ManjuSage・Void"
 		},
 		{
 			"id": 1302,
-			"name": "EnJoãƒ»Blaze"
+			"name": "EnJo・Blaze"
 		},
 		{
 			"id": 1303,
-			"name": "KoYoãƒ»Blaze"
+			"name": "KoYo・Blaze"
 		},
 		{
 			"id": 1304,
-			"name": "Tsubakiãƒ»Frost"
+			"name": "Tsubaki・Frost"
 		},
 		{
 			"id": 1305,
-			"name": "HiGanãƒ»Frost"
+			"name": "HiGan・Frost"
 		},
 		{
 			"id": 1306,
-			"name": "InaZumaãƒ»Surge"
+			"name": "InaZuma・Surge"
 		},
 		{
 			"id": 1307,
-			"name": "RaiJinãƒ»Surge"
+			"name": "RaiJin・Surge"
 		},
 		{
 			"id": 1308,
@@ -666,15 +666,15 @@
 		},
 		{
 			"id": 1309,
-			"name": "KeiRyuãƒ»Epoch"
+			"name": "KeiRyu・Epoch"
 		},
 		{
 			"id": 1310,
-			"name": "RyuGuãƒ»Void"
+			"name": "RyuGu・Void"
 		},
 		{
 			"id": 1311,
-			"name": "HanaDokiãƒ»Void"
+			"name": "HanaDoki・Void"
 		},
 		{
 			"id": 1312,
@@ -682,7 +682,7 @@
 		},
 		{
 			"id": 1313,
-			"name": "HoGyokuãƒ»Gleam"
+			"name": "HoGyoku・Gleam"
 		},
 		{
 			"id": 1314,
@@ -706,11 +706,11 @@
 		},
 		{
 			"id": 1404,
-			"name": "MelanconyÃ—Melancony"
+			"name": "Melancony×Melancony"
 		},
 		{
 			"id": 1405,
-			"name": "Conyï½˜Cony"
+			"name": "ConyｘCony"
 		},
 		{
 			"id": 1406,
@@ -794,19 +794,19 @@
 		},
 		{
 			"id": 1700,
-			"name": "SuiGenãƒ»Void"
+			"name": "SuiGen・Void"
 		},
 		{
 			"id": 1701,
-			"name": "KoChoãƒ»Void"
+			"name": "KoCho・Void"
 		},
 		{
 			"id": 1702,
-			"name": "ShiDareãƒ»Shade"
+			"name": "ShiDare・Shade"
 		},
 		{
 			"id": 1703,
-			"name": "Tsuzumiãƒ»Echo"
+			"name": "Tsuzumi・Echo"
 		},
 		{
 			"id": 1704,
@@ -834,19 +834,19 @@
 		},
 		{
 			"id": 1710,
-			"name": "AraUmiãƒ»Gale"
+			"name": "AraUmi・Gale"
 		},
 		{
 			"id": 1711,
-			"name": "FuJinãƒ»Gale"
+			"name": "FuJin・Gale"
 		},
 		{
 			"id": 1712,
-			"name": "IroGoiãƒ»Shift"
+			"name": "IroGoi・Shift"
 		},
 		{
 			"id": 1713,
-			"name": "ShoRyuãƒ»Gleam"
+			"name": "ShoRyu・Gleam"
 		},
 		{
 			"id": 1800,
@@ -894,11 +894,11 @@
 		},
 		{
 			"id": 1901,
-			"name": "KaChuãƒ»Blaze"
+			"name": "KaChu・Blaze"
 		},
 		{
 			"id": 1902,
-			"name": "AkaFujiãƒ»Blaze"
+			"name": "AkaFuji・Blaze"
 		},
 		{
 			"id": 1900,
@@ -906,7 +906,7 @@
 		},
 		{
 			"id": 1903,
-			"name": "GoKaãƒ»Blaze"
+			"name": "GoKa・Blaze"
 		},
 		{
 			"id": 1904,
@@ -1247,7 +1247,9 @@
 		{
 			"id": 3020,
 			"name": "Handstandin' Panda"
-		},
+		}
+	],
+	"yen-pins": [
 		{
 			"id": 5000,
 			"name": "1 Yen"
@@ -1287,7 +1289,9 @@
 		{
 			"id": 5009,
 			"name": "100000 Yen"
-		},
+		}
+	],
+	"gem-pins": [
 		{
 			"id": 5100,
 			"name": "Scarletite"
@@ -1668,175 +1672,421 @@
 	"pigs": [
 		{
 			"id": 1203900,
-			"name":"Week 1 Day 2 - Pig 1"
+			"name": "Week 1 Day 2 - Pig 1"
 		},
 		{
 			"id": 1302900,
-			"name":"Week 1 Day 3 - Pig 1"
+			"name": "Week 1 Day 3 - Pig 1"
 		},
 		{
 			"id": 1303900,
-			"name":"Week 1 Day 3 - Pig 2"
+			"name": "Week 1 Day 3 - Pig 2"
 		},
 		{
 			"id": 1408900,
-			"name":"Week 1 Day 4 - Pig 1"
+			"name": "Week 1 Day 4 - Pig 1"
 		},
 		{
 			"id": 1404900,
-			"name":"Week 1 Day 4 - Pig 2"
+			"name": "Week 1 Day 4 - Pig 2"
 		},
 		{
 			"id": 1608900,
-			"name":"Week 1 Day 6 - Pig 1"
+			"name": "Week 1 Day 6 - Pig 1"
 		},
 		{
 			"id": 1605900,
-			"name":"Week 1 Day 6 - Pig 2"
+			"name": "Week 1 Day 6 - Pig 2"
 		},
 		{
 			"id": 1708900,
-			"name":"Week 1 Day 7 - Pig 1"
+			"name": "Week 1 Day 7 - Pig 1"
 		},
 		{
 			"id": 1702900,
-			"name":"Week 1 Day 7 - Pig 2"
+			"name": "Week 1 Day 7 - Pig 2"
 		},
 		{
 			"id": 2101900,
-			"name":"Week 2 Day 1 - Pig 1"
+			"name": "Week 2 Day 1 - Pig 1"
 		},
 		{
 			"id": 2102900,
-			"name":"Week 2 Day 1 - Pig 2"
+			"name": "Week 2 Day 1 - Pig 2"
 		},
 		{
 			"id": 2204900,
-			"name":"Week 2 Day 2 - Pig 1"
+			"name": "Week 2 Day 2 - Pig 1"
 		},
 		{
 			"id": 2205900,
-			"name":"Week 2 Day 2 - Pig 2"
+			"name": "Week 2 Day 2 - Pig 2"
 		},
 		{
 			"id": 2303900,
-			"name":"Week 2 Day 3 - Pig 1"
+			"name": "Week 2 Day 3 - Pig 1"
 		},
 		{
 			"id": 2302900,
-			"name":"Week 2 Day 3 - Pig 2"
+			"name": "Week 2 Day 3 - Pig 2"
 		},
 		{
 			"id": 2402900,
-			"name":"Week 2 Day 4 - Pig 1"
+			"name": "Week 2 Day 4 - Pig 1"
 		},
 		{
 			"id": 2407900,
-			"name":"Week 2 Day 4 - Pig 2"
+			"name": "Week 2 Day 4 - Pig 2"
 		},
 		{
 			"id": 2503900,
-			"name":"Week 2 Day 5 - Pig 1"
+			"name": "Week 2 Day 5 - Pig 1"
 		},
 		{
 			"id": 2510900,
-			"name":"Week 2 Day 5 - Pig 2"
+			"name": "Week 2 Day 5 - Pig 2"
 		},
 		{
 			"id": 2602900,
-			"name":"Week 2 Day 6 - Pig 1"
+			"name": "Week 2 Day 6 - Pig 1"
 		},
 		{
 			"id": 2605900,
-			"name":"Week 2 Day 6 - Pig 2"
+			"name": "Week 2 Day 6 - Pig 2"
 		},
 		{
 			"id": 2715900,
-			"name":"Week 2 Day 7 - Pig 1"
+			"name": "Week 2 Day 7 - Pig 1"
 		},
 		{
 			"id": 2707900,
-			"name":"Week 2 Day 7 - Pig 2"
+			"name": "Week 2 Day 7 - Pig 2"
 		},
 		{
 			"id": 3107900,
-			"name":"Week 3 Day 1 - Pig 1"
+			"name": "Week 3 Day 1 - Pig 1"
 		},
 		{
 			"id": 3110900,
-			"name":"Week 3 Day 1 - Pig 2"
+			"name": "Week 3 Day 1 - Pig 2"
 		},
 		{
 			"id": 3211900,
-			"name":"Week 3 Day 2 - Pig 1"
+			"name": "Week 3 Day 2 - Pig 1"
 		},
 		{
 			"id": 3213900,
-			"name":"Week 3 Day 2 - Pig 2"
+			"name": "Week 3 Day 2 - Pig 2"
 		},
 		{
 			"id": 3302900,
-			"name":"Week 3 Day 3 - Pig 1"
+			"name": "Week 3 Day 3 - Pig 1"
 		},
 		{
 			"id": 3305900,
-			"name":"Week 3 Day 3 - Pig 2"
+			"name": "Week 3 Day 3 - Pig 2"
 		},
 		{
 			"id": 3401900,
-			"name":"Week 3 Day 4 - Pig 1"
+			"name": "Week 3 Day 4 - Pig 1"
 		},
 		{
 			"id": 3402900,
-			"name":"Week 3 Day 4 - Pig 2"
+			"name": "Week 3 Day 4 - Pig 2"
 		},
 		{
 			"id": 3504900,
-			"name":"Week 3 Day 5 - Pig 1"
+			"name": "Week 3 Day 5 - Pig 1"
 		},
 		{
 			"id": 3517900,
-			"name":"Week 3 Day 5 - Pig 2"
+			"name": "Week 3 Day 5 - Pig 2"
 		},
 		{
 			"id": 3501900,
-			"name":"Week 3 Day 5 - Pig 3"
+			"name": "Week 3 Day 5 - Pig 3"
 		},
 		{
 			"id": 3608900,
-			"name":"Week 3 Day 6 - Pig 1"
+			"name": "Week 3 Day 6 - Pig 1"
 		},
 		{
 			"id": 3601900,
-			"name":"Week 3 Day 6 - Pig 2"
+			"name": "Week 3 Day 6 - Pig 2"
 		},
 		{
 			"id": 3716900,
-			"name":"Week 3 Day 7 - Pig 1"
+			"name": "Week 3 Day 7 - Pig 1"
 		},
 		{
 			"id": 3702900,
-			"name":"Week 3 Day 7 - Pig 2"
+			"name": "Week 3 Day 7 - Pig 2"
 		},
 		{
 			"id": 4105900,
-			"name":"Another Day - Pig 1"
+			"name": "Another Day - Pig 1"
 		},
 		{
 			"id": 4106900,
-			"name":"Another Day - Pig 2"
+			"name": "Another Day - Pig 2"
 		},
 		{
 			"id": 4107900,
-			"name":"Another Day - Pig 3"
+			"name": "Another Day - Pig 3"
 		},
 		{
 			"id": 4108900,
-			"name":"Another Day - Pig 4"
+			"name": "Another Day - Pig 4"
 		},
 		{
 			"id": 4109900,
-			"name":"Another Day - Pig 5"
+			"name": "Another Day - Pig 5"
+		}
+	],
+	"growth-classes": [
+		{
+			"id": 0,
+			"name": "Very Fast"
+		},
+		{
+			"id": 1,
+			"name": "Fast"
+		},
+		{
+			"id": 2,
+			"name": "Normal"
+		},
+		{
+			"id": 3,
+			"name": "Somewhat Slow"
+		},
+		{
+			"id": 4,
+			"name": "Slow"
+		},
+		{
+			"id": 5,
+			"name": "Very Slow"
+		}
+	],
+	"brands": [
+		{
+			"id": 0,
+			"name": "Unbranded"
+		},
+		{
+			"id": 1,
+			"name": "Top o' Topo"
+		},
+		{
+			"id": 2,
+			"name": "Joli bécot"
+		},
+		{
+			"id": 3,
+			"name": "Tigre PUNKS"
+		},
+		{
+			"id": 4,
+			"name": "Cony×Cony"
+		},
+		{
+			"id": 5,
+			"name": "RyuGu"
+		},
+		{
+			"id": 6,
+			"name": "garagara"
+		},
+		{
+			"id": 7,
+			"name": "IL CAVALLO DEL RE"
+		},
+		{
+			"id": 8,
+			"name": "Shepherd House"
+		},
+		{
+			"id": 9,
+			"name": "Jupiter of the Monkey"
+		},
+		{
+			"id": 10,
+			"name": "MONOCROW"
+		},
+		{
+			"id": 11,
+			"name": "NATURAL PUPPY"
+		},
+		{
+			"id": 12,
+			"name": "HOG FANG"
+		},
+		{
+			"id": 13,
+			"name": "Gatto Nero"
+		},
+		{
+			"id": 14,
+			"name": "croaky panic"
+		},
+		{
+			"id": 15,
+			"name": "BLACK HONEY CHILI COOKIE"
+		}
+	],
+	"affinities": [
+		{
+			"id": 0,
+			"name": "None"
+		},
+		{
+			"id": 1,
+			"name": "Fire"
+		},
+		{
+			"id": 2,
+			"name": "Ice"
+		},
+		{
+			"id": 3,
+			"name": "Electric"
+		},
+		{
+			"id": 4,
+			"name": "Wind"
+		},
+		{
+			"id": 5,
+			"name": "Water"
+		},
+		{
+			"id": 6,
+			"name": "Stone"
+		},
+		{
+			"id": 7,
+			"name": "Time"
+		},
+		{
+			"id": 8,
+			"name": "Sound"
+		},
+		{
+			"id": 9,
+			"name": "Darkness"
+		},
+		{
+			"id": 10,
+			"name": "Light"
+		},
+		{
+			"id": 11,
+			"name": "Kinesis"
+		},
+		{
+			"id": 12,
+			"name": "Burst"
+		},
+		{
+			"id": 13,
+			"name": "Gravity"
+		},
+		{
+			"id": 23,
+			"name": "Poison"
+		}
+	],
+	"pin-abilities": [
+		{
+			"id": 133,
+			"name": "HP Vampire"
+		},
+		{
+			"id": 134,
+			"name": "HP Vampire II"
+		},
+		{
+			"id": 1001,
+			"name": "Rear Assassin"
+		},
+		{
+			"id": 1002,
+			"name": "Downed Assassin"
+		},
+		{
+			"id": 1003,
+			"name": "Auto-Combo"
+		},
+		{
+			"id": 1004,
+			"name": "Knockback Assassin"
+		},
+		{
+			"id": 1005,
+			"name": "Auto-Combo"
+		},
+		{
+			"id": 1010,
+			"name": "Auto-Target"
+		},
+		{
+			"id": 1011,
+			"name": "Aerial Assassin"
+		},
+		{
+			"id": 1012,
+			"name": "Aerial Assault"
+		},
+		{
+			"id": 1013,
+			"name": "Killing Blow"
+		},
+		{
+			"id": 1014,
+			"name": "Groove Boost II"
+		},
+		{
+			"id": 1015,
+			"name": "Frozen Fatality"
+		},
+		{
+			"id": 2010,
+			"name": "Vibing: Rock & Ice"
+		},
+		{
+			"id": 2011,
+			"name": "Take Five"
+		}
+	],
+	"characters": [
+		{
+			"id": 1,
+			"name": "Rindo"
+		},
+		{
+			"id": 2,
+			"name": "Shoka"
+		},
+		{
+			"id": 3,
+			"name": "Fret"
+		},
+		{
+			"id": 4,
+			"name": "Nagi"
+		},
+		{
+			"id": 5,
+			"name": "Beat"
+		},
+		{
+			"id": 6,
+			"name": "Neku"
+		},
+		{
+			"id": 7,
+			"name": "Minamimoto"
 		}
 	]
 }

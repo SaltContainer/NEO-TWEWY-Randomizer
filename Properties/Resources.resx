@@ -119,10 +119,10 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="bundle_constants" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bundle_constants.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\bundle_constants.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="enemy_sets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enemy_sets.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\enemy_sets.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ID001_NoBrand" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ID001_NoBrand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -1094,77 +1094,327 @@
     <value>..\Resources\ID333_sozai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="id_list" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\id_list.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\Resources\id_list.json;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="ttcheckItemsLimited" xml:space="preserve">
-    <value>Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion).</value>
+    <value>  Limited Pins for Dropped Pins
+Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion).</value>
     <comment>Limited Pins Dropped Pins</comment>
   </data>
+  <data name="ttcheckPinAffinity" xml:space="preserve">
+    <value>  Pin Affinity
+Randomize every pin's Affinity.
+There are NO checks to ensure that at least one damaging pin of each Affinity exists.</value>
+    <comment>Pin Affinity</comment>
+  </data>
+  <data name="ttcheckPinBoot" xml:space="preserve">
+    <value>  Pin Boot Time Stat
+Randomize every pin's Boot Time Stat within the range 0-6 (decimals possible), with 0 being the
+value 50% of the time.
+This value is the time it takes, in seconds, for the pin to boot at the start of battle at Level 1.
+This is unused in vanilla, with every pin having a value of 0.
+There is no way to see the exact value in-game.</value>
+    <comment>Pin Boot</comment>
+  </data>
+  <data name="ttcheckPinBootScaling" xml:space="preserve">
+    <value>  Pin Boot Time Stat Scaling
+Randomize the scaling of every pin's Boot Time Stat where the lowest value possible for Boot Time
+when mastered is 0 seconds, and the highest value possible is the same as the value at Level 1.
+This value is how much Boot Time is lowered by on each level up. In vanilla, this value is always 0,
+since Boot Time is unused.</value>
+    <comment>Pin Boot Scaling</comment>
+  </data>
+  <data name="ttcheckPinCharge" xml:space="preserve">
+    <value>  Pin Charge Time Stat
+Randomize every pin's Charge Time Stat within the range 0-2 (decimals possible).
+This value is the time it takes, in seconds, for the pin's psych to charge.
+There is no way to see the exact value in-game.</value>
+    <comment>Pin Charge</comment>
+  </data>
+  <data name="ttcheckPinEvoBrand" xml:space="preserve">
+    <value>  Force Evolutions to be the Same Brand
+Force the pin that evolves and the pin that is evolved into to be the same brand.
+Brand randomization takes place BEFORE evolution randomization.</value>
+    <comment>Pin Evo Brand</comment>
+  </data>
+  <data name="ttcheckPinEvoChara" xml:space="preserve">
+    <value>  Remove Character-Specific Evolutions
+Remove all character-specific evolutions and make them global.
+This change is ALWAYS applied if selected, even if pin evolutions are set to Unchanged.</value>
+    <comment>Pin Evo Chara</comment>
+  </data>
+  <data name="ttcheckPinLimit" xml:space="preserve">
+    <value>  Pin Limit Stat
+Randomize every pin's Limit Stat within the range 3-10 (integers only).
+This value is the amount of uses or the amount of time the pin can be used for before it needs to
+reboot, at Level 1.</value>
+    <comment>Pin Limit</comment>
+  </data>
+  <data name="ttcheckPinLimitScaling" xml:space="preserve">
+    <value>  Pin Limit Stat Scaling
+Randomize the scaling of every pin's Limit Stat within the range 0-2 (integers only).
+This value is how much Limit is gained on each level up. In vanilla, this value is always 0 for
+damaging pins and varies for non-damaging pins.</value>
+    <comment>Pin Limit Scaling</comment>
+  </data>
+  <data name="ttcheckPinMaxLevel" xml:space="preserve">
+    <value>  Pin Max Level
+Randomize the level at which pins are mastered within the range 2-10 (integers only).</value>
+    <comment>Pin Max Level</comment>
+  </data>
+  <data name="ttcheckPinPower" xml:space="preserve">
+    <value>  Pin Power Stat
+Randomize every pin's Power Stat within the range 50-1400 (integers only).
+This value is the pin's Power at Level 1.</value>
+    <comment>Pin Power</comment>
+  </data>
+  <data name="ttcheckPinPowerScaling" xml:space="preserve">
+    <value>  Pin Power Stat Scaling
+Randomize the scaling of every pin's Power Stat within the range 0-100 (integers only).
+This value is the amount of Power gained on each level up. In vanilla, this value is always 20 for
+damaging pins and 0 for non-damaging pins.</value>
+    <comment>Pin Power Scaling</comment>
+  </data>
+  <data name="ttcheckPinReboot" xml:space="preserve">
+    <value>  Pin Reboot Time Stat
+Randomize every pin's Reboot Time Stat within the range 5-20 (decimals possible).
+This value is the time it takes, in seconds, to reboot the pin at Level 1.</value>
+    <comment>Pin Reboot</comment>
+  </data>
+  <data name="ttcheckPinRebootScaling" xml:space="preserve">
+    <value>  Pin Reboot Time Stat Scaling
+Randomize the scaling of every pin's Reboot Time Stat where the lowest value possible for Reboot
+Time when mastered is about 1 second, and the highest value possible is the same as the value at
+Level 1.
+This value is how much Reboot Time is lowered by on each level up. In vanilla, this value is always 0,
+except for Rip-Roarin' Red, where it is 2.</value>
+    <comment>Pin Reboot Scaling</comment>
+  </data>
+  <data name="ttcheckPinRecover" xml:space="preserve">
+    <value>  Pin Recover Time Stat
+Randomize every pin's Recover Time Stat. This takes the Reboot Time and adds a value in the
+range 0-6 (decimals possible) to it.
+This value is the time it takes, in seconds, for the pin to slowly recharge when it is unused, at Level 1.
+In vanilla, this value is about 1.5x the value of the Reboot Time.
+It is important to note that if Reboot Time is randomized but not Recover Time, this Randomizer
+does NOT re-adjust the Recover Time to be 1.5x the value of the Reboot Time; these stay the same
+as vanilla.
+There is no way to see the exact value in-game.</value>
+    <comment>Pin Recover</comment>
+  </data>
+  <data name="ttcheckPinRecoverScaling" xml:space="preserve">
+    <value>  Pin Recover Time Stat Scaling
+Randomize the scaling of every pin's Recover Time Stat where the lowest value possible for
+Recover Time when mastered is about 1 second, and the highest value possible is the same as the
+value at Level 1.
+This value is how much Recover Time is lowered by on each level up. In vanilla, this value is always 0.</value>
+    <comment>Pin Recover Scaling</comment>
+  </data>
+  <data name="ttcheckPinSell" xml:space="preserve">
+    <value>  Pin Sell Price
+Randomize every pin's Sell Price within the range 500-10000 (integers only).
+This value is the price this pin sells for at shops, at Level 1.
+It is important to note that this also randomizes the Sell Price of pins that cannot be sold in vanilla.
+Generally those are pins that you cannot get more than one of.</value>
+    <comment>Pin Sell Price</comment>
+  </data>
+  <data name="ttcheckPinSellScaling" xml:space="preserve">
+    <value>  Pin Sell Price Scaling
+Randomize the scaling of every pin's Sell Price within the range 500-2000 (integers only).
+This value is how much the Sell Price of this pin increases by on each level up. In vanilla, this value
+is about 0.2x the base Sell Price.
+It is important to note that this also randomizes the Sell Price Scaling of pins that cannot be sold in
+vanilla. Generally those are pins that you cannot get more than one of.</value>
+    <comment>Pin Sell Price Scaling</comment>
+  </data>
+  <data name="ttcheckPinUber" xml:space="preserve">
+    <value>  Uber Pins
+Randomize each pin's Uber status.</value>
+    <comment>Uber Pins</comment>
+  </data>
+  <data name="ttcomboPinGrowth" xml:space="preserve">
+    <value>  Specific Pin Growth Speed Selection
+The growth speed to apply to all pins.
+The choices include the unused "Somewhat Slow" growth speed, which is between "Normal" and
+"Slow".</value>
+    <comment>Pin Growth Specific Selection</comment>
+  </data>
   <data name="ttgrpChanceDifficulty" xml:space="preserve">
-    <value>Checked Difficulties are included in the randomization.</value>
+    <value>  Included Difficulties for Drop Rates
+Checked Difficulties are included in the randomization.</value>
     <comment>Difficulties Drop Rate</comment>
   </data>
   <data name="ttgrpItemsDifficulty" xml:space="preserve">
-    <value>Checked Difficulties are included in the randomization.</value>
+    <value>  Included Difficulties for Dropped Pins
+Checked Difficulties are included in the randomization.</value>
     <comment>Difficulties Dropped Pins</comment>
   </data>
   <data name="ttnumChanceMax" xml:space="preserve">
-    <value>The maximum drop rate. All randomized drop rates will be lower or equal to this number.</value>
+    <value>  Maximum Drop Rate
+The maximum drop rate. All randomized drop rates will be lower than or equal to this number.</value>
     <comment>Maximum Drop Rate</comment>
   </data>
   <data name="ttnumChanceMin" xml:space="preserve">
-    <value>The minimum drop rate. All randomized drop rates will be higher or equal to this number.</value>
+    <value>  Minimum Drop Rate
+The minimum drop rate. All randomized drop rates will be higher than or equal to this number.</value>
     <comment>Minimum Drop Rate</comment>
   </data>
   <data name="ttnumChanceWeight" xml:space="preserve">
-    <value>The weights with which to randomize the drop rates for each difficulty.</value>
+    <value>  Drop Rate Weights
+The weights with which to randomize the drop rates for each difficulty.</value>
     <comment>Drop Rate Weights</comment>
   </data>
+  <data name="ttnumPinAbility" xml:space="preserve">
+    <value>  Percentage of Pins with Abilities
+The percentage of pins that will have an ability if the option "Random (Completely)" is chosen.</value>
+    <comment>Pin Ability Percentage</comment>
+  </data>
+  <data name="ttnumPinEvo" xml:space="preserve">
+    <value>  Percentage of Pins that Evolve
+The percentage of pins that will evolve if the option "Random (Completely)" is chosen.</value>
+    <comment>Pin Evo Percentage</comment>
+  </data>
+  <data name="ttnumPinUber" xml:space="preserve">
+    <value>  Percentage of Uber Pins
+The percentage of pins that will be Uber if pins' Uber status is randomized.</value>
+    <comment>Uber Pins Percentage</comment>
+  </data>
   <data name="ttradioChanceRandomC" xml:space="preserve">
-    <value>Make the drop rates completely random between the minimum and maximum drop rates.</value>
+    <value>  Random (Completely) Drop Rates
+Make the drop rates completely random between the minimum and maximum drop rates.</value>
     <comment>Random (Completely) Drop Rates</comment>
   </data>
   <data name="ttradioChanceRandomW" xml:space="preserve">
-    <value>Make the drop rates random but somewhat controlled with weights.
+    <value>  Random (Weighted) Drop Rates
+Make the drop rates random but somewhat controlled with weights.
 This allows for certain difficulties to have lower/higher drop rates.
-The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while
-the difficulty with the highest weight will have drop rates closer to the maximum drop rate.
+The difficulty with the lowest weight will have drop rates closer to the minimum drop rate while the
+difficulty with the highest weight will have drop rates closer to the maximum drop rate.
 The weights scale linearly.</value>
     <comment>Random (Weighted) Drop Rates</comment>
   </data>
   <data name="ttradioChanceUnchanged" xml:space="preserve">
-    <value>Don't change the drop rates.</value>
+    <value>  Unchanged Drop Rates
+Don't change the drop rates.</value>
     <comment>Unchanged Drop Rates</comment>
   </data>
   <data name="ttradioItemsRandomA" xml:space="preserve">
-    <value>Make Noise drop random pins while making all pins available this way.
+    <value>  Random (All Pins) Dropped Pins
+Make Noise drop random pins while making all pins available this way.
 Pig Noise are included.
 This will always affect all difficulties as this is too restrictive otherwise.</value>
     <comment>Random (All Pins) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsRandomC" xml:space="preserve">
-    <value>Make Noise drop random pins with no other limitations.
+    <value>  Random (Completely) Dropped Pins
+Make Noise drop random pins with no other limitations.
 Pig Noise are included.</value>
     <comment>Random (Completely) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsShuffleC" xml:space="preserve">
-    <value>Take the full vanilla set of dropped pins, and randomize which Noise drops what.
+    <value>  Shuffled (Completely) Dropped Pins
+Take the full vanilla set of dropped pins, and randomize which Noise drops what.
 Pig Noise are excluded and keep their drops unchanged.
-This means that all pins that are obtainable through drops in vanilla are still obtainable
-in the same way and no new pins are dropped.</value>
+This means that all pins that are obtainable through drops in vanilla are still obtainable in the same
+way and no new pins are dropped.</value>
     <comment>Shuffled (Completely) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsShuffleS" xml:space="preserve">
-    <value>Take each Noise's vanilla set of dropped pins, and shuffle which Noise drops which set of pins. Pig Noise are excluded and keep their drops unchanged.
+    <value>  Shuffled (Sets) Dropped Pins
+Take each Noise's vanilla set of dropped pins, and shuffle which Noise drops which set of pins.
+Pig Noise are excluded and keep their drops unchanged.
 The shuffling keeps the corresponding difficulty.
-For example, a Nefastraven could end up having a Dixiefrog's drops
-(50 Yen on Easy, 100 Yen on Normal, 500 Yen on Hard and 1 Yen on Ultimate).
-This means that all pins that are obtainable through drops in vanilla are still obtainable
-in the same way and no new pins are dropped.</value>
+For example, a Nefastraven could end up having a Dixiefrog's drops (50 Yen on Easy, 100 Yen on
+Normal, 500 Yen on Hard and 1 Yen on Ultimate).
+This means that all pins that are obtainable through drops in vanilla are still obtainable in the same
+way and no new pins are dropped.</value>
     <comment>Shuffled (Sets) Dropped Pins</comment>
   </data>
   <data name="ttradioItemsUnchanged" xml:space="preserve">
-    <value>Don't change what pins Noise drop.</value>
+    <value>  Unchanged Dropped Pins
+Don't change what pins Noise drop.</value>
     <comment>Unchanged Dropped Pins</comment>
+  </data>
+  <data name="ttradioPinAbilityRandom" xml:space="preserve">
+    <value>  Random (Completely) Pin Abilities
+Make each pin have a random ability with no other limitations.
+This only allows abilities that pins can normally have in vanilla.</value>
+    <comment>Pin Ability Random Completely</comment>
+  </data>
+  <data name="ttradioPinAbilityShuffle" xml:space="preserve">
+    <value>  Shuffled Pin Abilities
+Randomize the ability of each pin while keeping the same amount of pins that have each ability in
+vanilla.</value>
+    <comment>Pin Ability Shuffle</comment>
+  </data>
+  <data name="ttradioPinAbilityUnchanged" xml:space="preserve">
+    <value>  Unchanged Pin Abilities
+Don't change the ability of any pin.</value>
+    <comment>Pin Ability Unchanged</comment>
+  </data>
+  <data name="ttradioPinBrandRandomC" xml:space="preserve">
+    <value>  Random (Completely) Pin Brands
+Make each pin have a random brand with no other limitations.
+This also includes the BLACK HONEY CHILI COOKIE brand, which does not have pins in vanilla.</value>
+    <comment>Pin Brand Random Completely</comment>
+  </data>
+  <data name="ttradioPinBrandRandomU" xml:space="preserve">
+    <value>  Random (Uniform) Pin Brands
+Make each pin have a random brand while making all brands have the same amount of pins, give
+or take one (19-20 pins).
+This also includes the BLACK HONEY CHILI COOKIE brand, which does not have pins in vanilla.</value>
+    <comment>Pin Brand Random Uniform</comment>
+  </data>
+  <data name="ttradioPinBrandShuffle" xml:space="preserve">
+    <value>  Shuffled Pin Brands
+Randomize the brand of each pin while keeping the same amount of pins assigned to each brand as
+in vanilla.</value>
+    <comment>Pin Brand Shuffle</comment>
+  </data>
+  <data name="ttradioPinBrandUnchanged" xml:space="preserve">
+    <value>  Unchanged Pin Brands
+Don't change the brand of any pin.</value>
+    <comment>Pin Brand Unchanged</comment>
+  </data>
+  <data name="ttradioPinEvoRandomC" xml:space="preserve">
+    <value>  Random (Completely) Pin Evolutions
+Make each pin have a random evolution with no other limitations. About 33% of all evolutions will
+be character-specific unless those are removed.
+There are NO checks to prevent circular evolutions.</value>
+    <comment>Pin Evo Random Completely</comment>
+  </data>
+  <data name="ttradioPinEvoRandomE" xml:space="preserve">
+    <value>  Randomize Existing Pin Evolutions
+Make each pin that already evolves evolve into a random pin.
+There are NO checks to prevent circular evolutions.</value>
+    <comment>Pin Evo Random Existing</comment>
+  </data>
+  <data name="ttradioPinEvoUnchanged" xml:space="preserve">
+    <value>  Unchanged Pin Evolutions
+Don't change the existing pin evolutions.</value>
+    <comment>Pin Evo Unchanged</comment>
+  </data>
+  <data name="ttradioPinGrowthRandomC" xml:space="preserve">
+    <value>  Random (Completely) Pin Growth Speeds
+Make each pin have a random growth speed with no other limitations.
+This includes the unused "Somewhat Slow" growth speed, which is between "Normal" and "Slow".</value>
+    <comment>Pin Growth Random Completely</comment>
+  </data>
+  <data name="ttradioPinGrowthRandomU" xml:space="preserve">
+    <value>  Random (Uniform) Pin Growth Speeds
+Make each pin have a random growth speed while making all growth speeds have the same
+amount of pins (52 pins).
+This includes the unused "Somewhat Slow" growth speed, which is between "Normal" and "Slow".</value>
+    <comment>Pin Growth Random Uniform</comment>
+  </data>
+  <data name="ttradioPinGrowthSpecific" xml:space="preserve">
+    <value>  Specific Pin Growth Speed
+Make all pins have a specific growth speed.</value>
+    <comment>Pin Growth Specific</comment>
+  </data>
+  <data name="ttradioPinGrowthUnchanged" xml:space="preserve">
+    <value>  Unchanged Pin Growth Speeds
+Don't change the growth speed of any pin.</value>
+    <comment>Pin Growth Unchanged</comment>
   </data>
 </root>

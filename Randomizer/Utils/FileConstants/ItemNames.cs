@@ -11,11 +11,25 @@ namespace NEO_TWEWY_Randomizer
     {
         [JsonProperty("pins")]
         public IList<NameAssociation> Pins { get; set; }
+        [JsonProperty("yen-pins")]
+        public IList<NameAssociation> YenPins { get; set; }
+        [JsonProperty("gem-pins")]
+        public IList<NameAssociation> GemPins { get; set; }
         [JsonProperty("limited-pins")]
         public IList<NameAssociation> LimitedPins { get; set; }
         [JsonProperty("enemies")]
         public IList<NameAssociation> Enemies { get; set; }
         [JsonProperty("pigs")]
         public IList<NameAssociation> Pigs { get; set; }
+        [JsonProperty("growth-classes")]
+        public IList<NameAssociation> GrowthRates { get; set; }
+        [JsonProperty("brands")]
+        public IList<NameAssociation> Brands { get; set; }
+        [JsonProperty("affinities")]
+        public IList<NameAssociation> Affinities { get; set; }
+        [JsonProperty("pin-abilities")]
+        public IList<NameAssociation> PinAbilities { get; set; }
+        [JsonProperty("characters")]
+        public IList<NameAssociation> Characters { get; set; }
     }
 }

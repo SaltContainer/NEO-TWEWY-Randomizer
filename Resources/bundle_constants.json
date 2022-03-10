@@ -15,6 +15,26 @@
 			"PigData": {
 				"name": "PigData",
 				"attribute": "m_Script"
+			},
+			"Badge": {
+				"name": "Badge",
+				"attribute": "m_Script"
+			},
+			"Psychic": {
+				"name": "Psychic",
+				"attribute": "m_Script"
+			},
+			"AttackComboSet": {
+				"name": "AttackComboSet",
+				"attribute": "m_Script"
+			},
+			"Attack": {
+				"name": "Attack",
+				"attribute": "m_Script"
+			},
+			"AttackHit": {
+				"name": "AttackHit",
+				"attribute": "m_Script"
 			}
 		}
 	}

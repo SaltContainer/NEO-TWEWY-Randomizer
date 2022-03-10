@@ -18,7 +18,6 @@ namespace NEO_TWEWY_Randomizer
         public RandomizationEngine()
         {
             dataManipulator = new DataManipulator();
-            logger = new RandomizationLogger();
             scripts = new Dictionary<string, string>();
         }
 
@@ -36,9 +35,13 @@ namespace NEO_TWEWY_Randomizer
         {
             if (rand == null) rand = new Random();
 
+            logger = new RandomizationLogger();
+            logger.LogSettings(settings);
+
             scripts.AddRange(GetBaseScripts());
             scripts.AddRange(RandomizeDroppedPins(settings));
             scripts.AddRange(RandomizeDropRate(settings));
+            scripts.AddRange(RandomizePinStats(settings));
 
             dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
         }
@@ -61,9 +64,26 @@ namespace NEO_TWEWY_Randomizer
             Dictionary<string, string> obtainedScripts = new Dictionary<string, string>();
             obtainedScripts.Add(FileConstants.EnemyDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName));
             obtainedScripts.Add(FileConstants.PigDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PigDataClassName));
+            obtainedScripts.Add(FileConstants.BadgeClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.BadgeClassName));
+            obtainedScripts.Add(FileConstants.PsychicClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PsychicClassName));
+            obtainedScripts.Add(FileConstants.AttackComboSetClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackComboSetClassName));
+            obtainedScripts.Add(FileConstants.AttackClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackClassName));
+            obtainedScripts.Add(FileConstants.AttackHitClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackHitClassName));
             return obtainedScripts;
         }
 
+        private double NextDoubleRange(double min, double max)
+        {
+            double range = max - min;
+            return (range * rand.NextDouble()) + min;
+        }
+
+        private float NextRoundedFloatRange(double min, double max, int decimals)
+        {
+            return (float) Math.Round(NextDoubleRange(min, max), decimals);
+        }
+
+        #region Noise Drops
         private void AdjustEnemyDataDroppedPins(EnemyDataList enemyData)
         {
             foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.Duplicates)
@@ -130,9 +150,9 @@ namespace NEO_TWEWY_Randomizer
             bool dropHard = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Hard);
             bool dropUltimate = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate);
 
-            bool limited = settings.IncludeLimitedPins;
+            bool limited = settings.NoiseIncludeLimitedPins;
 
-            switch (settings.DropType)
+            switch (settings.NoiseDropTypeChoice)
             {
                 case NoiseDropType.ShuffleCompletely:
                     List<int> scPins = new List<int>();
@@ -167,6 +187,8 @@ namespace NEO_TWEWY_Randomizer
 
                 case NoiseDropType.RandomCompletely:
                     List<int> rcPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                    rcPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
+                    rcPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
                     if (limited) rcPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
 
                     foreach (EnemyData data in listToEdit)
@@ -181,6 +203,8 @@ namespace NEO_TWEWY_Randomizer
 
                 case NoiseDropType.RandomAllPins:
                     List<int> raPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                    raPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
+                    raPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
                     if (limited) raPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
 
                     int raEnemyCount = listToEdit.Count;
@@ -218,7 +242,7 @@ namespace NEO_TWEWY_Randomizer
             }
 
             logger.LogDropTypeChanges(listToEditOriginal, listToEdit);
-            if (settings.DropType == NoiseDropType.RandomAllPins) logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
+            if (settings.NoiseDropTypeChoice == NoiseDropType.RandomAllPins) logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
@@ -243,10 +267,10 @@ namespace NEO_TWEWY_Randomizer
             bool dropHard = settings.NoiseDropRateDifficulties.Contains(Difficulties.Hard);
             bool dropUltimate = settings.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate);
 
-            double min = (double) (settings.MinimumDropRate / 100M);
-            double max = (double) (settings.MaximumDropRate / 100M);
+            double min = (double) (settings.NoiseMinimumDropRate / 100M);
+            double max = (double) (settings.NoiseMaximumDropRate / 100M);
 
-            switch (settings.DropRate)
+            switch (settings.NoiseDropRateChoice)
             {
                 case NoiseDropRate.RandomCompletely:
                     foreach (EnemyData data in listToEdit)
@@ -289,9 +313,269 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) }
+                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(4)) }
             };
             return editedScripts;
         }
+        #endregion
+
+        #region Pin Stats
+        private Dictionary<int, List<AttackHit>> FindAttackHitsToModify(List<Badge> pins, AttackHitList dataToSearch)
+        {
+            string psychicDataScript = scripts[FileConstants.PsychicClassName];
+            string attackComboSetDataScript = scripts[FileConstants.AttackComboSetClassName];
+            string attackDataScript = scripts[FileConstants.AttackClassName];
+
+            PsychicList psychicDataOriginal = JsonConvert.DeserializeObject<PsychicList>(psychicDataScript);
+            AttackComboSetList attackComboSetDataOriginal = JsonConvert.DeserializeObject<AttackComboSetList>(attackComboSetDataScript);
+            AttackList attackDataOriginal = JsonConvert.DeserializeObject<AttackList>(attackDataScript);
+
+            Dictionary<int, Psychic> psDict = pins.ToDictionary(p => p.Id, p => psychicDataOriginal.Items.Where(ps => ps.Id == p.Psychic).First());
+            Dictionary<int, AttackComboSet> acsDict = psDict.ToDictionary(ps => ps.Key, ps => attackComboSetDataOriginal.Items.Where(acs => acs.Id == ps.Value.AttackComboSet).First());
+            Dictionary<int, List<Attack>> atkDict = acsDict.ToDictionary(acs => acs.Key, acs => attackDataOriginal.Items.Where(atk => acs.Value.AttackList.Contains(atk.Id)).ToList());
+            Dictionary<int, List<AttackHit>> hitDict = atkDict.ToDictionary(atk => atk.Key, atk => dataToSearch.Items.Where(hit => atk.Value.SelectMany(a => a.HitList).Contains(hit.Id)).ToList());
+
+            return hitDict;
+        }
+
+        private Dictionary<string, string> RandomizePinStats(RandomizationSettings settings)
+        {
+            string pinDataScript = scripts[FileConstants.BadgeClassName];
+            string attackHitScript = scripts[FileConstants.AttackHitClassName];
+
+            BadgeList pinDataOriginal = JsonConvert.DeserializeObject<BadgeList>(pinDataScript);
+            BadgeList pinData = JsonConvert.DeserializeObject<BadgeList>(pinDataScript);
+
+            AttackHitList attackHitDataOriginal = JsonConvert.DeserializeObject<AttackHitList>(attackHitScript);
+            AttackHitList attackHitData = JsonConvert.DeserializeObject<AttackHitList>(attackHitScript);
+
+            List<Badge> listToEditOriginal = pinDataOriginal.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => p.Id).Contains(data.Id)).ToList();
+            List<Badge> listToEdit = pinData.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => p.Id).Contains(data.Id)).ToList();
+
+            Dictionary<int, List<AttackHit>> attackHitToEdit = FindAttackHitsToModify(listToEdit, attackHitData);
+
+            if (settings.PinMaxLevel) listToEdit.ForEach(p => p.MaxLevel = rand.Next(2, 11));
+
+            if (settings.PinPower) listToEdit.ForEach(p => p.Power = rand.Next(50, 1401));
+            if (settings.PinPowerScaling) listToEdit.ForEach(p => p.PowerScaling = rand.Next(0, 101));
+
+            if (settings.PinLimit) listToEdit.ForEach(p => p.Limit = rand.Next(3, 11));
+            if (settings.PinLimitScaling) listToEdit.ForEach(p => p.LimitScaling = rand.Next(0, 3));
+
+            if (settings.PinReboot) listToEdit.ForEach(p => p.Reboot = NextRoundedFloatRange(5, 20, 1));
+            if (settings.PinRebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1), 1));
+
+            if (settings.PinBoot) listToEdit.ForEach(p => p.Boot = Math.Max(0, NextRoundedFloatRange(-6, 6, 1)));
+            if (settings.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Boot) / (p.MaxLevel - 1) - 0.1), 1));
+
+            if (settings.PinRecover) listToEdit.ForEach(p => p.Recover = p.Reboot + NextRoundedFloatRange(0, 6, 1));
+            if (settings.PinRecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Recover - 1) / (p.MaxLevel - 1) - 0.1), 1));
+
+            if (settings.PinCharge) listToEdit.ForEach(p => p.Charge = NextRoundedFloatRange(0, 2, 1));
+
+            if (settings.PinSell) listToEdit.ForEach(p => p.SellPrice = rand.Next(500, 10001));
+            if (settings.PinSellScaling) listToEdit.ForEach(p => p.SellPriceScaling = rand.Next(500, 2001));
+
+            if (settings.PinAffinity)
+            {
+                listToEdit.ForEach(p => {
+                    p.MashUpAffinity = FileConstants.ItemNames.Affinities[rand.Next(FileConstants.ItemNames.Affinities.Count)].Id;
+                    attackHitToEdit[p.Id].ForEach(hit => hit.Affinity[0] = p.MashUpAffinity);
+                });
+            }
+
+            switch (settings.PinBrandChoice)
+            {
+                case PinBrand.Shuffle:
+                    List<int> sbrands = new List<int>();
+                    sbrands.AddRange(listToEdit.Select(p => p.Brand));
+
+                    sbrands = sbrands.OrderBy(b => rand.Next()).ToList();
+
+                    for (int i=0; i<listToEdit.Count(); i++)
+                    {
+                        listToEdit[i].Brand = sbrands[i];
+                    }
+                    break;
+
+                case PinBrand.RandomCompletely:
+                    listToEdit.ForEach(p => p.Brand = rand.Next(0, 16));
+                    break;
+
+                case PinBrand.RandomUniform:
+                    List<int> rbrands = new List<int>();
+                    rbrands.AddRange(FileConstants.ItemNames.Brands.Select(b => b.Id));
+
+                    rbrands = rbrands.OrderBy(b => rand.Next()).ToList();
+
+                    List<int> rPins = Enumerable.Range(0, listToEdit.Count()).ToList();
+                    rPins = rPins.OrderBy(pin => rand.Next()).ToList();
+
+                    int brandId = 0;
+                    foreach (int i in rPins)
+                    {
+                        listToEdit[i].Brand = rbrands[brandId % rbrands.Count()];
+                        brandId++;
+                    }
+                    break;
+            }
+
+            if (settings.PinUber)
+            {
+                List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
+                pins = pins.OrderBy(pin => rand.Next()).ToList();
+
+                float percentage = settings.PinUberPercentage / 100f;
+                int count = (int) (pins.Count * percentage);
+
+                for (int i=0; i<listToEdit.Count; i++)
+                {
+                    listToEdit[pins[i]].Uber = i < count ? 1 : 0;
+                    listToEdit[pins[i]].PinClass = i < count ? 5 : 0;
+                }
+            }
+
+            switch (settings.PinAbilityChoice)
+            {
+                case PinAbility.Shuffle:
+                    List<IList<int>> sAbilities = new List<IList<int>>();
+                    sAbilities.AddRange(listToEdit.Select(p => p.Abilities));
+
+                    sAbilities = sAbilities.OrderBy(b => rand.Next()).ToList();
+
+                    for (int i = 0; i < listToEdit.Count(); i++)
+                    {
+                        listToEdit[i].Abilities = sAbilities[i];
+                    }
+                    break;
+
+                case PinAbility.RandomCompletely:
+                    List<int> rAbilities = Enumerable.Range(0, listToEdit.Count()).ToList();
+                    rAbilities = rAbilities.OrderBy(pin => rand.Next()).ToList();
+
+                    float percentage = settings.PinAbilityPercentage / 100f;
+                    int count = (int)(rAbilities.Count * percentage);
+
+                    for (int i = 0; i < listToEdit.Count; i++)
+                    {
+                        listToEdit[rAbilities[i]].Abilities.Clear();
+                        if (i < count) listToEdit[rAbilities[i]].Abilities = new List<int>() { FileConstants.ItemNames.PinAbilities[rand.Next(FileConstants.ItemNames.PinAbilities.Count)].Id };
+                    }
+                    break;
+            }
+
+            switch (settings.PinGrowthChoice)
+            {
+                case PinGrowthRandomization.RandomCompletely:
+                    listToEdit.ForEach(p => p.Growth = FileConstants.ItemNames.GrowthRates[rand.Next(FileConstants.ItemNames.GrowthRates.Count)].Id);
+                    break;
+
+                case PinGrowthRandomization.RandomUniform:
+                    List<int> growths = new List<int>();
+                    growths.AddRange(FileConstants.ItemNames.GrowthRates.Select(r => r.Id));
+
+                    List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
+                    pins = pins.OrderBy(pin => rand.Next()).ToList();
+
+                    int growthId = 0;
+                    foreach (int i in pins)
+                    {
+                        listToEdit[i].Growth = growths[growthId % growths.Count()];
+                        growthId++;
+                    }
+                    break;
+
+                case PinGrowthRandomization.Specific:
+                    listToEdit.ForEach(p => p.Growth = (int) settings.PinGrowthSpecific);
+                    break;
+            }
+
+            switch (settings.PinEvolutionChoice)
+            {
+                case PinEvolution.RandomExisting:
+                    foreach (Badge data in listToEdit)
+                    {
+                        List<int> possibleEvos;
+                        if (settings.PinEvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == data.Brand).Select(p => p.Id).ToList();
+                        else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+
+                        if (data.EvolutionSingle != -1)
+                        {
+                            data.EvolutionSingle = possibleEvos[rand.Next(possibleEvos.Count)];
+                            data.EvolutionLevel = data.MaxLevel;
+                        }
+                        for (int i=0; i<data.EvolutionList.Count; i++)
+                        {
+                            if (data.EvolutionList[i] != -1)
+                            {
+                                data.EvolutionList[i] = possibleEvos[rand.Next(possibleEvos.Count)];
+                                data.EvolutionLevel = data.MaxLevel;
+                            }
+                        }
+                    }
+                    break;
+
+                case PinEvolution.RandomCompletely:
+                    List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
+                    pins = pins.OrderBy(pin => rand.Next()).ToList();
+
+                    float percentage = settings.PinEvoPercentage / 100f;
+                    int count = (int)(pins.Count * percentage);
+
+                    for (int i = 0; i < listToEdit.Count; i++)
+                    {
+                        if (i < count)
+                        {
+                            List<int> possibleEvos;
+                            if (settings.PinEvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == listToEdit[pins[i]].Brand).Select(p => p.Id).ToList();
+                            else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+
+                            bool single = rand.Next(3) < 2;
+                            if (single)
+                            {
+                                listToEdit[pins[i]].EvolutionSingle = possibleEvos[rand.Next(possibleEvos.Count)];
+                                listToEdit[pins[i]].EvolutionList.Clear();
+                            }
+                            else
+                            {
+                                int chara = rand.Next(7);
+                                listToEdit[pins[i]].EvolutionSingle = -1;
+                                listToEdit[pins[i]].EvolutionList = Enumerable.Repeat(-1, 7).ToList();
+                                listToEdit[pins[i]].EvolutionList[chara] = possibleEvos[rand.Next(possibleEvos.Count)];
+                            }
+                            listToEdit[pins[i]].EvolutionLevel = listToEdit[pins[i]].MaxLevel;
+                        }
+                        else
+                        {
+                            listToEdit[pins[i]].EvolutionSingle = -1;
+                            listToEdit[pins[i]].EvolutionList.Clear();
+                            listToEdit[pins[i]].EvolutionLevel = 0;
+                        }
+                    }
+                    break;
+            }
+
+            if (settings.PinRemoveCharaEvos)
+            {
+                foreach (Badge data in listToEdit)
+                {
+                    if (data.EvolutionList.Count > 0)
+                    {
+                        data.EvolutionSingle = data.EvolutionList.Where(i => i != -1).First();
+                        data.EvolutionList.Clear();
+                    }
+                }
+            }
+
+            logger.LogPinStatsChanges(listToEditOriginal, listToEdit);
+
+            Dictionary<string, string> editedScripts = new Dictionary<string, string>
+            {
+                { FileConstants.BadgeClassName, JsonConvert.SerializeObject(pinData, Formatting.Indented, new FloatFormatConverter(1)) },
+                { FileConstants.AttackHitClassName, JsonConvert.SerializeObject(attackHitData, Formatting.Indented) }
+            };
+            return editedScripts;
+        }
+        #endregion
     }
 }

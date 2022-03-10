@@ -7,16 +7,11 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class NameAssociation
+    class AttackComboSet
     {
-        [JsonProperty("id")]
+        [JsonProperty("mId")]
         public int Id { get; set; }
-        [JsonProperty("name")]
-        public string Name { get; set; }
-
-        public override string ToString()
-        {
-            return Name;
-        }
+        [JsonProperty("mAttack")]
+        public IList<int> AttackList { get; set; }
     }
 }

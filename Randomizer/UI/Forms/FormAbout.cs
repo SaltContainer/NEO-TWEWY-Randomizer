@@ -15,7 +15,7 @@ namespace NEO_TWEWY_Randomizer
         public FormAbout()
         {
             InitializeComponent();
-            lbVersion.Text += SourceLinks.GetVersion();
+            lbVersion.Text = string.Format("Version {0}", SourceLinks.GetFullVersion());
         }
 
         private void linkSource_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

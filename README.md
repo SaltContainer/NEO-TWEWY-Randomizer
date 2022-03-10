@@ -1,12 +1,12 @@
 # NEO-TWEWY-Randomizer
 This is a Randomizer for NEO: The World Ends With You.
 
-![Picture showing the application](https://i.imgur.com/ehKC9OM.png "The Randomizer")<br>
+![Picture showing the application](https://i.imgur.com/e5sp2lp.png "The Randomizer")<br>
 
 The most recent version can be downloaded from the releases page. Supported features are described further down.
 
 ## Requirements
-As of version 0.1, there is only one file needed for the randomization to work properly (4017d8fc.unity3d). To obtain this file, you can use Ryujinx or yuzu to extract the game data. You can also use any other tool that extracts the game files from your legally acquired ROM (hactool, etc.).
+As of version 0.2, there is only one file needed for the randomization to work properly (4017d8fc.unity3d). To obtain this file, you can use Ryujinx or yuzu to extract the game data. You can also use any other tool that extracts the game files from your legally acquired ROM (hactool, etc.).
 
 ### Ryujinx
 Simply right-click the ROM in your ROM list, then select Extract Data, then RomFS.<br>
@@ -26,9 +26,10 @@ The Randomizer is currently being made for the Nintendo Switch release of the ga
 ### Currently working
 - Random Pin Drops, with Random Drop Chance
   - There are various different ways to do this randomization.
+- Random Pin Stats
+  - A good amount of the stats have pre-determined ranges, this might change in the future.
 
 ### Planned
-- Random Pin Stats
 - Shuffled Social Network Rewards
 - Random Thread Stats
 - Random Shops

@@ -519,7 +519,7 @@ namespace NEO_TWEWY_Randomizer
                     List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
                     pins = pins.OrderBy(pin => rand.Next()).ToList();
 
-                    float percentage = settings.PinUberPercentage / 100f;
+                    float percentage = settings.PinEvoPercentage / 100f;
                     int count = (int)(pins.Count * percentage);
 
                     for (int i = 0; i < listToEdit.Count; i++)

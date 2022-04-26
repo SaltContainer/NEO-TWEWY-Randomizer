@@ -23,10 +23,9 @@ namespace NEO_TWEWY_Randomizer
 
         public Image GetRandomImage()
         {
-            ResourceSet resourceSet = Resources.ResourceManager.GetResourceSet(CultureInfo.CurrentCulture, true, true);
-            var pins = resourceSet.Cast<DictionaryEntry>().Where(x => x.Value.GetType() == typeof(Bitmap));
-            Bitmap selectedPin = (Bitmap)pins.ElementAt(rand.Next(pins.Count())).Value;
-            return selectedPin;
+            int index = rand.Next(FileConstants.ItemNames.RandoPinImages.Count());
+            Bitmap pin = (Bitmap) Resources.ResourceManager.GetObject(FileConstants.ItemNames.RandoPinImages[index].Name);
+            return pin;
         }
     }
 }

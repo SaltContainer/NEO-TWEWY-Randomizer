@@ -10,9 +10,9 @@ namespace NEO_TWEWY_Randomizer
     class SettingsStringValue
     {
         [JsonProperty("offset")]
-        public uint Offset { get; set; }
+        public int Offset { get; set; }
         [JsonProperty("size")]
-        public uint Size { get; set; }
+        public int Size { get; set; }
         [JsonProperty("name")]
         public string Name { get; set; }
     }

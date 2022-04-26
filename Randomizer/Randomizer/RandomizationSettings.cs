@@ -61,7 +61,7 @@ namespace NEO_TWEWY_Randomizer
             return (uint)((1 << left) - 1 - ((1 << right) - 1));
         }
 
-        private string AppendToSettingsString(string hexString, uint bitsToAppend, int amountOfBits, int position)
+        private string AppendToSettingsString(string hexString, uint bitsToAppend, int position, int amountOfBits)
         {
             int stringPos = position / 4;
             int bitOfPos = position % 4;
@@ -95,6 +95,14 @@ namespace NEO_TWEWY_Randomizer
             return editedString;
         }
 
+        private string AppendToSettingsString(string hexString, SettingsStringVersion versionInfo, string setting, uint value)
+        {
+            int position = versionInfo.Values[setting].Offset;
+            int amount = versionInfo.Values[setting].Size;
+
+            return AppendToSettingsString(hexString, value, position, amount);
+        }
+
         private uint GetBitsFromSettingsString(string hexString, int position, int amount)
         {
             int leftPos = (position + amount) / 4;
@@ -108,9 +116,17 @@ namespace NEO_TWEWY_Randomizer
 
             uint baseNumber = uint.Parse(hexString.Substring(actualLeftPos, lengthNeeded), System.Globalization.NumberStyles.HexNumber);
 
-            uint mask = MakeBitMask((lengthNeeded-1)*4 + bitOfLeftPos, bitOfRightPos);
+            uint mask = MakeBitMask((lengthNeeded - 1) * 4 + bitOfLeftPos, bitOfRightPos);
 
             return (baseNumber & mask) >> bitOfRightPos;
+        }
+
+        private uint GetBitsFromSettingsString(string hexString, SettingsStringVersion versionInfo, string setting)
+        {
+            int position = versionInfo.Values[setting].Offset;
+            int amount = versionInfo.Values[setting].Size;
+
+            return GetBitsFromSettingsString(hexString, position, amount);
         }
 
         private void CorrectSettingValues()
@@ -139,61 +155,64 @@ namespace NEO_TWEWY_Randomizer
             {
                 settingsString = settingsString.PadLeft(Validator.SettingsStringMinimumLength, '0');
 
-                NoiseDropTypeChoice = (NoiseDropType) GetBitsFromSettingsString(settingsString, 4, 3);
-                NoiseIncludeLimitedPins = GetBitsFromSettingsString(settingsString, 7, 1) == 1;
+                uint version = GetBitsFromSettingsString(settingsString, 0, 4);
+                SettingsStringVersion versionInfo = FileConstants.SettingsStringVersions.Items[(int)version];
 
-                if (GetBitsFromSettingsString(settingsString, 8, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Easy);
-                if (GetBitsFromSettingsString(settingsString, 9, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Normal);
-                if (GetBitsFromSettingsString(settingsString, 10, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Hard);
-                if (GetBitsFromSettingsString(settingsString, 11, 1) == 1) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
+                NoiseDropTypeChoice = (NoiseDropType) GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_category");
+                NoiseIncludeLimitedPins = GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_limited") == 1;
 
-                NoiseDropRateChoice = (NoiseDropRate) GetBitsFromSettingsString(settingsString, 12, 2);
-                uint minDropRate = GetBitsFromSettingsString(settingsString, 14, 14);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_easy") == 1) NoiseDropTypeDifficulties.Add(Difficulties.Easy);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_normal") == 1) NoiseDropTypeDifficulties.Add(Difficulties.Normal);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_hard") == 1) NoiseDropTypeDifficulties.Add(Difficulties.Hard);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "dropped_pin_ultimate") == 1) NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
+
+                NoiseDropRateChoice = (NoiseDropRate)GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_category");
+                uint minDropRate = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_minimum");
                 NoiseMinimumDropRate = minDropRate / 100M;
-                uint maxDropRate = GetBitsFromSettingsString(settingsString, 28, 14);
+                uint maxDropRate = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_maximum");
                 NoiseMaximumDropRate = maxDropRate / 100M;
 
-                if (GetBitsFromSettingsString(settingsString, 42, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Easy);
-                if (GetBitsFromSettingsString(settingsString, 43, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Normal);
-                if (GetBitsFromSettingsString(settingsString, 44, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Hard);
-                if (GetBitsFromSettingsString(settingsString, 45, 1) == 1) NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_easy") == 1) NoiseDropRateDifficulties.Add(Difficulties.Easy);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_normal") == 1) NoiseDropRateDifficulties.Add(Difficulties.Normal);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_hard") == 1) NoiseDropRateDifficulties.Add(Difficulties.Hard);
+                if (GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_ultimate") == 1) NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
 
-                NoiseDropRateWeights[0] = GetBitsFromSettingsString(settingsString, 46, 7);
-                NoiseDropRateWeights[1] = GetBitsFromSettingsString(settingsString, 53, 7);
-                NoiseDropRateWeights[2] = GetBitsFromSettingsString(settingsString, 60, 7);
-                NoiseDropRateWeights[3] = GetBitsFromSettingsString(settingsString, 67, 7);
+                NoiseDropRateWeights[0] = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_easy_weight");
+                NoiseDropRateWeights[1] = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_normal_weight");
+                NoiseDropRateWeights[2] = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_hard_weight");
+                NoiseDropRateWeights[3] = GetBitsFromSettingsString(settingsString, versionInfo, "drop_rate_ultimate_weight");
 
-                PinPower = GetBitsFromSettingsString(settingsString, 74, 1) == 1;
-                PinPowerScaling = GetBitsFromSettingsString(settingsString, 75, 1) == 1;
-                PinLimit = GetBitsFromSettingsString(settingsString, 76, 1) == 1;
-                PinLimitScaling = GetBitsFromSettingsString(settingsString, 77, 1) == 1;
-                PinReboot = GetBitsFromSettingsString(settingsString, 78, 1) == 1;
-                PinRebootScaling = GetBitsFromSettingsString(settingsString, 79, 1) == 1;
-                PinBoot = GetBitsFromSettingsString(settingsString, 80, 1) == 1;
-                PinBootScaling = GetBitsFromSettingsString(settingsString, 81, 1) == 1;
-                PinRecover = GetBitsFromSettingsString(settingsString, 82, 1) == 1;
-                PinRecoverScaling = GetBitsFromSettingsString(settingsString, 83, 1) == 1;
-                PinCharge = GetBitsFromSettingsString(settingsString, 84, 1) == 1;
-                PinSell = GetBitsFromSettingsString(settingsString, 85, 1) == 1;
-                PinSellScaling = GetBitsFromSettingsString(settingsString, 86, 1) == 1;
-                PinAffinity = GetBitsFromSettingsString(settingsString, 87, 1) == 1;
-                PinMaxLevel = GetBitsFromSettingsString(settingsString, 88, 1) == 1;
+                PinPower = GetBitsFromSettingsString(settingsString, versionInfo, "pin_power") == 1;
+                PinPowerScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_power_scaling") == 1;
+                PinLimit = GetBitsFromSettingsString(settingsString, versionInfo, "pin_limit") == 1;
+                PinLimitScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_limit_scaling") == 1;
+                PinReboot = GetBitsFromSettingsString(settingsString, versionInfo, "pin_reboot") == 1;
+                PinRebootScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_reboot_scaling") == 1;
+                PinBoot = GetBitsFromSettingsString(settingsString, versionInfo, "pin_boot") == 1;
+                PinBootScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_boot_scaling") == 1;
+                PinRecover = GetBitsFromSettingsString(settingsString, versionInfo, "pin_recover") == 1;
+                PinRecoverScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_recover_scaling") == 1;
+                PinCharge = GetBitsFromSettingsString(settingsString, versionInfo, "pin_charge") == 1;
+                PinSell = GetBitsFromSettingsString(settingsString, versionInfo, "pin_sell") == 1;
+                PinSellScaling = GetBitsFromSettingsString(settingsString, versionInfo, "pin_sell_scaling") == 1;
+                PinAffinity = GetBitsFromSettingsString(settingsString, versionInfo, "pin_affinity") == 1;
+                PinMaxLevel = GetBitsFromSettingsString(settingsString, versionInfo, "pin_level") == 1;
 
-                PinBrandChoice = (PinBrand) GetBitsFromSettingsString(settingsString, 89, 2);
+                PinBrandChoice = (PinBrand)GetBitsFromSettingsString(settingsString, versionInfo, "pin_brand_category");
 
-                PinUber = GetBitsFromSettingsString(settingsString, 91, 1) == 1;
-                PinUberPercentage = GetBitsFromSettingsString(settingsString, 92, 7);
+                PinUber = GetBitsFromSettingsString(settingsString, versionInfo, "pin_uber") == 1;
+                PinUberPercentage = GetBitsFromSettingsString(settingsString, versionInfo, "pin_uber_percent");
 
-                PinAbilityChoice = (PinAbility) GetBitsFromSettingsString(settingsString, 99, 2);
-                PinAbilityPercentage = GetBitsFromSettingsString(settingsString, 101, 7);
+                PinAbilityChoice = (PinAbility)GetBitsFromSettingsString(settingsString, versionInfo, "pin_ability_category");
+                PinAbilityPercentage = GetBitsFromSettingsString(settingsString, versionInfo, "pin_ability_percent");
 
-                PinGrowthChoice = (PinGrowthRandomization) GetBitsFromSettingsString(settingsString, 108, 2);
-                PinGrowthSpecific = (PinGrowth) GetBitsFromSettingsString(settingsString, 110, 3);
+                PinGrowthChoice = (PinGrowthRandomization)GetBitsFromSettingsString(settingsString, versionInfo, "pin_growth_category");
+                PinGrowthSpecific = (PinGrowth)GetBitsFromSettingsString(settingsString, versionInfo, "pin_growth_specific");
 
-                PinEvolutionChoice = (PinEvolution) GetBitsFromSettingsString(settingsString, 113, 2);
-                PinEvoForceBrand = GetBitsFromSettingsString(settingsString, 115, 1) == 1;
-                PinRemoveCharaEvos = GetBitsFromSettingsString(settingsString, 116, 1) == 1;
-                PinEvoPercentage = GetBitsFromSettingsString(settingsString, 117, 7);
+                PinEvolutionChoice = (PinEvolution)GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_category");
+                PinEvoForceBrand = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_force") == 1;
+                PinRemoveCharaEvos = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_chara") == 1;
+                PinEvoPercentage = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_percent");
 
                 CorrectSettingValues();
             }
@@ -203,61 +222,62 @@ namespace NEO_TWEWY_Randomizer
         {
             string settingsString = "";
 
-            settingsString = AppendToSettingsString(settingsString, (uint)Validator.SettingsStringVersion, 4, 0);
+            settingsString = AppendToSettingsString(settingsString, (uint)Validator.SettingsStringVersion, 0, 4);
+            SettingsStringVersion versionInfo = FileConstants.SettingsStringVersions.Items[Validator.SettingsStringVersion];
 
-            settingsString = AppendToSettingsString(settingsString, (uint)NoiseDropTypeChoice, 3, 4);
-            settingsString = AppendToSettingsString(settingsString, NoiseIncludeLimitedPins ? 1u : 0u, 1, 7);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_category", (uint)NoiseDropTypeChoice);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_limited", NoiseIncludeLimitedPins ? 1u : 0u);
 
-            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 8);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 9);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Hard) ? 1u : 0u, 1, 10);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u, 1, 11);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_easy", NoiseDropTypeDifficulties.Contains(Difficulties.Easy) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_normal", NoiseDropTypeDifficulties.Contains(Difficulties.Normal) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_hard", NoiseDropTypeDifficulties.Contains(Difficulties.Hard) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "dropped_pin_ultimate", NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)NoiseDropRateChoice, 2, 12);
-            settingsString = AppendToSettingsString(settingsString, (uint)(NoiseMinimumDropRate * 100), 14, 14);
-            settingsString = AppendToSettingsString(settingsString, (uint)(NoiseMaximumDropRate * 100), 14, 28);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_category", (uint)NoiseDropRateChoice);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_minimum", (uint)(NoiseMinimumDropRate * 100));
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_maximum", (uint)(NoiseMaximumDropRate * 100));
 
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Easy) ? 1u : 0u, 1, 42);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Normal) ? 1u : 0u, 1, 43);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Hard) ? 1u : 0u, 1, 44);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u, 1, 45);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_easy", NoiseDropRateDifficulties.Contains(Difficulties.Easy) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_normal", NoiseDropRateDifficulties.Contains(Difficulties.Normal) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_hard", NoiseDropRateDifficulties.Contains(Difficulties.Hard) ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_ultimate", NoiseDropRateDifficulties.Contains(Difficulties.Ultimate) ? 1u : 0u);
 
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[0], 7, 46);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[1], 7, 53);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[2], 7, 60);
-            settingsString = AppendToSettingsString(settingsString, NoiseDropRateWeights[3], 7, 67);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_easy_weight", NoiseDropRateWeights[0]);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_normal_weight", NoiseDropRateWeights[1]);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_hard_weight", NoiseDropRateWeights[2]);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "drop_rate_ultimate_weight", NoiseDropRateWeights[3]);
 
-            settingsString = AppendToSettingsString(settingsString, PinPower ? 1u : 0u, 1, 74);
-            settingsString = AppendToSettingsString(settingsString, PinPowerScaling ? 1u : 0u, 1, 75);
-            settingsString = AppendToSettingsString(settingsString, PinLimit ? 1u : 0u, 1, 76);
-            settingsString = AppendToSettingsString(settingsString, PinLimitScaling ? 1u : 0u, 1, 77);
-            settingsString = AppendToSettingsString(settingsString, PinReboot ? 1u : 0u, 1, 78);
-            settingsString = AppendToSettingsString(settingsString, PinRebootScaling ? 1u : 0u, 1, 79);
-            settingsString = AppendToSettingsString(settingsString, PinBoot ? 1u : 0u, 1, 80);
-            settingsString = AppendToSettingsString(settingsString, PinBootScaling ? 1u : 0u, 1, 81);
-            settingsString = AppendToSettingsString(settingsString, PinRecover ? 1u : 0u, 1, 82);
-            settingsString = AppendToSettingsString(settingsString, PinRecoverScaling ? 1u : 0u, 1, 83);
-            settingsString = AppendToSettingsString(settingsString, PinCharge ? 1u : 0u, 1, 84);
-            settingsString = AppendToSettingsString(settingsString, PinSell ? 1u : 0u, 1, 85);
-            settingsString = AppendToSettingsString(settingsString, PinSellScaling ? 1u : 0u, 1, 86);
-            settingsString = AppendToSettingsString(settingsString, PinAffinity ? 1u : 0u, 1, 87);
-            settingsString = AppendToSettingsString(settingsString, PinMaxLevel ? 1u : 0u, 1, 88);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_power", PinPower ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_power_scaling", PinPowerScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_limit", PinLimit ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_limit_scaling", PinLimitScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_reboot", PinReboot ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_reboot_scaling", PinRebootScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_boot", PinBoot ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_boot_scaling", PinBootScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_recover", PinRecover ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_recover_scaling", PinRecoverScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_charge", PinCharge ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_sell", PinSell ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_sell_scaling", PinSellScaling ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_affinity", PinAffinity ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_level", PinMaxLevel ? 1u : 0u);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)PinBrandChoice, 2, 89);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_brand_category", (uint)PinBrandChoice);
 
-            settingsString = AppendToSettingsString(settingsString, PinUber ? 1u : 0u, 1, 91);
-            settingsString = AppendToSettingsString(settingsString, PinUberPercentage, 7, 92);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_uber", PinUber ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_uber_percent", PinUberPercentage);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)PinAbilityChoice, 2, 99);
-            settingsString = AppendToSettingsString(settingsString, PinAbilityPercentage, 7, 101);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_ability_category", (uint)PinAbilityChoice);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_ability_percent", PinAbilityPercentage);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)PinGrowthChoice, 2, 108);
-            settingsString = AppendToSettingsString(settingsString, (uint)PinGrowthSpecific, 3, 110);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_growth_category", (uint)PinGrowthChoice);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_growth_specific", (uint)PinGrowthSpecific);
 
-            settingsString = AppendToSettingsString(settingsString, (uint)PinEvolutionChoice, 2, 113);
-            settingsString = AppendToSettingsString(settingsString, PinEvoForceBrand ? 1u : 0u, 1, 115);
-            settingsString = AppendToSettingsString(settingsString, PinRemoveCharaEvos ? 1u : 0u, 1, 116);
-            settingsString = AppendToSettingsString(settingsString, PinEvoPercentage, 7, 117);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_evo_category", (uint)PinEvolutionChoice);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_evo_force", PinEvoForceBrand ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_evo_chara", PinRemoveCharaEvos ? 1u : 0u);
+            settingsString = AppendToSettingsString(settingsString, versionInfo, "pin_evo_percent", PinEvoPercentage);
 
             return settingsString;
         }

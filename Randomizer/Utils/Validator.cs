@@ -14,6 +14,7 @@ namespace NEO_TWEWY_Randomizer
             TooShort,
             NotHex,
             WrongVersion,
+            InvalidVersion,
             Empty
         }
 
@@ -32,9 +33,31 @@ namespace NEO_TWEWY_Randomizer
             if (settingsString.Length <= 0) return SettingsStringValidationResult.Empty;
 
             int version = int.Parse(settingsString.Substring(settingsString.Length - 1, 1), System.Globalization.NumberStyles.HexNumber);
+            if (version >= FileConstants.SettingsStringVersions.Items.Count) return SettingsStringValidationResult.InvalidVersion;
             if (version != SettingsStringVersion) return SettingsStringValidationResult.WrongVersion;
 
             return SettingsStringValidationResult.Valid;
+        }
+
+        public static List<string> GetIncompatibleSettings(string settingsString)
+        {
+            int version = int.Parse(settingsString.Substring(settingsString.Length - 1, 1), System.Globalization.NumberStyles.HexNumber);
+            if (version < FileConstants.SettingsStringVersions.Items.Count)
+            {
+                SettingsStringVersion versionInfo = FileConstants.SettingsStringVersions.Items[version];
+                IEnumerable<string> changedSettings = new List<string>();
+
+                foreach (SettingsStringVersion v in FileConstants.SettingsStringVersions.Items.Where(x => x.Version > version && x.Version <= SettingsStringVersion))
+                {
+                    changedSettings = changedSettings.Union(v.ChangedValues);
+                }
+
+                return changedSettings.ToList();
+            }
+            else
+            {
+                return new List<string>();
+            }
         }
     }
 }

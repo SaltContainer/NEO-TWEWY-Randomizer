@@ -600,9 +600,7 @@ namespace NEO_TWEWY_Randomizer
             switch (validationResult)
             {
                 case Validator.SettingsStringValidationResult.Valid:
-                    RandomizationSettings settings = new RandomizationSettings(textSettingStringString.Text);
-                    ReadSettings(settings);
-                    MessageBox.Show("Your settings have been imported successfully.", "Settings Imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ImportSettings();
                     break;
                 case Validator.SettingsStringValidationResult.Empty:
                     MessageBox.Show("The Settings String is empty.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -610,10 +608,36 @@ namespace NEO_TWEWY_Randomizer
                 case Validator.SettingsStringValidationResult.NotHex:
                     MessageBox.Show("There was an error parsing the settings string. It must be a hexadecimal number.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
+                case Validator.SettingsStringValidationResult.InvalidVersion:
+                    MessageBox.Show("This settings string is either for a newer version of the randomizer, or for an invalid version. Please use a different settings string.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
                 case Validator.SettingsStringValidationResult.WrongVersion:
-                    MessageBox.Show("This settings string is for a different version of the randomizer. Please manually select your settings and generate a new one.", "Settings String Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string incorrectSettings = string.Join(", ", GetIncompatibleSettings());
+                    if (MessageBox.Show(string.Format("This settings string is for an older version of the randomizer. The values for these settings might be incorrect: {0}. Are you sure you want to import these settings?", incorrectSettings), "Settings String Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        ImportSettings();
+                    }
                     break;
             }
+        }
+
+        private void ImportSettings()
+        {
+            RandomizationSettings settings = new RandomizationSettings(textSettingStringString.Text);
+            try
+            {
+                ReadSettings(settings);
+                MessageBox.Show("Your settings have been imported successfully.", "Settings Imported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(string.Format("There was an error while importing these settings. Please use a different settings string.\nFull Error:\n{0}", ex.Message), "Error in Settings Import", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private List<string> GetIncompatibleSettings()
+        {
+            return Validator.GetIncompatibleSettings(textSettingStringString.Text);
         }
 
         private void GenerateNewSeed()

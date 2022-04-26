@@ -47,6 +47,7 @@ namespace NEO_TWEWY_Randomizer
         public RandomizationSettings()
         {
             InitializeDataStructures();
+            CorrectSettingValues();
         }
 
         private void InitializeDataStructures()
@@ -151,7 +152,9 @@ namespace NEO_TWEWY_Randomizer
         {
             InitializeDataStructures();
 
-            if (Validator.ValidateSettingsString(settingsString) == Validator.SettingsStringValidationResult.Valid)
+            Validator.SettingsStringValidationResult validationResult = Validator.ValidateSettingsString(settingsString);
+
+            if (validationResult == Validator.SettingsStringValidationResult.Valid || validationResult == Validator.SettingsStringValidationResult.WrongVersion)
             {
                 settingsString = settingsString.PadLeft(Validator.SettingsStringMinimumLength, '0');
 
@@ -213,9 +216,9 @@ namespace NEO_TWEWY_Randomizer
                 PinEvoForceBrand = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_force") == 1;
                 PinRemoveCharaEvos = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_chara") == 1;
                 PinEvoPercentage = GetBitsFromSettingsString(settingsString, versionInfo, "pin_evo_percent");
-
-                CorrectSettingValues();
             }
+
+            CorrectSettingValues();
         }
 
         public string GenerateSettingsString()

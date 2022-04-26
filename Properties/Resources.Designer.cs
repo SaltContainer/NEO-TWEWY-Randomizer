@@ -3417,6 +3417,15 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string settings_string_versions {
+            get {
+                return ResourceManager.GetString("settings_string_versions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to   Limited Pins for Dropped Pins
         ///Include Pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)..
         /// </summary>

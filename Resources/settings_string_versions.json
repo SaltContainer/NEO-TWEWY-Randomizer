@@ -1,0 +1,225 @@
+{
+	"versions": [
+		{
+			"version": 0,
+			"values": {
+				"dropped_pin_category": {
+					"name": "dropped_pin_category",
+					"offset": 4,
+					"size": 3
+				},
+				"dropped_pin_limited": {
+					"name": "dropped_pin_limited",
+					"offset": 7,
+					"size": 1
+				},
+				"dropped_pin_easy": {
+					"name": "dropped_pin_easy",
+					"offset": 8,
+					"size": 1
+				},
+				"dropped_pin_normal": {
+					"name": "dropped_pin_normal",
+					"offset": 9,
+					"size": 1
+				},
+				"dropped_pin_hard": {
+					"name": "dropped_pin_hard",
+					"offset": 10,
+					"size": 1
+				},
+				"dropped_pin_ultimate": {
+					"name": "dropped_pin_ultimate",
+					"offset": 11,
+					"size": 1
+				},
+				"drop_rate_category": {
+					"name": "drop_rate_category",
+					"offset": 12,
+					"size": 2
+				},
+				"drop_rate_minimum": {
+					"name": "drop_rate_minimum",
+					"offset": 14,
+					"size": 14
+				},
+				"drop_rate_maximum": {
+					"name": "drop_rate_maximum",
+					"offset": 28,
+					"size": 14
+				},
+				"drop_rate_easy": {
+					"name": "drop_rate_easy",
+					"offset": 42,
+					"size": 1
+				},
+				"drop_rate_normal": {
+					"name": "drop_rate_normal",
+					"offset": 43,
+					"size": 1
+				},
+				"drop_rate_hard": {
+					"name": "drop_rate_hard",
+					"offset": 44,
+					"size": 1
+				},
+				"drop_rate_ultimate": {
+					"name": "drop_rate_ultimate",
+					"offset": 45,
+					"size": 1
+				},
+				"drop_rate_easy_weight": {
+					"name": "drop_rate_easy_weight",
+					"offset": 46,
+					"size": 7
+				},
+				"drop_rate_normal_weight": {
+					"name": "drop_rate_normal_weight",
+					"offset": 53,
+					"size": 7
+				},
+				"drop_rate_hard_weight": {
+					"name": "drop_rate_hard_weight",
+					"offset": 60,
+					"size": 7
+				},
+				"drop_rate_ultimate_weight": {
+					"name": "drop_rate_ultimate_weight",
+					"offset": 67,
+					"size": 7
+				},
+				"pin_power": {
+					"name": "pin_power",
+					"offset": 74,
+					"size": 1
+				},
+				"pin_power_scaling": {
+					"name": "pin_power_scaling",
+					"offset": 75,
+					"size": 1
+				},
+				"pin_limit": {
+					"name": "pin_limit",
+					"offset": 76,
+					"size": 1
+				},
+				"pin_limit_scaling": {
+					"name": "pin_limit_scaling",
+					"offset": 77,
+					"size": 1
+				},
+				"pin_reboot": {
+					"name": "pin_reboot",
+					"offset": 78,
+					"size": 1
+				},
+				"pin_reboot_scaling": {
+					"name": "pin_reboot_scaling",
+					"offset": 79,
+					"size": 1
+				},
+				"pin_boot": {
+					"name": "pin_boot",
+					"offset": 80,
+					"size": 1
+				},
+				"pin_boot_scaling": {
+					"name": "pin_boot_scaling",
+					"offset": 81,
+					"size": 1
+				},
+				"pin_recover": {
+					"name": "pin_recover",
+					"offset": 82,
+					"size": 1
+				},
+				"pin_recover_scaling": {
+					"name": "pin_recover_scaling",
+					"offset": 83,
+					"size": 1
+				},
+				"pin_charge": {
+					"name": "pin_charge",
+					"offset": 84,
+					"size": 1
+				},
+				"pin_sell": {
+					"name": "pin_sell",
+					"offset": 85,
+					"size": 1
+				},
+				"pin_sell_scaling": {
+					"name": "pin_sell_scaling",
+					"offset": 86,
+					"size": 1
+				},
+				"pin_affinity": {
+					"name": "pin_affinity",
+					"offset": 87,
+					"size": 1
+				},
+				"pin_level": {
+					"name": "pin_level",
+					"offset": 88,
+					"size": 1
+				},
+				"pin_brand_category": {
+					"name": "pin_brand_category",
+					"offset": 89,
+					"size": 2
+				},
+				"pin_uber": {
+					"name": "pin_uber",
+					"offset": 91,
+					"size": 1
+				},
+				"pin_uber_percent": {
+					"name": "pin_uber_percent",
+					"offset": 92,
+					"size": 7
+				},
+				"pin_ability_category": {
+					"name": "pin_ability_category",
+					"offset": 99,
+					"size": 2
+				},
+				"pin_ability_percent": {
+					"name": "pin_ability_percent",
+					"offset": 101,
+					"size": 7
+				},
+				"pin_growth_category": {
+					"name": "pin_growth_category",
+					"offset": 108,
+					"size": 2
+				},
+				"pin_growth_specific": {
+					"name": "pin_growth_specific",
+					"offset": 110,
+					"size": 3
+				},
+				"pin_evo_category": {
+					"name": "pin_evo_category",
+					"offset": 113,
+					"size": 2
+				},
+				"pin_evo_force": {
+					"name": "pin_evo_force",
+					"offset": 115,
+					"size": 1
+				},
+				"pin_evo_chara": {
+					"name": "pin_evo_chara",
+					"offset": 116,
+					"size": 1
+				},
+				"pin_evo_percent": {
+					"name": "pin_evo_percent",
+					"offset": 117,
+					"size": 7
+				}
+			},
+			"changed_values": []
+		}
+	]
+}

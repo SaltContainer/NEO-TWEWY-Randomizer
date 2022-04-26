@@ -118,6 +118,9 @@
     <Compile Include="Randomizer\Randomizer\Enums\PinBrand.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\PinGrowth.cs" />
     <Compile Include="Randomizer\Randomizer\RandomizationLogger.cs" />
+    <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringValue.cs" />
+    <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersion.cs" />
+    <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersionList.cs" />
     <Compile Include="Randomizer\UI\Forms\FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1151,6 +1154,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icons\ID001_NoBrand.ico" />
+    <None Include="Resources\settings_string_versions.json" />
+    <None Include="Resources\settings_string_versions.txt" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -6,7 +6,7 @@ This is a Randomizer for NEO: The World Ends With You.
 The most recent version can be downloaded from the releases page. Supported features are described further down.
 
 ## Requirements
-As of version 0.2, there is only one file needed for the randomization to work properly (4017d8fc.unity3d). To obtain this file, you can use Ryujinx or yuzu to extract the game data. You can also use any other tool that extracts the game files from your legally acquired ROM (hactool, etc.).
+As of the latest version, there is only one file needed for the randomization to work properly (4017d8fc.unity3d). To obtain this file, you can use Ryujinx or yuzu to extract the game data. You can also use any other tool that extracts the game files from your legally acquired ROM (hactool, etc.).
 
 ### Ryujinx
 Simply right-click the ROM in your ROM list, then select Extract Data, then RomFS.<br>

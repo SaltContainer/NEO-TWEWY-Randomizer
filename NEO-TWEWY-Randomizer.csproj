@@ -109,6 +109,8 @@
     <Compile Include="Randomizer\Data\Data\PigData\PigDataList.cs" />
     <Compile Include="Randomizer\Data\Data\Psychic\Psychic.cs" />
     <Compile Include="Randomizer\Data\Data\Psychic\PsychicList.cs" />
+    <Compile Include="Randomizer\Data\Data\ScenarioRewards\ScenarioRewards.cs" />
+    <Compile Include="Randomizer\Data\Data\ScenarioRewards\ScenarioRewardsList.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\Difficulties.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropRate.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropType.cs" />

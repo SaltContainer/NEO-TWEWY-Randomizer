@@ -236,11 +236,12 @@ namespace NEO_TWEWY_Randomizer
             try
             {
                 File.WriteAllText(fileName, log);
+                log = "";
                 return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("There was an error writing the log. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There was an error writing the log. The game files were still randomized and saved successfully. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

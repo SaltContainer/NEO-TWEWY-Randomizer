@@ -33,5 +33,7 @@ namespace NEO_TWEWY_Randomizer
         public IList<NameAssociation> Characters { get; set; }
         [JsonProperty("rando-pin-images")]
         public IList<NameAssociation> RandoPinImages { get; set; }
+        [JsonProperty("fp")]
+        public IList<NameAssociation> FP { get; set; }
     }
 }

@@ -35,6 +35,10 @@
 			"AttackHit": {
 				"name": "AttackHit",
 				"attribute": "m_Script"
+			},
+			"ScenarioRewards": {
+				"name": "ScenarioRewards",
+				"attribute": "m_Script"
 			}
 		}
 	}

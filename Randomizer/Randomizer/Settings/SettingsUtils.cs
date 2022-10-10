@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NEO_TWEWY_Randomizer.Randomizer.Settings
+namespace NEO_TWEWY_Randomizer
 {
     class SettingsUtils
     {

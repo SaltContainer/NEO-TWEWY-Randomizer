@@ -1,4 +1,4 @@
-﻿using NEO_TWEWY_Randomizer.Randomizer.Settings;
+﻿using NEO_TWEWY_Randomizer
 using System;
 using System.Collections.Generic;
 using System.IO;

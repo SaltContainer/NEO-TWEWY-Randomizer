@@ -119,6 +119,12 @@
     <Compile Include="Randomizer\Randomizer\Enums\PinAbility.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\PinBrand.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\PinGrowth.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryFP.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryGlobalShuffle.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryPin.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryReport.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryRewards.cs" />
+    <Compile Include="Randomizer\Randomizer\Enums\StoryYen.cs" />
     <Compile Include="Randomizer\Randomizer\RandomizationLogger.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringValue.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersion.cs" />

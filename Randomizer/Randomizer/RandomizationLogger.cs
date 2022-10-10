@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NEO_TWEWY_Randomizer.Randomizer.Settings;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace NEO_TWEWY_Randomizer
 
             AddToLog("NOISE DROPPED PINS\n");
             string droppedPinsChoice = "";
-            switch (settings.NoiseDropTypeChoice)
+            switch (settings.NoiseDrops.NoiseDropTypeChoice)
             {
                 case NoiseDropType.Unchanged: droppedPinsChoice = "Unchanged"; break;
                 case NoiseDropType.ShuffleCompletely: droppedPinsChoice = "Shuffle (Completely)"; break;
@@ -38,14 +39,14 @@ namespace NEO_TWEWY_Randomizer
                 case NoiseDropType.RandomAllPins: droppedPinsChoice = "Random (All Pins)"; break;
             }
             AddToLog(string.Format("Dropped Pins: {0}\n", droppedPinsChoice));
-            if (settings.NoiseDropTypeChoice != NoiseDropType.Unchanged)
+            if (settings.NoiseDrops.NoiseDropTypeChoice != NoiseDropType.Unchanged)
             {
-                AddToLog(string.Format("Limited Pins: {0}\n", settings.NoiseIncludeLimitedPins ? "Yes" : "No"));
+                AddToLog(string.Format("Limited Pins: {0}\n", settings.NoiseDrops.NoiseIncludeLimitedPins ? "Yes" : "No"));
                 List<string> dropTypeDifficulties = new List<string>();
-                if (settings.NoiseDropTypeDifficulties.Contains(Difficulties.Easy)) dropTypeDifficulties.Add("Easy");
-                if (settings.NoiseDropTypeDifficulties.Contains(Difficulties.Normal)) dropTypeDifficulties.Add("Normal");
-                if (settings.NoiseDropTypeDifficulties.Contains(Difficulties.Hard)) dropTypeDifficulties.Add("Hard");
-                if (settings.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate)) dropTypeDifficulties.Add("Ultimate");
+                if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Easy)) dropTypeDifficulties.Add("Easy");
+                if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Normal)) dropTypeDifficulties.Add("Normal");
+                if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Hard)) dropTypeDifficulties.Add("Hard");
+                if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate)) dropTypeDifficulties.Add("Ultimate");
                 AddToLog(string.Format("Difficulties: {0}", string.Join(", ", dropTypeDifficulties)));
                 AddToLog("\n");
             }
@@ -53,20 +54,20 @@ namespace NEO_TWEWY_Randomizer
 
             AddToLog("NOISE DROP RATE\n");
             string dropRateChoice = "";
-            switch (settings.NoiseDropRateChoice)
+            switch (settings.NoiseDrops.NoiseDropRateChoice)
             {
                 case NoiseDropRate.Unchanged: dropRateChoice = "Unchanged"; break;
                 case NoiseDropRate.RandomCompletely: dropRateChoice = "Random (Completely)"; break;
                 case NoiseDropRate.RandomWeighted: dropRateChoice = "Random (Weighted)"; break;
             }
-            AddToLog(string.Format("Drop Rate: {0}\n", dropRateChoice + (settings.NoiseDropRateChoice != NoiseDropRate.Unchanged ? string.Format(" ({0:F2}% - {1:F2}%)", settings.NoiseMinimumDropRate, settings.NoiseMaximumDropRate) : "")));
-            if (settings.NoiseDropRateChoice != NoiseDropRate.Unchanged)
+            AddToLog(string.Format("Drop Rate: {0}\n", dropRateChoice + (settings.NoiseDrops.NoiseDropRateChoice != NoiseDropRate.Unchanged ? string.Format(" ({0:F2}% - {1:F2}%)", settings.NoiseDrops.NoiseMinimumDropRate, settings.NoiseDrops.NoiseMaximumDropRate) : "")));
+            if (settings.NoiseDrops.NoiseDropRateChoice != NoiseDropRate.Unchanged)
             {
                 List<string> dropRateDifficulties = new List<string>();
-                if (settings.NoiseDropRateDifficulties.Contains(Difficulties.Easy)) dropRateDifficulties.Add(settings.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Easy (Weight {0})", settings.NoiseDropRateWeights[0]) : "Easy");
-                if (settings.NoiseDropRateDifficulties.Contains(Difficulties.Normal)) dropRateDifficulties.Add(settings.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Normal (Weight {0})", settings.NoiseDropRateWeights[1]) : "Normal");
-                if (settings.NoiseDropRateDifficulties.Contains(Difficulties.Hard)) dropRateDifficulties.Add(settings.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Hard (Weight {0})", settings.NoiseDropRateWeights[2]) : "Hard");
-                if (settings.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate)) dropRateDifficulties.Add(settings.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Ultimate (Weight {0})", settings.NoiseDropRateWeights[3]) : "Ultimate");
+                if (settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Easy)) dropRateDifficulties.Add(settings.NoiseDrops.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Easy (Weight {0})", settings.NoiseDrops.NoiseDropRateWeights[0]) : "Easy");
+                if (settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Normal)) dropRateDifficulties.Add(settings.NoiseDrops.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Normal (Weight {0})", settings.NoiseDrops.NoiseDropRateWeights[1]) : "Normal");
+                if (settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Hard)) dropRateDifficulties.Add(settings.NoiseDrops.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Hard (Weight {0})", settings.NoiseDrops.NoiseDropRateWeights[2]) : "Hard");
+                if (settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate)) dropRateDifficulties.Add(settings.NoiseDrops.NoiseDropRateChoice == NoiseDropRate.RandomWeighted ? string.Format("Ultimate (Weight {0})", settings.NoiseDrops.NoiseDropRateWeights[3]) : "Ultimate");
                 AddToLog(string.Format("Difficulties: {0}", string.Join(", ", dropRateDifficulties)));
                 AddToLog("\n");
             }
@@ -75,25 +76,25 @@ namespace NEO_TWEWY_Randomizer
             AddToLog("PIN STATS\n");
             AddToLog("Randomized General Stats: ");
             List<string> generalPinStats = new List<string>();
-            if (settings.PinPower) generalPinStats.Add("Power");
-            if (settings.PinPowerScaling) generalPinStats.Add("Power Scaling");
-            if (settings.PinLimit) generalPinStats.Add("Limit");
-            if (settings.PinLimitScaling) generalPinStats.Add("Limit Scaling");
-            if (settings.PinReboot) generalPinStats.Add("Reboot");
-            if (settings.PinRebootScaling) generalPinStats.Add("Reboot Scaling");
-            if (settings.PinBoot) generalPinStats.Add("Boot");
-            if (settings.PinBootScaling) generalPinStats.Add("Boot Scaling");
-            if (settings.PinRecover) generalPinStats.Add("Recover");
-            if (settings.PinRecoverScaling) generalPinStats.Add("Recover Scaling");
-            if (settings.PinCharge) generalPinStats.Add("Charge");
-            if (settings.PinSell) generalPinStats.Add("Sell Price");
-            if (settings.PinSellScaling) generalPinStats.Add("Sell Price Scaling");
-            if (settings.PinAffinity) generalPinStats.Add("Affinity");
-            if (settings.PinMaxLevel) generalPinStats.Add("Max Level");
+            if (settings.PinStats.PinPower) generalPinStats.Add("Power");
+            if (settings.PinStats.PinPowerScaling) generalPinStats.Add("Power Scaling");
+            if (settings.PinStats.PinLimit) generalPinStats.Add("Limit");
+            if (settings.PinStats.PinLimitScaling) generalPinStats.Add("Limit Scaling");
+            if (settings.PinStats.PinReboot) generalPinStats.Add("Reboot");
+            if (settings.PinStats.PinRebootScaling) generalPinStats.Add("Reboot Scaling");
+            if (settings.PinStats.PinBoot) generalPinStats.Add("Boot");
+            if (settings.PinStats.PinBootScaling) generalPinStats.Add("Boot Scaling");
+            if (settings.PinStats.PinRecover) generalPinStats.Add("Recover");
+            if (settings.PinStats.PinRecoverScaling) generalPinStats.Add("Recover Scaling");
+            if (settings.PinStats.PinCharge) generalPinStats.Add("Charge");
+            if (settings.PinStats.PinSell) generalPinStats.Add("Sell Price");
+            if (settings.PinStats.PinSellScaling) generalPinStats.Add("Sell Price Scaling");
+            if (settings.PinStats.PinAffinity) generalPinStats.Add("Affinity");
+            if (settings.PinStats.PinMaxLevel) generalPinStats.Add("Max Level");
             AddToLog(generalPinStats.Count > 0 ? string.Join(", ", generalPinStats) : "None");
             AddToLog("\n");
             string brandChoice = "";
-            switch (settings.PinBrandChoice)
+            switch (settings.PinStats.PinBrandChoice)
             {
                 case PinBrand.Unchanged: brandChoice = "Unchanged"; break;
                 case PinBrand.Shuffle: brandChoice = "Shuffle"; break;
@@ -101,34 +102,34 @@ namespace NEO_TWEWY_Randomizer
                 case PinBrand.RandomUniform: brandChoice = "Random (Uniform)"; break;
             }
             AddToLog(string.Format("Brand: {0}\n", brandChoice));
-            AddToLog(string.Format("Uber Pins: {0}\n", settings.PinUber ? string.Format("Random ({0}%)", settings.PinUberPercentage) : "Unchanged"));
+            AddToLog(string.Format("Uber Pins: {0}\n", settings.PinStats.PinUber ? string.Format("Random ({0}%)", settings.PinStats.PinUberPercentage) : "Unchanged"));
             string abilityChoice = "";
-            switch (settings.PinAbilityChoice)
+            switch (settings.PinStats.PinAbilityChoice)
             {
                 case PinAbility.Unchanged: abilityChoice = "Unchanged"; break;
                 case PinAbility.Shuffle: abilityChoice = "Shuffle"; break;
                 case PinAbility.RandomCompletely: abilityChoice = "Random (Completely)"; break;
             }
-            AddToLog(string.Format("Pin Abilities: {0}\n", abilityChoice + (settings.PinAbilityChoice == PinAbility.RandomCompletely ? string.Format(" ({0}%)", settings.PinUberPercentage) : "")));
+            AddToLog(string.Format("Pin Abilities: {0}\n", abilityChoice + (settings.PinStats.PinAbilityChoice == PinAbility.RandomCompletely ? string.Format(" ({0}%)", settings.PinStats.PinUberPercentage) : "")));
             string growthChoice = "";
-            switch (settings.PinGrowthChoice)
+            switch (settings.PinStats.PinGrowthChoice)
             {
                 case PinGrowthRandomization.Unchanged: growthChoice = "Unchanged"; break;
                 case PinGrowthRandomization.RandomCompletely: growthChoice = "Random (Completely)"; break;
                 case PinGrowthRandomization.RandomUniform: growthChoice = "Random (Uniform)"; break;
                 case PinGrowthRandomization.Specific: growthChoice = "Specific Growth Speed"; break;
             }
-            AddToLog(string.Format("Growth Speed: {0}\n", growthChoice + (settings.PinGrowthChoice == PinGrowthRandomization.Specific ? string.Format(" ({0})", FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int) settings.PinGrowthSpecific).First().Name) : "")));
+            AddToLog(string.Format("Growth Speed: {0}\n", growthChoice + (settings.PinStats.PinGrowthChoice == PinGrowthRandomization.Specific ? string.Format(" ({0})", FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int) settings.PinStats.PinGrowthSpecific).First().Name) : "")));
             string evoChoice = "";
-            switch (settings.PinEvolutionChoice)
+            switch (settings.PinStats.PinEvolutionChoice)
             {
                 case PinEvolution.Unchanged: evoChoice = "Unchanged"; break;
                 case PinEvolution.RandomExisting: evoChoice = "Random (Existing)"; break;
                 case PinEvolution.RandomCompletely: evoChoice = "Random (Completely)"; break;
             }
-            AddToLog(string.Format("Evolution: {0}\n", evoChoice + (settings.PinEvolutionChoice == PinEvolution.RandomCompletely ? string.Format(" ({0}%)", settings.PinEvoPercentage) : "")));
-            if (settings.PinEvolutionChoice != PinEvolution.Unchanged) AddToLog(string.Format("Force Same-Brand Evolutions: {0}\n", settings.PinEvoForceBrand ? "Yes" : "No"));
-            AddToLog(string.Format("Remove Character-Specific Evolutions: {0}\n", settings.PinRemoveCharaEvos ? "Yes" : "No"));
+            AddToLog(string.Format("Evolution: {0}\n", evoChoice + (settings.PinStats.PinEvolutionChoice == PinEvolution.RandomCompletely ? string.Format(" ({0}%)", settings.PinStats.PinEvoPercentage) : "")));
+            if (settings.PinStats.PinEvolutionChoice != PinEvolution.Unchanged) AddToLog(string.Format("Force Same-Brand Evolutions: {0}\n", settings.PinStats.PinEvoForceBrand ? "Yes" : "No"));
+            AddToLog(string.Format("Remove Character-Specific Evolutions: {0}\n", settings.PinStats.PinRemoveCharaEvos ? "Yes" : "No"));
 
             AddToLog("\n");
         }

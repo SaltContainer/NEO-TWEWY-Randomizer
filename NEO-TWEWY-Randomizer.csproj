@@ -123,6 +123,10 @@
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringValue.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersion.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersionList.cs" />
+    <Compile Include="Randomizer\Randomizer\Settings\NoiseDropSettings.cs" />
+    <Compile Include="Randomizer\Randomizer\Settings\PinStatSettings.cs" />
+    <Compile Include="Randomizer\Randomizer\Settings\SettingsUtils.cs" />
+    <Compile Include="Randomizer\Randomizer\Settings\StoryRewardSettings.cs" />
     <Compile Include="Randomizer\UI\Forms\FormAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,7 +149,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Randomizer\Randomizer\RandomizationEngine.cs" />
-    <Compile Include="Randomizer\Randomizer\RandomizationSettings.cs" />
+    <Compile Include="Randomizer\Randomizer\Settings\RandomizationSettings.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\ItemNames.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\NameAssociation.cs" />
     <Compile Include="Randomizer\Utils\FloatFormatConverter.cs" />

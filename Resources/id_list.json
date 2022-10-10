@@ -3388,5 +3388,99 @@
 			"id": 30000,
 			"name": "FP"
 		}
+	],
+	"reports": [
+		{
+			"id": 31000,
+			"name": "Secret Report No. 1"
+		},
+		{
+			"id": 31001,
+			"name": "Secret Report No. 2"
+		},
+		{
+			"id": 31002,
+			"name": "Secret Report No. 3"
+		},
+		{
+			"id": 31003,
+			"name": "Secret Report No. 4"
+		},
+		{
+			"id": 31004,
+			"name": "Secret Report No. 5"
+		},
+		{
+			"id": 31005,
+			"name": "Secret Report No. 6"
+		},
+		{
+			"id": 31006,
+			"name": "Secret Report No. 7"
+		},
+		{
+			"id": 31007,
+			"name": "Secret Report No. 8"
+		},
+		{
+			"id": 31008,
+			"name": "Secret Report No. 9"
+		},
+		{
+			"id": 31009,
+			"name": "Secret Report No. 10"
+		},
+		{
+			"id": 31010,
+			"name": "Secret Report No. 11"
+		},
+		{
+			"id": 31011,
+			"name": "Secret Report No. 12"
+		},
+		{
+			"id": 31012,
+			"name": "Secret Report No. 13"
+		},
+		{
+			"id": 31013,
+			"name": "Secret Report No. 14"
+		},
+		{
+			"id": 31014,
+			"name": "Secret Report No. 15"
+		},
+		{
+			"id": 31015,
+			"name": "Secret Report No. 16"
+		},
+		{
+			"id": 31016,
+			"name": "Secret Report No. 17"
+		},
+		{
+			"id": 31017,
+			"name": "Secret Report No. 18"
+		},
+		{
+			"id": 31018,
+			"name": "Secret Report No. 19"
+		},
+		{
+			"id": 31019,
+			"name": "Secret Report No. 20"
+		},
+		{
+			"id": 31020,
+			"name": "Secret Report No. 21"
+		},
+		{
+			"id": 31021,
+			"name": "Secret Report No. 22"
+		},
+		{
+			"id": 31022,
+			"name": "Secret Report No. 23"
+		}
 	]
 }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    enum StoryRewards
+    enum StoryGem
     {
-        Pins,
-        Yen,
-        Gems,
-        FP,
-        Reports
+        Unchanged,
+        Shuffle,
+        Random
     }
 }

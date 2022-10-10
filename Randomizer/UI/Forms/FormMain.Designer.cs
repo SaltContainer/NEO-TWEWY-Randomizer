@@ -63,6 +63,36 @@ namespace NEO_TWEWY_Randomizer
             this.radioItemsShuffleS = new System.Windows.Forms.RadioButton();
             this.radioItemsRandomC = new System.Windows.Forms.RadioButton();
             this.radioItemsRandomA = new System.Windows.Forms.RadioButton();
+            this.tabStoryRewards = new System.Windows.Forms.TabPage();
+            this.grpStoryPins = new System.Windows.Forms.GroupBox();
+            this.checkStoryPinsLimited = new System.Windows.Forms.CheckBox();
+            this.radioStoryPinsUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioStoryPinsShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryPinsRandom = new System.Windows.Forms.RadioButton();
+            this.grpStoryYen = new System.Windows.Forms.GroupBox();
+            this.radioStoryYenRandom = new System.Windows.Forms.RadioButton();
+            this.radioStoryYenShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryYenUnchanged = new System.Windows.Forms.RadioButton();
+            this.grpStoryFP = new System.Windows.Forms.GroupBox();
+            this.radioStoryFPRandom = new System.Windows.Forms.RadioButton();
+            this.radioStoryFPShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryFPUnchanged = new System.Windows.Forms.RadioButton();
+            this.grpStoryReport = new System.Windows.Forms.GroupBox();
+            this.radioStoryReportShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryReportUnchanged = new System.Windows.Forms.RadioButton();
+            this.grpStoryGems = new System.Windows.Forms.GroupBox();
+            this.radioStoryGemsRandom = new System.Windows.Forms.RadioButton();
+            this.radioStoryGemsShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryGemsUnchanged = new System.Windows.Forms.RadioButton();
+            this.grpStoryGlobal = new System.Windows.Forms.GroupBox();
+            this.grpStoryGlobalIncluded = new System.Windows.Forms.GroupBox();
+            this.checkStoryGlobalGems = new System.Windows.Forms.CheckBox();
+            this.checkStoryGlobalPins = new System.Windows.Forms.CheckBox();
+            this.checkStoryGlobalYen = new System.Windows.Forms.CheckBox();
+            this.checkStoryGlobalFP = new System.Windows.Forms.CheckBox();
+            this.checkStoryGlobalReport = new System.Windows.Forms.CheckBox();
+            this.radioStoryGlobalShuffle = new System.Windows.Forms.RadioButton();
+            this.radioStoryGlobalUnchanged = new System.Windows.Forms.RadioButton();
             this.tabPins = new System.Windows.Forms.TabPage();
             this.grpPinAbility = new System.Windows.Forms.GroupBox();
             this.numPinAbility = new System.Windows.Forms.NumericUpDown();
@@ -133,31 +163,6 @@ namespace NEO_TWEWY_Randomizer
             this.btnSeedRandom = new System.Windows.Forms.Button();
             this.grpSeed = new System.Windows.Forms.GroupBox();
             this.ttFormMain = new System.Windows.Forms.ToolTip(this.components);
-            this.tabStoryRewards = new System.Windows.Forms.TabPage();
-            this.grpStoryPins = new System.Windows.Forms.GroupBox();
-            this.grpStoryYen = new System.Windows.Forms.GroupBox();
-            this.grpStoryFP = new System.Windows.Forms.GroupBox();
-            this.grpStoryReport = new System.Windows.Forms.GroupBox();
-            this.grpStoryGlobal = new System.Windows.Forms.GroupBox();
-            this.radioStoryPinsUnchanged = new System.Windows.Forms.RadioButton();
-            this.radioStoryPinsShuffle = new System.Windows.Forms.RadioButton();
-            this.radioStoryPinsRandom = new System.Windows.Forms.RadioButton();
-            this.checkStoryPinsLimited = new System.Windows.Forms.CheckBox();
-            this.radioStoryYenUnchanged = new System.Windows.Forms.RadioButton();
-            this.radioStoryYenShuffle = new System.Windows.Forms.RadioButton();
-            this.radioStoryYenRandom = new System.Windows.Forms.RadioButton();
-            this.radioStoryFPUnchanged = new System.Windows.Forms.RadioButton();
-            this.radioStoryFPShuffle = new System.Windows.Forms.RadioButton();
-            this.radioStoryFPRandom = new System.Windows.Forms.RadioButton();
-            this.radioStoryReportUnchanged = new System.Windows.Forms.RadioButton();
-            this.radioStoryReportShuffle = new System.Windows.Forms.RadioButton();
-            this.radioStoryGlobalUnchanged = new System.Windows.Forms.RadioButton();
-            this.radioStoryGlobalShuffle = new System.Windows.Forms.RadioButton();
-            this.checkStoryGlobalPins = new System.Windows.Forms.CheckBox();
-            this.checkStoryGlobalFP = new System.Windows.Forms.CheckBox();
-            this.checkStoryGlobalReport = new System.Windows.Forms.CheckBox();
-            this.checkStoryGlobalYen = new System.Windows.Forms.CheckBox();
-            this.grpStoryGlobalIncluded = new System.Windows.Forms.GroupBox();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
             this.grpChance.SuspendLayout();
@@ -170,6 +175,14 @@ namespace NEO_TWEWY_Randomizer
             ((System.ComponentModel.ISupportInitialize)(this.numChanceWeightUltimate)).BeginInit();
             this.grpItems.SuspendLayout();
             this.grpItemsDifficulty.SuspendLayout();
+            this.tabStoryRewards.SuspendLayout();
+            this.grpStoryPins.SuspendLayout();
+            this.grpStoryYen.SuspendLayout();
+            this.grpStoryFP.SuspendLayout();
+            this.grpStoryReport.SuspendLayout();
+            this.grpStoryGems.SuspendLayout();
+            this.grpStoryGlobal.SuspendLayout();
+            this.grpStoryGlobalIncluded.SuspendLayout();
             this.tabPins.SuspendLayout();
             this.grpPinAbility.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPinAbility)).BeginInit();
@@ -185,13 +198,6 @@ namespace NEO_TWEWY_Randomizer
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             this.grpSettingString.SuspendLayout();
             this.grpSeed.SuspendLayout();
-            this.tabStoryRewards.SuspendLayout();
-            this.grpStoryPins.SuspendLayout();
-            this.grpStoryYen.SuspendLayout();
-            this.grpStoryFP.SuspendLayout();
-            this.grpStoryReport.SuspendLayout();
-            this.grpStoryGlobal.SuspendLayout();
-            this.grpStoryGlobalIncluded.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -656,6 +662,360 @@ namespace NEO_TWEWY_Randomizer
             this.radioItemsRandomA.Text = "Random (All Pins)";
             this.radioItemsRandomA.UseVisualStyleBackColor = true;
             this.radioItemsRandomA.CheckedChanged += new System.EventHandler(this.radioItemsRandomA_CheckedChanged);
+            // 
+            // tabStoryRewards
+            // 
+            this.tabStoryRewards.Controls.Add(this.grpStoryPins);
+            this.tabStoryRewards.Controls.Add(this.grpStoryYen);
+            this.tabStoryRewards.Controls.Add(this.grpStoryFP);
+            this.tabStoryRewards.Controls.Add(this.grpStoryReport);
+            this.tabStoryRewards.Controls.Add(this.grpStoryGems);
+            this.tabStoryRewards.Controls.Add(this.grpStoryGlobal);
+            this.tabStoryRewards.Location = new System.Drawing.Point(4, 22);
+            this.tabStoryRewards.Name = "tabStoryRewards";
+            this.tabStoryRewards.Size = new System.Drawing.Size(768, 382);
+            this.tabStoryRewards.TabIndex = 8;
+            this.tabStoryRewards.Text = "Story Rewards";
+            this.tabStoryRewards.UseVisualStyleBackColor = true;
+            // 
+            // grpStoryPins
+            // 
+            this.grpStoryPins.Controls.Add(this.checkStoryPinsLimited);
+            this.grpStoryPins.Controls.Add(this.radioStoryPinsUnchanged);
+            this.grpStoryPins.Controls.Add(this.radioStoryPinsShuffle);
+            this.grpStoryPins.Controls.Add(this.radioStoryPinsRandom);
+            this.grpStoryPins.Location = new System.Drawing.Point(6, 6);
+            this.grpStoryPins.Name = "grpStoryPins";
+            this.grpStoryPins.Size = new System.Drawing.Size(266, 115);
+            this.grpStoryPins.TabIndex = 0;
+            this.grpStoryPins.TabStop = false;
+            this.grpStoryPins.Text = "Pin Rewards";
+            // 
+            // checkStoryPinsLimited
+            // 
+            this.checkStoryPinsLimited.AutoSize = true;
+            this.checkStoryPinsLimited.Enabled = false;
+            this.checkStoryPinsLimited.Location = new System.Drawing.Point(130, 28);
+            this.checkStoryPinsLimited.Name = "checkStoryPinsLimited";
+            this.checkStoryPinsLimited.Size = new System.Drawing.Size(120, 17);
+            this.checkStoryPinsLimited.TabIndex = 3;
+            this.checkStoryPinsLimited.Text = "Include Limited Pins";
+            this.checkStoryPinsLimited.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryPinsUnchanged
+            // 
+            this.radioStoryPinsUnchanged.AutoSize = true;
+            this.radioStoryPinsUnchanged.Checked = true;
+            this.radioStoryPinsUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryPinsUnchanged.Name = "radioStoryPinsUnchanged";
+            this.radioStoryPinsUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryPinsUnchanged.TabIndex = 0;
+            this.radioStoryPinsUnchanged.TabStop = true;
+            this.radioStoryPinsUnchanged.Text = "Unchanged";
+            this.radioStoryPinsUnchanged.UseVisualStyleBackColor = true;
+            this.radioStoryPinsUnchanged.CheckedChanged += new System.EventHandler(this.radioStoryPinsUnchanged_CheckedChanged);
+            // 
+            // radioStoryPinsShuffle
+            // 
+            this.radioStoryPinsShuffle.AutoSize = true;
+            this.radioStoryPinsShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryPinsShuffle.Name = "radioStoryPinsShuffle";
+            this.radioStoryPinsShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioStoryPinsShuffle.TabIndex = 1;
+            this.radioStoryPinsShuffle.Text = "Shuffle";
+            this.radioStoryPinsShuffle.UseVisualStyleBackColor = true;
+            this.radioStoryPinsShuffle.CheckedChanged += new System.EventHandler(this.radioStoryPinsShuffle_CheckedChanged);
+            // 
+            // radioStoryPinsRandom
+            // 
+            this.radioStoryPinsRandom.AutoSize = true;
+            this.radioStoryPinsRandom.Location = new System.Drawing.Point(17, 74);
+            this.radioStoryPinsRandom.Name = "radioStoryPinsRandom";
+            this.radioStoryPinsRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioStoryPinsRandom.TabIndex = 2;
+            this.radioStoryPinsRandom.Text = "Random";
+            this.radioStoryPinsRandom.UseVisualStyleBackColor = true;
+            this.radioStoryPinsRandom.CheckedChanged += new System.EventHandler(this.radioStoryPinsRandom_CheckedChanged);
+            // 
+            // grpStoryYen
+            // 
+            this.grpStoryYen.Controls.Add(this.radioStoryYenRandom);
+            this.grpStoryYen.Controls.Add(this.radioStoryYenShuffle);
+            this.grpStoryYen.Controls.Add(this.radioStoryYenUnchanged);
+            this.grpStoryYen.Location = new System.Drawing.Point(278, 6);
+            this.grpStoryYen.Name = "grpStoryYen";
+            this.grpStoryYen.Size = new System.Drawing.Size(157, 115);
+            this.grpStoryYen.TabIndex = 1;
+            this.grpStoryYen.TabStop = false;
+            this.grpStoryYen.Text = "Yen Pin Rewards";
+            // 
+            // radioStoryYenRandom
+            // 
+            this.radioStoryYenRandom.AutoSize = true;
+            this.radioStoryYenRandom.Location = new System.Drawing.Point(17, 74);
+            this.radioStoryYenRandom.Name = "radioStoryYenRandom";
+            this.radioStoryYenRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioStoryYenRandom.TabIndex = 3;
+            this.radioStoryYenRandom.Text = "Random";
+            this.radioStoryYenRandom.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryYenShuffle
+            // 
+            this.radioStoryYenShuffle.AutoSize = true;
+            this.radioStoryYenShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryYenShuffle.Name = "radioStoryYenShuffle";
+            this.radioStoryYenShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioStoryYenShuffle.TabIndex = 2;
+            this.radioStoryYenShuffle.Text = "Shuffle";
+            this.radioStoryYenShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryYenUnchanged
+            // 
+            this.radioStoryYenUnchanged.AutoSize = true;
+            this.radioStoryYenUnchanged.Checked = true;
+            this.radioStoryYenUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryYenUnchanged.Name = "radioStoryYenUnchanged";
+            this.radioStoryYenUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryYenUnchanged.TabIndex = 1;
+            this.radioStoryYenUnchanged.TabStop = true;
+            this.radioStoryYenUnchanged.Text = "Unchanged";
+            this.radioStoryYenUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // grpStoryFP
+            // 
+            this.grpStoryFP.Controls.Add(this.radioStoryFPRandom);
+            this.grpStoryFP.Controls.Add(this.radioStoryFPShuffle);
+            this.grpStoryFP.Controls.Add(this.radioStoryFPUnchanged);
+            this.grpStoryFP.Location = new System.Drawing.Point(6, 127);
+            this.grpStoryFP.Name = "grpStoryFP";
+            this.grpStoryFP.Size = new System.Drawing.Size(266, 115);
+            this.grpStoryFP.TabIndex = 1;
+            this.grpStoryFP.TabStop = false;
+            this.grpStoryFP.Text = "Friendship Point Rewards";
+            // 
+            // radioStoryFPRandom
+            // 
+            this.radioStoryFPRandom.AutoSize = true;
+            this.radioStoryFPRandom.Location = new System.Drawing.Point(17, 74);
+            this.radioStoryFPRandom.Name = "radioStoryFPRandom";
+            this.radioStoryFPRandom.Size = new System.Drawing.Size(126, 17);
+            this.radioStoryFPRandom.TabIndex = 3;
+            this.radioStoryFPRandom.Text = "Random (Fixed Total)";
+            this.radioStoryFPRandom.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryFPShuffle
+            // 
+            this.radioStoryFPShuffle.AutoSize = true;
+            this.radioStoryFPShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryFPShuffle.Name = "radioStoryFPShuffle";
+            this.radioStoryFPShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioStoryFPShuffle.TabIndex = 2;
+            this.radioStoryFPShuffle.Text = "Shuffle";
+            this.radioStoryFPShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryFPUnchanged
+            // 
+            this.radioStoryFPUnchanged.AutoSize = true;
+            this.radioStoryFPUnchanged.Checked = true;
+            this.radioStoryFPUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryFPUnchanged.Name = "radioStoryFPUnchanged";
+            this.radioStoryFPUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryFPUnchanged.TabIndex = 1;
+            this.radioStoryFPUnchanged.TabStop = true;
+            this.radioStoryFPUnchanged.Text = "Unchanged";
+            this.radioStoryFPUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // grpStoryReport
+            // 
+            this.grpStoryReport.Controls.Add(this.radioStoryReportShuffle);
+            this.grpStoryReport.Controls.Add(this.radioStoryReportUnchanged);
+            this.grpStoryReport.Location = new System.Drawing.Point(605, 6);
+            this.grpStoryReport.Name = "grpStoryReport";
+            this.grpStoryReport.Size = new System.Drawing.Size(157, 115);
+            this.grpStoryReport.TabIndex = 1;
+            this.grpStoryReport.TabStop = false;
+            this.grpStoryReport.Text = "Secret Report Rewards";
+            // 
+            // radioStoryReportShuffle
+            // 
+            this.radioStoryReportShuffle.AutoSize = true;
+            this.radioStoryReportShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryReportShuffle.Name = "radioStoryReportShuffle";
+            this.radioStoryReportShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioStoryReportShuffle.TabIndex = 3;
+            this.radioStoryReportShuffle.Text = "Shuffle";
+            this.radioStoryReportShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryReportUnchanged
+            // 
+            this.radioStoryReportUnchanged.AutoSize = true;
+            this.radioStoryReportUnchanged.Checked = true;
+            this.radioStoryReportUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryReportUnchanged.Name = "radioStoryReportUnchanged";
+            this.radioStoryReportUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryReportUnchanged.TabIndex = 2;
+            this.radioStoryReportUnchanged.TabStop = true;
+            this.radioStoryReportUnchanged.Text = "Unchanged";
+            this.radioStoryReportUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // grpStoryGems
+            // 
+            this.grpStoryGems.Controls.Add(this.radioStoryGemsRandom);
+            this.grpStoryGems.Controls.Add(this.radioStoryGemsShuffle);
+            this.grpStoryGems.Controls.Add(this.radioStoryGemsUnchanged);
+            this.grpStoryGems.Location = new System.Drawing.Point(441, 6);
+            this.grpStoryGems.Name = "grpStoryGems";
+            this.grpStoryGems.Size = new System.Drawing.Size(158, 115);
+            this.grpStoryGems.TabIndex = 2;
+            this.grpStoryGems.TabStop = false;
+            this.grpStoryGems.Text = "Gem Pin Rewards";
+            // 
+            // radioStoryGemsRandom
+            // 
+            this.radioStoryGemsRandom.AutoSize = true;
+            this.radioStoryGemsRandom.Location = new System.Drawing.Point(17, 74);
+            this.radioStoryGemsRandom.Name = "radioStoryGemsRandom";
+            this.radioStoryGemsRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioStoryGemsRandom.TabIndex = 4;
+            this.radioStoryGemsRandom.Text = "Random";
+            this.radioStoryGemsRandom.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryGemsShuffle
+            // 
+            this.radioStoryGemsShuffle.AutoSize = true;
+            this.radioStoryGemsShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryGemsShuffle.Name = "radioStoryGemsShuffle";
+            this.radioStoryGemsShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioStoryGemsShuffle.TabIndex = 3;
+            this.radioStoryGemsShuffle.Text = "Shuffle";
+            this.radioStoryGemsShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryGemsUnchanged
+            // 
+            this.radioStoryGemsUnchanged.AutoSize = true;
+            this.radioStoryGemsUnchanged.Checked = true;
+            this.radioStoryGemsUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryGemsUnchanged.Name = "radioStoryGemsUnchanged";
+            this.radioStoryGemsUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryGemsUnchanged.TabIndex = 2;
+            this.radioStoryGemsUnchanged.TabStop = true;
+            this.radioStoryGemsUnchanged.Text = "Unchanged";
+            this.radioStoryGemsUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // grpStoryGlobal
+            // 
+            this.grpStoryGlobal.Controls.Add(this.grpStoryGlobalIncluded);
+            this.grpStoryGlobal.Controls.Add(this.radioStoryGlobalShuffle);
+            this.grpStoryGlobal.Controls.Add(this.radioStoryGlobalUnchanged);
+            this.grpStoryGlobal.Location = new System.Drawing.Point(278, 127);
+            this.grpStoryGlobal.Name = "grpStoryGlobal";
+            this.grpStoryGlobal.Size = new System.Drawing.Size(484, 115);
+            this.grpStoryGlobal.TabIndex = 1;
+            this.grpStoryGlobal.TabStop = false;
+            this.grpStoryGlobal.Text = "Overall Settings";
+            // 
+            // grpStoryGlobalIncluded
+            // 
+            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalGems);
+            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalPins);
+            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalYen);
+            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalFP);
+            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalReport);
+            this.grpStoryGlobalIncluded.Location = new System.Drawing.Point(170, 12);
+            this.grpStoryGlobalIncluded.Name = "grpStoryGlobalIncluded";
+            this.grpStoryGlobalIncluded.Size = new System.Drawing.Size(308, 97);
+            this.grpStoryGlobalIncluded.TabIndex = 8;
+            this.grpStoryGlobalIncluded.TabStop = false;
+            this.grpStoryGlobalIncluded.Text = "Included in Location Shuffling";
+            // 
+            // checkStoryGlobalGems
+            // 
+            this.checkStoryGlobalGems.AutoSize = true;
+            this.checkStoryGlobalGems.Checked = true;
+            this.checkStoryGlobalGems.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStoryGlobalGems.Enabled = false;
+            this.checkStoryGlobalGems.Location = new System.Drawing.Point(17, 63);
+            this.checkStoryGlobalGems.Name = "checkStoryGlobalGems";
+            this.checkStoryGlobalGems.Size = new System.Drawing.Size(71, 17);
+            this.checkStoryGlobalGems.TabIndex = 8;
+            this.checkStoryGlobalGems.Text = "Gem Pins";
+            this.checkStoryGlobalGems.UseVisualStyleBackColor = true;
+            // 
+            // checkStoryGlobalPins
+            // 
+            this.checkStoryGlobalPins.AutoSize = true;
+            this.checkStoryGlobalPins.Checked = true;
+            this.checkStoryGlobalPins.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStoryGlobalPins.Enabled = false;
+            this.checkStoryGlobalPins.Location = new System.Drawing.Point(17, 17);
+            this.checkStoryGlobalPins.Name = "checkStoryGlobalPins";
+            this.checkStoryGlobalPins.Size = new System.Drawing.Size(46, 17);
+            this.checkStoryGlobalPins.TabIndex = 4;
+            this.checkStoryGlobalPins.Text = "Pins";
+            this.checkStoryGlobalPins.UseVisualStyleBackColor = true;
+            // 
+            // checkStoryGlobalYen
+            // 
+            this.checkStoryGlobalYen.AutoSize = true;
+            this.checkStoryGlobalYen.Checked = true;
+            this.checkStoryGlobalYen.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStoryGlobalYen.Enabled = false;
+            this.checkStoryGlobalYen.Location = new System.Drawing.Point(17, 40);
+            this.checkStoryGlobalYen.Name = "checkStoryGlobalYen";
+            this.checkStoryGlobalYen.Size = new System.Drawing.Size(68, 17);
+            this.checkStoryGlobalYen.TabIndex = 7;
+            this.checkStoryGlobalYen.Text = "Yen Pins";
+            this.checkStoryGlobalYen.UseVisualStyleBackColor = true;
+            // 
+            // checkStoryGlobalFP
+            // 
+            this.checkStoryGlobalFP.AutoSize = true;
+            this.checkStoryGlobalFP.Checked = true;
+            this.checkStoryGlobalFP.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStoryGlobalFP.Enabled = false;
+            this.checkStoryGlobalFP.Location = new System.Drawing.Point(148, 17);
+            this.checkStoryGlobalFP.Name = "checkStoryGlobalFP";
+            this.checkStoryGlobalFP.Size = new System.Drawing.Size(106, 17);
+            this.checkStoryGlobalFP.TabIndex = 5;
+            this.checkStoryGlobalFP.Text = "Friendship Points";
+            this.checkStoryGlobalFP.UseVisualStyleBackColor = true;
+            // 
+            // checkStoryGlobalReport
+            // 
+            this.checkStoryGlobalReport.AutoSize = true;
+            this.checkStoryGlobalReport.Checked = true;
+            this.checkStoryGlobalReport.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkStoryGlobalReport.Enabled = false;
+            this.checkStoryGlobalReport.Location = new System.Drawing.Point(148, 40);
+            this.checkStoryGlobalReport.Name = "checkStoryGlobalReport";
+            this.checkStoryGlobalReport.Size = new System.Drawing.Size(97, 17);
+            this.checkStoryGlobalReport.TabIndex = 6;
+            this.checkStoryGlobalReport.Text = "Secret Reports";
+            this.checkStoryGlobalReport.UseVisualStyleBackColor = true;
+            // 
+            // radioStoryGlobalShuffle
+            // 
+            this.radioStoryGlobalShuffle.AutoSize = true;
+            this.radioStoryGlobalShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioStoryGlobalShuffle.Name = "radioStoryGlobalShuffle";
+            this.radioStoryGlobalShuffle.Size = new System.Drawing.Size(147, 17);
+            this.radioStoryGlobalShuffle.TabIndex = 3;
+            this.radioStoryGlobalShuffle.Text = "Shuffle Reward Locations";
+            this.radioStoryGlobalShuffle.UseVisualStyleBackColor = true;
+            this.radioStoryGlobalShuffle.CheckedChanged += new System.EventHandler(this.radioStoryGlobalShuffle_CheckedChanged);
+            // 
+            // radioStoryGlobalUnchanged
+            // 
+            this.radioStoryGlobalUnchanged.AutoSize = true;
+            this.radioStoryGlobalUnchanged.Checked = true;
+            this.radioStoryGlobalUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioStoryGlobalUnchanged.Name = "radioStoryGlobalUnchanged";
+            this.radioStoryGlobalUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioStoryGlobalUnchanged.TabIndex = 2;
+            this.radioStoryGlobalUnchanged.TabStop = true;
+            this.radioStoryGlobalUnchanged.Text = "Unchanged";
+            this.radioStoryGlobalUnchanged.UseVisualStyleBackColor = true;
+            this.radioStoryGlobalUnchanged.CheckedChanged += new System.EventHandler(this.radioStoryGlobalUnchanged_CheckedChanged);
             // 
             // tabPins
             // 
@@ -1424,293 +1784,6 @@ namespace NEO_TWEWY_Randomizer
             this.ttFormMain.IsBalloon = true;
             this.ttFormMain.ReshowDelay = 100;
             // 
-            // tabStoryRewards
-            // 
-            this.tabStoryRewards.Controls.Add(this.grpStoryPins);
-            this.tabStoryRewards.Controls.Add(this.grpStoryYen);
-            this.tabStoryRewards.Controls.Add(this.grpStoryFP);
-            this.tabStoryRewards.Controls.Add(this.grpStoryReport);
-            this.tabStoryRewards.Controls.Add(this.grpStoryGlobal);
-            this.tabStoryRewards.Location = new System.Drawing.Point(4, 22);
-            this.tabStoryRewards.Name = "tabStoryRewards";
-            this.tabStoryRewards.Size = new System.Drawing.Size(768, 382);
-            this.tabStoryRewards.TabIndex = 8;
-            this.tabStoryRewards.Text = "Story Rewards";
-            this.tabStoryRewards.UseVisualStyleBackColor = true;
-            // 
-            // grpStoryPins
-            // 
-            this.grpStoryPins.Controls.Add(this.checkStoryPinsLimited);
-            this.grpStoryPins.Controls.Add(this.radioStoryPinsUnchanged);
-            this.grpStoryPins.Controls.Add(this.radioStoryPinsShuffle);
-            this.grpStoryPins.Controls.Add(this.radioStoryPinsRandom);
-            this.grpStoryPins.Location = new System.Drawing.Point(6, 6);
-            this.grpStoryPins.Name = "grpStoryPins";
-            this.grpStoryPins.Size = new System.Drawing.Size(266, 115);
-            this.grpStoryPins.TabIndex = 0;
-            this.grpStoryPins.TabStop = false;
-            this.grpStoryPins.Text = "Pin Rewards";
-            // 
-            // grpStoryYen
-            // 
-            this.grpStoryYen.Controls.Add(this.radioStoryYenRandom);
-            this.grpStoryYen.Controls.Add(this.radioStoryYenShuffle);
-            this.grpStoryYen.Controls.Add(this.radioStoryYenUnchanged);
-            this.grpStoryYen.Location = new System.Drawing.Point(278, 6);
-            this.grpStoryYen.Name = "grpStoryYen";
-            this.grpStoryYen.Size = new System.Drawing.Size(133, 115);
-            this.grpStoryYen.TabIndex = 1;
-            this.grpStoryYen.TabStop = false;
-            this.grpStoryYen.Text = "Yen Rewards";
-            // 
-            // grpStoryFP
-            // 
-            this.grpStoryFP.Controls.Add(this.radioStoryFPRandom);
-            this.grpStoryFP.Controls.Add(this.radioStoryFPShuffle);
-            this.grpStoryFP.Controls.Add(this.radioStoryFPUnchanged);
-            this.grpStoryFP.Location = new System.Drawing.Point(6, 127);
-            this.grpStoryFP.Name = "grpStoryFP";
-            this.grpStoryFP.Size = new System.Drawing.Size(266, 115);
-            this.grpStoryFP.TabIndex = 1;
-            this.grpStoryFP.TabStop = false;
-            this.grpStoryFP.Text = "Friendship Point Rewards";
-            // 
-            // grpStoryReport
-            // 
-            this.grpStoryReport.Controls.Add(this.radioStoryReportShuffle);
-            this.grpStoryReport.Controls.Add(this.radioStoryReportUnchanged);
-            this.grpStoryReport.Location = new System.Drawing.Point(278, 127);
-            this.grpStoryReport.Name = "grpStoryReport";
-            this.grpStoryReport.Size = new System.Drawing.Size(133, 91);
-            this.grpStoryReport.TabIndex = 1;
-            this.grpStoryReport.TabStop = false;
-            this.grpStoryReport.Text = "Secret Report Rewards";
-            // 
-            // grpStoryGlobal
-            // 
-            this.grpStoryGlobal.Controls.Add(this.grpStoryGlobalIncluded);
-            this.grpStoryGlobal.Controls.Add(this.radioStoryGlobalShuffle);
-            this.grpStoryGlobal.Controls.Add(this.radioStoryGlobalUnchanged);
-            this.grpStoryGlobal.Location = new System.Drawing.Point(417, 6);
-            this.grpStoryGlobal.Name = "grpStoryGlobal";
-            this.grpStoryGlobal.Size = new System.Drawing.Size(212, 236);
-            this.grpStoryGlobal.TabIndex = 1;
-            this.grpStoryGlobal.TabStop = false;
-            this.grpStoryGlobal.Text = "Overall Settings";
-            // 
-            // radioStoryPinsUnchanged
-            // 
-            this.radioStoryPinsUnchanged.AutoSize = true;
-            this.radioStoryPinsUnchanged.Checked = true;
-            this.radioStoryPinsUnchanged.Location = new System.Drawing.Point(17, 28);
-            this.radioStoryPinsUnchanged.Name = "radioStoryPinsUnchanged";
-            this.radioStoryPinsUnchanged.Size = new System.Drawing.Size(81, 17);
-            this.radioStoryPinsUnchanged.TabIndex = 0;
-            this.radioStoryPinsUnchanged.TabStop = true;
-            this.radioStoryPinsUnchanged.Text = "Unchanged";
-            this.radioStoryPinsUnchanged.UseVisualStyleBackColor = true;
-            this.radioStoryPinsUnchanged.CheckedChanged += new System.EventHandler(this.radioStoryPinsUnchanged_CheckedChanged);
-            // 
-            // radioStoryPinsShuffle
-            // 
-            this.radioStoryPinsShuffle.AutoSize = true;
-            this.radioStoryPinsShuffle.Location = new System.Drawing.Point(17, 51);
-            this.radioStoryPinsShuffle.Name = "radioStoryPinsShuffle";
-            this.radioStoryPinsShuffle.Size = new System.Drawing.Size(58, 17);
-            this.radioStoryPinsShuffle.TabIndex = 1;
-            this.radioStoryPinsShuffle.Text = "Shuffle";
-            this.radioStoryPinsShuffle.UseVisualStyleBackColor = true;
-            this.radioStoryPinsShuffle.CheckedChanged += new System.EventHandler(this.radioStoryPinsShuffle_CheckedChanged);
-            // 
-            // radioStoryPinsRandom
-            // 
-            this.radioStoryPinsRandom.AutoSize = true;
-            this.radioStoryPinsRandom.Location = new System.Drawing.Point(17, 74);
-            this.radioStoryPinsRandom.Name = "radioStoryPinsRandom";
-            this.radioStoryPinsRandom.Size = new System.Drawing.Size(65, 17);
-            this.radioStoryPinsRandom.TabIndex = 2;
-            this.radioStoryPinsRandom.Text = "Random";
-            this.radioStoryPinsRandom.UseVisualStyleBackColor = true;
-            this.radioStoryPinsRandom.CheckedChanged += new System.EventHandler(this.radioStoryPinsRandom_CheckedChanged);
-            // 
-            // checkStoryPinsLimited
-            // 
-            this.checkStoryPinsLimited.AutoSize = true;
-            this.checkStoryPinsLimited.Enabled = false;
-            this.checkStoryPinsLimited.Location = new System.Drawing.Point(130, 28);
-            this.checkStoryPinsLimited.Name = "checkStoryPinsLimited";
-            this.checkStoryPinsLimited.Size = new System.Drawing.Size(120, 17);
-            this.checkStoryPinsLimited.TabIndex = 3;
-            this.checkStoryPinsLimited.Text = "Include Limited Pins";
-            this.checkStoryPinsLimited.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryYenUnchanged
-            // 
-            this.radioStoryYenUnchanged.AutoSize = true;
-            this.radioStoryYenUnchanged.Checked = true;
-            this.radioStoryYenUnchanged.Location = new System.Drawing.Point(17, 28);
-            this.radioStoryYenUnchanged.Name = "radioStoryYenUnchanged";
-            this.radioStoryYenUnchanged.Size = new System.Drawing.Size(81, 17);
-            this.radioStoryYenUnchanged.TabIndex = 1;
-            this.radioStoryYenUnchanged.TabStop = true;
-            this.radioStoryYenUnchanged.Text = "Unchanged";
-            this.radioStoryYenUnchanged.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryYenShuffle
-            // 
-            this.radioStoryYenShuffle.AutoSize = true;
-            this.radioStoryYenShuffle.Location = new System.Drawing.Point(17, 51);
-            this.radioStoryYenShuffle.Name = "radioStoryYenShuffle";
-            this.radioStoryYenShuffle.Size = new System.Drawing.Size(58, 17);
-            this.radioStoryYenShuffle.TabIndex = 2;
-            this.radioStoryYenShuffle.Text = "Shuffle";
-            this.radioStoryYenShuffle.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryYenRandom
-            // 
-            this.radioStoryYenRandom.AutoSize = true;
-            this.radioStoryYenRandom.Location = new System.Drawing.Point(17, 74);
-            this.radioStoryYenRandom.Name = "radioStoryYenRandom";
-            this.radioStoryYenRandom.Size = new System.Drawing.Size(65, 17);
-            this.radioStoryYenRandom.TabIndex = 3;
-            this.radioStoryYenRandom.Text = "Random";
-            this.radioStoryYenRandom.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryFPUnchanged
-            // 
-            this.radioStoryFPUnchanged.AutoSize = true;
-            this.radioStoryFPUnchanged.Checked = true;
-            this.radioStoryFPUnchanged.Location = new System.Drawing.Point(17, 28);
-            this.radioStoryFPUnchanged.Name = "radioStoryFPUnchanged";
-            this.radioStoryFPUnchanged.Size = new System.Drawing.Size(81, 17);
-            this.radioStoryFPUnchanged.TabIndex = 1;
-            this.radioStoryFPUnchanged.TabStop = true;
-            this.radioStoryFPUnchanged.Text = "Unchanged";
-            this.radioStoryFPUnchanged.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryFPShuffle
-            // 
-            this.radioStoryFPShuffle.AutoSize = true;
-            this.radioStoryFPShuffle.Location = new System.Drawing.Point(17, 51);
-            this.radioStoryFPShuffle.Name = "radioStoryFPShuffle";
-            this.radioStoryFPShuffle.Size = new System.Drawing.Size(58, 17);
-            this.radioStoryFPShuffle.TabIndex = 2;
-            this.radioStoryFPShuffle.Text = "Shuffle";
-            this.radioStoryFPShuffle.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryFPRandom
-            // 
-            this.radioStoryFPRandom.AutoSize = true;
-            this.radioStoryFPRandom.Location = new System.Drawing.Point(17, 74);
-            this.radioStoryFPRandom.Name = "radioStoryFPRandom";
-            this.radioStoryFPRandom.Size = new System.Drawing.Size(126, 17);
-            this.radioStoryFPRandom.TabIndex = 3;
-            this.radioStoryFPRandom.Text = "Random (Fixed Total)";
-            this.radioStoryFPRandom.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryReportUnchanged
-            // 
-            this.radioStoryReportUnchanged.AutoSize = true;
-            this.radioStoryReportUnchanged.Checked = true;
-            this.radioStoryReportUnchanged.Location = new System.Drawing.Point(17, 28);
-            this.radioStoryReportUnchanged.Name = "radioStoryReportUnchanged";
-            this.radioStoryReportUnchanged.Size = new System.Drawing.Size(81, 17);
-            this.radioStoryReportUnchanged.TabIndex = 2;
-            this.radioStoryReportUnchanged.TabStop = true;
-            this.radioStoryReportUnchanged.Text = "Unchanged";
-            this.radioStoryReportUnchanged.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryReportShuffle
-            // 
-            this.radioStoryReportShuffle.AutoSize = true;
-            this.radioStoryReportShuffle.Location = new System.Drawing.Point(17, 51);
-            this.radioStoryReportShuffle.Name = "radioStoryReportShuffle";
-            this.radioStoryReportShuffle.Size = new System.Drawing.Size(58, 17);
-            this.radioStoryReportShuffle.TabIndex = 3;
-            this.radioStoryReportShuffle.Text = "Shuffle";
-            this.radioStoryReportShuffle.UseVisualStyleBackColor = true;
-            // 
-            // radioStoryGlobalUnchanged
-            // 
-            this.radioStoryGlobalUnchanged.AutoSize = true;
-            this.radioStoryGlobalUnchanged.Checked = true;
-            this.radioStoryGlobalUnchanged.Location = new System.Drawing.Point(17, 28);
-            this.radioStoryGlobalUnchanged.Name = "radioStoryGlobalUnchanged";
-            this.radioStoryGlobalUnchanged.Size = new System.Drawing.Size(81, 17);
-            this.radioStoryGlobalUnchanged.TabIndex = 2;
-            this.radioStoryGlobalUnchanged.TabStop = true;
-            this.radioStoryGlobalUnchanged.Text = "Unchanged";
-            this.radioStoryGlobalUnchanged.UseVisualStyleBackColor = true;
-            this.radioStoryGlobalUnchanged.CheckedChanged += new System.EventHandler(this.radioStoryGlobalUnchanged_CheckedChanged);
-            // 
-            // radioStoryGlobalShuffle
-            // 
-            this.radioStoryGlobalShuffle.AutoSize = true;
-            this.radioStoryGlobalShuffle.Location = new System.Drawing.Point(17, 51);
-            this.radioStoryGlobalShuffle.Name = "radioStoryGlobalShuffle";
-            this.radioStoryGlobalShuffle.Size = new System.Drawing.Size(147, 17);
-            this.radioStoryGlobalShuffle.TabIndex = 3;
-            this.radioStoryGlobalShuffle.Text = "Shuffle Reward Locations";
-            this.radioStoryGlobalShuffle.UseVisualStyleBackColor = true;
-            this.radioStoryGlobalShuffle.CheckedChanged += new System.EventHandler(this.radioStoryGlobalShuffle_CheckedChanged);
-            // 
-            // checkStoryGlobalPins
-            // 
-            this.checkStoryGlobalPins.AutoSize = true;
-            this.checkStoryGlobalPins.Enabled = false;
-            this.checkStoryGlobalPins.Location = new System.Drawing.Point(17, 26);
-            this.checkStoryGlobalPins.Name = "checkStoryGlobalPins";
-            this.checkStoryGlobalPins.Size = new System.Drawing.Size(46, 17);
-            this.checkStoryGlobalPins.TabIndex = 4;
-            this.checkStoryGlobalPins.Text = "Pins";
-            this.checkStoryGlobalPins.UseVisualStyleBackColor = true;
-            // 
-            // checkStoryGlobalFP
-            // 
-            this.checkStoryGlobalFP.AutoSize = true;
-            this.checkStoryGlobalFP.Enabled = false;
-            this.checkStoryGlobalFP.Location = new System.Drawing.Point(17, 70);
-            this.checkStoryGlobalFP.Name = "checkStoryGlobalFP";
-            this.checkStoryGlobalFP.Size = new System.Drawing.Size(106, 17);
-            this.checkStoryGlobalFP.TabIndex = 5;
-            this.checkStoryGlobalFP.Text = "Friendship Points";
-            this.checkStoryGlobalFP.UseVisualStyleBackColor = true;
-            // 
-            // checkStoryGlobalReport
-            // 
-            this.checkStoryGlobalReport.AutoSize = true;
-            this.checkStoryGlobalReport.Enabled = false;
-            this.checkStoryGlobalReport.Location = new System.Drawing.Point(17, 93);
-            this.checkStoryGlobalReport.Name = "checkStoryGlobalReport";
-            this.checkStoryGlobalReport.Size = new System.Drawing.Size(97, 17);
-            this.checkStoryGlobalReport.TabIndex = 6;
-            this.checkStoryGlobalReport.Text = "Secret Reports";
-            this.checkStoryGlobalReport.UseVisualStyleBackColor = true;
-            // 
-            // checkStoryGlobalYen
-            // 
-            this.checkStoryGlobalYen.AutoSize = true;
-            this.checkStoryGlobalYen.Enabled = false;
-            this.checkStoryGlobalYen.Location = new System.Drawing.Point(17, 47);
-            this.checkStoryGlobalYen.Name = "checkStoryGlobalYen";
-            this.checkStoryGlobalYen.Size = new System.Drawing.Size(68, 17);
-            this.checkStoryGlobalYen.TabIndex = 7;
-            this.checkStoryGlobalYen.Text = "Yen Pins";
-            this.checkStoryGlobalYen.UseVisualStyleBackColor = true;
-            // 
-            // grpStoryGlobalIncluded
-            // 
-            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalPins);
-            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalYen);
-            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalFP);
-            this.grpStoryGlobalIncluded.Controls.Add(this.checkStoryGlobalReport);
-            this.grpStoryGlobalIncluded.Location = new System.Drawing.Point(17, 80);
-            this.grpStoryGlobalIncluded.Name = "grpStoryGlobalIncluded";
-            this.grpStoryGlobalIncluded.Size = new System.Drawing.Size(178, 125);
-            this.grpStoryGlobalIncluded.TabIndex = 8;
-            this.grpStoryGlobalIncluded.TabStop = false;
-            this.grpStoryGlobalIncluded.Text = "Included in Location Shuffling";
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1746,6 +1819,21 @@ namespace NEO_TWEWY_Randomizer
             this.grpItems.PerformLayout();
             this.grpItemsDifficulty.ResumeLayout(false);
             this.grpItemsDifficulty.PerformLayout();
+            this.tabStoryRewards.ResumeLayout(false);
+            this.grpStoryPins.ResumeLayout(false);
+            this.grpStoryPins.PerformLayout();
+            this.grpStoryYen.ResumeLayout(false);
+            this.grpStoryYen.PerformLayout();
+            this.grpStoryFP.ResumeLayout(false);
+            this.grpStoryFP.PerformLayout();
+            this.grpStoryReport.ResumeLayout(false);
+            this.grpStoryReport.PerformLayout();
+            this.grpStoryGems.ResumeLayout(false);
+            this.grpStoryGems.PerformLayout();
+            this.grpStoryGlobal.ResumeLayout(false);
+            this.grpStoryGlobal.PerformLayout();
+            this.grpStoryGlobalIncluded.ResumeLayout(false);
+            this.grpStoryGlobalIncluded.PerformLayout();
             this.tabPins.ResumeLayout(false);
             this.grpPinAbility.ResumeLayout(false);
             this.grpPinAbility.PerformLayout();
@@ -1769,19 +1857,6 @@ namespace NEO_TWEWY_Randomizer
             this.grpSettingString.PerformLayout();
             this.grpSeed.ResumeLayout(false);
             this.grpSeed.PerformLayout();
-            this.tabStoryRewards.ResumeLayout(false);
-            this.grpStoryPins.ResumeLayout(false);
-            this.grpStoryPins.PerformLayout();
-            this.grpStoryYen.ResumeLayout(false);
-            this.grpStoryYen.PerformLayout();
-            this.grpStoryFP.ResumeLayout(false);
-            this.grpStoryFP.PerformLayout();
-            this.grpStoryReport.ResumeLayout(false);
-            this.grpStoryReport.PerformLayout();
-            this.grpStoryGlobal.ResumeLayout(false);
-            this.grpStoryGlobal.PerformLayout();
-            this.grpStoryGlobalIncluded.ResumeLayout(false);
-            this.grpStoryGlobalIncluded.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1916,6 +1991,11 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.CheckBox checkStoryGlobalReport;
         private System.Windows.Forms.RadioButton radioStoryGlobalShuffle;
         private System.Windows.Forms.RadioButton radioStoryGlobalUnchanged;
+        private System.Windows.Forms.GroupBox grpStoryGems;
+        private System.Windows.Forms.RadioButton radioStoryGemsShuffle;
+        private System.Windows.Forms.RadioButton radioStoryGemsUnchanged;
+        private System.Windows.Forms.CheckBox checkStoryGlobalGems;
+        private System.Windows.Forms.RadioButton radioStoryGemsRandom;
     }
 }
 

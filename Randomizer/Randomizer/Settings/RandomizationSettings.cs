@@ -9,8 +9,8 @@ namespace NEO_TWEWY_Randomizer
     class RandomizationSettings
     {
         public NoiseDropSettings NoiseDrops { get; set; }
-        public StoryRewardSettings StoryRewards { get; set; }
         public PinStatSettings PinStats { get; set; }
+        public StoryRewardSettings StoryRewards { get; set; }
 
         public RandomizationSettings()
         {
@@ -20,14 +20,15 @@ namespace NEO_TWEWY_Randomizer
         private void InitializeDataStructures()
         {
             NoiseDrops = new NoiseDropSettings();
-            StoryRewards = new StoryRewardSettings();
             PinStats = new PinStatSettings();
+            StoryRewards = new StoryRewardSettings();
         }
 
         private void CorrectSettingValues()
         {
             NoiseDrops.CorrectSettingValues();
             PinStats.CorrectSettingValues();
+            StoryRewards.CorrectSettingValues();
         }
 
         public RandomizationSettings(string settingsString)
@@ -45,6 +46,7 @@ namespace NEO_TWEWY_Randomizer
 
                 NoiseDrops.ExtractSettingsFromBits(settingsString, versionInfo);
                 PinStats.ExtractSettingsFromBits(settingsString, versionInfo);
+                StoryRewards.ExtractSettingsFromBits(settingsString, versionInfo);
             }
 
             CorrectSettingValues();
@@ -59,6 +61,7 @@ namespace NEO_TWEWY_Randomizer
 
             settingsString = NoiseDrops.GenerateSettingsString(settingsString, versionInfo);
             settingsString = PinStats.GenerateSettingsString(settingsString, versionInfo);
+            settingsString = StoryRewards.GenerateSettingsString(settingsString, versionInfo);
 
             return settingsString;
         }

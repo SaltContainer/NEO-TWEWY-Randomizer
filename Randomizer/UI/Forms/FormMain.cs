@@ -111,6 +111,7 @@ namespace NEO_TWEWY_Randomizer
         {
             RandomizationSettings settings = new RandomizationSettings();
 
+            #region Noise Drops
             if (radioItemsUnchanged.Checked) settings.NoiseDrops.NoiseDropTypeChoice = NoiseDropType.Unchanged;
             else if (radioItemsShuffleC.Checked) settings.NoiseDrops.NoiseDropTypeChoice = NoiseDropType.ShuffleCompletely;
             else if (radioItemsShuffleS.Checked) settings.NoiseDrops.NoiseDropTypeChoice = NoiseDropType.ShuffleSets;
@@ -140,7 +141,9 @@ namespace NEO_TWEWY_Randomizer
             settings.NoiseDrops.NoiseDropRateWeights[1] = (uint) numChanceWeightNormal.Value;
             settings.NoiseDrops.NoiseDropRateWeights[2] = (uint) numChanceWeightHard.Value;
             settings.NoiseDrops.NoiseDropRateWeights[3] = (uint) numChanceWeightUltimate.Value;
+            #endregion
 
+            #region Pin Stats
             settings.PinStats.PinPower = checkPinPower.Checked;
             settings.PinStats.PinPowerScaling = checkPinPowerScaling.Checked;
             settings.PinStats.PinLimit = checkPinLimit.Checked;
@@ -182,6 +185,39 @@ namespace NEO_TWEWY_Randomizer
             settings.PinStats.PinEvoForceBrand = checkPinEvoBrand.Checked;
             settings.PinStats.PinRemoveCharaEvos = checkPinEvoChara.Checked;
             settings.PinStats.PinEvoPercentage = (uint)numPinEvo.Value;
+            #endregion
+
+            #region Story Rewards
+            if (radioStoryPinsUnchanged.Checked) settings.StoryRewards.StoryPinChoice = StoryPin.Unchanged;
+            else if (radioStoryPinsShuffle.Checked) settings.StoryRewards.StoryPinChoice = StoryPin.Shuffle;
+            else if (radioStoryPinsRandom.Checked) settings.StoryRewards.StoryPinChoice = StoryPin.Random;
+
+            settings.StoryRewards.IncludeLimitedPins = checkStoryPinsLimited.Checked;
+
+            if (radioStoryYenUnchanged.Checked) settings.StoryRewards.StoryYenChoice = StoryYen.Unchanged;
+            else if (radioStoryYenShuffle.Checked) settings.StoryRewards.StoryYenChoice = StoryYen.Shuffle;
+            else if (radioStoryYenRandom.Checked) settings.StoryRewards.StoryYenChoice = StoryYen.Random;
+
+            if (radioStoryGemsUnchanged.Checked) settings.StoryRewards.StoryGemChoice = StoryGem.Unchanged;
+            else if (radioStoryGemsShuffle.Checked) settings.StoryRewards.StoryGemChoice = StoryGem.Shuffle;
+            else if (radioStoryGemsRandom.Checked) settings.StoryRewards.StoryGemChoice = StoryGem.Random;
+
+            if (radioStoryFPUnchanged.Checked) settings.StoryRewards.StoryFPChoice = StoryFP.Unchanged;
+            else if (radioStoryFPShuffle.Checked) settings.StoryRewards.StoryFPChoice = StoryFP.Shuffle;
+            else if (radioStoryFPRandom.Checked) settings.StoryRewards.StoryFPChoice = StoryFP.RandomFixedTotal;
+
+            if (radioStoryReportUnchanged.Checked) settings.StoryRewards.StoryReportChoice = StoryReport.Unchanged;
+            else if (radioStoryReportShuffle.Checked) settings.StoryRewards.StoryReportChoice = StoryReport.Shuffle;
+
+            if (radioStoryGlobalUnchanged.Checked) settings.StoryRewards.StoryGlobalShuffleChoice = StoryGlobalShuffle.Unchanged;
+            else if (radioStoryGlobalShuffle.Checked) settings.StoryRewards.StoryGlobalShuffleChoice = StoryGlobalShuffle.Shuffle;
+
+            if (checkStoryGlobalPins.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Pins);
+            if (checkStoryGlobalYen.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Yen);
+            if (checkStoryGlobalGems.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Gems);
+            if (checkStoryGlobalFP.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.FP);
+            if (checkStoryGlobalReport.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Reports);
+            #endregion
 
             return settings;
         }
@@ -190,6 +226,7 @@ namespace NEO_TWEWY_Randomizer
         #region Adjust Form from Settings
         private void ReadSettings(RandomizationSettings settings)
         {
+            #region Noise Drops
             switch (settings.NoiseDrops.NoiseDropTypeChoice)
             {
                 case NoiseDropType.Unchanged:
@@ -241,7 +278,9 @@ namespace NEO_TWEWY_Randomizer
             numChanceWeightNormal.Value = settings.NoiseDrops.NoiseDropRateWeights[1];
             numChanceWeightHard.Value = settings.NoiseDrops.NoiseDropRateWeights[2];
             numChanceWeightUltimate.Value = settings.NoiseDrops.NoiseDropRateWeights[3];
+            #endregion
 
+            #region Pin Stats
             checkPinPower.Checked = settings.PinStats.PinPower;
             checkPinPowerScaling.Checked = settings.PinStats.PinPowerScaling;
             checkPinLimit.Checked = settings.PinStats.PinLimit;
@@ -323,6 +362,79 @@ namespace NEO_TWEWY_Randomizer
             checkPinEvoBrand.Checked = settings.PinStats.PinEvoForceBrand;
             checkPinEvoChara.Checked = settings.PinStats.PinRemoveCharaEvos;
             numPinEvo.Value = settings.PinStats.PinEvoPercentage;
+            #endregion
+
+            #region Story Rewards
+            switch (settings.StoryRewards.StoryPinChoice)
+            {
+                case StoryPin.Unchanged:
+                    radioStoryPinsUnchanged.Checked = true;
+                    break;
+                case StoryPin.Shuffle:
+                    radioStoryPinsShuffle.Checked = true;
+                    break;
+                case StoryPin.Random:
+                    radioStoryPinsRandom.Checked = true;
+                    break;
+            }
+
+            checkStoryPinsLimited.Checked = settings.StoryRewards.IncludeLimitedPins;
+
+            switch (settings.StoryRewards.StoryYenChoice)
+            {
+                case StoryYen.Unchanged:
+                    radioStoryYenUnchanged.Checked = true;
+                    break;
+                case StoryYen.Shuffle:
+                    radioStoryYenShuffle.Checked = true;
+                    break;
+                case StoryYen.Random:
+                    radioStoryYenRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.StoryGemChoice)
+            {
+                case StoryGem.Unchanged:
+                    radioStoryGemsUnchanged.Checked = true;
+                    break;
+                case StoryGem.Shuffle:
+                    radioStoryGemsShuffle.Checked = true;
+                    break;
+                case StoryGem.Random:
+                    radioStoryGemsRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.StoryFPChoice)
+            {
+                case StoryFP.Unchanged:
+                    radioStoryFPUnchanged.Checked = true;
+                    break;
+                case StoryFP.Shuffle:
+                    radioStoryFPShuffle.Checked = true;
+                    break;
+                case StoryFP.RandomFixedTotal:
+                    radioStoryFPRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.StoryReportChoice)
+            {
+                case StoryReport.Unchanged:
+                    radioStoryReportUnchanged.Checked = true;
+                    break;
+                case StoryReport.Shuffle:
+                    radioStoryReportShuffle.Checked = true;
+                    break;
+            }
+
+            checkStoryGlobalPins.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins);
+            checkStoryGlobalYen.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen);
+            checkStoryGlobalGems.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems);
+            checkStoryGlobalFP.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP);
+            checkStoryGlobalReport.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports);
+            #endregion
         }
         #endregion
 
@@ -396,6 +508,7 @@ namespace NEO_TWEWY_Randomizer
         {
             checkStoryGlobalPins.Enabled = value;
             checkStoryGlobalYen.Enabled = value;
+            checkStoryGlobalGems.Enabled = value;
             checkStoryGlobalFP.Enabled = value;
             checkStoryGlobalReport.Enabled = value;
         }

@@ -66,6 +66,30 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
             ttFormMain.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
 
+            ttFormMain.SetToolTip(radioStoryPinsUnchanged, Resources.ttradioStoryPinsUnchanged);
+            ttFormMain.SetToolTip(radioStoryPinsShuffle, Resources.ttradioStoryPinsShuffle);
+            ttFormMain.SetToolTip(radioStoryPinsRandom, Resources.ttradioStoryPinsRandom);
+            ttFormMain.SetToolTip(checkStoryPinsLimited, Resources.ttcheckStoryPinsLimited);
+            ttFormMain.SetToolTip(radioStoryYenUnchanged, Resources.ttradioStoryYenUnchanged);
+            ttFormMain.SetToolTip(radioStoryYenShuffle, Resources.ttradioStoryYenShuffle);
+            ttFormMain.SetToolTip(radioStoryYenRandom, Resources.ttradioStoryYenRandom);
+            ttFormMain.SetToolTip(radioStoryGemsUnchanged, Resources.ttradioStoryGemsUnchanged);
+            ttFormMain.SetToolTip(radioStoryGemsShuffle, Resources.ttradioStoryGemsShuffle);
+            ttFormMain.SetToolTip(radioStoryGemsRandom, Resources.ttradioStoryGemsRandom);
+            ttFormMain.SetToolTip(radioStoryFPUnchanged, Resources.ttradioStoryFPUnchanged);
+            ttFormMain.SetToolTip(radioStoryFPShuffle, Resources.ttradioStoryFPShuffle);
+            ttFormMain.SetToolTip(radioStoryFPRandom, Resources.ttradioStoryFPRandom);
+            ttFormMain.SetToolTip(radioStoryReportUnchanged, Resources.ttradioStoryReportUnchanged);
+            ttFormMain.SetToolTip(radioStoryReportShuffle, Resources.ttradioStoryReportShuffle);
+            ttFormMain.SetToolTip(radioStoryGlobalUnchanged, Resources.ttradioStoryGlobalUnchanged);
+            ttFormMain.SetToolTip(radioStoryGlobalShuffle, Resources.ttradioStoryGlobalShuffle);
+            ttFormMain.SetToolTip(grpStoryGlobalIncluded, Resources.ttgrpStoryGlobalIncluded);
+            ttFormMain.SetToolTip(checkStoryGlobalPins, Resources.ttcheckStoryGlobalPins);
+            ttFormMain.SetToolTip(checkStoryGlobalYen, Resources.ttcheckStoryGlobalYen);
+            ttFormMain.SetToolTip(checkStoryGlobalGems, Resources.ttcheckStoryGlobalGems);
+            ttFormMain.SetToolTip(checkStoryGlobalFP, Resources.ttcheckStoryGlobalFP);
+            ttFormMain.SetToolTip(checkStoryGlobalReport, Resources.ttcheckStoryGlobalReport);
+
             ttFormMain.SetToolTip(checkPinPower, Resources.ttcheckPinPower);
             ttFormMain.SetToolTip(checkPinPowerScaling, Resources.ttcheckPinPowerScaling);
             ttFormMain.SetToolTip(checkPinLimit, Resources.ttcheckPinLimit);

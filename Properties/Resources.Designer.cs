@@ -3417,7 +3417,32 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to {
+        ///	&quot;versions&quot;: [
+        ///		{
+        ///			&quot;version&quot;: 0,
+        ///			&quot;values&quot;: {
+        ///				&quot;dropped_pin_category&quot;: {
+        ///					&quot;name&quot;: &quot;dropped_pin_category&quot;,
+        ///					&quot;offset&quot;: 4,
+        ///					&quot;size&quot;: 3
+        ///				},
+        ///				&quot;dropped_pin_limited&quot;: {
+        ///					&quot;name&quot;: &quot;dropped_pin_limited&quot;,
+        ///					&quot;offset&quot;: 7,
+        ///					&quot;size&quot;: 1
+        ///				},
+        ///				&quot;dropped_pin_easy&quot;: {
+        ///					&quot;name&quot;: &quot;dropped_pin_easy&quot;,
+        ///					&quot;offset&quot;: 8,
+        ///					&quot;size&quot;: 1
+        ///				},
+        ///				&quot;dropped_pin_normal&quot;: {
+        ///					&quot;name&quot;: &quot;dropped_pin_normal&quot;,
+        ///					&quot;offset&quot;: 9,
+        ///					&quot;size&quot;: 1
+        ///				},
+        ///				&quot;dropped_pin_har [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string settings_string_versions {
             get {
@@ -3655,6 +3680,68 @@ namespace NEO_TWEWY_Randomizer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to   Include Friendship Points
+        ///Include FP in the set of affected story rewards when shuffling locations..
+        /// </summary>
+        internal static string ttcheckStoryGlobalFP {
+            get {
+                return ResourceManager.GetString("ttcheckStoryGlobalFP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Include Gem Pins
+        ///Include gem pins in the set of affected story rewards when shuffling locations..
+        /// </summary>
+        internal static string ttcheckStoryGlobalGems {
+            get {
+                return ResourceManager.GetString("ttcheckStoryGlobalGems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Include Pins
+        ///Include pins in the set of affected story rewards when shuffling locations.
+        ///If limited pins were included in the pin story rewards randomization, they will be included here as well..
+        /// </summary>
+        internal static string ttcheckStoryGlobalPins {
+            get {
+                return ResourceManager.GetString("ttcheckStoryGlobalPins", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Include Secret Reports
+        ///Include secret reports in the set of affected story rewards when shuffling locations..
+        /// </summary>
+        internal static string ttcheckStoryGlobalReport {
+            get {
+                return ResourceManager.GetString("ttcheckStoryGlobalReport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Include Yen Pins
+        ///Include yen pins in the set of affected story rewards when shuffling locations..
+        /// </summary>
+        internal static string ttcheckStoryGlobalYen {
+            get {
+                return ResourceManager.GetString("ttcheckStoryGlobalYen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Limited Pins for Story Rewards
+        ///Include pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)
+        ///in the set of affected pins and in the set of possible random pins..
+        /// </summary>
+        internal static string ttcheckStoryPinsLimited {
+            get {
+                return ResourceManager.GetString("ttcheckStoryPinsLimited", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to   Specific Pin Growth Speed Selection
         ///The growth speed to apply to all pins.
         ///The choices include the unused &quot;Somewhat Slow&quot; growth speed, which is between &quot;Normal&quot; and
@@ -3683,6 +3770,16 @@ namespace NEO_TWEWY_Randomizer.Properties {
         internal static string ttgrpItemsDifficulty {
             get {
                 return ResourceManager.GetString("ttgrpItemsDifficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Included Story Rewards
+        ///Checked story rewards are included in the location shuffling..
+        /// </summary>
+        internal static string ttgrpStoryGlobalIncluded {
+            get {
+                return ResourceManager.GetString("ttgrpStoryGlobalIncluded", resourceCulture);
             }
         }
         
@@ -3991,6 +4088,177 @@ namespace NEO_TWEWY_Randomizer.Properties {
         internal static string ttradioPinGrowthUnchanged {
             get {
                 return ResourceManager.GetString("ttradioPinGrowthUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random Friendship Point Story Rewards
+        ///Make each amount of FP received as a story reward a new random amount with a fixed overall total.
+        ///This total is currently set to the vanilla total of 159 FP.
+        ///An FP reward will still always be an FP reward..
+        /// </summary>
+        internal static string ttradioStoryFPRandom {
+            get {
+                return ResourceManager.GetString("ttradioStoryFPRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Friendship Point Story Rewards
+        ///Take the amounts of FP received as story rewards, and randomize where each is received.
+        ///An FP reward will still always be an FP reward..
+        /// </summary>
+        internal static string ttradioStoryFPShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryFPShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Friendship Point Story Rewards
+        ///Don&apos;t change the amount of FP received as story rewards..
+        /// </summary>
+        internal static string ttradioStoryFPUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryFPUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random Gem Pin Story Rewards
+        ///Make each gem pin received as a story reward a new random gem pin with a quantity from 1-3.
+        ///A gem pin reward will still always be a gem pin reward..
+        /// </summary>
+        internal static string ttradioStoryGemsRandom {
+            get {
+                return ResourceManager.GetString("ttradioStoryGemsRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Gem Pin Story Rewards
+        ///Take the full vanilla set of gem pins received as story rewards, and randomize where each is received.
+        ///A gem pin reward will still always be a gem pin reward..
+        /// </summary>
+        internal static string ttradioStoryGemsShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryGemsShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Gem Pin Story Rewards
+        ///Don&apos;t change the gem pins received as story rewards..
+        /// </summary>
+        internal static string ttradioStoryGemsUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryGemsUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Story Reward Locations
+        ///Take the full set of included story rewards, and randomize where each is received.
+        ///This is applied after the randomization of all story rewards..
+        /// </summary>
+        internal static string ttradioStoryGlobalShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryGlobalShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Story Reward Locations
+        ///Don&apos;t change the location of story rewards..
+        /// </summary>
+        internal static string ttradioStoryGlobalUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryGlobalUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random Pin Story Rewards
+        ///Make each pin received as a story reward a new random pin.
+        ///A pin reward will still always be a pin reward..
+        /// </summary>
+        internal static string ttradioStoryPinsRandom {
+            get {
+                return ResourceManager.GetString("ttradioStoryPinsRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Pin Story Rewards
+        ///Take the full vanilla set of pins received as story rewards, and randomize where each is received.
+        ///A pin reward will still always be a pin reward..
+        /// </summary>
+        internal static string ttradioStoryPinsShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryPinsShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Pin Story Rewards
+        ///Don&apos;t change the pins received as story rewards..
+        /// </summary>
+        internal static string ttradioStoryPinsUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryPinsUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Secret Report Rewards
+        ///Take the full vanilla set of secret reports received as story rewards, and randomize where each is received.
+        ///A secret report reward will still always be a secret report reward..
+        /// </summary>
+        internal static string ttradioStoryReportShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryReportShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Secret Report Story Rewards
+        ///Don&apos;t change the secret reports received as story rewards..
+        /// </summary>
+        internal static string ttradioStoryReportUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryReportUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random Yen Pin Story Rewards
+        ///Make each yen pin received as a story reward a new random yen pin.
+        ///A yen pin reward will still always be a yen pin reward..
+        /// </summary>
+        internal static string ttradioStoryYenRandom {
+            get {
+                return ResourceManager.GetString("ttradioStoryYenRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Yen Pin Story Rewards
+        ///Take the full vanilla set of yen pins received as story rewards, and randomize where each is received.
+        ///A yen pin reward will still always be a yen pin reward..
+        /// </summary>
+        internal static string ttradioStoryYenShuffle {
+            get {
+                return ResourceManager.GetString("ttradioStoryYenShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Yen Pin Story Rewards
+        ///Don&apos;t change the yen pins received as story rewards..
+        /// </summary>
+        internal static string ttradioStoryYenUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioStoryYenUnchanged", resourceCulture);
             }
         }
     }

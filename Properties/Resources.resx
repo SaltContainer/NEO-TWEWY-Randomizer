@@ -1235,6 +1235,38 @@ vanilla. Generally those are pins that you cannot get more than one of.</value>
 Randomize each pin's Uber status.</value>
     <comment>Uber Pins</comment>
   </data>
+  <data name="ttcheckStoryGlobalFP" xml:space="preserve">
+    <value>  Include Friendship Points
+Include FP in the set of affected story rewards when shuffling locations.</value>
+    <comment>Story Rewards Location Shuffle FP</comment>
+  </data>
+  <data name="ttcheckStoryGlobalGems" xml:space="preserve">
+    <value>  Include Gem Pins
+Include gem pins in the set of affected story rewards when shuffling locations.</value>
+    <comment>Story Rewards Location Shuffle Gem Pins</comment>
+  </data>
+  <data name="ttcheckStoryGlobalPins" xml:space="preserve">
+    <value>  Include Pins
+Include pins in the set of affected story rewards when shuffling locations.
+If limited pins were included in the pin story rewards randomization, they will be included here as well.</value>
+    <comment>Story Rewards Location Shuffle Pins</comment>
+  </data>
+  <data name="ttcheckStoryGlobalReport" xml:space="preserve">
+    <value>  Include Secret Reports
+Include secret reports in the set of affected story rewards when shuffling locations.</value>
+    <comment>Story Rewards Location Shuffle Secret Reports</comment>
+  </data>
+  <data name="ttcheckStoryGlobalYen" xml:space="preserve">
+    <value>  Include Yen Pins
+Include yen pins in the set of affected story rewards when shuffling locations.</value>
+    <comment>Story Rewards Location Shuffle Yen Pins</comment>
+  </data>
+  <data name="ttcheckStoryPinsLimited" xml:space="preserve">
+    <value>  Limited Pins for Story Rewards
+Include pins that have a limited quantity in vanilla (Axion, Dilaton, Dibaryon, and Sfermion)
+in the set of affected pins and in the set of possible random pins.</value>
+    <comment>Story Rewards Pins Limited</comment>
+  </data>
   <data name="ttcomboPinGrowth" xml:space="preserve">
     <value>  Specific Pin Growth Speed Selection
 The growth speed to apply to all pins.
@@ -1251,6 +1283,11 @@ Checked Difficulties are included in the randomization.</value>
     <value>  Included Difficulties for Dropped Pins
 Checked Difficulties are included in the randomization.</value>
     <comment>Difficulties Dropped Pins</comment>
+  </data>
+  <data name="ttgrpStoryGlobalIncluded" xml:space="preserve">
+    <value>  Included Story Rewards
+Checked story rewards are included in the location shuffling.</value>
+    <comment>Story Rewards Location Shuffle Included</comment>
   </data>
   <data name="ttnumChanceMax" xml:space="preserve">
     <value>  Maximum Drop Rate
@@ -1419,5 +1456,96 @@ Make all pins have a specific growth speed.</value>
     <value>  Unchanged Pin Growth Speeds
 Don't change the growth speed of any pin.</value>
     <comment>Pin Growth Unchanged</comment>
+  </data>
+  <data name="ttradioStoryFPRandom" xml:space="preserve">
+    <value>  Random Friendship Point Story Rewards
+Make each amount of FP received as a story reward a new random amount with a fixed overall total.
+This total is currently set to the vanilla total of 159 FP.
+An FP reward will still always be an FP reward.</value>
+    <comment>Story Rewards FP Random Fixed Total</comment>
+  </data>
+  <data name="ttradioStoryFPShuffle" xml:space="preserve">
+    <value>  Shuffled Friendship Point Story Rewards
+Take the amounts of FP received as story rewards, and randomize where each is received.
+An FP reward will still always be an FP reward.</value>
+    <comment>Story Rewards FP Shuffle</comment>
+  </data>
+  <data name="ttradioStoryFPUnchanged" xml:space="preserve">
+    <value>  Unchanged Friendship Point Story Rewards
+Don't change the amount of FP received as story rewards.</value>
+    <comment>Story Rewards FP Unchanged</comment>
+  </data>
+  <data name="ttradioStoryGemsRandom" xml:space="preserve">
+    <value>  Random Gem Pin Story Rewards
+Make each gem pin received as a story reward a new random gem pin with a quantity from 1-3.
+A gem pin reward will still always be a gem pin reward.</value>
+    <comment>Story Rewards Gem Pins Random</comment>
+  </data>
+  <data name="ttradioStoryGemsShuffle" xml:space="preserve">
+    <value>  Shuffled Gem Pin Story Rewards
+Take the full vanilla set of gem pins received as story rewards, and randomize where each is received.
+A gem pin reward will still always be a gem pin reward.</value>
+    <comment>Story Rewards Gem Pins Shuffle</comment>
+  </data>
+  <data name="ttradioStoryGemsUnchanged" xml:space="preserve">
+    <value>  Unchanged Gem Pin Story Rewards
+Don't change the gem pins received as story rewards.</value>
+    <comment>Story Rewards Gem Pins Unchanged</comment>
+  </data>
+  <data name="ttradioStoryGlobalShuffle" xml:space="preserve">
+    <value>  Shuffled Story Reward Locations
+Take the full set of included story rewards, and randomize where each is received.
+This is applied after the randomization of all story rewards.</value>
+    <comment>Story Rewards Location Shuffle</comment>
+  </data>
+  <data name="ttradioStoryGlobalUnchanged" xml:space="preserve">
+    <value>  Unchanged Story Reward Locations
+Don't change the location of story rewards.</value>
+    <comment>Story Rewards Location Unchanged</comment>
+  </data>
+  <data name="ttradioStoryPinsRandom" xml:space="preserve">
+    <value>  Random Pin Story Rewards
+Make each pin received as a story reward a new random pin.
+A pin reward will still always be a pin reward.</value>
+    <comment>Story Rewards Pins Random</comment>
+  </data>
+  <data name="ttradioStoryPinsShuffle" xml:space="preserve">
+    <value>  Shuffled Pin Story Rewards
+Take the full vanilla set of pins received as story rewards, and randomize where each is received.
+A pin reward will still always be a pin reward.</value>
+    <comment>Story Rewards Pins Shuffle</comment>
+  </data>
+  <data name="ttradioStoryPinsUnchanged" xml:space="preserve">
+    <value>  Unchanged Pin Story Rewards
+Don't change the pins received as story rewards.</value>
+    <comment>Story Rewards Pins Unchanged</comment>
+  </data>
+  <data name="ttradioStoryReportShuffle" xml:space="preserve">
+    <value>  Shuffled Secret Report Rewards
+Take the full vanilla set of secret reports received as story rewards, and randomize where each is received.
+A secret report reward will still always be a secret report reward.</value>
+    <comment>Story Rewards Secret Reports Shuffle</comment>
+  </data>
+  <data name="ttradioStoryReportUnchanged" xml:space="preserve">
+    <value>  Unchanged Secret Report Story Rewards
+Don't change the secret reports received as story rewards.</value>
+    <comment>Story Rewards Secret Reports Unchanged</comment>
+  </data>
+  <data name="ttradioStoryYenRandom" xml:space="preserve">
+    <value>  Random Yen Pin Story Rewards
+Make each yen pin received as a story reward a new random yen pin.
+A yen pin reward will still always be a yen pin reward.</value>
+    <comment>Story Rewards Yen Pins Random</comment>
+  </data>
+  <data name="ttradioStoryYenShuffle" xml:space="preserve">
+    <value>  Shuffled Yen Pin Story Rewards
+Take the full vanilla set of yen pins received as story rewards, and randomize where each is received.
+A yen pin reward will still always be a yen pin reward.</value>
+    <comment>Story Rewards Yen Pins Shuffle</comment>
+  </data>
+  <data name="ttradioStoryYenUnchanged" xml:space="preserve">
+    <value>  Unchanged Yen Pin Story Rewards
+Don't change the yen pins received as story rewards.</value>
+    <comment>Story Rewards Yen Pins Unchanged</comment>
   </data>
 </root>

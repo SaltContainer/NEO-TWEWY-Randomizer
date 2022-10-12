@@ -11,6 +11,8 @@ namespace NEO_TWEWY_Randomizer
     {
         [JsonProperty("pins")]
         public IList<NameAssociation> Pins { get; set; }
+        [JsonProperty("pin-items")]
+        public IList<NameAssociation> PinItems { get; set; }
         [JsonProperty("yen-pins")]
         public IList<NameAssociation> YenPins { get; set; }
         [JsonProperty("gem-pins")]

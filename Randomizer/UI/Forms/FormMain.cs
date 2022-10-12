@@ -429,6 +429,16 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
+            switch (settings.StoryRewards.StoryGlobalShuffleChoice)
+            {
+                case StoryGlobalShuffle.Unchanged:
+                    radioStoryGlobalUnchanged.Checked = true;
+                    break;
+                case StoryGlobalShuffle.Shuffle:
+                    radioStoryGlobalShuffle.Checked = true;
+                    break;
+            }
+
             checkStoryGlobalPins.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins);
             checkStoryGlobalYen.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen);
             checkStoryGlobalGems.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems);
@@ -549,22 +559,22 @@ namespace NEO_TWEWY_Randomizer
 
         private void checkChanceEasy_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightEasy.Enabled = checkChanceEasy.Checked;
+            numChanceWeightEasy.Enabled = checkChanceEasy.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceNormal_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightNormal.Enabled = checkChanceNormal.Checked;
+            numChanceWeightNormal.Enabled = checkChanceNormal.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceHard_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightHard.Enabled = checkChanceHard.Checked;
+            numChanceWeightHard.Enabled = checkChanceHard.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceUltimate_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightUltimate.Enabled = checkChanceUltimate.Checked;
+            numChanceWeightUltimate.Enabled = checkChanceUltimate.Checked && radioChanceRandomW.Checked;
         }
 
         private void numChance_ValueChanged(object sender, EventArgs e)

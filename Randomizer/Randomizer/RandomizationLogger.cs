@@ -28,6 +28,7 @@ namespace NEO_TWEWY_Randomizer
         {
             AddToLog("========================================\nNEO: THE WORLD ENDS WITH YOU RANDOMIZATION SETTINGS\n\n");
 
+            #region Noise Drops
             AddToLog("NOISE DROPPED PINS\n");
             string droppedPinsChoice = "";
             switch (settings.NoiseDrops.NoiseDropTypeChoice)
@@ -47,7 +48,7 @@ namespace NEO_TWEWY_Randomizer
                 if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Normal)) dropTypeDifficulties.Add("Normal");
                 if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Hard)) dropTypeDifficulties.Add("Hard");
                 if (settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate)) dropTypeDifficulties.Add("Ultimate");
-                AddToLog(string.Format("Difficulties: {0}", string.Join(", ", dropTypeDifficulties)));
+                AddToLog(string.Format("Difficulties: {0}", dropTypeDifficulties.Count() > 0 ? string.Join(", ", dropTypeDifficulties) : "None"));
                 AddToLog("\n");
             }
             AddToLog("\n");
@@ -72,7 +73,9 @@ namespace NEO_TWEWY_Randomizer
                 AddToLog("\n");
             }
             AddToLog("\n");
+            #endregion
 
+            #region Pin Stats
             AddToLog("PIN STATS\n");
             AddToLog("Randomized General Stats: ");
             List<string> generalPinStats = new List<string>();
@@ -130,8 +133,65 @@ namespace NEO_TWEWY_Randomizer
             AddToLog(string.Format("Evolution: {0}\n", evoChoice + (settings.PinStats.PinEvolutionChoice == PinEvolution.RandomCompletely ? string.Format(" ({0}%)", settings.PinStats.PinEvoPercentage) : "")));
             if (settings.PinStats.PinEvolutionChoice != PinEvolution.Unchanged) AddToLog(string.Format("Force Same-Brand Evolutions: {0}\n", settings.PinStats.PinEvoForceBrand ? "Yes" : "No"));
             AddToLog(string.Format("Remove Character-Specific Evolutions: {0}\n", settings.PinStats.PinRemoveCharaEvos ? "Yes" : "No"));
-
             AddToLog("\n");
+            #endregion
+
+            #region Story Rewards
+            AddToLog("STORY REWARDS\n");
+            string storyPinChoice = "";
+            switch (settings.StoryRewards.StoryPinChoice)
+            {
+                case StoryPin.Unchanged: storyPinChoice = "Unchanged"; break;
+                case StoryPin.Shuffle: storyPinChoice = "Shuffle"; break;
+                case StoryPin.Random: storyPinChoice = "Random"; break;
+            }
+            AddToLog(string.Format("Pin Rewards: {0}\n", storyPinChoice));
+            if (settings.StoryRewards.StoryPinChoice != StoryPin.Unchanged) AddToLog(string.Format("\tInclude Limited Pins: {0}\n", settings.StoryRewards.StoryGlobalShuffleChoice == StoryGlobalShuffle.Shuffle ? "Yes" : "No"));
+            string storyYenChoice = "";
+            switch (settings.StoryRewards.StoryYenChoice)
+            {
+                case StoryYen.Unchanged: storyYenChoice = "Unchanged"; break;
+                case StoryYen.Shuffle: storyYenChoice = "Shuffle"; break;
+                case StoryYen.Random: storyYenChoice = "Random"; break;
+            }
+            AddToLog(string.Format("Yen Pin Rewards: {0}\n", storyYenChoice));
+            string storyGemChoice = "";
+            switch (settings.StoryRewards.StoryGemChoice)
+            {
+                case StoryGem.Unchanged: storyGemChoice = "Unchanged"; break;
+                case StoryGem.Shuffle: storyGemChoice = "Shuffle"; break;
+                case StoryGem.Random: storyGemChoice = "Random"; break;
+            }
+            AddToLog(string.Format("Gem Pin Rewards: {0}\n", storyGemChoice));
+            string storyFPChoice = "";
+            switch (settings.StoryRewards.StoryFPChoice)
+            {
+                case StoryFP.Unchanged: storyFPChoice = "Unchanged"; break;
+                case StoryFP.Shuffle: storyFPChoice = "Shuffle"; break;
+                case StoryFP.RandomFixedTotal: storyFPChoice = "Random (Fixed Total)"; break;
+            }
+            AddToLog(string.Format("Friendship Point Rewards: {0}\n", storyFPChoice));
+            string storyReportChoice = "";
+            switch (settings.StoryRewards.StoryReportChoice)
+            {
+                case StoryReport.Unchanged: storyReportChoice = "Unchanged"; break;
+                case StoryReport.Shuffle: storyReportChoice = "Shuffle"; break;
+            }
+            AddToLog(string.Format("Secret Report Rewards: {0}\n", storyReportChoice));
+            AddToLog(string.Format("Shuffle Reward Locations: {0}\n", settings.StoryRewards.StoryGlobalShuffleChoice == StoryGlobalShuffle.Shuffle ? "Yes" : "No"));
+            if (settings.StoryRewards.StoryGlobalShuffleChoice == StoryGlobalShuffle.Shuffle)
+            {
+                List<string> shuffledStoryRewards = new List<string>();
+                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins)) shuffledStoryRewards.Add("Pins");
+                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen)) shuffledStoryRewards.Add("Yen Pins");
+                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems)) shuffledStoryRewards.Add("Gem Pins");
+                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP)) shuffledStoryRewards.Add("Friendship Points");
+                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports)) shuffledStoryRewards.Add("Secret Reports");
+                AddToLog(string.Format("\tShuffled Rewards: {0}", shuffledStoryRewards.Count() > 0 ? string.Join(", ", shuffledStoryRewards) : "None"));
+                AddToLog("\n");
+            }
+            AddToLog("\n");
+            #endregion
         }
         #endregion
 
@@ -140,10 +200,10 @@ namespace NEO_TWEWY_Randomizer
         {
             AddToLog("Noise Drops\n========================================\n\n");
 
-            List<NameAssociation> pins = FileConstants.ItemNames.Pins.ToList();
-            pins.AddRange(FileConstants.ItemNames.YenPins.ToList());
-            pins.AddRange(FileConstants.ItemNames.GemPins.ToList());
-            pins.AddRange(FileConstants.ItemNames.LimitedPins.ToList());
+            List<NameAssociation> pins = FileConstants.ItemNames.Pins
+            .Union(FileConstants.ItemNames.LimitedPins)
+            .Union(FileConstants.ItemNames.YenPins)
+            .Union(FileConstants.ItemNames.GemPins).ToList();
 
             for (int i=0; i<original.Count; i++)
             {
@@ -171,14 +231,16 @@ namespace NEO_TWEWY_Randomizer
         {
             AddToLog("Pig Noise Drops\n========================================\n\n");
 
-            List<int> normalPinIds = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
-            List<int> limitedPinIds = FileConstants.ItemNames.LimitedPins.Select(p => p.Id).ToList();
+            List<NameAssociation> pins = FileConstants.ItemNames.Pins
+            .Union(FileConstants.ItemNames.LimitedPins)
+            .Union(FileConstants.ItemNames.YenPins)
+            .Union(FileConstants.ItemNames.GemPins).ToList();
 
             for (int i = 0; i < original.Count; i++)
             {
                 string pigName = FileConstants.ItemNames.Pigs.Where(e => e.Id == original[i].Id).First().Name;
-                string dropOriginal = limitedPinIds.Contains(original[i].Drop) ? FileConstants.ItemNames.LimitedPins.Where(p => p.Id == original[i].Drop).First().Name : FileConstants.ItemNames.Pins.Where(p => p.Id == original[i].Drop).First().Name;
-                string dropRandomized = limitedPinIds.Contains(randomized[i].Drop) ? FileConstants.ItemNames.LimitedPins.Where(p => p.Id == randomized[i].Drop).First().Name : FileConstants.ItemNames.Pins.Where(p => p.Id == randomized[i].Drop).First().Name;
+                string dropOriginal = pins.Where(p => p.Id == original[i].Drop).First().Name;
+                string dropRandomized = pins.Where(p => p.Id == randomized[i].Drop).First().Name;
                 AddToLog(string.Format("{0,-20}: {1,-25} -> {2}\n", pigName, dropOriginal, dropRandomized));
             }
 
@@ -229,6 +291,46 @@ namespace NEO_TWEWY_Randomizer
 
                 AddToLog("\n");
             }
+        }
+        #endregion
+
+        #region Story Rewards
+        public void LogStoryRewardChanges(List<ScenarioRewards> original, List<ScenarioRewards> randomized)
+        {
+            AddToLog("Story Rewards\n========================================\n\n");
+
+            List<NameAssociation> itemNames = FileConstants.ItemNames.PinItems
+                .Union(FileConstants.ItemNames.LimitedPins)
+                .Union(FileConstants.ItemNames.YenPins)
+                .Union(FileConstants.ItemNames.GemPins)
+                .Union(FileConstants.ItemNames.FP)
+                .Union(FileConstants.ItemNames.SecretReports)
+                .ToList();
+            List<NameAssociation> storyRewardNames = FileConstants.ItemNames.StoryPins
+                .Union(FileConstants.ItemNames.StoryLimitedPins)
+                .Union(FileConstants.ItemNames.StoryYen)
+                .Union(FileConstants.ItemNames.StoryGems)
+                .Union(FileConstants.ItemNames.StoryFP)
+                .Union(FileConstants.ItemNames.StoryReports)
+                .ToList();
+            List<NameAssociation> storyRewardNames2nd = FileConstants.ItemNames.StoryYen2nd.ToList();
+
+            for (int i = 0; i < original.Count; i++)
+            {
+                ScenarioRewards rewardsOriginal = original[i];
+                ScenarioRewards rewardsRandomized = randomized[i];
+                if (storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).Any())
+                {
+                    string rewardName = storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).First().Name;
+                    AddToLog(string.Format("{0,-39}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName, itemNames.Where(n => n.Id == rewardsOriginal.FirstReward).First().Name, rewardsOriginal.FirstRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.FirstReward).First().Name, rewardsRandomized.FirstRewardCount));
+                    if (storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).Any())
+                    {
+                        string rewardName2nd = storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).First().Name;
+                        AddToLog(string.Format("{0,-39}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName2nd, itemNames.Where(n => n.Id == rewardsOriginal.SecondReward).First().Name, rewardsOriginal.SecondRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.SecondReward).First().Name, rewardsRandomized.SecondRewardCount));
+                    }
+                }
+            }
+            AddToLog("\n");
         }
         #endregion
 

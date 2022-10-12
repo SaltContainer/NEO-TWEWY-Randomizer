@@ -912,7 +912,7 @@ namespace NEO_TWEWY_Randomizer
             this.grpStoryGlobal.Size = new System.Drawing.Size(484, 115);
             this.grpStoryGlobal.TabIndex = 1;
             this.grpStoryGlobal.TabStop = false;
-            this.grpStoryGlobal.Text = "Overall Settings";
+            this.grpStoryGlobal.Text = "Reward Location Shuffling";
             // 
             // grpStoryGlobalIncluded
             // 

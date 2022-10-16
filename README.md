@@ -1,7 +1,7 @@
 # NEO-TWEWY-Randomizer
 This is a Randomizer for NEO: The World Ends With You.
 
-![Picture showing the application](https://i.imgur.com/e5sp2lp.png "The Randomizer")<br>
+![Picture showing the application](https://i.imgur.com/IdOE9bS.png "The Randomizer")<br>
 
 The most recent version can be downloaded from the releases page. Supported features are described further down.
 
@@ -25,9 +25,21 @@ The Randomizer is currently being made for the Nintendo Switch release of the ga
 
 ### Currently working
 - Random Pin Drops, with Random Drop Chance
-  - There are various different ways to do this randomization.
+  - Pins dropped by Noise can be either shuffled or randomized.
+    - "Limited" Pins (Axion, Dilaton, Dibaryon, and Sfermion) can also be included.
+    - It is possible to only change drops for specific difficulties.
+  - Drop Rates for these Pins can be randomized.
+    - It is possible to only change rates for specific difficulties.
+    - There is an option to "weigh" each difficulty so that pins are rarer or more common at different difficulties.
+- Random Story Rewards
+  - Pins, Yen Pins, and Gem Pins can all be either shuffled or randomized to new pins.
+  - Secret Reports can be shuffled.
+  - Friendship Point amounts can be either shuffled or randomized to have a set total (currently always 159).
+  - The locations of each of these categories can also be shuffled so that, for example, a Yen Pin could be replaced by FP.
 - Random Pin Stats
-  - A good amount of the stats have pre-determined ranges, this might change in the future.
+  - Power, Limit, Reboot, Boot, Recover, Charge, Sell Price, Affinity, Max Level, Brand, Uber Status, Ability, Growth Speed, and Evolution are all data that can be randomized.
+    - Most stats have predetermined ranges that cannot be edited at this time.
+  - Character-specific evolutions can be removed.
 
 ### Planned
 - Shuffled Social Network Rewards
@@ -37,7 +49,6 @@ The Randomizer is currently being made for the Nintendo Switch release of the ga
 - Random Food Stats
 - Random Music
 - Random Restaurants
-- Random Story Progression Pins
 - Available at start dialogue and cutscene skipping
 - Maybe more...
 

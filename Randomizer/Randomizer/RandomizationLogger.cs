@@ -27,6 +27,7 @@ namespace NEO_TWEWY_Randomizer
         public void LogSettings(RandomizationSettings settings)
         {
             AddToLog("========================================\nNEO: THE WORLD ENDS WITH YOU RANDOMIZATION SETTINGS\n\n");
+            AddToLog(string.Format("Settings String:\n{0}\n\n", settings.GenerateSettingsString()));
 
             #region Noise Drops
             AddToLog("NOISE DROPPED PINS\n");
@@ -322,11 +323,11 @@ namespace NEO_TWEWY_Randomizer
                 if (storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).Any())
                 {
                     string rewardName = storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).First().Name;
-                    AddToLog(string.Format("{0,-39}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName, itemNames.Where(n => n.Id == rewardsOriginal.FirstReward).First().Name, rewardsOriginal.FirstRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.FirstReward).First().Name, rewardsRandomized.FirstRewardCount));
+                    AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName, itemNames.Where(n => n.Id == rewardsOriginal.FirstReward).First().Name, rewardsOriginal.FirstRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.FirstReward).First().Name, rewardsRandomized.FirstRewardCount));
                     if (storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).Any())
                     {
                         string rewardName2nd = storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).First().Name;
-                        AddToLog(string.Format("{0,-39}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName2nd, itemNames.Where(n => n.Id == rewardsOriginal.SecondReward).First().Name, rewardsOriginal.SecondRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.SecondReward).First().Name, rewardsRandomized.SecondRewardCount));
+                        AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName2nd, itemNames.Where(n => n.Id == rewardsOriginal.SecondReward).First().Name, rewardsOriginal.SecondRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.SecondReward).First().Name, rewardsRandomized.SecondRewardCount));
                     }
                 }
             }

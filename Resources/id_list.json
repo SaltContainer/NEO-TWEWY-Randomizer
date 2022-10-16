@@ -4736,907 +4736,911 @@
 	"scenario-pins": [
 		{
 			"id": 110010,
-			"name": "Week 1 Day 1 - Joli bécot"
+			"name": "W1D1 - Minamimoto's Pin"
 		},
 		{
 			"id": 110020,
-			"name": "Week 1 Day 1 - Firestorm"
+			"name": "W1D1 - Shibuya Hikarie"
 		},
 		{
 			"id": 120010,
-			"name": "Week 1 Day 2 - Sugar Beam"
+			"name": "W1D2 - 104/Dogenzaka"
 		},
 		{
 			"id": 120020,
-			"name": "Week 1 Day 2 - Marvelous Crash"
+			"name": "W1D2 - Dogenzaka/O-EAST"
 		},
 		{
 			"id": 120030,
-			"name": "Week 1 Day 2 - Azamaru"
+			"name": "W1D2 - TSUTAYA O-EAST"
 		},
 		{
 			"id": 130030,
-			"name": "Week 1 Day 3 - Tigre PUNKS"
+			"name": "W1D3 - Scramble (10:50)"
 		},
 		{
 			"id": 140010,
-			"name": "Week 1 Day 4 - ShoGun・Void"
+			"name": "W1D4 - Shinji-of-Some-Trades Dive"
 		},
 		{
 			"id": 140030,
-			"name": "Week 1 Day 4 - Onimaru"
+			"name": "W1D4 - Seiji-of-Some-Trades Dive"
 		},
 		{
 			"id": 140040,
-			"name": "Week 1 Day 4 - Thunder and Lightning"
+			"name": "W1D4 - Scramble/TOWER RECORDS"
 		},
 		{
 			"id": 150030,
-			"name": "Week 1 Day 5 - Tigres Assemble!"
+			"name": "W1D5 - TOWER RECORDS/Scramble"
 		},
 		{
 			"id": 150060,
-			"name": "Week 1 Day 5 - Righteous Rabbit"
+			"name": "W1D5 - Scramble/Center"
 		},
 		{
 			"id": 160030,
-			"name": "Week 1 Day 6 - Top o' Topo"
+			"name": "W1D6 - Claim Scramble and 104"
 		},
 		{
 			"id": 160120,
-			"name": "Week 1 Day 6 - Got Your Back"
+			"name": "W1D6 - Claim All Areas"
 		},
 		{
 			"id": 170040,
-			"name": "Week 1 Day 7 - Petals of Love"
+			"name": "W1D7 - Shibuya Hikarie"
 		},
 		{
 			"id": 170110,
-			"name": "Week 1 Day 7 - EnJo・Blaze"
+			"name": "W1D7 - Scramble/104"
 		},
 		{
 			"id": 210030,
-			"name": "Week 2 Day 1 - Soul Ablaze"
+			"name": "W2D1 - Takeshita Street Gate"
 		},
 		{
 			"id": 210070,
-			"name": "Week 2 Day 1 - In the Snipeline"
+			"name": "W2D1 - Takeshita/TOKYU"
 		},
 		{
 			"id": 220010,
-			"name": "Week 2 Day 2 - What Can Never Be"
+			"name": "W2D2 - TOKYU PLAZA"
 		},
 		{
 			"id": 220020,
-			"name": "Week 2 Day 2 - KaChu・Blaze"
+			"name": "W2D2 - TOWER RECORDS/Cat Street"
 		},
 		{
 			"id": 220060,
-			"name": "Week 2 Day 2 - The Lonely Space Warrior"
+			"name": "W2D2 - Deduce Neku's Location"
 		},
 		{
 			"id": 230030,
-			"name": "Week 2 Day 3 - SuiGen・Void"
+			"name": "W2D3 - Claim 3 Areas"
 		},
 		{
 			"id": 240030,
-			"name": "Week 2 Day 4 - Runaway Rocket"
+			"name": "W2D4 - Escape Plague Noise"
 		},
 		{
 			"id": 240060,
-			"name": "Week 2 Day 4 - Jealous Rage"
+			"name": "W2D4 - 100 Legend Points"
 		},
 		{
 			"id": 250030,
-			"name": "Week 2 Day 5 - Melancony×Melancony"
+			"name": "W2D5 - Scramble/104"
 		},
 		{
 			"id": 250080,
-			"name": "Week 2 Day 5 - Cursed Croaker"
+			"name": "W2D5 - Complete All Riddles"
 		},
 		{
 			"id": 260010,
-			"name": "Week 2 Day 6 - Cuddly Launcher"
+			"name": "W2D6 - Claim Spain Hill"
 		},
 		{
 			"id": 260050,
-			"name": "Week 2 Day 6 - Any Way You Snipe It"
+			"name": "W2D6 - Claim All Areas"
 		},
 		{
 			"id": 270020,
-			"name": "Week 2 Day 7 - The Pyramids' Old Secret"
+			"name": "W2D7 - 104/Dogenzaka"
 		},
 		{
 			"id": 270030,
-			"name": "Week 2 Day 7 - Stuck in the Middle"
+			"name": "W2D7 - Cat Street"
 		},
 		{
 			"id": 270080,
-			"name": "Week 2 Day 7 - Wicked Wind"
+			"name": "W2D7 - Beat Susukichi"
 		},
 		{
 			"id": 310010,
-			"name": "Week 3 Day 1 - All or Nothing"
+			"name": "W3D1 - Tipsy Tose Hall"
 		},
 		{
 			"id": 320100,
-			"name": "Week 3 Day 2 - Top Dog Gatling"
+			"name": "W3D2 - 104"
 		},
 		{
 			"id": 320130,
-			"name": "Week 3 Day 2 - Good Mood Graviton"
+			"name": "W3D2 - TOWER RECORDS"
 		},
 		{
 			"id": 330010,
-			"name": "Week 3 Day 3 - HoGyoku・Gleam"
+			"name": "W3D3 - Scramble Crossing (13:00)"
 		},
 		{
 			"id": 330040,
-			"name": "Week 3 Day 3 - Clawed Guardian"
+			"name": "W3D3 - SHIBUYA STREAM Return"
 		},
 		{
 			"id": 340020,
-			"name": "Week 3 Day 4 - Aspect of Truth"
+			"name": "W3D4 - MIYASHITA PARK Plague Noise"
 		},
 		{
 			"id": 340060,
-			"name": "Week 3 Day 4 - Let the Storm Rage On"
+			"name": "W3D4 - Complete Day"
 		},
 		{
 			"id": 340090,
-			"name": "Week 3 Day 4 - Snare Trap E"
+			"name": "W3D4 - Riko Sekinohara Quest"
 		},
 		{
 			"id": 350040,
-			"name": "Week 3 Day 5 - Frosty Friendship"
+			"name": "W3D5 - Beat Noise Kanon"
 		},
 		{
 			"id": 360010,
-			"name": "Week 3 Day 6 - KoYo・Blaze"
+			"name": "W3D6 - Scramble/West Exit"
 		},
 		{
 			"id": 360050,
-			"name": "Week 3 Day 6 - St. Autumnus' Strike"
+			"name": "W3D6 - SHIBUYA STREAM (13:00)"
 		},
 		{
 			"id": 380010,
-			"name": "Week 3 Day 7' - HOG Healer"
+			"name": "W3D7' - Scramble Crossing (15:00)"
 		},
 		{
 			"id": 390010,
-			"name": "Week 3 Day 7'' - Lightning in My Hands"
+			"name": "W3D7'' - Scramble Crossing (15:00)"
 		}
 	],
 	"scenario-limited-pins": [
 		{
 			"id": 140060,
-			"name": "Week 1 Day 4 - Axion"
+			"name": "W1D4 - The Don Quest"
 		},
 		{
 			"id": 150120,
-			"name": "Week 1 Day 5 - Axion"
+			"name": "W1D5 - Distract all Societists"
 		},
 		{
 			"id": 160090,
-			"name": "Week 1 Day 6 - Axion"
+			"name": "W1D6 - Claim Tipsy Tose Hall"
 		},
 		{
 			"id": 160100,
-			"name": "Week 1 Day 6 - Axion"
+			"name": "W1D6 - Spain Hill Pig"
+		},
+		{
+			"id": 170070,
+			"name": "W1D7 - Spain Hill/Tipsy Tose"
 		},
 		{
 			"id": 170100,
-			"name": "Week 1 Day 7 - Axion"
+			"name": "W1D7 - Center/Scramble"
 		},
 		{
 			"id": 170120,
-			"name": "Week 1 Day 7 - Axion"
+			"name": "W1D7 - 104/Dogenzaka"
 		},
 		{
 			"id": 170170,
-			"name": "Week 1 Day 7 - Axion"
+			"name": "W1D7 - Hikarie/Underpass"
 		},
 		{
 			"id": 170190,
-			"name": "Week 1 Day 7 - Axion"
+			"name": "W1D7 - Reaper Quest"
 		},
 		{
 			"id": 220080,
-			"name": "Week 2 Day 2 - Dilaton"
+			"name": "W2D2 - Miss Banks Quest"
 		},
 		{
 			"id": 230010,
-			"name": "Week 2 Day 3 - Dilaton"
+			"name": "W2D3 - Lose 104 Split up"
 		},
 		{
 			"id": 230020,
-			"name": "Week 2 Day 3 - Dilaton"
+			"name": "W2D3 - Lose 104 Together"
 		},
 		{
 			"id": 230040,
-			"name": "Week 2 Day 3 - Dilaton"
+			"name": "W2D3 - Claim 104 before Hikarie"
 		},
 		{
 			"id": 240020,
-			"name": "Week 2 Day 4 - Dilaton"
+			"name": "W2D4 - All Legends"
 		},
 		{
 			"id": 240130,
-			"name": "Week 2 Day 4 - Dilaton"
+			"name": "W2D4 - Taku Ihama Quest"
 		},
 		{
 			"id": 250040,
-			"name": "Week 2 Day 5 - Dilaton"
+			"name": "W2D5 - 104/O-EAST"
 		},
 		{
 			"id": 250100,
-			"name": "Week 2 Day 5 - Dilaton"
+			"name": "W2D5 - Eiji Oji Quest"
 		},
 		{
 			"id": 260040,
-			"name": "Week 2 Day 6 - Dilaton"
+			"name": "W2D6 - Tipsy Tose Hall (12:00)"
 		},
 		{
 			"id": 270060,
-			"name": "Week 2 Day 7 - Dilaton"
+			"name": "W2D7 - Spain Hill"
 		},
 		{
 			"id": 310030,
-			"name": "Week 3 Day 1 - Dibaryon"
+			"name": "W3D1 - Maito Minami Quest"
 		},
 		{
 			"id": 320060,
-			"name": "Week 3 Day 2 - Dibaryon"
+			"name": "W3D2 - Scramble Crossing (14:00)"
 		},
 		{
 			"id": 320090,
-			"name": "Week 3 Day 2 - Dibaryon"
+			"name": "W3D2 - TOWER RECORDS/Scramble"
 		},
 		{
 			"id": 320180,
-			"name": "Week 3 Day 2 - Dibaryon"
+			"name": "W3D2 - Kashiki Quest"
 		},
 		{
 			"id": 330030,
-			"name": "Week 3 Day 3 - Dibaryon"
+			"name": "W3D3 - Complete Day"
 		},
 		{
 			"id": 360040,
-			"name": "Week 3 Day 6 - Dibaryon"
+			"name": "W3D6 - Expressway Underpass"
 		},
 		{
 			"id": 360070,
-			"name": "Week 3 Day 6 - Dibaryon"
+			"name": "W3D6 - Marino Orihara Quest"
 		},
 		{
 			"id": 390020,
-			"name": "Week 3 Day 7'' - Dibaryon"
+			"name": "W3D7'' - Cat Street (12:00)"
 		},
 		{
 			"id": 410010,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Beat Cervus Cantus α"
 		},
 		{
 			"id": 410020,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Beat Iris Cantus α"
 		},
 		{
 			"id": 410030,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Beat Grus Cantus α"
 		},
 		{
 			"id": 410040,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Beat Felidae Cantus"
 		},
 		{
 			"id": 410050,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Complete Time Trial"
 		},
 		{
 			"id": 410060,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Rhyme Dive"
 		},
 		{
 			"id": 410070,
-			"name": "Another Day - Sfermion"
+			"name": "W4D1 - Beat Shiba α"
 		}
 	],
 	"scenario-yen": [
 		{
 			"id": 130010,
-			"name": "Week 1 Day 3 - 5,000 Yen"
+			"name": "W1D3 - Scramble/Center"
 		},
 		{
 			"id": 130020,
-			"name": "Week 1 Day 3 - 1,000 Yen"
+			"name": "W1D3 - Center Street"
 		},
 		{
 			"id": 140020,
-			"name": "Week 1 Day 4 - 5,000 Yen"
+			"name": "W1D4 - Center/Scramble"
 		},
 		{
 			"id": 140050,
-			"name": "Week 1 Day 4 - 1,000 Yen"
+			"name": "W1D4 - Eiji Oji Quest"
 		},
 		{
 			"id": 140070,
-			"name": "Week 1 Day 4 - 1,000 Yen"
+			"name": "W1D4 - Katsuhiko Tanimaru Quest"
 		},
 		{
 			"id": 140080,
-			"name": "Week 1 Day 4 - 5,000 Yen"
+			"name": "W1D4 - Phone Number Obtained"
 		},
 		{
 			"id": 140090,
-			"name": "Week 1 Day 4 - 5,000 Yen"
+			"name": "W1D4 - Vending Machine"
 		},
 		{
 			"id": 150020,
-			"name": "Week 1 Day 5 - 5,000 Yen"
+			"name": "W1D5 - Spain Hill Pig"
 		},
 		{
 			"id": 150050,
-			"name": "Week 1 Day 5 - 1,000 Yen"
+			"name": "W1D5 - Center Street Pig"
 		},
 		{
 			"id": 150090,
-			"name": "Week 1 Day 5 - 1,000 Yen"
+			"name": "W1D5 - The Don Quest"
 		},
 		{
 			"id": 150110,
-			"name": "Week 1 Day 5 - 1,000 Yen"
+			"name": "W1D5 - Yusei Iseya Quest"
 		},
 		{
 			"id": 160060,
-			"name": "Week 1 Day 6 - 5,000 Yen"
+			"name": "W1D6 - Claim TOWER RECORDS"
 		},
 		{
 			"id": 160070,
-			"name": "Week 1 Day 6 - 5,000 Yen"
+			"name": "W1D6 - Claim Center Street"
 		},
 		{
 			"id": 160080,
-			"name": "Week 1 Day 6 - 5,000 Yen"
+			"name": "W1D6 - Udagawa Backstreets Pig"
 		},
 		{
 			"id": 170010,
-			"name": "Week 1 Day 7 - 1,000 Yen"
+			"name": "W1D7 - Tipsy Tose Hall"
 		},
 		{
 			"id": 170020,
-			"name": "Week 1 Day 7 - 5,000 Yen"
+			"name": "W1D7 - TSUTAYA O-EAST"
 		},
 		{
 			"id": 170050,
-			"name": "Week 1 Day 7 - 10,000 Yen"
+			"name": "W1D7 - TOWER RECORDS/Spain Hill"
 		},
 		{
 			"id": 170080,
-			"name": "Week 1 Day 7 - 5,000 Yen"
+			"name": "W1D7 - Spain Hill/Center"
 		},
 		{
 			"id": 170130,
-			"name": "Week 1 Day 7 - 10,000 Yen"
+			"name": "W1D7 - 104/O-EAST"
 		},
 		{
 			"id": 170150,
-			"name": "Week 1 Day 7 - 5,000 Yen"
+			"name": "W1D7 - Dogenzaka/O-EAST North"
 		},
 		{
 			"id": 170160,
-			"name": "Week 1 Day 7 - 5,000 Yen"
+			"name": "W1D7 - Scramble/Hikarie"
 		},
 		{
 			"id": 210040,
-			"name": "Week 2 Day 1 - 1,000 Yen"
+			"name": "W2D1 - Takeshita Riddle 1"
 		},
 		{
 			"id": 210050,
-			"name": "Week 2 Day 1 - 5,000 Yen"
+			"name": "W2D1 - Takeshita Riddle 2"
 		},
 		{
 			"id": 220030,
-			"name": "Week 2 Day 2 - 5,000 Yen"
+			"name": "W2D2 - Cat Street/TOKYU"
 		},
 		{
 			"id": 220090,
-			"name": "Week 2 Day 2 - 1,000 Yen"
+			"name": "W2D2 - Spain Hill (10:30)"
 		},
 		{
 			"id": 240040,
-			"name": "Week 2 Day 4 - 5,000 Yen"
+			"name": "W2D4 - Hikarie Legend"
 		},
 		{
 			"id": 240080,
-			"name": "Week 2 Day 4 - 5,000 Yen"
+			"name": "W2D4 - 104 Legend"
 		},
 		{
 			"id": 250020,
-			"name": "Week 2 Day 5 - 10,000 Yen"
+			"name": "W2D5 - Underpass/West Exit"
 		},
 		{
 			"id": 250070,
-			"name": "Week 2 Day 5 - 5,000 Yen"
+			"name": "W2D5 - Scramble Crossing Riddle"
 		},
 		{
 			"id": 260020,
-			"name": "Week 2 Day 6 - 5,000 Yen"
+			"name": "W2D6 - Center Street (10:00)"
 		},
 		{
 			"id": 260030,
-			"name": "Week 2 Day 6 - 5,000 Yen"
+			"name": "W2D6 - Spain Hill (11:00)"
 		},
 		{
 			"id": 270040,
-			"name": "Week 2 Day 7 - 5,000 Yen"
+			"name": "W2D7 - Center Street"
 		},
 		{
 			"id": 270050,
-			"name": "Week 2 Day 7 - 5,000 Yen"
+			"name": "W2D7 - Tipsy Tose Hall"
 		},
 		{
 			"id": 270070,
-			"name": "Week 2 Day 7 - 10,000 Yen"
+			"name": "W2D7 - Dogenzaka"
 		},
 		{
 			"id": 270090,
-			"name": "Week 2 Day 7 - 10,000 Yen"
+			"name": "W2D7 - Complete Day"
 		},
 		{
 			"id": 320010,
-			"name": "Week 3 Day 2 - 5,000 Yen"
+			"name": "W3D2 - Telewarp TOWER RECORDS"
 		},
 		{
 			"id": 320020,
-			"name": "Week 3 Day 2 - 5,000 Yen"
+			"name": "W3D2 - ???"
 		},
 		{
 			"id": 320030,
-			"name": "Week 3 Day 2 - 5,000 Yen"
+			"name": "W3D2 - ???"
 		},
 		{
 			"id": 320040,
-			"name": "Week 3 Day 2 - 10,000 Yen"
+			"name": "W3D2 - ???"
 		},
 		{
 			"id": 320070,
-			"name": "Week 3 Day 2 - 10,000 Yen"
+			"name": "W3D2 - Dogenzaka/104"
 		},
 		{
 			"id": 320080,
-			"name": "Week 3 Day 2 - 10,000 Yen"
+			"name": "W3D2 - Scramble/Center"
 		},
 		{
 			"id": 320120,
-			"name": "Week 3 Day 2 - 10,000 Yen"
+			"name": "W3D2 - Spain Hill"
 		},
 		{
 			"id": 330020,
-			"name": "Week 3 Day 3 - 10,000 Yen"
+			"name": "W3D3 - Variabeauty Dive"
 		},
 		{
 			"id": 350030,
-			"name": "Week 3 Day 5 - 10,000 Yen"
+			"name": "W3D5 - Beat Noise Motoi"
 		}
 	],
 	"scenario-gems": [
 		{
 			"id": 150010,
-			"name": "Week 1 Day 5 - Rare Metal"
+			"name": "W1D5 - Tipsy Tose Hall Pig"
 		},
 		{
 			"id": 150040,
-			"name": "Week 1 Day 5 - Rare Metal"
+			"name": "W1D5 - Scramble Crossing Pig"
 		},
 		{
 			"id": 150070,
-			"name": "Week 1 Day 5 - Rare Metal"
+			"name": "W1D5 - Spain Hill (12:00)"
 		},
 		{
 			"id": 150100,
-			"name": "Week 1 Day 5 - Rare Metal"
+			"name": "W1D5 - Yuika Kaga Quest"
 		},
 		{
 			"id": 160010,
-			"name": "Week 1 Day 6 - Rare Metal"
+			"name": "W1D6 - Scramble Pureheart 1"
 		},
 		{
 			"id": 160020,
-			"name": "Week 1 Day 6 - Tektite"
+			"name": "W1D6 - Scramble Pureheart 2"
 		},
 		{
 			"id": 160040,
-			"name": "Week 1 Day 6 - Rare Metal"
+			"name": "W1D6 - TOWER RECORDS DRS 1"
 		},
 		{
 			"id": 160050,
-			"name": "Week 1 Day 6 - Tektite"
+			"name": "W1D6 - TOWER RECORDS DRS 2"
 		},
 		{
 			"id": 170060,
-			"name": "Week 1 Day 7 - Tektite"
+			"name": "W1D7 - TOWER RECORDS/Scramble"
 		},
 		{
 			"id": 170090,
-			"name": "Week 1 Day 7 - Tektite"
+			"name": "W1D7 - Center/Tipsy Tose"
 		},
 		{
 			"id": 170140,
-			"name": "Week 1 Day 7 - Tektite"
+			"name": "W1D7 - Dogenzaka/O-EAST West"
 		},
 		{
 			"id": 170200,
-			"name": "Week 1 Day 7 - Tektite"
+			"name": "W1D7 - Shuntaro Harima Quest"
 		},
 		{
 			"id": 210020,
-			"name": "Week 2 Day 1 - Adamantite"
+			"name": "W2D1 - Itsuki Kaneda Quest"
 		},
 		{
 			"id": 210060,
-			"name": "Week 2 Day 1 - Adamantite"
+			"name": "W2D1 - Takeshita Riddle 3"
 		},
 		{
 			"id": 220040,
-			"name": "Week 2 Day 2 - Adamantite"
+			"name": "W2D2 - West Exit Bus (10:45)"
 		},
 		{
 			"id": 220070,
-			"name": "Week 2 Day 2 - Adamantite"
+			"name": "W2D2 - Eiru Quest"
 		},
 		{
 			"id": 240010,
-			"name": "Week 2 Day 4 - Adamantite"
+			"name": "W2D4 - Cat Street Legend"
 		},
 		{
 			"id": 240050,
-			"name": "Week 2 Day 4 - Adamantite"
+			"name": "W2D4 - Scramble Legend"
 		},
 		{
 			"id": 240070,
-			"name": "Week 2 Day 4 - Adamantite"
+			"name": "W2D4 - Spain Hill Legend"
 		},
 		{
 			"id": 240090,
-			"name": "Week 2 Day 4 - Orichalcum"
+			"name": "W2D4 - Center Street Legend"
 		},
 		{
 			"id": 240110,
-			"name": "Week 2 Day 4 - Adamantite"
+			"name": "W2D4 - The Don Quest"
 		},
 		{
 			"id": 240120,
-			"name": "Week 2 Day 4 - Orichalcum"
+			"name": "W2D4 - Sumio Tanaka Quest"
 		},
 		{
 			"id": 250010,
-			"name": "Week 2 Day 5 - Adamantite"
+			"name": "W2D5 - Underpass/Hikarie"
 		},
 		{
 			"id": 250050,
-			"name": "Week 2 Day 5 - Orichalcum"
+			"name": "W2D5 - 104/Dogenzaka"
 		},
 		{
 			"id": 250060,
-			"name": "Week 2 Day 5 - Orichalcum"
+			"name": "W2D5 - Dogenzaka/O-EAST"
 		},
 		{
 			"id": 250110,
-			"name": "Week 2 Day 5 - Orichalcum"
+			"name": "W2D5 - Ryoji Quest"
 		},
 		{
 			"id": 250120,
-			"name": "Week 2 Day 5 - Orichalcum"
+			"name": "W2D5 - Seiji-of-Some-Trades Quest"
 		},
 		{
 			"id": 270010,
-			"name": "Week 2 Day 7 - Orichalcum"
+			"name": "W2D7 - Cat Street/TOWER RECORDS"
 		},
 		{
 			"id": 270110,
-			"name": "Week 2 Day 7 - Orichalcum"
+			"name": "W2D7 - Honoka Kondo Quest"
 		},
 		{
 			"id": 270120,
-			"name": "Week 2 Day 7 - Orichalcum"
+			"name": "W2D7 - Reaper Commentator Quest"
 		},
 		{
 			"id": 310040,
-			"name": "Week 3 Day 1 - Shadow Matter"
+			"name": "W3D1 - Ryoji Quest"
 		},
 		{
 			"id": 310050,
-			"name": "Week 3 Day 1 - Shadow Matter"
+			"name": "W3D1 - Go Modoriyama Quest"
 		},
 		{
 			"id": 320050,
-			"name": "Week 3 Day 2 - Shadow Matter"
+			"name": "W3D2 - ???"
 		},
 		{
 			"id": 320110,
-			"name": "Week 3 Day 2 - Shadow Matter"
+			"name": "W3D2 - Center Street"
 		},
 		{
 			"id": 320160,
-			"name": "Week 3 Day 2 - Shadow Matter"
+			"name": "W3D2 - Eiru Quest"
 		},
 		{
 			"id": 320170,
-			"name": "Week 3 Day 2 - Shadow Matter"
+			"name": "W3D2 - Shinji-of-Some-Trades Quest"
 		},
 		{
 			"id": 340050,
-			"name": "Week 3 Day 4 - Dark Matter"
+			"name": "W3D4 - MIYASHITA PARK (11:00)"
 		},
 		{
 			"id": 340080,
-			"name": "Week 3 Day 4 - Dark Matter"
+			"name": "W3D4 - MKN Quest"
 		},
 		{
 			"id": 350010,
-			"name": "Week 3 Day 5 - Dark Matter"
+			"name": "W3D5 - Beat Noise Ayano"
 		},
 		{
 			"id": 350020,
-			"name": "Week 3 Day 5 - Dark Matter"
+			"name": "W3D5 - Beat Noise Fuya"
 		},
 		{
 			"id": 360020,
-			"name": "Week 3 Day 6 - Dark Matter"
+			"name": "W3D6 - Tipsy Tose Hall"
 		},
 		{
 			"id": 360030,
-			"name": "Week 3 Day 6 - Dark Matter"
+			"name": "W3D6 - West Exit Bus Terminal"
 		}
 	],
 	"scenario-fp": [
 		{
 			"id": 140005,
-			"name": "Week 1 Day 4 - 5 FP"
+			"name": "W1D4 - Tipsy Tose Hall"
 		},
 		{
 			"id": 140055,
-			"name": "Week 1 Day 4 - 5 FP"
+			"name": "W1D4 - Eiji Oji Quest"
 		},
 		{
 			"id": 140065,
-			"name": "Week 1 Day 4 - 5 FP"
+			"name": "W1D4 - The Don Quest"
 		},
 		{
 			"id": 140075,
-			"name": "Week 1 Day 4 - 5 FP"
+			"name": "W1D4 - Katsuhiko Tanimaru Quest"
 		},
 		{
 			"id": 150080,
-			"name": "Week 1 Day 5 - 3 FP"
+			"name": "W1D5 - Complete Day"
 		},
 		{
 			"id": 150095,
-			"name": "Week 1 Day 5 - 5 FP"
+			"name": "W1D5 - The Don Quest"
 		},
 		{
 			"id": 150105,
-			"name": "Week 1 Day 5 - 5 FP"
+			"name": "W1D5 - Yuika Kaga Quest"
 		},
 		{
 			"id": 160110,
-			"name": "Week 1 Day 6 - 3 FP"
+			"name": "W1D6 - Complete Day"
 		},
 		{
 			"id": 170180,
-			"name": "Week 1 Day 7 - 3 FP"
+			"name": "W1D7 - Complete Day"
 		},
 		{
 			"id": 170195,
-			"name": "Week 1 Day 7 - 5 FP"
+			"name": "W1D7 - Reaper Quest"
 		},
 		{
 			"id": 210010,
-			"name": "Week 2 Day 1 - 3 FP"
+			"name": "W2D1 - Complete Day"
 		},
 		{
 			"id": 220050,
-			"name": "Week 2 Day 2 - 3 FP"
+			"name": "W2D2 - Complete Day"
 		},
 		{
 			"id": 220075,
-			"name": "Week 2 Day 2 - 5 FP"
+			"name": "W2D2 - Eiru Quest"
 		},
 		{
 			"id": 230060,
-			"name": "Week 2 Day 3 - 3 FP"
+			"name": "W2D3 - Claim All Areas"
 		},
 		{
 			"id": 240100,
-			"name": "Week 2 Day 4 - 3 FP"
+			"name": "W2D4 - Complete Day"
 		},
 		{
 			"id": 240115,
-			"name": "Week 2 Day 4 - 5 FP"
+			"name": "W2D4 - The Don Quest"
 		},
 		{
 			"id": 240125,
-			"name": "Week 2 Day 4 - 5 FP"
+			"name": "W2D4 - Sumio Tanaka Quest"
 		},
 		{
 			"id": 250090,
-			"name": "Week 2 Day 5 - 3 FP"
+			"name": "W2D5 - Complete Day"
 		},
 		{
 			"id": 250115,
-			"name": "Week 2 Day 5 - 5 FP"
+			"name": "W2D5 - Ryoji Quest"
 		},
 		{
 			"id": 250125,
-			"name": "Week 2 Day 5 - 5 FP"
+			"name": "W2D5 - Seiji-of-Some-Trades Quest"
 		},
 		{
 			"id": 260060,
-			"name": "Week 2 Day 6 - 3 FP"
+			"name": "W2D6 - Complete Day"
 		},
 		{
 			"id": 270100,
-			"name": "Week 2 Day 7 - 3 FP"
+			"name": "W2D7 - Complete Day"
 		},
 		{
 			"id": 270115,
-			"name": "Week 2 Day 7 - 5 FP"
+			"name": "W2D7 - Honoka Kondo Quest"
 		},
 		{
 			"id": 270125,
-			"name": "Week 2 Day 7 - 5 FP"
+			"name": "W2D7 - Reaper Commentator Quest"
 		},
 		{
 			"id": 310020,
-			"name": "Week 3 Day 1 - 3 FP"
+			"name": "W3D1 - Complete Day"
 		},
 		{
 			"id": 310035,
-			"name": "Week 3 Day 1 - 5 FP"
+			"name": "W3D1 - Maito Minami Quest"
 		},
 		{
 			"id": 310045,
-			"name": "Week 3 Day 1 - 5 FP"
+			"name": "W3D1 - Ryoji Quest"
 		},
 		{
 			"id": 320140,
-			"name": "Week 3 Day 2 - 3 FP"
+			"name": "W3D2 - Ayano Dive"
 		},
 		{
 			"id": 320150,
-			"name": "Week 3 Day 2 - 3 FP"
+			"name": "W3D2 - Complete Day"
 		},
 		{
 			"id": 320165,
-			"name": "Week 3 Day 2 - 5 FP"
+			"name": "W3D2 - Eiru Quest"
 		},
 		{
 			"id": 320175,
-			"name": "Week 3 Day 2 - 5 FP"
+			"name": "W3D2 - Shinji-of-Some-Trades Quest"
 		},
 		{
 			"id": 330050,
-			"name": "Week 3 Day 3 - 3 FP"
+			"name": "W3D3 - Complete Day"
 		},
 		{
 			"id": 340010,
-			"name": "Week 3 Day 4 - 3 FP"
+			"name": "W3D4 - Kariya Dive"
 		},
 		{
 			"id": 340040,
-			"name": "Week 3 Day 4 - 3 FP"
+			"name": "W3D4 - Tipsy Tose/Udagawa"
 		},
 		{
 			"id": 340070,
-			"name": "Week 3 Day 4 - 3 FP"
+			"name": "W3D4 - Complete Day"
 		},
 		{
 			"id": 340085,
-			"name": "Week 3 Day 4 - 5 FP"
+			"name": "W3D4 - MKN Quest"
 		},
 		{
 			"id": 350050,
-			"name": "Week 3 Day 5 - 3 FP"
+			"name": "W3D5 - Complete Day"
 		},
 		{
 			"id": 360060,
-			"name": "Week 3 Day 6 - 3 FP"
+			"name": "W3D6 - Complete Day"
 		},
 		{
 			"id": 370010,
-			"name": "Week 3 Day 7 - 3 FP"
+			"name": "W3D7 - Complete Day"
 		},
 		{
 			"id": 380020,
-			"name": "Week 3 Day 7' - 4 FP"
+			"name": "W3D7' - Meet Haz"
 		}
 	],
 	"scenario-reports": [
 		{
 			"id": 611010,
-			"name": "Week 1 Day 1 - Secret Report No. 1"
+			"name": "W1D1 - Boss Rematch"
 		},
 		{
 			"id": 612010,
-			"name": "Week 1 Day 2 - Secret Report No. 2"
+			"name": "W1D2 - Boss Rematch"
 		},
 		{
 			"id": 615010,
-			"name": "Week 1 Day 5 - Secret Report No. 5"
+			"name": "W1D5 - Boss Rematch"
 		},
 		{
 			"id": 617010,
-			"name": "Week 1 Day 7 - Secret Report No. 7"
+			"name": "W1D7 - Boss Rematch"
 		},
 		{
 			"id": 621010,
-			"name": "Week 2 Day 1 - Secret Report No. 8"
+			"name": "W2D1 - Boss Rematch"
 		},
 		{
 			"id": 622010,
-			"name": "Week 2 Day 2 - Secret Report No. 9"
+			"name": "W2D2 - Boss Rematch"
 		},
 		{
 			"id": 624010,
-			"name": "Week 2 Day 4 - Secret Report No. 11"
+			"name": "W2D4 - Boss Rematch"
 		},
 		{
 			"id": 625010,
-			"name": "Week 2 Day 5 - Secret Report No. 12"
+			"name": "W2D5 - Boss Rematch"
 		},
 		{
 			"id": 626010,
-			"name": "Week 2 Day 6 - Secret Report No. 13"
+			"name": "W2D6 - Boss Rematch"
 		},
 		{
 			"id": 627010,
-			"name": "Week 2 Day 7 - Secret Report No. 14"
+			"name": "W2D7 - Boss Rematch"
 		},
 		{
 			"id": 631010,
-			"name": "Week 3 Day 1 - Secret Report No. 15"
+			"name": "W3D1 - Boss Rematch"
 		},
 		{
 			"id": 632010,
-			"name": "Week 3 Day 2 - Secret Report No. 16"
+			"name": "W3D2 - Boss Rematch"
 		},
 		{
 			"id": 633010,
-			"name": "Week 3 Day 3 - Secret Report No. 17"
+			"name": "W3D3 - Boss Rematch"
 		},
 		{
 			"id": 634010,
-			"name": "Week 3 Day 4 - Secret Report No. 18"
+			"name": "W3D4 - Boss Rematch"
 		},
 		{
 			"id": 635010,
-			"name": "Week 3 Day 5 - Secret Report No. 19"
+			"name": "W3D5 - Boss Rematch"
 		},
 		{
 			"id": 636010,
-			"name": "Week 3 Day 6 - Secret Report No. 20"
+			"name": "W3D6 - Boss Rematch"
 		},
 		{
 			"id": 637010,
-			"name": "Week 3 Day 7 - Secret Report No. 21"
+			"name": "W3D7 - Boss Rematch"
 		},
 		{
 			"id": 638010,
-			"name": "Week 3 Day 7' - Secret Report No. 22"
+			"name": "W3D7' - Boss Rematch"
 		},
 		{
 			"id": 639010,
-			"name": "Week 3 Day 7'' - Secret Report No. 23"
+			"name": "W3D7'' - Boss Rematch"
 		}
 	],
 	"scenario-yen-2nd": [
 		{
 			"id": 140090,
-			"name": "Week 1 Day 4 - 5,000 Yen"
+			"name": "W1D4 - Vending Machine (Repeat)"
 		},
 		{
 			"id": 170190,
-			"name": "Week 1 Day 7 - 1,000 Yen"
+			"name": "W1D7 - Reaper Quest (Repeat)"
 		}
 	]
 }

@@ -19,7 +19,7 @@ namespace NEO_TWEWY_Randomizer
         }
 
         public static int SettingsStringVersion = 0;
-        public static int SettingsStringMinimumLength = 32;
+        public static int SettingsStringMinimumLength = 36;
 
         public static bool ValidateSeed(string seed)
         {

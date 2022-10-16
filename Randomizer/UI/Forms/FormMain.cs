@@ -66,6 +66,30 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.SetToolTip(numChanceWeightHard, Resources.ttnumChanceWeight);
             ttFormMain.SetToolTip(numChanceWeightUltimate, Resources.ttnumChanceWeight);
 
+            ttFormMain.SetToolTip(radioStoryPinsUnchanged, Resources.ttradioStoryPinsUnchanged);
+            ttFormMain.SetToolTip(radioStoryPinsShuffle, Resources.ttradioStoryPinsShuffle);
+            ttFormMain.SetToolTip(radioStoryPinsRandom, Resources.ttradioStoryPinsRandom);
+            ttFormMain.SetToolTip(checkStoryPinsLimited, Resources.ttcheckStoryPinsLimited);
+            ttFormMain.SetToolTip(radioStoryYenUnchanged, Resources.ttradioStoryYenUnchanged);
+            ttFormMain.SetToolTip(radioStoryYenShuffle, Resources.ttradioStoryYenShuffle);
+            ttFormMain.SetToolTip(radioStoryYenRandom, Resources.ttradioStoryYenRandom);
+            ttFormMain.SetToolTip(radioStoryGemsUnchanged, Resources.ttradioStoryGemsUnchanged);
+            ttFormMain.SetToolTip(radioStoryGemsShuffle, Resources.ttradioStoryGemsShuffle);
+            ttFormMain.SetToolTip(radioStoryGemsRandom, Resources.ttradioStoryGemsRandom);
+            ttFormMain.SetToolTip(radioStoryFPUnchanged, Resources.ttradioStoryFPUnchanged);
+            ttFormMain.SetToolTip(radioStoryFPShuffle, Resources.ttradioStoryFPShuffle);
+            ttFormMain.SetToolTip(radioStoryFPRandom, Resources.ttradioStoryFPRandom);
+            ttFormMain.SetToolTip(radioStoryReportUnchanged, Resources.ttradioStoryReportUnchanged);
+            ttFormMain.SetToolTip(radioStoryReportShuffle, Resources.ttradioStoryReportShuffle);
+            ttFormMain.SetToolTip(radioStoryGlobalUnchanged, Resources.ttradioStoryGlobalUnchanged);
+            ttFormMain.SetToolTip(radioStoryGlobalShuffle, Resources.ttradioStoryGlobalShuffle);
+            ttFormMain.SetToolTip(grpStoryGlobalIncluded, Resources.ttgrpStoryGlobalIncluded);
+            ttFormMain.SetToolTip(checkStoryGlobalPins, Resources.ttcheckStoryGlobalPins);
+            ttFormMain.SetToolTip(checkStoryGlobalYen, Resources.ttcheckStoryGlobalYen);
+            ttFormMain.SetToolTip(checkStoryGlobalGems, Resources.ttcheckStoryGlobalGems);
+            ttFormMain.SetToolTip(checkStoryGlobalFP, Resources.ttcheckStoryGlobalFP);
+            ttFormMain.SetToolTip(checkStoryGlobalReport, Resources.ttcheckStoryGlobalReport);
+
             ttFormMain.SetToolTip(checkPinPower, Resources.ttcheckPinPower);
             ttFormMain.SetToolTip(checkPinPowerScaling, Resources.ttcheckPinPowerScaling);
             ttFormMain.SetToolTip(checkPinLimit, Resources.ttcheckPinLimit);
@@ -111,77 +135,113 @@ namespace NEO_TWEWY_Randomizer
         {
             RandomizationSettings settings = new RandomizationSettings();
 
-            if (radioItemsUnchanged.Checked) settings.NoiseDropTypeChoice = NoiseDropType.Unchanged;
-            else if (radioItemsShuffleC.Checked) settings.NoiseDropTypeChoice = NoiseDropType.ShuffleCompletely;
-            else if (radioItemsShuffleS.Checked) settings.NoiseDropTypeChoice = NoiseDropType.ShuffleSets;
-            else if (radioItemsRandomC.Checked) settings.NoiseDropTypeChoice = NoiseDropType.RandomCompletely;
-            else if (radioItemsRandomA.Checked) settings.NoiseDropTypeChoice = NoiseDropType.RandomAllPins;
+            #region Noise Drops
+            if (radioItemsUnchanged.Checked) settings.NoiseDrops.DropTypeChoice = NoiseDropType.Unchanged;
+            else if (radioItemsShuffleC.Checked) settings.NoiseDrops.DropTypeChoice = NoiseDropType.ShuffleCompletely;
+            else if (radioItemsShuffleS.Checked) settings.NoiseDrops.DropTypeChoice = NoiseDropType.ShuffleSets;
+            else if (radioItemsRandomC.Checked) settings.NoiseDrops.DropTypeChoice = NoiseDropType.RandomCompletely;
+            else if (radioItemsRandomA.Checked) settings.NoiseDrops.DropTypeChoice = NoiseDropType.RandomAllPins;
 
-            settings.NoiseIncludeLimitedPins = checkItemsLimited.Checked;
+            settings.NoiseDrops.IncludeLimitedPins = checkItemsLimited.Checked;
 
-            if (checkItemsEasy.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Easy);
-            if (checkItemsNormal.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Normal);
-            if (checkItemsHard.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Hard);
-            if (checkItemsUltimate.Checked) settings.NoiseDropTypeDifficulties.Add(Difficulties.Ultimate);
+            if (checkItemsEasy.Checked) settings.NoiseDrops.DropTypeDifficulties.Add(Difficulties.Easy);
+            if (checkItemsNormal.Checked) settings.NoiseDrops.DropTypeDifficulties.Add(Difficulties.Normal);
+            if (checkItemsHard.Checked) settings.NoiseDrops.DropTypeDifficulties.Add(Difficulties.Hard);
+            if (checkItemsUltimate.Checked) settings.NoiseDrops.DropTypeDifficulties.Add(Difficulties.Ultimate);
 
-            if (radioChanceUnchanged.Checked) settings.NoiseDropRateChoice = NoiseDropRate.Unchanged;
-            else if (radioChanceRandomC.Checked) settings.NoiseDropRateChoice = NoiseDropRate.RandomCompletely;
-            else if (radioChanceRandomW.Checked) settings.NoiseDropRateChoice = NoiseDropRate.RandomWeighted;
+            if (radioChanceUnchanged.Checked) settings.NoiseDrops.DropRateChoice = NoiseDropRate.Unchanged;
+            else if (radioChanceRandomC.Checked) settings.NoiseDrops.DropRateChoice = NoiseDropRate.RandomCompletely;
+            else if (radioChanceRandomW.Checked) settings.NoiseDrops.DropRateChoice = NoiseDropRate.RandomWeighted;
 
-            settings.NoiseMinimumDropRate = numChanceMin.Value;
-            settings.NoiseMaximumDropRate = numChanceMax.Value;
+            settings.NoiseDrops.MinimumDropRate = numChanceMin.Value;
+            settings.NoiseDrops.MaximumDropRate = numChanceMax.Value;
 
-            if (checkChanceEasy.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Easy);
-            if (checkChanceNormal.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Normal);
-            if (checkChanceHard.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Hard);
-            if (checkChanceUltimate.Checked) settings.NoiseDropRateDifficulties.Add(Difficulties.Ultimate);
+            if (checkChanceEasy.Checked) settings.NoiseDrops.DropRateDifficulties.Add(Difficulties.Easy);
+            if (checkChanceNormal.Checked) settings.NoiseDrops.DropRateDifficulties.Add(Difficulties.Normal);
+            if (checkChanceHard.Checked) settings.NoiseDrops.DropRateDifficulties.Add(Difficulties.Hard);
+            if (checkChanceUltimate.Checked) settings.NoiseDrops.DropRateDifficulties.Add(Difficulties.Ultimate);
 
-            settings.NoiseDropRateWeights[0] = (uint) numChanceWeightEasy.Value;
-            settings.NoiseDropRateWeights[1] = (uint) numChanceWeightNormal.Value;
-            settings.NoiseDropRateWeights[2] = (uint) numChanceWeightHard.Value;
-            settings.NoiseDropRateWeights[3] = (uint) numChanceWeightUltimate.Value;
+            settings.NoiseDrops.DropRateWeights[0] = (uint) numChanceWeightEasy.Value;
+            settings.NoiseDrops.DropRateWeights[1] = (uint) numChanceWeightNormal.Value;
+            settings.NoiseDrops.DropRateWeights[2] = (uint) numChanceWeightHard.Value;
+            settings.NoiseDrops.DropRateWeights[3] = (uint) numChanceWeightUltimate.Value;
+            #endregion
 
-            settings.PinPower = checkPinPower.Checked;
-            settings.PinPowerScaling = checkPinPowerScaling.Checked;
-            settings.PinLimit = checkPinLimit.Checked;
-            settings.PinLimitScaling = checkPinLimitScaling.Checked;
-            settings.PinReboot = checkPinReboot.Checked;
-            settings.PinRebootScaling = checkPinRebootScaling.Checked;
-            settings.PinBoot = checkPinBoot.Checked;
-            settings.PinBootScaling = checkPinBootScaling.Checked;
-            settings.PinRecover = checkPinRecover.Checked;
-            settings.PinRecoverScaling = checkPinRecoverScaling.Checked;
-            settings.PinCharge = checkPinCharge.Checked;
-            settings.PinSell = checkPinSell.Checked;
-            settings.PinSellScaling = checkPinSellScaling.Checked;
-            settings.PinAffinity = checkPinAffinity.Checked;
-            settings.PinMaxLevel = checkPinMaxLevel.Checked;
+            #region Pin Stats
+            settings.PinStats.Power = checkPinPower.Checked;
+            settings.PinStats.PowerScaling = checkPinPowerScaling.Checked;
+            settings.PinStats.Limit = checkPinLimit.Checked;
+            settings.PinStats.LimitScaling = checkPinLimitScaling.Checked;
+            settings.PinStats.Reboot = checkPinReboot.Checked;
+            settings.PinStats.RebootScaling = checkPinRebootScaling.Checked;
+            settings.PinStats.Boot = checkPinBoot.Checked;
+            settings.PinStats.BootScaling = checkPinBootScaling.Checked;
+            settings.PinStats.Recover = checkPinRecover.Checked;
+            settings.PinStats.RecoverScaling = checkPinRecoverScaling.Checked;
+            settings.PinStats.Charge = checkPinCharge.Checked;
+            settings.PinStats.Sell = checkPinSell.Checked;
+            settings.PinStats.SellScaling = checkPinSellScaling.Checked;
+            settings.PinStats.Affinity = checkPinAffinity.Checked;
+            settings.PinStats.MaxLevel = checkPinMaxLevel.Checked;
 
-            if (radioPinBrandUnchanged.Checked) settings.PinBrandChoice = PinBrand.Unchanged;
-            else if (radioPinBrandShuffle.Checked) settings.PinBrandChoice = PinBrand.Shuffle;
-            else if (radioPinBrandRandomC.Checked) settings.PinBrandChoice = PinBrand.RandomCompletely;
-            else if (radioPinBrandRandomU.Checked) settings.PinBrandChoice = PinBrand.RandomUniform;
+            if (radioPinBrandUnchanged.Checked) settings.PinStats.BrandChoice = PinBrand.Unchanged;
+            else if (radioPinBrandShuffle.Checked) settings.PinStats.BrandChoice = PinBrand.Shuffle;
+            else if (radioPinBrandRandomC.Checked) settings.PinStats.BrandChoice = PinBrand.RandomCompletely;
+            else if (radioPinBrandRandomU.Checked) settings.PinStats.BrandChoice = PinBrand.RandomUniform;
 
-            settings.PinUber = checkPinUber.Checked;
-            settings.PinUberPercentage = (uint) numPinUber.Value;
+            settings.PinStats.Uber = checkPinUber.Checked;
+            settings.PinStats.UberPercentage = (uint) numPinUber.Value;
 
-            if (radioPinAbilityUnchanged.Checked) settings.PinAbilityChoice = PinAbility.Unchanged;
-            else if (radioPinAbilityShuffle.Checked) settings.PinAbilityChoice = PinAbility.Shuffle;
-            else if (radioPinAbilityRandom.Checked) settings.PinAbilityChoice = PinAbility.RandomCompletely;
-            settings.PinAbilityPercentage = (uint) numPinAbility.Value;
+            if (radioPinAbilityUnchanged.Checked) settings.PinStats.AbilityChoice = PinAbility.Unchanged;
+            else if (radioPinAbilityShuffle.Checked) settings.PinStats.AbilityChoice = PinAbility.Shuffle;
+            else if (radioPinAbilityRandom.Checked) settings.PinStats.AbilityChoice = PinAbility.RandomCompletely;
+            settings.PinStats.AbilityPercentage = (uint) numPinAbility.Value;
 
-            if (radioPinGrowthUnchanged.Checked) settings.PinGrowthChoice = PinGrowthRandomization.Unchanged;
-            else if (radioPinGrowthRandomC.Checked) settings.PinGrowthChoice = PinGrowthRandomization.RandomCompletely;
-            else if (radioPinGrowthRandomU.Checked) settings.PinGrowthChoice = PinGrowthRandomization.RandomUniform;
-            else if (radioPinGrowthSpecific.Checked) settings.PinGrowthChoice = PinGrowthRandomization.Specific;
-            settings.PinGrowthSpecific = (PinGrowth) ((NameAssociation)comboPinGrowth.SelectedItem).Id;
+            if (radioPinGrowthUnchanged.Checked) settings.PinStats.GrowthChoice = PinGrowthRandomization.Unchanged;
+            else if (radioPinGrowthRandomC.Checked) settings.PinStats.GrowthChoice = PinGrowthRandomization.RandomCompletely;
+            else if (radioPinGrowthRandomU.Checked) settings.PinStats.GrowthChoice = PinGrowthRandomization.RandomUniform;
+            else if (radioPinGrowthSpecific.Checked) settings.PinStats.GrowthChoice = PinGrowthRandomization.Specific;
+            settings.PinStats.GrowthSpecific = (PinGrowth) ((NameAssociation)comboPinGrowth.SelectedItem).Id;
 
-            if (radioPinEvoUnchanged.Checked) settings.PinEvolutionChoice = PinEvolution.Unchanged;
-            else if (radioPinEvoRandomE.Checked) settings.PinEvolutionChoice = PinEvolution.RandomExisting;
-            else if (radioPinEvoRandomC.Checked) settings.PinEvolutionChoice = PinEvolution.RandomCompletely;
-            settings.PinEvoForceBrand = checkPinEvoBrand.Checked;
-            settings.PinRemoveCharaEvos = checkPinEvoChara.Checked;
-            settings.PinEvoPercentage = (uint)numPinEvo.Value;
+            if (radioPinEvoUnchanged.Checked) settings.PinStats.EvolutionChoice = PinEvolution.Unchanged;
+            else if (radioPinEvoRandomE.Checked) settings.PinStats.EvolutionChoice = PinEvolution.RandomExisting;
+            else if (radioPinEvoRandomC.Checked) settings.PinStats.EvolutionChoice = PinEvolution.RandomCompletely;
+            settings.PinStats.EvoForceBrand = checkPinEvoBrand.Checked;
+            settings.PinStats.RemoveCharaEvos = checkPinEvoChara.Checked;
+            settings.PinStats.EvoPercentage = (uint)numPinEvo.Value;
+            #endregion
+
+            #region Story Rewards
+            if (radioStoryPinsUnchanged.Checked) settings.StoryRewards.PinChoice = StoryPin.Unchanged;
+            else if (radioStoryPinsShuffle.Checked) settings.StoryRewards.PinChoice = StoryPin.Shuffle;
+            else if (radioStoryPinsRandom.Checked) settings.StoryRewards.PinChoice = StoryPin.Random;
+
+            settings.StoryRewards.IncludeLimitedPins = checkStoryPinsLimited.Checked;
+
+            if (radioStoryYenUnchanged.Checked) settings.StoryRewards.YenChoice = StoryYen.Unchanged;
+            else if (radioStoryYenShuffle.Checked) settings.StoryRewards.YenChoice = StoryYen.Shuffle;
+            else if (radioStoryYenRandom.Checked) settings.StoryRewards.YenChoice = StoryYen.Random;
+
+            if (radioStoryGemsUnchanged.Checked) settings.StoryRewards.GemChoice = StoryGem.Unchanged;
+            else if (radioStoryGemsShuffle.Checked) settings.StoryRewards.GemChoice = StoryGem.Shuffle;
+            else if (radioStoryGemsRandom.Checked) settings.StoryRewards.GemChoice = StoryGem.Random;
+
+            if (radioStoryFPUnchanged.Checked) settings.StoryRewards.FPChoice = StoryFP.Unchanged;
+            else if (radioStoryFPShuffle.Checked) settings.StoryRewards.FPChoice = StoryFP.Shuffle;
+            else if (radioStoryFPRandom.Checked) settings.StoryRewards.FPChoice = StoryFP.RandomFixedTotal;
+
+            if (radioStoryReportUnchanged.Checked) settings.StoryRewards.ReportChoice = StoryReport.Unchanged;
+            else if (radioStoryReportShuffle.Checked) settings.StoryRewards.ReportChoice = StoryReport.Shuffle;
+
+            if (radioStoryGlobalUnchanged.Checked) settings.StoryRewards.GlobalShuffleChoice = StoryGlobalShuffle.Unchanged;
+            else if (radioStoryGlobalShuffle.Checked) settings.StoryRewards.GlobalShuffleChoice = StoryGlobalShuffle.Shuffle;
+
+            if (checkStoryGlobalPins.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Pins);
+            if (checkStoryGlobalYen.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Yen);
+            if (checkStoryGlobalGems.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Gems);
+            if (checkStoryGlobalFP.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.FP);
+            if (checkStoryGlobalReport.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Reports);
+            #endregion
 
             return settings;
         }
@@ -190,7 +250,8 @@ namespace NEO_TWEWY_Randomizer
         #region Adjust Form from Settings
         private void ReadSettings(RandomizationSettings settings)
         {
-            switch (settings.NoiseDropTypeChoice)
+            #region Noise Drops
+            switch (settings.NoiseDrops.DropTypeChoice)
             {
                 case NoiseDropType.Unchanged:
                     radioItemsUnchanged.Checked = true;
@@ -209,14 +270,14 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            checkItemsLimited.Checked = settings.NoiseIncludeLimitedPins;
+            checkItemsLimited.Checked = settings.NoiseDrops.IncludeLimitedPins;
 
-            checkItemsEasy.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Easy);
-            checkItemsNormal.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Normal);
-            checkItemsHard.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Hard);
-            checkItemsUltimate.Checked = settings.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate);
+            checkItemsEasy.Checked = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Easy);
+            checkItemsNormal.Checked = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Normal);
+            checkItemsHard.Checked = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Hard);
+            checkItemsUltimate.Checked = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Ultimate);
 
-            switch (settings.NoiseDropRateChoice)
+            switch (settings.NoiseDrops.DropRateChoice)
             {
                 case NoiseDropRate.Unchanged:
                     radioChanceUnchanged.Checked = true;
@@ -229,36 +290,38 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            numChanceMin.Value = settings.NoiseMinimumDropRate;
-            numChanceMax.Value = settings.NoiseMaximumDropRate;
+            numChanceMin.Value = settings.NoiseDrops.MinimumDropRate;
+            numChanceMax.Value = settings.NoiseDrops.MaximumDropRate;
 
-            checkChanceEasy.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Easy);
-            checkChanceNormal.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Normal);
-            checkChanceHard.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Hard);
-            checkChanceUltimate.Checked = settings.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate);
+            checkChanceEasy.Checked = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Easy);
+            checkChanceNormal.Checked = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Normal);
+            checkChanceHard.Checked = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Hard);
+            checkChanceUltimate.Checked = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Ultimate);
 
-            numChanceWeightEasy.Value = settings.NoiseDropRateWeights[0];
-            numChanceWeightNormal.Value = settings.NoiseDropRateWeights[1];
-            numChanceWeightHard.Value = settings.NoiseDropRateWeights[2];
-            numChanceWeightUltimate.Value = settings.NoiseDropRateWeights[3];
+            numChanceWeightEasy.Value = settings.NoiseDrops.DropRateWeights[0];
+            numChanceWeightNormal.Value = settings.NoiseDrops.DropRateWeights[1];
+            numChanceWeightHard.Value = settings.NoiseDrops.DropRateWeights[2];
+            numChanceWeightUltimate.Value = settings.NoiseDrops.DropRateWeights[3];
+            #endregion
 
-            checkPinPower.Checked = settings.PinPower;
-            checkPinPowerScaling.Checked = settings.PinPowerScaling;
-            checkPinLimit.Checked = settings.PinLimit;
-            checkPinLimitScaling.Checked = settings.PinLimitScaling;
-            checkPinReboot.Checked = settings.PinReboot;
-            checkPinRebootScaling.Checked = settings.PinRebootScaling;
-            checkPinBoot.Checked = settings.PinBoot;
-            checkPinBootScaling.Checked = settings.PinBootScaling;
-            checkPinRecover.Checked = settings.PinRecover;
-            checkPinRecoverScaling.Checked = settings.PinRecoverScaling;
-            checkPinCharge.Checked = settings.PinCharge;
-            checkPinSell.Checked = settings.PinSell;
-            checkPinSellScaling.Checked = settings.PinSellScaling;
-            checkPinAffinity.Checked = settings.PinAffinity;
-            checkPinMaxLevel.Checked = settings.PinMaxLevel;
+            #region Pin Stats
+            checkPinPower.Checked = settings.PinStats.Power;
+            checkPinPowerScaling.Checked = settings.PinStats.PowerScaling;
+            checkPinLimit.Checked = settings.PinStats.Limit;
+            checkPinLimitScaling.Checked = settings.PinStats.LimitScaling;
+            checkPinReboot.Checked = settings.PinStats.Reboot;
+            checkPinRebootScaling.Checked = settings.PinStats.RebootScaling;
+            checkPinBoot.Checked = settings.PinStats.Boot;
+            checkPinBootScaling.Checked = settings.PinStats.BootScaling;
+            checkPinRecover.Checked = settings.PinStats.Recover;
+            checkPinRecoverScaling.Checked = settings.PinStats.RecoverScaling;
+            checkPinCharge.Checked = settings.PinStats.Charge;
+            checkPinSell.Checked = settings.PinStats.Sell;
+            checkPinSellScaling.Checked = settings.PinStats.SellScaling;
+            checkPinAffinity.Checked = settings.PinStats.Affinity;
+            checkPinMaxLevel.Checked = settings.PinStats.MaxLevel;
 
-            switch (settings.PinBrandChoice)
+            switch (settings.PinStats.BrandChoice)
             {
                 case PinBrand.Unchanged:
                     radioPinBrandUnchanged.Checked = true;
@@ -274,10 +337,10 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            checkPinUber.Checked = settings.PinUber;
-            numPinUber.Value = settings.PinUberPercentage;
+            checkPinUber.Checked = settings.PinStats.Uber;
+            numPinUber.Value = settings.PinStats.UberPercentage;
 
-            switch (settings.PinAbilityChoice)
+            switch (settings.PinStats.AbilityChoice)
             {
                 case PinAbility.Unchanged:
                     radioPinAbilityUnchanged.Checked = true;
@@ -289,9 +352,9 @@ namespace NEO_TWEWY_Randomizer
                     radioPinAbilityRandom.Checked = true;
                     break;
             }
-            numPinAbility.Value = settings.PinAbilityPercentage;
+            numPinAbility.Value = settings.PinStats.AbilityPercentage;
 
-            switch (settings.PinGrowthChoice)
+            switch (settings.PinStats.GrowthChoice)
             {
                 case PinGrowthRandomization.Unchanged:
                     radioPinGrowthUnchanged.Checked = true;
@@ -306,9 +369,9 @@ namespace NEO_TWEWY_Randomizer
                     radioPinGrowthSpecific.Checked = true;
                     break;
             }
-            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinGrowthSpecific).First();
+            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First();
 
-            switch (settings.PinEvolutionChoice)
+            switch (settings.PinStats.EvolutionChoice)
             {
                 case PinEvolution.Unchanged:
                     radioPinEvoUnchanged.Checked = true;
@@ -320,9 +383,92 @@ namespace NEO_TWEWY_Randomizer
                     radioPinEvoRandomC.Checked = true;
                     break;
             }
-            checkPinEvoBrand.Checked = settings.PinEvoForceBrand;
-            checkPinEvoChara.Checked = settings.PinRemoveCharaEvos;
-            numPinEvo.Value = settings.PinEvoPercentage;
+            checkPinEvoBrand.Checked = settings.PinStats.EvoForceBrand;
+            checkPinEvoChara.Checked = settings.PinStats.RemoveCharaEvos;
+            numPinEvo.Value = settings.PinStats.EvoPercentage;
+            #endregion
+
+            #region Story Rewards
+            switch (settings.StoryRewards.PinChoice)
+            {
+                case StoryPin.Unchanged:
+                    radioStoryPinsUnchanged.Checked = true;
+                    break;
+                case StoryPin.Shuffle:
+                    radioStoryPinsShuffle.Checked = true;
+                    break;
+                case StoryPin.Random:
+                    radioStoryPinsRandom.Checked = true;
+                    break;
+            }
+
+            checkStoryPinsLimited.Checked = settings.StoryRewards.IncludeLimitedPins;
+
+            switch (settings.StoryRewards.YenChoice)
+            {
+                case StoryYen.Unchanged:
+                    radioStoryYenUnchanged.Checked = true;
+                    break;
+                case StoryYen.Shuffle:
+                    radioStoryYenShuffle.Checked = true;
+                    break;
+                case StoryYen.Random:
+                    radioStoryYenRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.GemChoice)
+            {
+                case StoryGem.Unchanged:
+                    radioStoryGemsUnchanged.Checked = true;
+                    break;
+                case StoryGem.Shuffle:
+                    radioStoryGemsShuffle.Checked = true;
+                    break;
+                case StoryGem.Random:
+                    radioStoryGemsRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.FPChoice)
+            {
+                case StoryFP.Unchanged:
+                    radioStoryFPUnchanged.Checked = true;
+                    break;
+                case StoryFP.Shuffle:
+                    radioStoryFPShuffle.Checked = true;
+                    break;
+                case StoryFP.RandomFixedTotal:
+                    radioStoryFPRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.ReportChoice)
+            {
+                case StoryReport.Unchanged:
+                    radioStoryReportUnchanged.Checked = true;
+                    break;
+                case StoryReport.Shuffle:
+                    radioStoryReportShuffle.Checked = true;
+                    break;
+            }
+
+            switch (settings.StoryRewards.GlobalShuffleChoice)
+            {
+                case StoryGlobalShuffle.Unchanged:
+                    radioStoryGlobalUnchanged.Checked = true;
+                    break;
+                case StoryGlobalShuffle.Shuffle:
+                    radioStoryGlobalShuffle.Checked = true;
+                    break;
+            }
+
+            checkStoryGlobalPins.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins);
+            checkStoryGlobalYen.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen);
+            checkStoryGlobalGems.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems);
+            checkStoryGlobalFP.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP);
+            checkStoryGlobalReport.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports);
+            #endregion
         }
         #endregion
 
@@ -387,6 +533,20 @@ namespace NEO_TWEWY_Randomizer
             numPinEvo.Enabled = value;
         }
 
+        private void SetStoryRewardLimitedPinEnabled(bool value)
+        {
+            checkStoryPinsLimited.Enabled = value;
+        }
+
+        private void SetStoryRewardTypesEnabled(bool value)
+        {
+            checkStoryGlobalPins.Enabled = value;
+            checkStoryGlobalYen.Enabled = value;
+            checkStoryGlobalGems.Enabled = value;
+            checkStoryGlobalFP.Enabled = value;
+            checkStoryGlobalReport.Enabled = value;
+        }
+
         private void radioItemsUnchanged_CheckedChanged(object sender, EventArgs e)
         {
             SetItemsLimitedEnabled(!radioItemsUnchanged.Checked);
@@ -423,22 +583,22 @@ namespace NEO_TWEWY_Randomizer
 
         private void checkChanceEasy_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightEasy.Enabled = checkChanceEasy.Checked;
+            numChanceWeightEasy.Enabled = checkChanceEasy.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceNormal_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightNormal.Enabled = checkChanceNormal.Checked;
+            numChanceWeightNormal.Enabled = checkChanceNormal.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceHard_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightHard.Enabled = checkChanceHard.Checked;
+            numChanceWeightHard.Enabled = checkChanceHard.Checked && radioChanceRandomW.Checked;
         }
 
         private void checkChanceUltimate_CheckedChanged(object sender, EventArgs e)
         {
-            numChanceWeightUltimate.Enabled = checkChanceUltimate.Checked;
+            numChanceWeightUltimate.Enabled = checkChanceUltimate.Checked && radioChanceRandomW.Checked;
         }
 
         private void numChance_ValueChanged(object sender, EventArgs e)
@@ -506,6 +666,31 @@ namespace NEO_TWEWY_Randomizer
         {
             SetPinEvoForceBrandEnabled(true);
             SetPinEvoPercentageEnabled(true);
+        }
+
+        private void radioStoryPinsUnchanged_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStoryRewardLimitedPinEnabled(false);
+        }
+
+        private void radioStoryPinsShuffle_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStoryRewardLimitedPinEnabled(true);
+        }
+
+        private void radioStoryPinsRandom_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStoryRewardLimitedPinEnabled(true);
+        }
+
+        private void radioStoryGlobalUnchanged_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStoryRewardTypesEnabled(false);
+        }
+
+        private void radioStoryGlobalShuffle_CheckedChanged(object sender, EventArgs e)
+        {
+            SetStoryRewardTypesEnabled(true);
         }
         #endregion
 

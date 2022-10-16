@@ -23,5 +23,6 @@ namespace NEO_TWEWY_Randomizer
         public static string AttackComboSetClassName { get; } = "AttackComboSet";
         public static string AttackClassName { get; } = "Attack";
         public static string AttackHitClassName { get; } = "AttackHit";
+        public static string ScenarioRewardsClassName { get; } = "ScenarioRewards";
     }
 }

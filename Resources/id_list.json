@@ -1249,6 +1249,1256 @@
 			"name": "Handstandin' Panda"
 		}
 	],
+	"pin-items": [
+		{
+			"id": 1000,
+			"name": "Shockwave"
+		},
+		{
+			"id": 1001,
+			"name": "Azamaru"
+		},
+		{
+			"id": 1002,
+			"name": "Shishio"
+		},
+		{
+			"id": 1003,
+			"name": "Midaregami"
+		},
+		{
+			"id": 1004,
+			"name": "Namikuguri"
+		},
+		{
+			"id": 1005,
+			"name": "Fuchin"
+		},
+		{
+			"id": 1006,
+			"name": "Kurorushi"
+		},
+		{
+			"id": 1007,
+			"name": "Honebami"
+		},
+		{
+			"id": 1008,
+			"name": "Grizzly"
+		},
+		{
+			"id": 1009,
+			"name": "Onimaru"
+		},
+		{
+			"id": 1010,
+			"name": "Kitsunegasaki"
+		},
+		{
+			"id": 1011,
+			"name": "Yukimitsu"
+		},
+		{
+			"id": 1012,
+			"name": "Sayosamonji"
+		},
+		{
+			"id": 1013,
+			"name": "Aizen"
+		},
+		{
+			"id": 1014,
+			"name": "Spin Twinz"
+		},
+		{
+			"id": 1015,
+			"name": "Tsurumaru"
+		},
+		{
+			"id": 1016,
+			"name": "Reigetsu"
+		},
+		{
+			"id": 1017,
+			"name": "Jupiter of the Monkey II"
+		},
+		{
+			"id": 1018,
+			"name": "Hotaru"
+		},
+		{
+			"id": 1019,
+			"name": "Grin Reaper"
+		},
+		{
+			"id": 1020,
+			"name": "Grunge Punch"
+		},
+		{
+			"id": 1021,
+			"name": "Jungle King"
+		},
+		{
+			"id": 1022,
+			"name": "Primal Roar"
+		},
+		{
+			"id": 1023,
+			"name": "Mosh 'n' Mash"
+		},
+		{
+			"id": 1024,
+			"name": "Fangs of Ice"
+		},
+		{
+			"id": 1025,
+			"name": "Slashcicle"
+		},
+		{
+			"id": 1026,
+			"name": "Right Claw"
+		},
+		{
+			"id": 1027,
+			"name": "Wicked Howl"
+		},
+		{
+			"id": 1028,
+			"name": "Tigres Assemble!"
+		},
+		{
+			"id": 1029,
+			"name": "Rock 'n' Rock"
+		},
+		{
+			"id": 1030,
+			"name": "Crusher Rush"
+		},
+		{
+			"id": 1031,
+			"name": "Beringei"
+		},
+		{
+			"id": 1032,
+			"name": "Just Up Ahead"
+		},
+		{
+			"id": 1033,
+			"name": "Honor and Sacrifice"
+		},
+		{
+			"id": 1034,
+			"name": "All or Nothing"
+		},
+		{
+			"id": 1035,
+			"name": "One Day Closer"
+		},
+		{
+			"id": 1036,
+			"name": "Time Is Relative"
+		},
+		{
+			"id": 1037,
+			"name": "Got Your Back"
+		},
+		{
+			"id": 1038,
+			"name": "Take a Chance"
+		},
+		{
+			"id": 1039,
+			"name": "No Turning Back"
+		},
+		{
+			"id": 1040,
+			"name": "Trial Without Error"
+		},
+		{
+			"id": 1041,
+			"name": "Stinger"
+		},
+		{
+			"id": 1042,
+			"name": "No Plan Required"
+		},
+		{
+			"id": 1043,
+			"name": "Don't Be Shocked"
+		},
+		{
+			"id": 1044,
+			"name": "Cut Me Down"
+		},
+		{
+			"id": 1045,
+			"name": "Quench Your Thirst"
+		},
+		{
+			"id": 1046,
+			"name": "Try It Again"
+		},
+		{
+			"id": 1047,
+			"name": "Force Rounds"
+		},
+		{
+			"id": 1048,
+			"name": "Sugar Beam"
+		},
+		{
+			"id": 1049,
+			"name": "Nighty-Night Beam"
+		},
+		{
+			"id": 1050,
+			"name": "Glitter Beam"
+		},
+		{
+			"id": 1051,
+			"name": "Zip-Zap Beam"
+		},
+		{
+			"id": 1052,
+			"name": "Stylish Beam"
+		},
+		{
+			"id": 1053,
+			"name": "Lovebird Magnum"
+		},
+		{
+			"id": 1054,
+			"name": "Garbage Gatling"
+		},
+		{
+			"id": 1055,
+			"name": "Top Dog Gatling"
+		},
+		{
+			"id": 1056,
+			"name": "Icky Beam"
+		},
+		{
+			"id": 1057,
+			"name": "Frog"
+		},
+		{
+			"id": 1058,
+			"name": "Freestyle Launcher"
+		},
+		{
+			"id": 1059,
+			"name": "Lovely Launcher"
+		},
+		{
+			"id": 1060,
+			"name": "Cupid Launcher"
+		},
+		{
+			"id": 1061,
+			"name": "Cuddly Launcher"
+		},
+		{
+			"id": 1062,
+			"name": "Heartthrob Launcher"
+		},
+		{
+			"id": 1063,
+			"name": "Hobblin' Hippo"
+		},
+		{
+			"id": 1064,
+			"name": "croaky panic"
+		},
+		{
+			"id": 1065,
+			"name": "MONOCROW"
+		},
+		{
+			"id": 1066,
+			"name": "The Idol Within"
+		},
+		{
+			"id": 1067,
+			"name": "Be My Last"
+		},
+		{
+			"id": 1068,
+			"name": "All Burned Out"
+		},
+		{
+			"id": 1069,
+			"name": "Aspect of Truth"
+		},
+		{
+			"id": 1070,
+			"name": "Live Your Truth"
+		},
+		{
+			"id": 1071,
+			"name": "Grus"
+		},
+		{
+			"id": 1072,
+			"name": "Rapturous Rabbits"
+		},
+		{
+			"id": 1073,
+			"name": "Classical Cacophany"
+		},
+		{
+			"id": 1074,
+			"name": "Magical Metamorphosis"
+		},
+		{
+			"id": 1075,
+			"name": "Blizzard Bunny"
+		},
+		{
+			"id": 1076,
+			"name": "Frosty Friendship"
+		},
+		{
+			"id": 1077,
+			"name": "Stellar Self-Portrait"
+		},
+		{
+			"id": 1078,
+			"name": "Gorgeous Gemstone"
+		},
+		{
+			"id": 1079,
+			"name": "Black Hole Bunny"
+		},
+		{
+			"id": 1080,
+			"name": "The Great Magma Escape"
+		},
+		{
+			"id": 1081,
+			"name": "The Great Balloon Voyage"
+		},
+		{
+			"id": 1082,
+			"name": "The Fluffy Ovine Cloud"
+		},
+		{
+			"id": 1083,
+			"name": "The Lonely Space Warrior"
+		},
+		{
+			"id": 1084,
+			"name": "The Great Lunar View"
+		},
+		{
+			"id": 1085,
+			"name": "The Pyramids' Old Secret"
+		},
+		{
+			"id": 1086,
+			"name": "The Ever-Moving Machine"
+		},
+		{
+			"id": 1087,
+			"name": "Puffer"
+		},
+		{
+			"id": 1088,
+			"name": "Out of Your Mine"
+		},
+		{
+			"id": 1089,
+			"name": "Be of Two Mines"
+		},
+		{
+			"id": 1090,
+			"name": "Boom in the Night"
+		},
+		{
+			"id": 1091,
+			"name": "Chain Is Gonna Come"
+		},
+		{
+			"id": 1092,
+			"name": "Back on the Chain Bang"
+		},
+		{
+			"id": 1093,
+			"name": "Bad to the Bomb"
+		},
+		{
+			"id": 1094,
+			"name": "Snake in the Blast"
+		},
+		{
+			"id": 1095,
+			"name": "Bee in Your Bomb-et"
+		},
+		{
+			"id": 1096,
+			"name": "I Scream, U Scream!"
+		},
+		{
+			"id": 1097,
+			"name": "Bloom 4 U"
+		},
+		{
+			"id": 1098,
+			"name": "Takanosu"
+		},
+		{
+			"id": 1099,
+			"name": "Kumokiri"
+		},
+		{
+			"id": 1100,
+			"name": "Taikokane"
+		},
+		{
+			"id": 1101,
+			"name": "Kasen Kanesada"
+		},
+		{
+			"id": 1102,
+			"name": "Iwatoshi"
+		},
+		{
+			"id": 1103,
+			"name": "Omokage"
+		},
+		{
+			"id": 1104,
+			"name": "Wolf"
+		},
+		{
+			"id": 1105,
+			"name": "Thunder and Lightning"
+		},
+		{
+			"id": 1106,
+			"name": "Iris"
+		},
+		{
+			"id": 1107,
+			"name": "Caught in the Undertow"
+		},
+		{
+			"id": 1108,
+			"name": "Let the Rain Fall Down"
+		},
+		{
+			"id": 1109,
+			"name": "Taste of Poison Paradise"
+		},
+		{
+			"id": 1110,
+			"name": "Diamonds in the Sky"
+		},
+		{
+			"id": 1111,
+			"name": "All Comes Crashing Down"
+		},
+		{
+			"id": 1112,
+			"name": "What a Wicked Game"
+		},
+		{
+			"id": 1113,
+			"name": "Where I Break Free"
+		},
+		{
+			"id": 1114,
+			"name": "Born of Stormy Skies"
+		},
+		{
+			"id": 1115,
+			"name": "Lightning in My Hands"
+		},
+		{
+			"id": 1116,
+			"name": "In the Stars Tonight"
+		},
+		{
+			"id": 1117,
+			"name": "Blinded by the Light"
+		},
+		{
+			"id": 1118,
+			"name": "In My Misery"
+		},
+		{
+			"id": 1119,
+			"name": "Phoenix"
+		},
+		{
+			"id": 1120,
+			"name": "Joli bécot"
+		},
+		{
+			"id": 1121,
+			"name": "Angelic Kick"
+		},
+		{
+			"id": 1122,
+			"name": "Gust of Gorgeous"
+		},
+		{
+			"id": 1123,
+			"name": "Wicked Wind"
+		},
+		{
+			"id": 1124,
+			"name": "Sistah Subwoofer"
+		},
+		{
+			"id": 1125,
+			"name": "Disco Divekick"
+		},
+		{
+			"id": 1126,
+			"name": "Soul Ablaze"
+		},
+		{
+			"id": 1127,
+			"name": "Killer Princess"
+		},
+		{
+			"id": 1128,
+			"name": "Leo Armo"
+		},
+		{
+			"id": 1129,
+			"name": "Marvelous Crash"
+		},
+		{
+			"id": 1130,
+			"name": "Crater's Kiss"
+		},
+		{
+			"id": 1131,
+			"name": "Cranberry Crystal"
+		},
+		{
+			"id": 1132,
+			"name": "Pink Matador"
+		},
+		{
+			"id": 1133,
+			"name": "Electric Manicure"
+		},
+		{
+			"id": 1134,
+			"name": "Bolt of Beauty"
+		},
+		{
+			"id": 1135,
+			"name": "Rex"
+		},
+		{
+			"id": 1136,
+			"name": "Cherry Bomb"
+		},
+		{
+			"id": 1137,
+			"name": "Jealous Rage"
+		},
+		{
+			"id": 1138,
+			"name": "Bad Romance"
+		},
+		{
+			"id": 1139,
+			"name": "Cold Cony×Cony"
+		},
+		{
+			"id": 1140,
+			"name": "Glacial Getaway"
+		},
+		{
+			"id": 1141,
+			"name": "Polar Princess"
+		},
+		{
+			"id": 1142,
+			"name": "Creepy Crystal"
+		},
+		{
+			"id": 1143,
+			"name": "Velvet Vampire"
+		},
+		{
+			"id": 1144,
+			"name": "Calamitous Candle"
+		},
+		{
+			"id": 1145,
+			"name": "Bérangère Lapin"
+		},
+		{
+			"id": 1146,
+			"name": "Grégoire Lapin"
+		},
+		{
+			"id": 1147,
+			"name": "Popguin"
+		},
+		{
+			"id": 1148,
+			"name": "Topo the Generous"
+		},
+		{
+			"id": 1149,
+			"name": "Once Upon a Dream"
+		},
+		{
+			"id": 1150,
+			"name": "Music of the Woods"
+		},
+		{
+			"id": 1151,
+			"name": "Mom's Secret Ingredient"
+		},
+		{
+			"id": 1152,
+			"name": "A Mysterious Gift"
+		},
+		{
+			"id": 1153,
+			"name": "The World Within"
+		},
+		{
+			"id": 1154,
+			"name": "Topo the Ingenious"
+		},
+		{
+			"id": 1155,
+			"name": "My Precious Moments"
+		},
+		{
+			"id": 1156,
+			"name": "Topo the Beloved"
+		},
+		{
+			"id": 1157,
+			"name": "ShoGun・Void"
+		},
+		{
+			"id": 1158,
+			"name": "ManjuSage・Void"
+		},
+		{
+			"id": 1159,
+			"name": "EnJo・Blaze"
+		},
+		{
+			"id": 1160,
+			"name": "KoYo・Blaze"
+		},
+		{
+			"id": 1161,
+			"name": "Tsubaki・Frost"
+		},
+		{
+			"id": 1162,
+			"name": "HiGan・Frost"
+		},
+		{
+			"id": 1163,
+			"name": "InaZuma・Surge"
+		},
+		{
+			"id": 1164,
+			"name": "RaiJin・Surge"
+		},
+		{
+			"id": 1165,
+			"name": "Doku Doku Panic"
+		},
+		{
+			"id": 1166,
+			"name": "KeiRyu・Epoch"
+		},
+		{
+			"id": 1167,
+			"name": "RyuGu・Void"
+		},
+		{
+			"id": 1168,
+			"name": "HanaDoki・Void"
+		},
+		{
+			"id": 1169,
+			"name": "Slitherin' Snake"
+		},
+		{
+			"id": 1170,
+			"name": "HoGyoku・Gleam"
+		},
+		{
+			"id": 1171,
+			"name": "Jelly"
+		},
+		{
+			"id": 1172,
+			"name": "Righteous Rabbit"
+		},
+		{
+			"id": 1173,
+			"name": "Brooding Bunny"
+		},
+		{
+			"id": 1174,
+			"name": "Ring-a-Ling"
+		},
+		{
+			"id": 1175,
+			"name": "Flyin' High"
+		},
+		{
+			"id": 1176,
+			"name": "Melancony×Melancony"
+		},
+		{
+			"id": 1177,
+			"name": "ConyｘCony"
+		},
+		{
+			"id": 1178,
+			"name": "Seraphic Snow"
+		},
+		{
+			"id": 1179,
+			"name": "Raven"
+		},
+		{
+			"id": 1180,
+			"name": "Balloon Trip"
+		},
+		{
+			"id": 1181,
+			"name": "Riled-Up Ribbon"
+		},
+		{
+			"id": 1182,
+			"name": "Topo the Talented"
+		},
+		{
+			"id": 1183,
+			"name": "Catch a Wave"
+		},
+		{
+			"id": 1184,
+			"name": "Kappa Panic"
+		},
+		{
+			"id": 1185,
+			"name": "A Forlorn Treasure"
+		},
+		{
+			"id": 1186,
+			"name": "Cave of Secrets"
+		},
+		{
+			"id": 1187,
+			"name": "In the Snipeline"
+		},
+		{
+			"id": 1188,
+			"name": "Don't Miss Your Shot"
+		},
+		{
+			"id": 1189,
+			"name": "Any Way You Snipe It"
+		},
+		{
+			"id": 1190,
+			"name": "garagara"
+		},
+		{
+			"id": 1191,
+			"name": "Shot in the Dank"
+		},
+		{
+			"id": 1192,
+			"name": "What Can Never Be"
+		},
+		{
+			"id": 1193,
+			"name": "Stuck in the Middle"
+		},
+		{
+			"id": 1194,
+			"name": "Time in a Bottle"
+		},
+		{
+			"id": 1195,
+			"name": "Stay Gold"
+		},
+		{
+			"id": 1196,
+			"name": "Stay Beautiful"
+		},
+		{
+			"id": 1197,
+			"name": "Let the Storm Rage On"
+		},
+		{
+			"id": 1198,
+			"name": "SuiGen・Void"
+		},
+		{
+			"id": 1199,
+			"name": "KoCho・Void"
+		},
+		{
+			"id": 1200,
+			"name": "ShiDare・Shade"
+		},
+		{
+			"id": 1201,
+			"name": "Tsuzumi・Echo"
+		},
+		{
+			"id": 1202,
+			"name": "Shiba"
+		},
+		{
+			"id": 1203,
+			"name": "Let's Have Fungis!"
+		},
+		{
+			"id": 1204,
+			"name": "Fuel to the Fire"
+		},
+		{
+			"id": 1205,
+			"name": "Fire in the Belly"
+		},
+		{
+			"id": 1206,
+			"name": "Ifs, Ands, or Bolts"
+		},
+		{
+			"id": 1207,
+			"name": "Sparks Will Fly"
+		},
+		{
+			"id": 1208,
+			"name": "AraUmi・Gale"
+		},
+		{
+			"id": 1209,
+			"name": "FuJin・Gale"
+		},
+		{
+			"id": 1210,
+			"name": "IroGoi・Shift"
+		},
+		{
+			"id": 1211,
+			"name": "ShoRyu・Gleam"
+		},
+		{
+			"id": 1212,
+			"name": "The Prismatic Princess"
+		},
+		{
+			"id": 1213,
+			"name": "The Benevolent King"
+		},
+		{
+			"id": 1214,
+			"name": "Top o' Topo"
+		},
+		{
+			"id": 1215,
+			"name": "Petals of Love"
+		},
+		{
+			"id": 1216,
+			"name": "Topo the Adventurous"
+		},
+		{
+			"id": 1217,
+			"name": "Fairytale Memories"
+		},
+		{
+			"id": 1218,
+			"name": "Topo the Famished"
+		},
+		{
+			"id": 1219,
+			"name": "The Enchanted Baker"
+		},
+		{
+			"id": 1220,
+			"name": "An Inseparable Pair"
+		},
+		{
+			"id": 1221,
+			"name": "Hammond's New Home"
+		},
+		{
+			"id": 1222,
+			"name": "Mr. Mew"
+		},
+		{
+			"id": 1223,
+			"name": "KaChu・Blaze"
+		},
+		{
+			"id": 1224,
+			"name": "AkaFuji・Blaze"
+		},
+		{
+			"id": 1225,
+			"name": "Firestorm"
+		},
+		{
+			"id": 1226,
+			"name": "GoKa・Blaze"
+		},
+		{
+			"id": 1227,
+			"name": "Notice Me Lightning"
+		},
+		{
+			"id": 1228,
+			"name": "Oh Em Gee Lightning"
+		},
+		{
+			"id": 1229,
+			"name": "Trendy Tornado"
+		},
+		{
+			"id": 1230,
+			"name": "Giddy Graviton"
+		},
+		{
+			"id": 1231,
+			"name": "Good Mood Graviton"
+		},
+		{
+			"id": 1232,
+			"name": "Relative Absoluteness"
+		},
+		{
+			"id": 1233,
+			"name": "Pachy"
+		},
+		{
+			"id": 1234,
+			"name": "A Day Off Outside"
+		},
+		{
+			"id": 1235,
+			"name": "The Cozy Hilltop Windmill"
+		},
+		{
+			"id": 1236,
+			"name": "The Breezy Ovine Wind"
+		},
+		{
+			"id": 1237,
+			"name": "The Ever-Arctic Treasure"
+		},
+		{
+			"id": 1238,
+			"name": "A Moonlit Night Inside"
+		},
+		{
+			"id": 1239,
+			"name": "The Woolly Triple Axel"
+		},
+		{
+			"id": 1240,
+			"name": "Cursed Croaker"
+		},
+		{
+			"id": 1241,
+			"name": "Roly Poly Cricket"
+		},
+		{
+			"id": 1242,
+			"name": "Thirsty Frog"
+		},
+		{
+			"id": 1243,
+			"name": "Golden Kappa Panic"
+		},
+		{
+			"id": 1244,
+			"name": "Snap Crackle Popcorn"
+		},
+		{
+			"id": 1245,
+			"name": "Sunny Side Skillet"
+		},
+		{
+			"id": 1246,
+			"name": "A Tasty Ovine Snack"
+		},
+		{
+			"id": 1247,
+			"name": "The Gentle Airplane Pilot"
+		},
+		{
+			"id": 1248,
+			"name": "The Song of Friendship"
+		},
+		{
+			"id": 1249,
+			"name": "The Woolly Jazz Player"
+		},
+		{
+			"id": 1250,
+			"name": "Back to the Ewe-ture"
+		},
+		{
+			"id": 1251,
+			"name": "Shark"
+		},
+		{
+			"id": 1252,
+			"name": "Chef Amphibie"
+		},
+		{
+			"id": 1253,
+			"name": "Star Quarterback"
+		},
+		{
+			"id": 1254,
+			"name": "Dine 'n' Dash"
+		},
+		{
+			"id": 1255,
+			"name": "Bolt Boar"
+		},
+		{
+			"id": 1256,
+			"name": "Mr. Fangman"
+		},
+		{
+			"id": 1257,
+			"name": "Burnin' Boar"
+		},
+		{
+			"id": 1258,
+			"name": "HOG FANG"
+		},
+		{
+			"id": 1259,
+			"name": "Big Bang Boar"
+		},
+		{
+			"id": 1260,
+			"name": "Cervus"
+		},
+		{
+			"id": 1261,
+			"name": "UFO Rescue"
+		},
+		{
+			"id": 1262,
+			"name": "Tigre PUNKS"
+		},
+		{
+			"id": 1263,
+			"name": "Bright Chord"
+		},
+		{
+			"id": 1264,
+			"name": "Bootleg Tune"
+		},
+		{
+			"id": 1265,
+			"name": "Discordance"
+		},
+		{
+			"id": 1266,
+			"name": "Maiden Beat"
+		},
+		{
+			"id": 1267,
+			"name": "Aw, That Shucks!"
+		},
+		{
+			"id": 1268,
+			"name": "Headliner"
+		},
+		{
+			"id": 1269,
+			"name": "Runaway Rocket"
+		},
+		{
+			"id": 1270,
+			"name": "Clawed Guardian"
+		},
+		{
+			"id": 1271,
+			"name": "HOG Healer"
+		},
+		{
+			"id": 1272,
+			"name": "Rip-Roarin' Red"
+		},
+		{
+			"id": 1273,
+			"name": "Never Too Young"
+		},
+		{
+			"id": 1274,
+			"name": "Lost in Space"
+		},
+		{
+			"id": 1275,
+			"name": "Rainbow Route 66"
+		},
+		{
+			"id": 1276,
+			"name": "Hogway to Heaven"
+		},
+		{
+			"id": 1277,
+			"name": "Heartful Hot Dog"
+		},
+		{
+			"id": 1278,
+			"name": "Rhino"
+		},
+		{
+			"id": 1279,
+			"name": "FANG Defender"
+		},
+		{
+			"id": 1280,
+			"name": "Watch Your Step"
+		},
+		{
+			"id": 1281,
+			"name": "You Can Overcome"
+		},
+		{
+			"id": 1282,
+			"name": "Look Out Below"
+		},
+		{
+			"id": 1283,
+			"name": "Absolute Relativity"
+		},
+		{
+			"id": 1284,
+			"name": "Pig"
+		},
+		{
+			"id": 1285,
+			"name": "Seductive Snare"
+		},
+		{
+			"id": 1286,
+			"name": "Deadly Fragrance"
+		},
+		{
+			"id": 1287,
+			"name": "A Drawn Conclusion"
+		},
+		{
+			"id": 1288,
+			"name": "Gravving at Straws"
+		},
+		{
+			"id": 1289,
+			"name": "Leon"
+		},
+		{
+			"id": 1290,
+			"name": "Tenka Juzumaru"
+		},
+		{
+			"id": 1291,
+			"name": "Tenka Mikazuki"
+		},
+		{
+			"id": 1292,
+			"name": "Coochy-Coochy-Coo"
+		},
+		{
+			"id": 1293,
+			"name": "Black Cat Crush"
+		},
+		{
+			"id": 1294,
+			"name": "Black Cat Cards"
+		},
+		{
+			"id": 1295,
+			"name": "Black Cat Comet"
+		},
+		{
+			"id": 1296,
+			"name": "Black Cat Burst"
+		},
+		{
+			"id": 1297,
+			"name": "Black Cat Blades"
+		},
+		{
+			"id": 1298,
+			"name": "Black Cat Burn"
+		},
+		{
+			"id": 1299,
+			"name": "St. Ver's Uppercut"
+		},
+		{
+			"id": 1300,
+			"name": "St. Aestas' Shrapnel"
+		},
+		{
+			"id": 1301,
+			"name": "St. Autumnus' Strike"
+		},
+		{
+			"id": 1302,
+			"name": "St. Hiems' Shotgun"
+		},
+		{
+			"id": 1303,
+			"name": "Charge Punch E"
+		},
+		{
+			"id": 1304,
+			"name": "Snare Trap E"
+		},
+		{
+			"id": 1305,
+			"name": "Just Keep Swimmin'!"
+		},
+		{
+			"id": 1306,
+			"name": "What a Shock!"
+		},
+		{
+			"id": 1307,
+			"name": "Stop the Music!"
+		},
+		{
+			"id": 1308,
+			"name": "Thanks Very Mochi!"
+		},
+		{
+			"id": 1309,
+			"name": "Holy Guacamole!"
+		},
+		{
+			"id": 1310,
+			"name": "Exercisin' Gator"
+		},
+		{
+			"id": 1311,
+			"name": "Handstandin' Panda"
+		}
+	],
 	"yen-pins": [
 		{
 			"id": 5000,
@@ -3381,6 +4631,1016 @@
 		{
 			"id": 323,
 			"name": "ID333_sozai"
+		}
+	],
+	"fp": [
+		{
+			"id": 30000,
+			"name": "FP"
+		}
+	],
+	"reports": [
+		{
+			"id": 31000,
+			"name": "Secret Report No. 1"
+		},
+		{
+			"id": 31001,
+			"name": "Secret Report No. 2"
+		},
+		{
+			"id": 31002,
+			"name": "Secret Report No. 3"
+		},
+		{
+			"id": 31003,
+			"name": "Secret Report No. 4"
+		},
+		{
+			"id": 31004,
+			"name": "Secret Report No. 5"
+		},
+		{
+			"id": 31005,
+			"name": "Secret Report No. 6"
+		},
+		{
+			"id": 31006,
+			"name": "Secret Report No. 7"
+		},
+		{
+			"id": 31007,
+			"name": "Secret Report No. 8"
+		},
+		{
+			"id": 31008,
+			"name": "Secret Report No. 9"
+		},
+		{
+			"id": 31009,
+			"name": "Secret Report No. 10"
+		},
+		{
+			"id": 31010,
+			"name": "Secret Report No. 11"
+		},
+		{
+			"id": 31011,
+			"name": "Secret Report No. 12"
+		},
+		{
+			"id": 31012,
+			"name": "Secret Report No. 13"
+		},
+		{
+			"id": 31013,
+			"name": "Secret Report No. 14"
+		},
+		{
+			"id": 31014,
+			"name": "Secret Report No. 15"
+		},
+		{
+			"id": 31015,
+			"name": "Secret Report No. 16"
+		},
+		{
+			"id": 31016,
+			"name": "Secret Report No. 17"
+		},
+		{
+			"id": 31017,
+			"name": "Secret Report No. 18"
+		},
+		{
+			"id": 31018,
+			"name": "Secret Report No. 19"
+		},
+		{
+			"id": 31019,
+			"name": "Secret Report No. 20"
+		},
+		{
+			"id": 31020,
+			"name": "Secret Report No. 21"
+		},
+		{
+			"id": 31021,
+			"name": "Secret Report No. 22"
+		},
+		{
+			"id": 31022,
+			"name": "Secret Report No. 23"
+		}
+	],
+	"scenario-pins": [
+		{
+			"id": 110010,
+			"name": "W1D1 - Minamimoto's Pin"
+		},
+		{
+			"id": 110020,
+			"name": "W1D1 - Shibuya Hikarie"
+		},
+		{
+			"id": 120010,
+			"name": "W1D2 - 104/Dogenzaka"
+		},
+		{
+			"id": 120020,
+			"name": "W1D2 - Dogenzaka/O-EAST"
+		},
+		{
+			"id": 120030,
+			"name": "W1D2 - TSUTAYA O-EAST"
+		},
+		{
+			"id": 130030,
+			"name": "W1D3 - Scramble (10:50)"
+		},
+		{
+			"id": 140010,
+			"name": "W1D4 - Shinji-of-Some-Trades Dive"
+		},
+		{
+			"id": 140030,
+			"name": "W1D4 - Seiji-of-Some-Trades Dive"
+		},
+		{
+			"id": 140040,
+			"name": "W1D4 - Scramble/TOWER RECORDS"
+		},
+		{
+			"id": 150030,
+			"name": "W1D5 - TOWER RECORDS/Scramble"
+		},
+		{
+			"id": 150060,
+			"name": "W1D5 - Scramble/Center"
+		},
+		{
+			"id": 160030,
+			"name": "W1D6 - Claim Scramble and 104"
+		},
+		{
+			"id": 160120,
+			"name": "W1D6 - Claim All Areas"
+		},
+		{
+			"id": 170040,
+			"name": "W1D7 - Shibuya Hikarie"
+		},
+		{
+			"id": 170110,
+			"name": "W1D7 - Scramble/104"
+		},
+		{
+			"id": 210030,
+			"name": "W2D1 - Takeshita Street Gate"
+		},
+		{
+			"id": 210070,
+			"name": "W2D1 - Takeshita/TOKYU"
+		},
+		{
+			"id": 220010,
+			"name": "W2D2 - TOKYU PLAZA"
+		},
+		{
+			"id": 220020,
+			"name": "W2D2 - TOWER RECORDS/Cat Street"
+		},
+		{
+			"id": 220060,
+			"name": "W2D2 - Deduce Neku's Location"
+		},
+		{
+			"id": 230030,
+			"name": "W2D3 - Claim 3 Areas"
+		},
+		{
+			"id": 240030,
+			"name": "W2D4 - Escape Plague Noise"
+		},
+		{
+			"id": 240060,
+			"name": "W2D4 - 100 Legend Points"
+		},
+		{
+			"id": 250030,
+			"name": "W2D5 - Scramble/104"
+		},
+		{
+			"id": 250080,
+			"name": "W2D5 - Complete All Riddles"
+		},
+		{
+			"id": 260010,
+			"name": "W2D6 - Claim Spain Hill"
+		},
+		{
+			"id": 260050,
+			"name": "W2D6 - Claim All Areas"
+		},
+		{
+			"id": 270020,
+			"name": "W2D7 - 104/Dogenzaka"
+		},
+		{
+			"id": 270030,
+			"name": "W2D7 - Cat Street"
+		},
+		{
+			"id": 270080,
+			"name": "W2D7 - Beat Susukichi"
+		},
+		{
+			"id": 310010,
+			"name": "W3D1 - Tipsy Tose Hall"
+		},
+		{
+			"id": 320100,
+			"name": "W3D2 - 104"
+		},
+		{
+			"id": 320130,
+			"name": "W3D2 - TOWER RECORDS"
+		},
+		{
+			"id": 330010,
+			"name": "W3D3 - Scramble Crossing (13:00)"
+		},
+		{
+			"id": 330040,
+			"name": "W3D3 - SHIBUYA STREAM Return"
+		},
+		{
+			"id": 340020,
+			"name": "W3D4 - MIYASHITA PARK Plague Noise"
+		},
+		{
+			"id": 340060,
+			"name": "W3D4 - Complete Day"
+		},
+		{
+			"id": 340090,
+			"name": "W3D4 - Riko Sekinohara Quest"
+		},
+		{
+			"id": 350040,
+			"name": "W3D5 - Beat Noise Kanon"
+		},
+		{
+			"id": 360010,
+			"name": "W3D6 - Scramble/West Exit"
+		},
+		{
+			"id": 360050,
+			"name": "W3D6 - SHIBUYA STREAM (13:00)"
+		},
+		{
+			"id": 380010,
+			"name": "W3D7' - Scramble Crossing (15:00)"
+		},
+		{
+			"id": 390010,
+			"name": "W3D7'' - Scramble Crossing (15:00)"
+		}
+	],
+	"scenario-limited-pins": [
+		{
+			"id": 140060,
+			"name": "W1D4 - The Don Quest"
+		},
+		{
+			"id": 150120,
+			"name": "W1D5 - Distract all Societists"
+		},
+		{
+			"id": 160090,
+			"name": "W1D6 - Claim Tipsy Tose Hall"
+		},
+		{
+			"id": 160100,
+			"name": "W1D6 - Spain Hill Pig"
+		},
+		{
+			"id": 170070,
+			"name": "W1D7 - Spain Hill/Tipsy Tose"
+		},
+		{
+			"id": 170100,
+			"name": "W1D7 - Center/Scramble"
+		},
+		{
+			"id": 170120,
+			"name": "W1D7 - 104/Dogenzaka"
+		},
+		{
+			"id": 170170,
+			"name": "W1D7 - Hikarie/Underpass"
+		},
+		{
+			"id": 170190,
+			"name": "W1D7 - Reaper Quest"
+		},
+		{
+			"id": 220080,
+			"name": "W2D2 - Miss Banks Quest"
+		},
+		{
+			"id": 230010,
+			"name": "W2D3 - Lose 104 Split up"
+		},
+		{
+			"id": 230020,
+			"name": "W2D3 - Lose 104 Together"
+		},
+		{
+			"id": 230040,
+			"name": "W2D3 - Claim 104 before Hikarie"
+		},
+		{
+			"id": 240020,
+			"name": "W2D4 - All Legends"
+		},
+		{
+			"id": 240130,
+			"name": "W2D4 - Taku Ihama Quest"
+		},
+		{
+			"id": 250040,
+			"name": "W2D5 - 104/O-EAST"
+		},
+		{
+			"id": 250100,
+			"name": "W2D5 - Eiji Oji Quest"
+		},
+		{
+			"id": 260040,
+			"name": "W2D6 - Tipsy Tose Hall (12:00)"
+		},
+		{
+			"id": 270060,
+			"name": "W2D7 - Spain Hill"
+		},
+		{
+			"id": 310030,
+			"name": "W3D1 - Maito Minami Quest"
+		},
+		{
+			"id": 320060,
+			"name": "W3D2 - Scramble Crossing (14:00)"
+		},
+		{
+			"id": 320090,
+			"name": "W3D2 - TOWER RECORDS/Scramble"
+		},
+		{
+			"id": 320180,
+			"name": "W3D2 - Kashiki Quest"
+		},
+		{
+			"id": 330030,
+			"name": "W3D3 - Complete Day"
+		},
+		{
+			"id": 360040,
+			"name": "W3D6 - Expressway Underpass"
+		},
+		{
+			"id": 360070,
+			"name": "W3D6 - Marino Orihara Quest"
+		},
+		{
+			"id": 390020,
+			"name": "W3D7'' - Cat Street (12:00)"
+		},
+		{
+			"id": 410010,
+			"name": "W4D1 - Beat Cervus Cantus α"
+		},
+		{
+			"id": 410020,
+			"name": "W4D1 - Beat Iris Cantus α"
+		},
+		{
+			"id": 410030,
+			"name": "W4D1 - Beat Grus Cantus α"
+		},
+		{
+			"id": 410040,
+			"name": "W4D1 - Beat Felidae Cantus"
+		},
+		{
+			"id": 410050,
+			"name": "W4D1 - Complete Time Trial"
+		},
+		{
+			"id": 410060,
+			"name": "W4D1 - Rhyme Dive"
+		},
+		{
+			"id": 410070,
+			"name": "W4D1 - Beat Shiba α"
+		}
+	],
+	"scenario-yen": [
+		{
+			"id": 130010,
+			"name": "W1D3 - Scramble/Center"
+		},
+		{
+			"id": 130020,
+			"name": "W1D3 - Center Street"
+		},
+		{
+			"id": 140020,
+			"name": "W1D4 - Center/Scramble"
+		},
+		{
+			"id": 140050,
+			"name": "W1D4 - Eiji Oji Quest"
+		},
+		{
+			"id": 140070,
+			"name": "W1D4 - Katsuhiko Tanimaru Quest"
+		},
+		{
+			"id": 140080,
+			"name": "W1D4 - Phone Number Obtained"
+		},
+		{
+			"id": 140090,
+			"name": "W1D4 - Vending Machine"
+		},
+		{
+			"id": 150020,
+			"name": "W1D5 - Spain Hill Pig"
+		},
+		{
+			"id": 150050,
+			"name": "W1D5 - Center Street Pig"
+		},
+		{
+			"id": 150090,
+			"name": "W1D5 - The Don Quest"
+		},
+		{
+			"id": 150110,
+			"name": "W1D5 - Yusei Iseya Quest"
+		},
+		{
+			"id": 160060,
+			"name": "W1D6 - Claim TOWER RECORDS"
+		},
+		{
+			"id": 160070,
+			"name": "W1D6 - Claim Center Street"
+		},
+		{
+			"id": 160080,
+			"name": "W1D6 - Udagawa Backstreets Pig"
+		},
+		{
+			"id": 170010,
+			"name": "W1D7 - Tipsy Tose Hall"
+		},
+		{
+			"id": 170020,
+			"name": "W1D7 - TSUTAYA O-EAST"
+		},
+		{
+			"id": 170050,
+			"name": "W1D7 - TOWER RECORDS/Spain Hill"
+		},
+		{
+			"id": 170080,
+			"name": "W1D7 - Spain Hill/Center"
+		},
+		{
+			"id": 170130,
+			"name": "W1D7 - 104/O-EAST"
+		},
+		{
+			"id": 170150,
+			"name": "W1D7 - Dogenzaka/O-EAST North"
+		},
+		{
+			"id": 170160,
+			"name": "W1D7 - Scramble/Hikarie"
+		},
+		{
+			"id": 210040,
+			"name": "W2D1 - Takeshita Riddle 1"
+		},
+		{
+			"id": 210050,
+			"name": "W2D1 - Takeshita Riddle 2"
+		},
+		{
+			"id": 220030,
+			"name": "W2D2 - Cat Street/TOKYU"
+		},
+		{
+			"id": 220090,
+			"name": "W2D2 - Spain Hill (10:30)"
+		},
+		{
+			"id": 240040,
+			"name": "W2D4 - Hikarie Legend"
+		},
+		{
+			"id": 240080,
+			"name": "W2D4 - 104 Legend"
+		},
+		{
+			"id": 250020,
+			"name": "W2D5 - Underpass/West Exit"
+		},
+		{
+			"id": 250070,
+			"name": "W2D5 - Scramble Crossing Riddle"
+		},
+		{
+			"id": 260020,
+			"name": "W2D6 - Center Street (10:00)"
+		},
+		{
+			"id": 260030,
+			"name": "W2D6 - Spain Hill (11:00)"
+		},
+		{
+			"id": 270040,
+			"name": "W2D7 - Center Street"
+		},
+		{
+			"id": 270050,
+			"name": "W2D7 - Tipsy Tose Hall"
+		},
+		{
+			"id": 270070,
+			"name": "W2D7 - Dogenzaka"
+		},
+		{
+			"id": 270090,
+			"name": "W2D7 - Complete Day"
+		},
+		{
+			"id": 320010,
+			"name": "W3D2 - Telewarp TOWER RECORDS"
+		},
+		{
+			"id": 320020,
+			"name": "W3D2 - ???"
+		},
+		{
+			"id": 320030,
+			"name": "W3D2 - ???"
+		},
+		{
+			"id": 320040,
+			"name": "W3D2 - ???"
+		},
+		{
+			"id": 320070,
+			"name": "W3D2 - Dogenzaka/104"
+		},
+		{
+			"id": 320080,
+			"name": "W3D2 - Scramble/Center"
+		},
+		{
+			"id": 320120,
+			"name": "W3D2 - Spain Hill"
+		},
+		{
+			"id": 330020,
+			"name": "W3D3 - Variabeauty Dive"
+		},
+		{
+			"id": 350030,
+			"name": "W3D5 - Beat Noise Motoi"
+		}
+	],
+	"scenario-gems": [
+		{
+			"id": 150010,
+			"name": "W1D5 - Tipsy Tose Hall Pig"
+		},
+		{
+			"id": 150040,
+			"name": "W1D5 - Scramble Crossing Pig"
+		},
+		{
+			"id": 150070,
+			"name": "W1D5 - Spain Hill (12:00)"
+		},
+		{
+			"id": 150100,
+			"name": "W1D5 - Yuika Kaga Quest"
+		},
+		{
+			"id": 160010,
+			"name": "W1D6 - Scramble Pureheart 1"
+		},
+		{
+			"id": 160020,
+			"name": "W1D6 - Scramble Pureheart 2"
+		},
+		{
+			"id": 160040,
+			"name": "W1D6 - TOWER RECORDS DRS 1"
+		},
+		{
+			"id": 160050,
+			"name": "W1D6 - TOWER RECORDS DRS 2"
+		},
+		{
+			"id": 170060,
+			"name": "W1D7 - TOWER RECORDS/Scramble"
+		},
+		{
+			"id": 170090,
+			"name": "W1D7 - Center/Tipsy Tose"
+		},
+		{
+			"id": 170140,
+			"name": "W1D7 - Dogenzaka/O-EAST West"
+		},
+		{
+			"id": 170200,
+			"name": "W1D7 - Shuntaro Harima Quest"
+		},
+		{
+			"id": 210020,
+			"name": "W2D1 - Itsuki Kaneda Quest"
+		},
+		{
+			"id": 210060,
+			"name": "W2D1 - Takeshita Riddle 3"
+		},
+		{
+			"id": 220040,
+			"name": "W2D2 - West Exit Bus (10:45)"
+		},
+		{
+			"id": 220070,
+			"name": "W2D2 - Eiru Quest"
+		},
+		{
+			"id": 240010,
+			"name": "W2D4 - Cat Street Legend"
+		},
+		{
+			"id": 240050,
+			"name": "W2D4 - Scramble Legend"
+		},
+		{
+			"id": 240070,
+			"name": "W2D4 - Spain Hill Legend"
+		},
+		{
+			"id": 240090,
+			"name": "W2D4 - Center Street Legend"
+		},
+		{
+			"id": 240110,
+			"name": "W2D4 - The Don Quest"
+		},
+		{
+			"id": 240120,
+			"name": "W2D4 - Sumio Tanaka Quest"
+		},
+		{
+			"id": 250010,
+			"name": "W2D5 - Underpass/Hikarie"
+		},
+		{
+			"id": 250050,
+			"name": "W2D5 - 104/Dogenzaka"
+		},
+		{
+			"id": 250060,
+			"name": "W2D5 - Dogenzaka/O-EAST"
+		},
+		{
+			"id": 250110,
+			"name": "W2D5 - Ryoji Quest"
+		},
+		{
+			"id": 250120,
+			"name": "W2D5 - Seiji-of-Some-Trades Quest"
+		},
+		{
+			"id": 270010,
+			"name": "W2D7 - Cat Street/TOWER RECORDS"
+		},
+		{
+			"id": 270110,
+			"name": "W2D7 - Honoka Kondo Quest"
+		},
+		{
+			"id": 270120,
+			"name": "W2D7 - Reaper Commentator Quest"
+		},
+		{
+			"id": 310040,
+			"name": "W3D1 - Ryoji Quest"
+		},
+		{
+			"id": 310050,
+			"name": "W3D1 - Go Modoriyama Quest"
+		},
+		{
+			"id": 320050,
+			"name": "W3D2 - ???"
+		},
+		{
+			"id": 320110,
+			"name": "W3D2 - Center Street"
+		},
+		{
+			"id": 320160,
+			"name": "W3D2 - Eiru Quest"
+		},
+		{
+			"id": 320170,
+			"name": "W3D2 - Shinji-of-Some-Trades Quest"
+		},
+		{
+			"id": 340050,
+			"name": "W3D4 - MIYASHITA PARK (11:00)"
+		},
+		{
+			"id": 340080,
+			"name": "W3D4 - MKN Quest"
+		},
+		{
+			"id": 350010,
+			"name": "W3D5 - Beat Noise Ayano"
+		},
+		{
+			"id": 350020,
+			"name": "W3D5 - Beat Noise Fuya"
+		},
+		{
+			"id": 360020,
+			"name": "W3D6 - Tipsy Tose Hall"
+		},
+		{
+			"id": 360030,
+			"name": "W3D6 - West Exit Bus Terminal"
+		}
+	],
+	"scenario-fp": [
+		{
+			"id": 140005,
+			"name": "W1D4 - Tipsy Tose Hall"
+		},
+		{
+			"id": 140055,
+			"name": "W1D4 - Eiji Oji Quest"
+		},
+		{
+			"id": 140065,
+			"name": "W1D4 - The Don Quest"
+		},
+		{
+			"id": 140075,
+			"name": "W1D4 - Katsuhiko Tanimaru Quest"
+		},
+		{
+			"id": 150080,
+			"name": "W1D5 - Complete Day"
+		},
+		{
+			"id": 150095,
+			"name": "W1D5 - The Don Quest"
+		},
+		{
+			"id": 150105,
+			"name": "W1D5 - Yuika Kaga Quest"
+		},
+		{
+			"id": 160110,
+			"name": "W1D6 - Complete Day"
+		},
+		{
+			"id": 170180,
+			"name": "W1D7 - Complete Day"
+		},
+		{
+			"id": 170195,
+			"name": "W1D7 - Reaper Quest"
+		},
+		{
+			"id": 210010,
+			"name": "W2D1 - Complete Day"
+		},
+		{
+			"id": 220050,
+			"name": "W2D2 - Complete Day"
+		},
+		{
+			"id": 220075,
+			"name": "W2D2 - Eiru Quest"
+		},
+		{
+			"id": 230060,
+			"name": "W2D3 - Claim All Areas"
+		},
+		{
+			"id": 240100,
+			"name": "W2D4 - Complete Day"
+		},
+		{
+			"id": 240115,
+			"name": "W2D4 - The Don Quest"
+		},
+		{
+			"id": 240125,
+			"name": "W2D4 - Sumio Tanaka Quest"
+		},
+		{
+			"id": 250090,
+			"name": "W2D5 - Complete Day"
+		},
+		{
+			"id": 250115,
+			"name": "W2D5 - Ryoji Quest"
+		},
+		{
+			"id": 250125,
+			"name": "W2D5 - Seiji-of-Some-Trades Quest"
+		},
+		{
+			"id": 260060,
+			"name": "W2D6 - Complete Day"
+		},
+		{
+			"id": 270100,
+			"name": "W2D7 - Complete Day"
+		},
+		{
+			"id": 270115,
+			"name": "W2D7 - Honoka Kondo Quest"
+		},
+		{
+			"id": 270125,
+			"name": "W2D7 - Reaper Commentator Quest"
+		},
+		{
+			"id": 310020,
+			"name": "W3D1 - Complete Day"
+		},
+		{
+			"id": 310035,
+			"name": "W3D1 - Maito Minami Quest"
+		},
+		{
+			"id": 310045,
+			"name": "W3D1 - Ryoji Quest"
+		},
+		{
+			"id": 320140,
+			"name": "W3D2 - Ayano Dive"
+		},
+		{
+			"id": 320150,
+			"name": "W3D2 - Complete Day"
+		},
+		{
+			"id": 320165,
+			"name": "W3D2 - Eiru Quest"
+		},
+		{
+			"id": 320175,
+			"name": "W3D2 - Shinji-of-Some-Trades Quest"
+		},
+		{
+			"id": 330050,
+			"name": "W3D3 - Complete Day"
+		},
+		{
+			"id": 340010,
+			"name": "W3D4 - Kariya Dive"
+		},
+		{
+			"id": 340040,
+			"name": "W3D4 - Tipsy Tose/Udagawa"
+		},
+		{
+			"id": 340070,
+			"name": "W3D4 - Complete Day"
+		},
+		{
+			"id": 340085,
+			"name": "W3D4 - MKN Quest"
+		},
+		{
+			"id": 350050,
+			"name": "W3D5 - Complete Day"
+		},
+		{
+			"id": 360060,
+			"name": "W3D6 - Complete Day"
+		},
+		{
+			"id": 370010,
+			"name": "W3D7 - Complete Day"
+		},
+		{
+			"id": 380020,
+			"name": "W3D7' - Meet Haz"
+		}
+	],
+	"scenario-reports": [
+		{
+			"id": 611010,
+			"name": "W1D1 - Boss Rematch"
+		},
+		{
+			"id": 612010,
+			"name": "W1D2 - Boss Rematch"
+		},
+		{
+			"id": 615010,
+			"name": "W1D5 - Boss Rematch"
+		},
+		{
+			"id": 617010,
+			"name": "W1D7 - Boss Rematch"
+		},
+		{
+			"id": 621010,
+			"name": "W2D1 - Boss Rematch"
+		},
+		{
+			"id": 622010,
+			"name": "W2D2 - Boss Rematch"
+		},
+		{
+			"id": 624010,
+			"name": "W2D4 - Boss Rematch"
+		},
+		{
+			"id": 625010,
+			"name": "W2D5 - Boss Rematch"
+		},
+		{
+			"id": 626010,
+			"name": "W2D6 - Boss Rematch"
+		},
+		{
+			"id": 627010,
+			"name": "W2D7 - Boss Rematch"
+		},
+		{
+			"id": 631010,
+			"name": "W3D1 - Boss Rematch"
+		},
+		{
+			"id": 632010,
+			"name": "W3D2 - Boss Rematch"
+		},
+		{
+			"id": 633010,
+			"name": "W3D3 - Boss Rematch"
+		},
+		{
+			"id": 634010,
+			"name": "W3D4 - Boss Rematch"
+		},
+		{
+			"id": 635010,
+			"name": "W3D5 - Boss Rematch"
+		},
+		{
+			"id": 636010,
+			"name": "W3D6 - Boss Rematch"
+		},
+		{
+			"id": 637010,
+			"name": "W3D7 - Boss Rematch"
+		},
+		{
+			"id": 638010,
+			"name": "W3D7' - Boss Rematch"
+		},
+		{
+			"id": 639010,
+			"name": "W3D7'' - Boss Rematch"
+		}
+	],
+	"scenario-yen-2nd": [
+		{
+			"id": 140090,
+			"name": "W1D4 - Vending Machine (Repeat)"
+		},
+		{
+			"id": 170190,
+			"name": "W1D7 - Reaper Quest (Repeat)"
 		}
 	]
 }

@@ -217,6 +217,66 @@
 					"name": "pin_evo_percent",
 					"offset": 117,
 					"size": 7
+				},
+				"story_pins_category": {
+					"name": "story_pins_category",
+					"offset": 124,
+					"size": 2
+				},
+				"story_pins_limited": {
+					"name": "story_pins_limited",
+					"offset": 126,
+					"size": 1
+				},
+				"story_yen_category": {
+					"name": "story_yen_category",
+					"offset": 127,
+					"size": 2
+				},
+				"story_gems_category": {
+					"name": "story_gems_category",
+					"offset": 129,
+					"size": 2
+				},
+				"story_fp_category": {
+					"name": "story_fp_category",
+					"offset": 131,
+					"size": 2
+				},
+				"story_reports_category": {
+					"name": "story_reports_category",
+					"offset": 133,
+					"size": 1
+				},
+				"story_global_shuffle_category": {
+					"name": "story_global_shuffle_category",
+					"offset": 134,
+					"size": 1
+				},
+				"story_global_shuffle_pins": {
+					"name": "story_global_shuffle_pins",
+					"offset": 135,
+					"size": 1
+				},
+				"story_global_shuffle_yen": {
+					"name": "story_global_shuffle_yen",
+					"offset": 136,
+					"size": 1
+				},
+				"story_global_shuffle_gems": {
+					"name": "story_global_shuffle_gems",
+					"offset": 137,
+					"size": 1
+				},
+				"story_global_shuffle_fp": {
+					"name": "story_global_shuffle_fp",
+					"offset": 138,
+					"size": 1
+				},
+				"story_global_shuffle_reports": {
+					"name": "story_global_shuffle_reports",
+					"offset": 139,
+					"size": 1
 				}
 			},
 			"changed_values": []

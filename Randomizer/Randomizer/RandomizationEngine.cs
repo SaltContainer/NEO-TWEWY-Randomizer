@@ -161,14 +161,14 @@ namespace NEO_TWEWY_Randomizer
             List<PigData> pigsToEditOriginal = pigDataOriginal.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => p.Id).Contains(pig.Id)).ToList();
             List<PigData> pigsToEdit = pigData.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => p.Id).Contains(pig.Id)).ToList();
 
-            bool dropEasy = settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Easy);
-            bool dropNormal = settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Normal);
-            bool dropHard = settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Hard);
-            bool dropUltimate = settings.NoiseDrops.NoiseDropTypeDifficulties.Contains(Difficulties.Ultimate);
+            bool dropEasy = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Easy);
+            bool dropNormal = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Normal);
+            bool dropHard = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Hard);
+            bool dropUltimate = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Ultimate);
 
-            bool limited = settings.NoiseDrops.NoiseIncludeLimitedPins;
+            bool limited = settings.NoiseDrops.IncludeLimitedPins;
 
-            switch (settings.NoiseDrops.NoiseDropTypeChoice)
+            switch (settings.NoiseDrops.DropTypeChoice)
             {
                 case NoiseDropType.ShuffleCompletely:
                     List<int> scPins = new List<int>();
@@ -258,7 +258,7 @@ namespace NEO_TWEWY_Randomizer
             }
 
             logger.LogDropTypeChanges(listToEditOriginal, listToEdit);
-            if (settings.NoiseDrops.NoiseDropTypeChoice == NoiseDropType.RandomAllPins) logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
+            if (settings.NoiseDrops.DropTypeChoice == NoiseDropType.RandomAllPins) logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
@@ -278,15 +278,15 @@ namespace NEO_TWEWY_Randomizer
             List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
             List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
 
-            bool dropEasy = settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Easy);
-            bool dropNormal = settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Normal);
-            bool dropHard = settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Hard);
-            bool dropUltimate = settings.NoiseDrops.NoiseDropRateDifficulties.Contains(Difficulties.Ultimate);
+            bool dropEasy = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Easy);
+            bool dropNormal = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Normal);
+            bool dropHard = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Hard);
+            bool dropUltimate = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Ultimate);
 
-            double min = (double) (settings.NoiseDrops.NoiseMinimumDropRate / 100M);
-            double max = (double) (settings.NoiseDrops.NoiseMaximumDropRate / 100M);
+            double min = (double) (settings.NoiseDrops.MinimumDropRate / 100M);
+            double max = (double) (settings.NoiseDrops.MaximumDropRate / 100M);
 
-            switch (settings.NoiseDrops.NoiseDropRateChoice)
+            switch (settings.NoiseDrops.DropRateChoice)
             {
                 case NoiseDropRate.RandomCompletely:
                     foreach (EnemyData data in listToEdit)
@@ -301,10 +301,10 @@ namespace NEO_TWEWY_Randomizer
 
                 case NoiseDropRate.RandomWeighted:
                     List<uint> weightsOn = new List<uint>();
-                    if (dropEasy) weightsOn.Add(settings.NoiseDrops.NoiseDropRateWeights[0]);
-                    if (dropNormal) weightsOn.Add(settings.NoiseDrops.NoiseDropRateWeights[1]);
-                    if (dropHard) weightsOn.Add(settings.NoiseDrops.NoiseDropRateWeights[2]);
-                    if (dropUltimate) weightsOn.Add(settings.NoiseDrops.NoiseDropRateWeights[3]);
+                    if (dropEasy) weightsOn.Add(settings.NoiseDrops.DropRateWeights[0]);
+                    if (dropNormal) weightsOn.Add(settings.NoiseDrops.DropRateWeights[1]);
+                    if (dropHard) weightsOn.Add(settings.NoiseDrops.DropRateWeights[2]);
+                    if (dropUltimate) weightsOn.Add(settings.NoiseDrops.DropRateWeights[3]);
 
                     uint wMin = weightsOn.Min();
                     uint wMax = weightsOn.Max();
@@ -315,10 +315,10 @@ namespace NEO_TWEWY_Randomizer
 
                     foreach (EnemyData data in listToEdit)
                     {
-                        if (dropEasy) data.DropRate[0] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.NoiseDropRateWeights[0]) * unit)) - (min+((settings.NoiseDrops.NoiseDropRateWeights[0] - 1) * unit)))) + (min + ((settings.NoiseDrops.NoiseDropRateWeights[0] - 1) * unit)), 4);
-                        if (dropNormal) data.DropRate[1] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.NoiseDropRateWeights[1]) * unit)) - (min + ((settings.NoiseDrops.NoiseDropRateWeights[1] - 1) * unit)))) + (min + ((settings.NoiseDrops.NoiseDropRateWeights[1] - 1) * unit)), 4);
-                        if (dropHard) data.DropRate[2] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.NoiseDropRateWeights[2]) * unit)) - (min + ((settings.NoiseDrops.NoiseDropRateWeights[2] - 1) * unit)))) + (min + ((settings.NoiseDrops.NoiseDropRateWeights[2] - 1) * unit)), 4);
-                        if (dropUltimate) data.DropRate[3] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.NoiseDropRateWeights[3]) * unit)) - (min + ((settings.NoiseDrops.NoiseDropRateWeights[3] - 1) * unit)))) + (min + ((settings.NoiseDrops.NoiseDropRateWeights[3] - 1) * unit)), 4);
+                        if (dropEasy) data.DropRate[0] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.DropRateWeights[0]) * unit)) - (min+((settings.NoiseDrops.DropRateWeights[0] - 1) * unit)))) + (min + ((settings.NoiseDrops.DropRateWeights[0] - 1) * unit)), 4);
+                        if (dropNormal) data.DropRate[1] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.DropRateWeights[1]) * unit)) - (min + ((settings.NoiseDrops.DropRateWeights[1] - 1) * unit)))) + (min + ((settings.NoiseDrops.DropRateWeights[1] - 1) * unit)), 4);
+                        if (dropHard) data.DropRate[2] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.DropRateWeights[2]) * unit)) - (min + ((settings.NoiseDrops.DropRateWeights[2] - 1) * unit)))) + (min + ((settings.NoiseDrops.DropRateWeights[2] - 1) * unit)), 4);
+                        if (dropUltimate) data.DropRate[3] = (float) Math.Round((rand.NextDouble() * ((min + ((settings.NoiseDrops.DropRateWeights[3]) * unit)) - (min + ((settings.NoiseDrops.DropRateWeights[3] - 1) * unit)))) + (min + ((settings.NoiseDrops.DropRateWeights[3] - 1) * unit)), 4);
                     }
                     
                     AdjustEnemyDataDropRate(enemyData);
@@ -370,29 +370,29 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<int, List<AttackHit>> attackHitToEdit = FindAttackHitsToModify(listToEdit, attackHitData);
 
-            if (settings.PinStats.PinMaxLevel) listToEdit.ForEach(p => p.MaxLevel = rand.Next(2, 11));
+            if (settings.PinStats.MaxLevel) listToEdit.ForEach(p => p.MaxLevel = rand.Next(2, 11));
 
-            if (settings.PinStats.PinPower) listToEdit.ForEach(p => p.Power = rand.Next(50, 1401));
-            if (settings.PinStats.PinPowerScaling) listToEdit.ForEach(p => p.PowerScaling = rand.Next(0, 101));
+            if (settings.PinStats.Power) listToEdit.ForEach(p => p.Power = rand.Next(50, 1401));
+            if (settings.PinStats.PowerScaling) listToEdit.ForEach(p => p.PowerScaling = rand.Next(0, 101));
 
-            if (settings.PinStats.PinLimit) listToEdit.ForEach(p => p.Limit = rand.Next(3, 11));
-            if (settings.PinStats.PinLimitScaling) listToEdit.ForEach(p => p.LimitScaling = rand.Next(0, 3));
+            if (settings.PinStats.Limit) listToEdit.ForEach(p => p.Limit = rand.Next(3, 11));
+            if (settings.PinStats.LimitScaling) listToEdit.ForEach(p => p.LimitScaling = rand.Next(0, 3));
 
-            if (settings.PinStats.PinReboot) listToEdit.ForEach(p => p.Reboot = NextRoundedFloatRange(5, 20, 1));
-            if (settings.PinStats.PinRebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1), 1));
+            if (settings.PinStats.Reboot) listToEdit.ForEach(p => p.Reboot = NextRoundedFloatRange(5, 20, 1));
+            if (settings.PinStats.RebootScaling) listToEdit.ForEach(p => p.RebootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Reboot - 1) / (p.MaxLevel - 1) - 0.1), 1));
 
-            if (settings.PinStats.PinBoot) listToEdit.ForEach(p => p.Boot = Math.Max(0, NextRoundedFloatRange(-6, 6, 1)));
-            if (settings.PinStats.PinBootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Boot) / (p.MaxLevel - 1) - 0.1), 1));
+            if (settings.PinStats.Boot) listToEdit.ForEach(p => p.Boot = Math.Max(0, NextRoundedFloatRange(-6, 6, 1)));
+            if (settings.PinStats.BootScaling) listToEdit.ForEach(p => p.BootScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Boot) / (p.MaxLevel - 1) - 0.1), 1));
 
-            if (settings.PinStats.PinRecover) listToEdit.ForEach(p => p.Recover = p.Reboot + NextRoundedFloatRange(0, 6, 1));
-            if (settings.PinStats.PinRecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Recover - 1) / (p.MaxLevel - 1) - 0.1), 1));
+            if (settings.PinStats.Recover) listToEdit.ForEach(p => p.Recover = p.Reboot + NextRoundedFloatRange(0, 6, 1));
+            if (settings.PinStats.RecoverScaling) listToEdit.ForEach(p => p.RecoverScaling = NextRoundedFloatRange(0, Math.Max(0, (p.Recover - 1) / (p.MaxLevel - 1) - 0.1), 1));
 
-            if (settings.PinStats.PinCharge) listToEdit.ForEach(p => p.Charge = NextRoundedFloatRange(0, 2, 1));
+            if (settings.PinStats.Charge) listToEdit.ForEach(p => p.Charge = NextRoundedFloatRange(0, 2, 1));
 
-            if (settings.PinStats.PinSell) listToEdit.ForEach(p => p.SellPrice = rand.Next(500, 10001));
-            if (settings.PinStats.PinSellScaling) listToEdit.ForEach(p => p.SellPriceScaling = rand.Next(500, 2001));
+            if (settings.PinStats.Sell) listToEdit.ForEach(p => p.SellPrice = rand.Next(500, 10001));
+            if (settings.PinStats.SellScaling) listToEdit.ForEach(p => p.SellPriceScaling = rand.Next(500, 2001));
 
-            if (settings.PinStats.PinAffinity)
+            if (settings.PinStats.Affinity)
             {
                 listToEdit.ForEach(p => {
                     p.MashUpAffinity = FileConstants.ItemNames.Affinities[rand.Next(FileConstants.ItemNames.Affinities.Count)].Id;
@@ -400,7 +400,7 @@ namespace NEO_TWEWY_Randomizer
                 });
             }
 
-            switch (settings.PinStats.PinBrandChoice)
+            switch (settings.PinStats.BrandChoice)
             {
                 case PinBrand.Shuffle:
                     List<int> sbrands = new List<int>();
@@ -436,12 +436,12 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            if (settings.PinStats.PinUber)
+            if (settings.PinStats.Uber)
             {
                 List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
                 pins = pins.OrderBy(pin => rand.Next()).ToList();
 
-                float percentage = settings.PinStats.PinUberPercentage / 100f;
+                float percentage = settings.PinStats.UberPercentage / 100f;
                 int count = (int) (pins.Count * percentage);
 
                 for (int i=0; i<listToEdit.Count; i++)
@@ -451,7 +451,7 @@ namespace NEO_TWEWY_Randomizer
                 }
             }
 
-            switch (settings.PinStats.PinAbilityChoice)
+            switch (settings.PinStats.AbilityChoice)
             {
                 case PinAbility.Shuffle:
                     List<IList<int>> sAbilities = new List<IList<int>>();
@@ -469,7 +469,7 @@ namespace NEO_TWEWY_Randomizer
                     List<int> rAbilities = Enumerable.Range(0, listToEdit.Count()).ToList();
                     rAbilities = rAbilities.OrderBy(pin => rand.Next()).ToList();
 
-                    float percentage = settings.PinStats.PinAbilityPercentage / 100f;
+                    float percentage = settings.PinStats.AbilityPercentage / 100f;
                     int count = (int)(rAbilities.Count * percentage);
 
                     for (int i = 0; i < listToEdit.Count; i++)
@@ -480,7 +480,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            switch (settings.PinStats.PinGrowthChoice)
+            switch (settings.PinStats.GrowthChoice)
             {
                 case PinGrowthRandomization.RandomCompletely:
                     listToEdit.ForEach(p => p.Growth = FileConstants.ItemNames.GrowthRates[rand.Next(FileConstants.ItemNames.GrowthRates.Count)].Id);
@@ -502,17 +502,17 @@ namespace NEO_TWEWY_Randomizer
                     break;
 
                 case PinGrowthRandomization.Specific:
-                    listToEdit.ForEach(p => p.Growth = (int) settings.PinStats.PinGrowthSpecific);
+                    listToEdit.ForEach(p => p.Growth = (int) settings.PinStats.GrowthSpecific);
                     break;
             }
 
-            switch (settings.PinStats.PinEvolutionChoice)
+            switch (settings.PinStats.EvolutionChoice)
             {
                 case PinEvolution.RandomExisting:
                     foreach (Badge data in listToEdit)
                     {
                         List<int> possibleEvos;
-                        if (settings.PinStats.PinEvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == data.Brand).Select(p => p.Id).ToList();
+                        if (settings.PinStats.EvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == data.Brand).Select(p => p.Id).ToList();
                         else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
 
                         if (data.EvolutionSingle != -1)
@@ -535,7 +535,7 @@ namespace NEO_TWEWY_Randomizer
                     List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
                     pins = pins.OrderBy(pin => rand.Next()).ToList();
 
-                    float percentage = settings.PinStats.PinEvoPercentage / 100f;
+                    float percentage = settings.PinStats.EvoPercentage / 100f;
                     int count = (int)(pins.Count * percentage);
 
                     for (int i = 0; i < listToEdit.Count; i++)
@@ -543,7 +543,7 @@ namespace NEO_TWEWY_Randomizer
                         if (i < count)
                         {
                             List<int> possibleEvos;
-                            if (settings.PinStats.PinEvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == listToEdit[pins[i]].Brand).Select(p => p.Id).ToList();
+                            if (settings.PinStats.EvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == listToEdit[pins[i]].Brand).Select(p => p.Id).ToList();
                             else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
 
                             bool single = rand.Next(3) < 2;
@@ -571,7 +571,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            if (settings.PinStats.PinRemoveCharaEvos)
+            if (settings.PinStats.RemoveCharaEvos)
             {
                 foreach (Badge data in listToEdit)
                 {
@@ -633,7 +633,7 @@ namespace NEO_TWEWY_Randomizer
             List<ScenarioRewards> fullListToEditOriginal = storyDataOriginal.Items.Where(data => storyNames.Select(n => n.Id).Contains(data.Id)).ToList();
             List<ScenarioRewards> fullListToEdit = storyData.Items.Where(data => storyNames.Select(p => p.Id).Contains(data.Id)).ToList();
 
-            switch (settings.StoryRewards.StoryPinChoice)
+            switch (settings.StoryRewards.PinChoice)
             {
                 case StoryPin.Shuffle:
                     List<ScenarioRewards> pinsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).ToList();
@@ -658,7 +658,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            switch (settings.StoryRewards.StoryYenChoice)
+            switch (settings.StoryRewards.YenChoice)
             {
                 case StoryYen.Shuffle:
                     List<(int, ScenarioRewards)> pinsToShuffle = fullListToEdit
@@ -697,7 +697,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            switch (settings.StoryRewards.StoryGemChoice)
+            switch (settings.StoryRewards.GemChoice)
             {
                 case StoryGem.Shuffle:
                     List<ScenarioRewards> pinsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).ToList();
@@ -711,7 +711,7 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            switch (settings.StoryRewards.StoryFPChoice)
+            switch (settings.StoryRewards.FPChoice)
             {
                 case StoryFP.Shuffle:
                     List<ScenarioRewards> fpToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).ToList();
@@ -735,13 +735,13 @@ namespace NEO_TWEWY_Randomizer
                     break;
             }
 
-            if (settings.StoryRewards.StoryReportChoice == StoryReport.Shuffle)
+            if (settings.StoryRewards.ReportChoice == StoryReport.Shuffle)
             {
                 List<ScenarioRewards> reportsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryReports.Select(p => p.Id).Contains(reward.Id)).ToList();
                 ShuffleListOfStoryRewards(reportsToShuffle);
             }
 
-            if (settings.StoryRewards.StoryGlobalShuffleChoice == StoryGlobalShuffle.Shuffle)
+            if (settings.StoryRewards.GlobalShuffleChoice == StoryGlobalShuffle.Shuffle)
             {
                 List<(int, ScenarioRewards)> rewardsToShuffle = new List<(int, ScenarioRewards)>();
                 if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins))

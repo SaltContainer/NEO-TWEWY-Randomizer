@@ -8,32 +8,32 @@ namespace NEO_TWEWY_Randomizer
 {
     class PinStatSettings
     {
-        public bool PinPower { get; set; }
-        public bool PinPowerScaling { get; set; }
-        public bool PinLimit { get; set; }
-        public bool PinLimitScaling { get; set; }
-        public bool PinReboot { get; set; }
-        public bool PinRebootScaling { get; set; }
-        public bool PinBoot { get; set; }
-        public bool PinBootScaling { get; set; }
-        public bool PinRecover { get; set; }
-        public bool PinRecoverScaling { get; set; }
-        public bool PinCharge { get; set; }
-        public bool PinSell { get; set; }
-        public bool PinSellScaling { get; set; }
-        public bool PinAffinity { get; set; }
-        public bool PinMaxLevel { get; set; }
-        public PinBrand PinBrandChoice { get; set; }
-        public bool PinUber { get; set; }
-        public uint PinUberPercentage { get; set; }
-        public PinAbility PinAbilityChoice { get; set; }
-        public uint PinAbilityPercentage { get; set; }
-        public PinGrowthRandomization PinGrowthChoice { get; set; }
-        public PinGrowth PinGrowthSpecific { get; set; }
-        public PinEvolution PinEvolutionChoice { get; set; }
-        public bool PinEvoForceBrand { get; set; }
-        public bool PinRemoveCharaEvos { get; set; }
-        public uint PinEvoPercentage { get; set; }
+        public bool Power { get; set; }
+        public bool PowerScaling { get; set; }
+        public bool Limit { get; set; }
+        public bool LimitScaling { get; set; }
+        public bool Reboot { get; set; }
+        public bool RebootScaling { get; set; }
+        public bool Boot { get; set; }
+        public bool BootScaling { get; set; }
+        public bool Recover { get; set; }
+        public bool RecoverScaling { get; set; }
+        public bool Charge { get; set; }
+        public bool Sell { get; set; }
+        public bool SellScaling { get; set; }
+        public bool Affinity { get; set; }
+        public bool MaxLevel { get; set; }
+        public PinBrand BrandChoice { get; set; }
+        public bool Uber { get; set; }
+        public uint UberPercentage { get; set; }
+        public PinAbility AbilityChoice { get; set; }
+        public uint AbilityPercentage { get; set; }
+        public PinGrowthRandomization GrowthChoice { get; set; }
+        public PinGrowth GrowthSpecific { get; set; }
+        public PinEvolution EvolutionChoice { get; set; }
+        public bool EvoForceBrand { get; set; }
+        public bool RemoveCharaEvos { get; set; }
+        public uint EvoPercentage { get; set; }
 
         public PinStatSettings()
         {
@@ -42,83 +42,83 @@ namespace NEO_TWEWY_Randomizer
 
         public void CorrectSettingValues()
         {
-            if (!Enum.IsDefined(typeof(PinBrand), PinBrandChoice)) PinBrandChoice = PinBrand.Unchanged;
-            PinUberPercentage = Math.Max(Math.Min(PinUberPercentage, 100), 1);
-            if (!Enum.IsDefined(typeof(PinAbility), PinAbilityChoice)) PinAbilityChoice = PinAbility.Unchanged;
-            PinAbilityPercentage = Math.Max(Math.Min(PinAbilityPercentage, 100), 1);
-            if (!Enum.IsDefined(typeof(PinGrowthRandomization), PinGrowthChoice)) PinGrowthChoice = PinGrowthRandomization.Unchanged;
-            if (!Enum.IsDefined(typeof(PinGrowth), PinGrowthSpecific) || PinGrowthSpecific == PinGrowth.Other) PinGrowthSpecific = PinGrowth.Normal;
-            PinEvoPercentage = Math.Max(Math.Min(PinEvoPercentage, 100), 1);
+            if (!Enum.IsDefined(typeof(PinBrand), BrandChoice)) BrandChoice = PinBrand.Unchanged;
+            UberPercentage = Math.Max(Math.Min(UberPercentage, 100), 1);
+            if (!Enum.IsDefined(typeof(PinAbility), AbilityChoice)) AbilityChoice = PinAbility.Unchanged;
+            AbilityPercentage = Math.Max(Math.Min(AbilityPercentage, 100), 1);
+            if (!Enum.IsDefined(typeof(PinGrowthRandomization), GrowthChoice)) GrowthChoice = PinGrowthRandomization.Unchanged;
+            if (!Enum.IsDefined(typeof(PinGrowth), GrowthSpecific) || GrowthSpecific == PinGrowth.Other) GrowthSpecific = PinGrowth.Normal;
+            EvoPercentage = Math.Max(Math.Min(EvoPercentage, 100), 1);
         }
 
         public void ExtractSettingsFromBits(string settingsString, SettingsStringVersion version)
         {
-            PinPower = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_power") == 1;
-            PinPowerScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_power_scaling") == 1;
-            PinLimit = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_limit") == 1;
-            PinLimitScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_limit_scaling") == 1;
-            PinReboot = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_reboot") == 1;
-            PinRebootScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_reboot_scaling") == 1;
-            PinBoot = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_boot") == 1;
-            PinBootScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_boot_scaling") == 1;
-            PinRecover = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_recover") == 1;
-            PinRecoverScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_recover_scaling") == 1;
-            PinCharge = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_charge") == 1;
-            PinSell = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_sell") == 1;
-            PinSellScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_sell_scaling") == 1;
-            PinAffinity = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_affinity") == 1;
-            PinMaxLevel = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_level") == 1;
+            Power = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_power") == 1;
+            PowerScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_power_scaling") == 1;
+            Limit = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_limit") == 1;
+            LimitScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_limit_scaling") == 1;
+            Reboot = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_reboot") == 1;
+            RebootScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_reboot_scaling") == 1;
+            Boot = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_boot") == 1;
+            BootScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_boot_scaling") == 1;
+            Recover = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_recover") == 1;
+            RecoverScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_recover_scaling") == 1;
+            Charge = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_charge") == 1;
+            Sell = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_sell") == 1;
+            SellScaling = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_sell_scaling") == 1;
+            Affinity = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_affinity") == 1;
+            MaxLevel = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_level") == 1;
 
-            PinBrandChoice = (PinBrand)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_brand_category");
+            BrandChoice = (PinBrand)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_brand_category");
 
-            PinUber = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_uber") == 1;
-            PinUberPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_uber_percent");
+            Uber = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_uber") == 1;
+            UberPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_uber_percent");
 
-            PinAbilityChoice = (PinAbility)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_ability_category");
-            PinAbilityPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_ability_percent");
+            AbilityChoice = (PinAbility)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_ability_category");
+            AbilityPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_ability_percent");
 
-            PinGrowthChoice = (PinGrowthRandomization)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_growth_category");
-            PinGrowthSpecific = (PinGrowth)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_growth_specific");
+            GrowthChoice = (PinGrowthRandomization)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_growth_category");
+            GrowthSpecific = (PinGrowth)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_growth_specific");
 
-            PinEvolutionChoice = (PinEvolution)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_category");
-            PinEvoForceBrand = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_force") == 1;
-            PinRemoveCharaEvos = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_chara") == 1;
-            PinEvoPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_percent");
+            EvolutionChoice = (PinEvolution)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_category");
+            EvoForceBrand = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_force") == 1;
+            RemoveCharaEvos = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_chara") == 1;
+            EvoPercentage = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "pin_evo_percent");
         }
 
         public string GenerateSettingsString(string currentString, SettingsStringVersion version)
         {
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_power", PinPower ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_power_scaling", PinPowerScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_limit", PinLimit ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_limit_scaling", PinLimitScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_reboot", PinReboot ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_reboot_scaling", PinRebootScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_boot", PinBoot ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_boot_scaling", PinBootScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_recover", PinRecover ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_recover_scaling", PinRecoverScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_charge", PinCharge ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_sell", PinSell ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_sell_scaling", PinSellScaling ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_affinity", PinAffinity ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_level", PinMaxLevel ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_power", Power ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_power_scaling", PowerScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_limit", Limit ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_limit_scaling", LimitScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_reboot", Reboot ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_reboot_scaling", RebootScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_boot", Boot ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_boot_scaling", BootScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_recover", Recover ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_recover_scaling", RecoverScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_charge", Charge ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_sell", Sell ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_sell_scaling", SellScaling ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_affinity", Affinity ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_level", MaxLevel ? 1u : 0u);
 
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_brand_category", (uint)PinBrandChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_brand_category", (uint)BrandChoice);
 
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_uber", PinUber ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_uber_percent", PinUberPercentage);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_uber", Uber ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_uber_percent", UberPercentage);
 
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_ability_category", (uint)PinAbilityChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_ability_percent", PinAbilityPercentage);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_ability_category", (uint)AbilityChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_ability_percent", AbilityPercentage);
 
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_growth_category", (uint)PinGrowthChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_growth_specific", (uint)PinGrowthSpecific);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_growth_category", (uint)GrowthChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_growth_specific", (uint)GrowthSpecific);
 
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_category", (uint)PinEvolutionChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_force", PinEvoForceBrand ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_chara", PinRemoveCharaEvos ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_percent", PinEvoPercentage);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_category", (uint)EvolutionChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_force", EvoForceBrand ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_chara", RemoveCharaEvos ? 1u : 0u);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "pin_evo_percent", EvoPercentage);
 
             return currentString;
         }

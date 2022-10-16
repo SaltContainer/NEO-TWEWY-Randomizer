@@ -8,13 +8,13 @@ namespace NEO_TWEWY_Randomizer
 {
     class StoryRewardSettings
     {
-        public StoryPin StoryPinChoice { get; set; }
+        public StoryPin PinChoice { get; set; }
         public bool IncludeLimitedPins { get; set; }
-        public StoryYen StoryYenChoice { get; set; }
-        public StoryGem StoryGemChoice { get; set; }
-        public StoryFP StoryFPChoice { get; set; }
-        public StoryReport StoryReportChoice { get; set; }
-        public StoryGlobalShuffle StoryGlobalShuffleChoice { get; set; }
+        public StoryYen YenChoice { get; set; }
+        public StoryGem GemChoice { get; set; }
+        public StoryFP FPChoice { get; set; }
+        public StoryReport ReportChoice { get; set; }
+        public StoryGlobalShuffle GlobalShuffleChoice { get; set; }
         public List<StoryRewards> ShuffledStoryRewards { get; set; }
 
         public StoryRewardSettings()
@@ -30,23 +30,23 @@ namespace NEO_TWEWY_Randomizer
 
         public void CorrectSettingValues()
         {
-            if (!Enum.IsDefined(typeof(StoryPin), StoryPinChoice)) StoryPinChoice = StoryPin.Unchanged;
-            if (!Enum.IsDefined(typeof(StoryYen), StoryYenChoice)) StoryYenChoice = StoryYen.Unchanged;
-            if (!Enum.IsDefined(typeof(StoryGem), StoryGemChoice)) StoryGemChoice = StoryGem.Unchanged;
-            if (!Enum.IsDefined(typeof(StoryFP), StoryFPChoice)) StoryFPChoice = StoryFP.Unchanged;
-            if (!Enum.IsDefined(typeof(StoryReport), StoryReportChoice)) StoryReportChoice = StoryReport.Unchanged;
-            if (!Enum.IsDefined(typeof(StoryGlobalShuffle), StoryGlobalShuffleChoice)) StoryGlobalShuffleChoice = StoryGlobalShuffle.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryPin), PinChoice)) PinChoice = StoryPin.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryYen), YenChoice)) YenChoice = StoryYen.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryGem), GemChoice)) GemChoice = StoryGem.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryFP), FPChoice)) FPChoice = StoryFP.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryReport), ReportChoice)) ReportChoice = StoryReport.Unchanged;
+            if (!Enum.IsDefined(typeof(StoryGlobalShuffle), GlobalShuffleChoice)) GlobalShuffleChoice = StoryGlobalShuffle.Unchanged;
         }
 
         public void ExtractSettingsFromBits(string settingsString, SettingsStringVersion version)
         {
-            StoryPinChoice = (StoryPin)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_pins_category");
+            PinChoice = (StoryPin)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_pins_category");
             IncludeLimitedPins = SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_pins_limited") == 1;
-            StoryYenChoice = (StoryYen)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_yen_category");
-            StoryGemChoice = (StoryGem)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_gems_category");
-            StoryFPChoice = (StoryFP)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_fp_category");
-            StoryReportChoice = (StoryReport)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_reports_category");
-            StoryGlobalShuffleChoice = (StoryGlobalShuffle)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_global_shuffle_category");
+            YenChoice = (StoryYen)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_yen_category");
+            GemChoice = (StoryGem)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_gems_category");
+            FPChoice = (StoryFP)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_fp_category");
+            ReportChoice = (StoryReport)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_reports_category");
+            GlobalShuffleChoice = (StoryGlobalShuffle)SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_global_shuffle_category");
 
             if (SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_global_shuffle_pins") == 1) ShuffledStoryRewards.Add(StoryRewards.Pins);
             if (SettingsUtils.GetBitsFromSettingsString(settingsString, version, "story_global_shuffle_yen") == 1) ShuffledStoryRewards.Add(StoryRewards.Yen);
@@ -57,13 +57,13 @@ namespace NEO_TWEWY_Randomizer
 
         public string GenerateSettingsString(string currentString, SettingsStringVersion version)
         {
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_pins_category", (uint)StoryPinChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_pins_category", (uint)PinChoice);
             currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_pins_limited", IncludeLimitedPins ? 1u : 0u);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_yen_category", (uint)StoryYenChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_gems_category", (uint)StoryGemChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_fp_category", (uint)StoryFPChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_reports_category", (uint)StoryReportChoice);
-            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_global_shuffle_category", (uint)StoryGlobalShuffleChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_yen_category", (uint)YenChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_gems_category", (uint)GemChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_fp_category", (uint)FPChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_reports_category", (uint)ReportChoice);
+            currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_global_shuffle_category", (uint)GlobalShuffleChoice);
 
             currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_global_shuffle_pins", ShuffledStoryRewards.Contains(StoryRewards.Pins) ? 1u : 0u);
             currentString = SettingsUtils.AppendToSettingsString(currentString, version, "story_global_shuffle_yen", ShuffledStoryRewards.Contains(StoryRewards.Yen) ? 1u : 0u);

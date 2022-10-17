@@ -163,6 +163,20 @@ namespace NEO_TWEWY_Randomizer
             this.btnSeedRandom = new System.Windows.Forms.Button();
             this.grpSeed = new System.Windows.Forms.GroupBox();
             this.ttFormMain = new System.Windows.Forms.ToolTip(this.components);
+            this.panelInfo = new System.Windows.Forms.Panel();
+            this.tabWalls = new System.Windows.Forms.TabPage();
+            this.grpWalls = new System.Windows.Forms.GroupBox();
+            this.grpWallsMissions = new System.Windows.Forms.GroupBox();
+            this.radioWallsUnchanged = new System.Windows.Forms.RadioButton();
+            this.radioWallsShuffle = new System.Windows.Forms.RadioButton();
+            this.radioWallsRandom = new System.Windows.Forms.RadioButton();
+            this.checkWallsNoItems = new System.Windows.Forms.CheckBox();
+            this.checkWallsReduction = new System.Windows.Forms.CheckBox();
+            this.checkWallsNoise = new System.Windows.Forms.CheckBox();
+            this.checkWallsNoiseIcon = new System.Windows.Forms.CheckBox();
+            this.checkWallsPin = new System.Windows.Forms.CheckBox();
+            this.checkWallsClothing = new System.Windows.Forms.CheckBox();
+            this.checkWallsClothingBrand = new System.Windows.Forms.CheckBox();
             this.tabsMain.SuspendLayout();
             this.tabDrops.SuspendLayout();
             this.grpChance.SuspendLayout();
@@ -198,6 +212,10 @@ namespace NEO_TWEWY_Randomizer
             ((System.ComponentModel.ISupportInitialize)(this.picPin)).BeginInit();
             this.grpSettingString.SuspendLayout();
             this.grpSeed.SuspendLayout();
+            this.panelInfo.SuspendLayout();
+            this.tabWalls.SuspendLayout();
+            this.grpWalls.SuspendLayout();
+            this.grpWallsMissions.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsMain
@@ -208,6 +226,7 @@ namespace NEO_TWEWY_Randomizer
             this.tabsMain.Controls.Add(this.tabDrops);
             this.tabsMain.Controls.Add(this.tabStoryRewards);
             this.tabsMain.Controls.Add(this.tabPins);
+            this.tabsMain.Controls.Add(this.tabWalls);
             this.tabsMain.Controls.Add(this.tabSocial);
             this.tabsMain.Controls.Add(this.tabThreads);
             this.tabsMain.Controls.Add(this.tabEncounter);
@@ -1615,8 +1634,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             this.grpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpInfo.Controls.Add(this.lbInfoFiles);
-            this.grpInfo.Controls.Add(this.lbInfoFilesLabel);
+            this.grpInfo.Controls.Add(this.panelInfo);
             this.grpInfo.Location = new System.Drawing.Point(265, 12);
             this.grpInfo.Name = "grpInfo";
             this.grpInfo.Size = new System.Drawing.Size(246, 128);
@@ -1628,18 +1646,20 @@ namespace NEO_TWEWY_Randomizer
             // 
             this.lbInfoFiles.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbInfoFiles.AutoSize = true;
             this.lbInfoFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbInfoFiles.Location = new System.Drawing.Point(128, 16);
+            this.lbInfoFiles.Location = new System.Drawing.Point(128, 3);
             this.lbInfoFiles.Name = "lbInfoFiles";
-            this.lbInfoFiles.Size = new System.Drawing.Size(112, 99);
+            this.lbInfoFiles.Size = new System.Drawing.Size(72, 13);
             this.lbInfoFiles.TabIndex = 3;
             this.lbInfoFiles.Text = "files loaded";
             // 
             // lbInfoFilesLabel
             // 
-            this.lbInfoFilesLabel.Location = new System.Drawing.Point(9, 16);
+            this.lbInfoFilesLabel.AutoSize = true;
+            this.lbInfoFilesLabel.Location = new System.Drawing.Point(6, 3);
             this.lbInfoFilesLabel.Name = "lbInfoFilesLabel";
-            this.lbInfoFilesLabel.Size = new System.Drawing.Size(112, 99);
+            this.lbInfoFilesLabel.Size = new System.Drawing.Size(60, 13);
             this.lbInfoFilesLabel.TabIndex = 2;
             this.lbInfoFilesLabel.Text = "files loaded";
             // 
@@ -1784,6 +1804,157 @@ namespace NEO_TWEWY_Randomizer
             this.ttFormMain.IsBalloon = true;
             this.ttFormMain.ReshowDelay = 100;
             // 
+            // panelInfo
+            // 
+            this.panelInfo.AutoScroll = true;
+            this.panelInfo.Controls.Add(this.lbInfoFilesLabel);
+            this.panelInfo.Controls.Add(this.lbInfoFiles);
+            this.panelInfo.Location = new System.Drawing.Point(1, 12);
+            this.panelInfo.Name = "panelInfo";
+            this.panelInfo.Size = new System.Drawing.Size(244, 113);
+            this.panelInfo.TabIndex = 4;
+            // 
+            // tabWalls
+            // 
+            this.tabWalls.Controls.Add(this.grpWalls);
+            this.tabWalls.Location = new System.Drawing.Point(4, 22);
+            this.tabWalls.Name = "tabWalls";
+            this.tabWalls.Size = new System.Drawing.Size(768, 382);
+            this.tabWalls.TabIndex = 9;
+            this.tabWalls.Text = "Walls";
+            this.tabWalls.UseVisualStyleBackColor = true;
+            // 
+            // grpWalls
+            // 
+            this.grpWalls.Controls.Add(this.checkWallsNoItems);
+            this.grpWalls.Controls.Add(this.radioWallsRandom);
+            this.grpWalls.Controls.Add(this.radioWallsShuffle);
+            this.grpWalls.Controls.Add(this.radioWallsUnchanged);
+            this.grpWalls.Controls.Add(this.grpWallsMissions);
+            this.grpWalls.Location = new System.Drawing.Point(6, 6);
+            this.grpWalls.Name = "grpWalls";
+            this.grpWalls.Size = new System.Drawing.Size(380, 196);
+            this.grpWalls.TabIndex = 0;
+            this.grpWalls.TabStop = false;
+            this.grpWalls.Text = "Wall Requirements";
+            // 
+            // grpWallsMissions
+            // 
+            this.grpWallsMissions.Controls.Add(this.checkWallsClothingBrand);
+            this.grpWallsMissions.Controls.Add(this.checkWallsClothing);
+            this.grpWallsMissions.Controls.Add(this.checkWallsPin);
+            this.grpWallsMissions.Controls.Add(this.checkWallsNoiseIcon);
+            this.grpWallsMissions.Controls.Add(this.checkWallsNoise);
+            this.grpWallsMissions.Controls.Add(this.checkWallsReduction);
+            this.grpWallsMissions.Location = new System.Drawing.Point(174, 19);
+            this.grpWallsMissions.Name = "grpWallsMissions";
+            this.grpWallsMissions.Size = new System.Drawing.Size(200, 171);
+            this.grpWallsMissions.TabIndex = 0;
+            this.grpWallsMissions.TabStop = false;
+            this.grpWallsMissions.Text = "Randomization Options";
+            // 
+            // radioWallsUnchanged
+            // 
+            this.radioWallsUnchanged.AutoSize = true;
+            this.radioWallsUnchanged.Checked = true;
+            this.radioWallsUnchanged.Location = new System.Drawing.Point(17, 28);
+            this.radioWallsUnchanged.Name = "radioWallsUnchanged";
+            this.radioWallsUnchanged.Size = new System.Drawing.Size(81, 17);
+            this.radioWallsUnchanged.TabIndex = 1;
+            this.radioWallsUnchanged.TabStop = true;
+            this.radioWallsUnchanged.Text = "Unchanged";
+            this.radioWallsUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioWallsShuffle
+            // 
+            this.radioWallsShuffle.AutoSize = true;
+            this.radioWallsShuffle.Location = new System.Drawing.Point(17, 51);
+            this.radioWallsShuffle.Name = "radioWallsShuffle";
+            this.radioWallsShuffle.Size = new System.Drawing.Size(58, 17);
+            this.radioWallsShuffle.TabIndex = 2;
+            this.radioWallsShuffle.Text = "Shuffle";
+            this.radioWallsShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioWallsRandom
+            // 
+            this.radioWallsRandom.AutoSize = true;
+            this.radioWallsRandom.Location = new System.Drawing.Point(17, 74);
+            this.radioWallsRandom.Name = "radioWallsRandom";
+            this.radioWallsRandom.Size = new System.Drawing.Size(65, 17);
+            this.radioWallsRandom.TabIndex = 3;
+            this.radioWallsRandom.Text = "Random";
+            this.radioWallsRandom.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsNoItems
+            // 
+            this.checkWallsNoItems.AutoSize = true;
+            this.checkWallsNoItems.Location = new System.Drawing.Point(17, 108);
+            this.checkWallsNoItems.Name = "checkWallsNoItems";
+            this.checkWallsNoItems.Size = new System.Drawing.Size(151, 17);
+            this.checkWallsNoItems.TabIndex = 4;
+            this.checkWallsNoItems.Text = "Remove item requirements";
+            this.checkWallsNoItems.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsReduction
+            // 
+            this.checkWallsReduction.AutoSize = true;
+            this.checkWallsReduction.Location = new System.Drawing.Point(21, 19);
+            this.checkWallsReduction.Name = "checkWallsReduction";
+            this.checkWallsReduction.Size = new System.Drawing.Size(110, 17);
+            this.checkWallsReduction.TabIndex = 0;
+            this.checkWallsReduction.Text = "Reduction Battles";
+            this.checkWallsReduction.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsNoise
+            // 
+            this.checkWallsNoise.AutoSize = true;
+            this.checkWallsNoise.Location = new System.Drawing.Point(21, 43);
+            this.checkWallsNoise.Name = "checkWallsNoise";
+            this.checkWallsNoise.Size = new System.Drawing.Size(94, 17);
+            this.checkWallsNoise.TabIndex = 1;
+            this.checkWallsNoise.Text = "Specific Noise";
+            this.checkWallsNoise.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsNoiseIcon
+            // 
+            this.checkWallsNoiseIcon.AutoSize = true;
+            this.checkWallsNoiseIcon.Location = new System.Drawing.Point(21, 66);
+            this.checkWallsNoiseIcon.Name = "checkWallsNoiseIcon";
+            this.checkWallsNoiseIcon.Size = new System.Drawing.Size(118, 17);
+            this.checkWallsNoiseIcon.TabIndex = 2;
+            this.checkWallsNoiseIcon.Text = "Specific Noise Icon";
+            this.checkWallsNoiseIcon.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsPin
+            // 
+            this.checkWallsPin.AutoSize = true;
+            this.checkWallsPin.Location = new System.Drawing.Point(21, 89);
+            this.checkWallsPin.Name = "checkWallsPin";
+            this.checkWallsPin.Size = new System.Drawing.Size(82, 17);
+            this.checkWallsPin.TabIndex = 3;
+            this.checkWallsPin.Text = "Specific Pin";
+            this.checkWallsPin.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsClothing
+            // 
+            this.checkWallsClothing.AutoSize = true;
+            this.checkWallsClothing.Location = new System.Drawing.Point(21, 112);
+            this.checkWallsClothing.Name = "checkWallsClothing";
+            this.checkWallsClothing.Size = new System.Drawing.Size(105, 17);
+            this.checkWallsClothing.TabIndex = 4;
+            this.checkWallsClothing.Text = "Specific Clothing";
+            this.checkWallsClothing.UseVisualStyleBackColor = true;
+            // 
+            // checkWallsClothingBrand
+            // 
+            this.checkWallsClothingBrand.AutoSize = true;
+            this.checkWallsClothingBrand.Location = new System.Drawing.Point(21, 135);
+            this.checkWallsClothingBrand.Name = "checkWallsClothingBrand";
+            this.checkWallsClothingBrand.Size = new System.Drawing.Size(136, 17);
+            this.checkWallsClothingBrand.TabIndex = 5;
+            this.checkWallsClothingBrand.Text = "Specific Clothing Brand";
+            this.checkWallsClothingBrand.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1857,6 +2028,13 @@ namespace NEO_TWEWY_Randomizer
             this.grpSettingString.PerformLayout();
             this.grpSeed.ResumeLayout(false);
             this.grpSeed.PerformLayout();
+            this.panelInfo.ResumeLayout(false);
+            this.panelInfo.PerformLayout();
+            this.tabWalls.ResumeLayout(false);
+            this.grpWalls.ResumeLayout(false);
+            this.grpWalls.PerformLayout();
+            this.grpWallsMissions.ResumeLayout(false);
+            this.grpWallsMissions.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1996,6 +2174,20 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.RadioButton radioStoryGemsUnchanged;
         private System.Windows.Forms.CheckBox checkStoryGlobalGems;
         private System.Windows.Forms.RadioButton radioStoryGemsRandom;
+        private System.Windows.Forms.Panel panelInfo;
+        private System.Windows.Forms.TabPage tabWalls;
+        private System.Windows.Forms.GroupBox grpWalls;
+        private System.Windows.Forms.CheckBox checkWallsNoItems;
+        private System.Windows.Forms.RadioButton radioWallsRandom;
+        private System.Windows.Forms.RadioButton radioWallsShuffle;
+        private System.Windows.Forms.RadioButton radioWallsUnchanged;
+        private System.Windows.Forms.GroupBox grpWallsMissions;
+        private System.Windows.Forms.CheckBox checkWallsClothingBrand;
+        private System.Windows.Forms.CheckBox checkWallsClothing;
+        private System.Windows.Forms.CheckBox checkWallsPin;
+        private System.Windows.Forms.CheckBox checkWallsNoiseIcon;
+        private System.Windows.Forms.CheckBox checkWallsNoise;
+        private System.Windows.Forms.CheckBox checkWallsReduction;
     }
 }
 

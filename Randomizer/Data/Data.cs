@@ -28,12 +28,23 @@ namespace NEO_TWEWY_Randomizer
                 assetsManager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
         }
 
-        public string GetScriptFile(string className)
+        public string GetScriptFile(string fileName)
         {
-            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
+            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(fileName);
             AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
 
-            return baseField.Get(FileConstants.Bundles[bundleKey].Classes[className].Attribute).GetValue().AsString();
+            string assetType = FileConstants.Bundles[bundleKey].Files[fileName].AssetType;
+
+            if (assetType == FileConstants.TextAssetType)
+            {
+                return GetTextAssetScriptFile(fileInfo, baseField);
+            }
+            else if (assetType == FileConstants.ScenarioAssetType)
+            {
+                return GetScenarioAssetScriptFile(fileInfo, baseField);
+            }
+
+            return "";
         }
 
         public void SetScriptFiles(Dictionary<string, string> scripts)
@@ -43,7 +54,18 @@ namespace NEO_TWEWY_Randomizer
             {
                 AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(script.Key);
                 AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
-                baseField.Get(FileConstants.Bundles[bundleKey].Classes[script.Key].Attribute).GetValue().Set(script.Value);
+
+                string assetType = FileConstants.Bundles[bundleKey].Files[script.Key].AssetType;
+
+                if (assetType == FileConstants.TextAssetType)
+                {
+                    SetTextAssetScriptFile(fileInfo, baseField, script.Value);
+                }
+                else if (assetType == FileConstants.ScenarioAssetType)
+                {
+                    SetScenarioAssetScriptFile(fileInfo, baseField, script.Value);
+                }
+                
                 replacers.Add(new AssetsReplacerFromMemory(0, fileInfo.index, (int)fileInfo.curFileType, 0xffff, baseField.WriteToByteArray()));
             }
 
@@ -55,9 +77,9 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        public AssetTypeValueField GetBaseField(string className)
+        public AssetTypeValueField GetBaseField(string fileName)
         {
-            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(className);
+            AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(fileName);
             return assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
         }
 
@@ -74,6 +96,27 @@ namespace NEO_TWEWY_Randomizer
         public byte[] GetNewData()
         {
             return newData;
+        }
+
+        private string GetTextAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField)
+        {
+            return baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().AsString();
+        }
+
+        private string GetScenarioAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField)
+        {
+            // TODO: Scenario Asset handling
+            return "";
+        }
+
+        private void SetTextAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField, string newValue)
+        {
+            baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().Set(newValue);
+        }
+
+        private void SetScenarioAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField, string newValue)
+        {
+            // TODO: Scenario Asset handling
         }
     }
 }

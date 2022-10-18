@@ -3,42 +3,42 @@
 		"key": "text-data",
 		"file_name": "4017d8fc.unity3d",
 		"cab_directory": "CAB-69ae4a77338c6711e85a72e9f85eed3c",
-		"classes": {
+		"files": {
 			"EnemyData": {
 				"name": "EnemyData",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"EnemyReport": {
 				"name": "EnemyReport",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"PigData": {
 				"name": "PigData",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"Badge": {
 				"name": "Badge",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"Psychic": {
 				"name": "Psychic",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"AttackComboSet": {
 				"name": "AttackComboSet",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"Attack": {
 				"name": "Attack",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"AttackHit": {
 				"name": "AttackHit",
-				"attribute": "m_Script"
+				"type": "text"
 			},
 			"ScenarioRewards": {
 				"name": "ScenarioRewards",
-				"attribute": "m_Script"
+				"type": "text"
 			}
 		}
 	},
@@ -46,10 +46,14 @@
 		"key": "w1d2-scenario",
 		"file_name": "8b022f77.unity3d",
 		"cab_directory": "CAB-84e9504e429f96994d54dec104b3409e",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
+			},
+			"story_w1d2_03_065_mission": {
+				"name": "story_w1d2_03_065_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -57,10 +61,10 @@
 		"key": "w1d3-scenario",
 		"file_name": "2da9a412.unity3d",
 		"cab_directory": "CAB-308baeff91dd4866a17ee218fb3cef9d",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -68,10 +72,10 @@
 		"key": "w1d4-scenario",
 		"file_name": "bb1573d5.unity3d",
 		"cab_directory": "CAB-e43c029612d3e89d0c0a292a02f00860",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -79,10 +83,10 @@
 		"key": "w1d7-scenario",
 		"file_name": "a30bd1a6.unity3d",
 		"cab_directory": "CAB-1dc02201a9d148bba6a4d85ae174d8f2",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -90,10 +94,10 @@
 		"key": "w2d1-scenario",
 		"file_name": "33ab1057.unity3d",
 		"cab_directory": "CAB-1f96de1042acc363e28f698e2936bb6f",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -101,10 +105,10 @@
 		"key": "w2d2-scenario",
 		"file_name": "91039bbc.unity3d",
 		"cab_directory": "CAB-f0847c0b10c3ca3398e70d0ff531acf9",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -112,10 +116,10 @@
 		"key": "w2d5-scenario",
 		"file_name": "a90d3deb.unity3d",
 		"cab_directory": "CAB-610a711252718139df0c19c6c44250aa",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -123,10 +127,10 @@
 		"key": "w2d7-scenario",
 		"file_name": "63be54b5.unity3d",
 		"cab_directory": "CAB-2978becd030218017f77faf0a83112cd",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -134,10 +138,10 @@
 		"key": "w3d2-scenario",
 		"file_name": "ef906d01.unity3d",
 		"cab_directory": "CAB-987919be662360fc1280b7326c4b26ae",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	},
@@ -145,10 +149,10 @@
 		"key": "w3d6-scenario",
 		"file_name": "64f29a95.unity3d",
 		"cab_directory": "CAB-b8dde0e2ba94ef9a4550aeefda4e336e",
-		"classes": {
-			"Scenario": {
-				"name": "Scenario",
-				"attribute": ""
+		"files": {
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
 			}
 		}
 	}

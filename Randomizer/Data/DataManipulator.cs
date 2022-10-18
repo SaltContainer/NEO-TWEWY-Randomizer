@@ -69,16 +69,19 @@ namespace NEO_TWEWY_Randomizer
             BundleFileInstance bundleInstance = data.GetBundle();
             string cabDirName = FileConstants.Bundles[bundleKey].CabDirectory;
 
-            BundleReplacerFromMemory bundleReplacer = new BundleReplacerFromMemory(cabDirName, cabDirName, true, data.GetNewData(), -1);
-            AssetsFileWriter bundleWriter = new AssetsFileWriter(File.OpenWrite(fileName));
-            bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
+            if (data.GetNewData() != null)
+            {
+                BundleReplacerFromMemory bundleReplacer = new BundleReplacerFromMemory(cabDirName, cabDirName, true, data.GetNewData(), -1);
+                AssetsFileWriter bundleWriter = new AssetsFileWriter(File.OpenWrite(fileName));
+                bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
 
-            bundleWriter.Close();
+                bundleWriter.Close();
+            }
         }
 
-        public string GetScriptFileFromBundle(string bundleKey, string className)
+        public string GetScriptFileFromBundle(string bundleKey, string fileName)
         {
-            return dataFiles[bundleKey].GetScriptFile(className);
+            return dataFiles[bundleKey].GetScriptFile(fileName);
         }
 
         public void SetScriptFilesToBundle(string bundleKey, Dictionary<string, string> scripts)

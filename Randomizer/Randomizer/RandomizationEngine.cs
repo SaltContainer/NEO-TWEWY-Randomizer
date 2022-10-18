@@ -33,6 +33,7 @@ namespace NEO_TWEWY_Randomizer
 
         public void Randomize(RandomizationSettings settings)
         {
+            string test = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104DogenzakaFileName);
             if (rand == null) rand = new Random();
 
             logger = new RandomizationLogger();
@@ -44,7 +45,7 @@ namespace NEO_TWEWY_Randomizer
             scripts.AddRange(RandomizePinStats(settings));
             scripts.AddRange(RandomizeStoryRewards(settings));
 
-            dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
+            dataManipulator.SetScriptFilesToBundle(TextDataFileNames.TextDataBundleKey, scripts);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -63,14 +64,14 @@ namespace NEO_TWEWY_Randomizer
         private Dictionary<string, string> GetBaseScripts()
         {
             Dictionary<string, string> obtainedScripts = new Dictionary<string, string>();
-            obtainedScripts.Add(FileConstants.EnemyDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName));
-            obtainedScripts.Add(FileConstants.PigDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PigDataClassName));
-            obtainedScripts.Add(FileConstants.BadgeClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.BadgeClassName));
-            obtainedScripts.Add(FileConstants.PsychicClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PsychicClassName));
-            obtainedScripts.Add(FileConstants.AttackComboSetClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackComboSetClassName));
-            obtainedScripts.Add(FileConstants.AttackClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackClassName));
-            obtainedScripts.Add(FileConstants.AttackHitClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackHitClassName));
-            obtainedScripts.Add(FileConstants.ScenarioRewardsClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.ScenarioRewardsClassName));
+            obtainedScripts.Add(TextDataFileNames.EnemyDataFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.EnemyDataFileName));
+            obtainedScripts.Add(TextDataFileNames.PigDataFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.PigDataFileName));
+            obtainedScripts.Add(TextDataFileNames.BadgeFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.BadgeFileName));
+            obtainedScripts.Add(TextDataFileNames.PsychicFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.PsychicFileName));
+            obtainedScripts.Add(TextDataFileNames.AttackComboSetFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.AttackComboSetFileName));
+            obtainedScripts.Add(TextDataFileNames.AttackFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.AttackFileName));
+            obtainedScripts.Add(TextDataFileNames.AttackHitFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.AttackHitFileName));
+            obtainedScripts.Add(TextDataFileNames.ScenarioRewardsFileName, dataManipulator.GetScriptFileFromBundle(TextDataFileNames.TextDataBundleKey, TextDataFileNames.ScenarioRewardsFileName));
             return obtainedScripts;
         }
 
@@ -148,8 +149,8 @@ namespace NEO_TWEWY_Randomizer
 
         private Dictionary<string, string> RandomizeDroppedPins(RandomizationSettings settings)
         {
-            string enemyDataScript = scripts[FileConstants.EnemyDataClassName];
-            string pigsScript = scripts[FileConstants.PigDataClassName];
+            string enemyDataScript = scripts[TextDataFileNames.EnemyDataFileName];
+            string pigsScript = scripts[TextDataFileNames.PigDataFileName];
 
             EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
             EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
@@ -262,15 +263,15 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) },
-                { FileConstants.PigDataClassName, JsonConvert.SerializeObject(pigData, Formatting.Indented) }
+                { TextDataFileNames.EnemyDataFileName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) },
+                { TextDataFileNames.PigDataFileName, JsonConvert.SerializeObject(pigData, Formatting.Indented) }
             };
             return editedScripts;
         }
 
         private Dictionary<string, string> RandomizeDropRate(RandomizationSettings settings)
         {
-            string enemyDataScript = scripts[FileConstants.EnemyDataClassName];
+            string enemyDataScript = scripts[TextDataFileNames.EnemyDataFileName];
 
             EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
             EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
@@ -329,7 +330,7 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(4)) }
+                { TextDataFileNames.EnemyDataFileName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(4)) }
             };
             return editedScripts;
         }
@@ -338,9 +339,9 @@ namespace NEO_TWEWY_Randomizer
         #region Pin Stats
         private Dictionary<int, List<AttackHit>> FindAttackHitsToModify(List<Badge> pins, AttackHitList dataToSearch)
         {
-            string psychicDataScript = scripts[FileConstants.PsychicClassName];
-            string attackComboSetDataScript = scripts[FileConstants.AttackComboSetClassName];
-            string attackDataScript = scripts[FileConstants.AttackClassName];
+            string psychicDataScript = scripts[TextDataFileNames.PsychicFileName];
+            string attackComboSetDataScript = scripts[TextDataFileNames.AttackComboSetFileName];
+            string attackDataScript = scripts[TextDataFileNames.AttackFileName];
 
             PsychicList psychicDataOriginal = JsonConvert.DeserializeObject<PsychicList>(psychicDataScript);
             AttackComboSetList attackComboSetDataOriginal = JsonConvert.DeserializeObject<AttackComboSetList>(attackComboSetDataScript);
@@ -356,8 +357,8 @@ namespace NEO_TWEWY_Randomizer
 
         private Dictionary<string, string> RandomizePinStats(RandomizationSettings settings)
         {
-            string pinDataScript = scripts[FileConstants.BadgeClassName];
-            string attackHitScript = scripts[FileConstants.AttackHitClassName];
+            string pinDataScript = scripts[TextDataFileNames.BadgeFileName];
+            string attackHitScript = scripts[TextDataFileNames.AttackHitFileName];
 
             BadgeList pinDataOriginal = JsonConvert.DeserializeObject<BadgeList>(pinDataScript);
             BadgeList pinData = JsonConvert.DeserializeObject<BadgeList>(pinDataScript);
@@ -587,8 +588,8 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.BadgeClassName, JsonConvert.SerializeObject(pinData, Formatting.Indented, new FloatFormatConverter(1)) },
-                { FileConstants.AttackHitClassName, JsonConvert.SerializeObject(attackHitData, Formatting.Indented) }
+                { TextDataFileNames.BadgeFileName, JsonConvert.SerializeObject(pinData, Formatting.Indented, new FloatFormatConverter(1)) },
+                { TextDataFileNames.AttackHitFileName, JsonConvert.SerializeObject(attackHitData, Formatting.Indented) }
             };
             return editedScripts;
         }
@@ -618,7 +619,7 @@ namespace NEO_TWEWY_Randomizer
 
         private Dictionary<string, string> RandomizeStoryRewards(RandomizationSettings settings)
         {
-            string scenarioRewardsScript = scripts[FileConstants.ScenarioRewardsClassName];
+            string scenarioRewardsScript = scripts[TextDataFileNames.ScenarioRewardsFileName];
 
             ScenarioRewardsList storyDataOriginal = JsonConvert.DeserializeObject<ScenarioRewardsList>(scenarioRewardsScript);
             ScenarioRewardsList storyData = JsonConvert.DeserializeObject<ScenarioRewardsList>(scenarioRewardsScript);
@@ -789,7 +790,7 @@ namespace NEO_TWEWY_Randomizer
 
             Dictionary<string, string> editedScripts = new Dictionary<string, string>
             {
-                { FileConstants.ScenarioRewardsClassName, JsonConvert.SerializeObject(storyData, Formatting.Indented, new FloatFormatConverter(1)) }
+                { TextDataFileNames.ScenarioRewardsFileName, JsonConvert.SerializeObject(storyData, Formatting.Indented, new FloatFormatConverter(1)) }
             };
             return editedScripts;
         }

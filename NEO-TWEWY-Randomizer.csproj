@@ -159,6 +159,8 @@
     <Compile Include="Randomizer\Randomizer\Settings\RandomizationSettings.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\ItemNames.cs" />
     <Compile Include="Randomizer\Utils\FileConstants\NameAssociation.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\ScenarioFileNames.cs" />
+    <Compile Include="Randomizer\Utils\FileConstants\TextDataFileNames.cs" />
     <Compile Include="Randomizer\Utils\FloatFormatConverter.cs" />
     <Compile Include="Randomizer\Utils\SourceLinks.cs" />
     <Compile Include="Randomizer\Data\DataAddresses.cs" />

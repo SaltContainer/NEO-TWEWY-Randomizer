@@ -14,15 +14,10 @@ namespace NEO_TWEWY_Randomizer
         public static EnemyDuplicateList EnemyDataDuplicates { get; } = JsonConvert.DeserializeObject<EnemyDuplicateList>(Resources.enemy_sets);
         public static SettingsStringVersionList SettingsStringVersions { get; } = JsonConvert.DeserializeObject<SettingsStringVersionList>(Resources.settings_string_versions);
         public static ItemNames ItemNames { get; } = JsonConvert.DeserializeObject<ItemNames>(Resources.id_list);
-        public static string TextDataBundleKey { get; } = "text-data";
-        public static string EnemyDataClassName { get; } = "EnemyData";
-        public static string EnemyReportClassName { get; } = "EnemyReport";
-        public static string PigDataClassName { get; } = "PigData";
-        public static string BadgeClassName { get; } = "Badge";
-        public static string PsychicClassName { get; } = "Psychic";
-        public static string AttackComboSetClassName { get; } = "AttackComboSet";
-        public static string AttackClassName { get; } = "Attack";
-        public static string AttackHitClassName { get; } = "AttackHit";
-        public static string ScenarioRewardsClassName { get; } = "ScenarioRewards";
+
+        public static string TextAssetType { get; } = "text";
+        public static string TextAssetAttributeKey { get; } = "m_Script";
+
+        public static string ScenarioAssetType { get; } = "scenario";
     }
 }

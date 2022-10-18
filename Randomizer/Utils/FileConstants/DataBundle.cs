@@ -15,7 +15,7 @@ namespace NEO_TWEWY_Randomizer
         public string FileName { get; set; }
         [JsonProperty("cab_directory")]
         public string CabDirectory { get; set; }
-        [JsonProperty("classes")]
-        public Dictionary<string, DataClass> Classes { get; set; }
+        [JsonProperty("files")]
+        public Dictionary<string, DataClass> Files { get; set; }
     }
 }

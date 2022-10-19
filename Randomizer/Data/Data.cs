@@ -105,8 +105,7 @@ namespace NEO_TWEWY_Randomizer
 
         private string GetScenarioAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField)
         {
-            // TODO: Scenario Asset handling
-            return "";
+            return MonoBehaviorConverter.ConvertFromBaseField(baseField);
         }
 
         private void SetTextAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField, string newValue)

@@ -717,22 +717,29 @@ namespace NEO_TWEWY_Randomizer
                 fileDialog.RestoreDirectory = true;
                 fileDialog.Title = string.Format("Select the {0} bundle file...", bundleNeeded.FileName);
 
-                if (fileDialog.ShowDialog() == DialogResult.OK)
-                    files.Add(bundleNeeded.Key, fileDialog.FileName);
+                // TODO: REMOVE TESTING
+                if (bundleNeeded.Key == "w1d2-scenario")
+                {
+                    if (fileDialog.ShowDialog() == DialogResult.OK)
+                        files.Add(bundleNeeded.Key, fileDialog.FileName);
+                }
             }
             bool result = randomizationEngine.LoadFiles(files);
             if (result)
             {
-                if (randomizationEngine.AreFilesLoaded())
+                // TODO: REMOVE TESTING
+                //if (randomizationEngine.AreFilesLoaded())
                     UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
-                btnSave.Enabled = randomizationEngine.AreFilesLoaded();
-                btnOpen.Enabled = !randomizationEngine.AreFilesLoaded();
+                btnSave.Enabled = true;//randomizationEngine.AreFilesLoaded();
+                btnOpen.Enabled = false;//!randomizationEngine.AreFilesLoaded();
             }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (Validator.ValidateSeed(textSeedSeed.Text))
+            // TODO: REMOVE TESTING
+            randomizationEngine.TestMethod();
+            /*if (Validator.ValidateSeed(textSeedSeed.Text))
             {
                 FolderBrowserDialog fileDialog = new FolderBrowserDialog();
                 fileDialog.RootFolder = Environment.SpecialFolder.Desktop;
@@ -755,7 +762,7 @@ namespace NEO_TWEWY_Randomizer
                 {
                     MessageBox.Show("An error occured while trying to select a folder. Please retry.", "Folder error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
+            }*/
         }
         #endregion File Handling
 

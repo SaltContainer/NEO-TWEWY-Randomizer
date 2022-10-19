@@ -31,9 +31,15 @@ namespace NEO_TWEWY_Randomizer
             return dataManipulator.AreFilesLoaded();
         }
 
-        public void Randomize(RandomizationSettings settings)
+        // TODO: REMOVE TESTING
+        public void TestMethod()
         {
             string test = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104DogenzakaFileName);
+            Scenario scenario = JsonConvert.DeserializeObject<Scenario>(test);
+        }
+
+        public void Randomize(RandomizationSettings settings)
+        {
             if (rand == null) rand = new Random();
 
             logger = new RandomizationLogger();

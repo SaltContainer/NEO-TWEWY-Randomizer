@@ -47,8 +47,24 @@
 		"file_name": "8b022f77.unity3d",
 		"cab_directory": "CAB-84e9504e429f96994d54dec104b3409e",
 		"files": {
+			"story_w1d2_01_040_mission": {
+				"name": "story_w1d2_01_040_mission",
+				"type": "scenario"
+			},
+			"story_w1d2_01_042_mission": {
+				"name": "story_w1d2_01_042_mission",
+				"type": "scenario"
+			},
 			"story_w1d2_01_050_mission": {
 				"name": "story_w1d2_01_050_mission",
+				"type": "scenario"
+			},
+			"story_w1d2_03_060_mission": {
+				"name": "story_w1d2_03_060_mission",
+				"type": "scenario"
+			},
+			"story_w1d2_03_062_mission": {
+				"name": "story_w1d2_03_062_mission",
 				"type": "scenario"
 			},
 			"story_w1d2_03_065_mission": {

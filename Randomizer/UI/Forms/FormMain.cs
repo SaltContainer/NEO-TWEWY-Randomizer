@@ -739,7 +739,7 @@ namespace NEO_TWEWY_Randomizer
         {
             // TODO: REMOVE TESTING
             randomizationEngine.TestMethod();
-            /*if (Validator.ValidateSeed(textSeedSeed.Text))
+            if (Validator.ValidateSeed(textSeedSeed.Text))
             {
                 FolderBrowserDialog fileDialog = new FolderBrowserDialog();
                 fileDialog.RootFolder = Environment.SpecialFolder.Desktop;
@@ -749,8 +749,8 @@ namespace NEO_TWEWY_Randomizer
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                 {
                     int seed = int.Parse(textSeedSeed.Text);
-                    randomizationEngine.Randomize(GenerateRandomizationSettings(), seed);
-                    UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Randomized"));
+                    //randomizationEngine.Randomize(GenerateRandomizationSettings(), seed);
+                    //UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Randomized"));
                     bool result = randomizationEngine.Save(fileDialog.SelectedPath, seed);
                     if (result)
                     {
@@ -762,7 +762,7 @@ namespace NEO_TWEWY_Randomizer
                 {
                     MessageBox.Show("An error occured while trying to select a folder. Please retry.", "Folder error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }*/
+            }
         }
         #endregion File Handling
 

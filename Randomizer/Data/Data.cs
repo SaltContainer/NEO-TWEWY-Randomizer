@@ -37,11 +37,11 @@ namespace NEO_TWEWY_Randomizer
 
             if (assetType == FileConstants.TextAssetType)
             {
-                return GetTextAssetScriptFile(fileInfo, baseField);
+                return GetTextAssetScriptFile(baseField);
             }
             else if (assetType == FileConstants.ScenarioAssetType)
             {
-                return GetScenarioAssetScriptFile(fileInfo, baseField);
+                return GetScenarioAssetScriptFile(baseField);
             }
 
             return "";
@@ -59,11 +59,11 @@ namespace NEO_TWEWY_Randomizer
 
                 if (assetType == FileConstants.TextAssetType)
                 {
-                    SetTextAssetScriptFile(fileInfo, baseField, script.Value);
+                    SetTextAssetScriptFile(baseField, script.Value);
                 }
                 else if (assetType == FileConstants.ScenarioAssetType)
                 {
-                    SetScenarioAssetScriptFile(fileInfo, baseField, script.Value);
+                    SetScenarioAssetScriptFile(baseField, script.Value);
                 }
                 
                 replacers.Add(new AssetsReplacerFromMemory(0, fileInfo.index, (int)fileInfo.curFileType, 0xffff, baseField.WriteToByteArray()));
@@ -98,24 +98,24 @@ namespace NEO_TWEWY_Randomizer
             return newData;
         }
 
-        private string GetTextAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField)
+        private string GetTextAssetScriptFile(AssetTypeValueField baseField)
         {
             return baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().AsString();
         }
 
-        private string GetScenarioAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField)
+        private string GetScenarioAssetScriptFile(AssetTypeValueField baseField)
         {
-            return MonoBehaviorConverter.ConvertFromBaseField(baseField);
+            return ScenarioAssetConverter.ConvertFromBaseField(baseField);
         }
 
-        private void SetTextAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField, string newValue)
+        private void SetTextAssetScriptFile(AssetTypeValueField baseField, string newValue)
         {
             baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().Set(newValue);
         }
 
-        private void SetScenarioAssetScriptFile(AssetFileInfoEx fileInfo, AssetTypeValueField baseField, string newValue)
+        private void SetScenarioAssetScriptFile(AssetTypeValueField baseField, string newValue)
         {
-            // TODO: Scenario Asset handling
+            ScenarioAssetConverter.InsertInBaseField(baseField, newValue);
         }
     }
 }

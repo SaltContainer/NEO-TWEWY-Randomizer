@@ -34,8 +34,36 @@ namespace NEO_TWEWY_Randomizer
         // TODO: REMOVE TESTING
         public void TestMethod()
         {
-            string test = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104DogenzakaFileName);
-            Scenario scenario = JsonConvert.DeserializeObject<Scenario>(test);
+            logger = new RandomizationLogger();
+
+            string file1 = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104Dogenzaka_Progress);
+            Scenario scenario1 = JsonConvert.DeserializeObject<Scenario>(file1);
+            scenario1.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList.Clear();
+            scenario1.Ready.List[0].Kind.Name = "MissionId";
+            scenario1.Ready.List[0].Kind.SerializedValue = 4;
+            scenario1.Ready.List[0].Index.Name = "WinSeriesBattle02";
+            scenario1.Ready.List[0].Index.SerializedValue = 120010;
+            scenario1.Ready.List[0].ScenarioKindExtension.IndexKind = 4;
+
+            string file2 = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104Dogenzaka_Complete);
+            Scenario scenario2 = JsonConvert.DeserializeObject<Scenario>(file2);
+            scenario2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList.Clear();
+            scenario2.Ready.List[0].Kind.Name = "MissionId";
+            scenario2.Ready.List[0].Kind.SerializedValue = 4;
+            scenario2.Ready.List[0].Index.Name = "WinSeriesBattle02";
+            scenario2.Ready.List[0].Index.SerializedValue = 120010;
+            scenario2.Ready.List[0].ScenarioKindExtension.IndexKind = 4;
+
+            string file3 = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104Dogenzaka_Intro);
+            Scenario scenario3 = JsonConvert.DeserializeObject<Scenario>(file3);
+            scenario3.Result.Add(scenario2.Ready.List[0]);
+
+            Dictionary<string, string> dict = new Dictionary<string, string>() {
+                { ScenarioFileNames.W1D2_104Dogenzaka_Progress, JsonConvert.SerializeObject(scenario1) },
+                { ScenarioFileNames.W1D2_104Dogenzaka_Complete, JsonConvert.SerializeObject(scenario2) },
+                { ScenarioFileNames.W1D2_104Dogenzaka_Intro, JsonConvert.SerializeObject(scenario3) }
+            };
+            dataManipulator.SetScriptFilesToBundle("w1d2-scenario", dict);
         }
 
         public void Randomize(RandomizationSettings settings)

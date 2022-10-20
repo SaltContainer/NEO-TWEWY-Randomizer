@@ -13,5 +13,7 @@ namespace NEO_TWEWY_Randomizer
         public string Name { get; set; }
         [JsonProperty("type")]
         public string AssetType { get; set; }
+        [JsonProperty("sub-type")]
+        public string SubType { get; set; }
     }
 }

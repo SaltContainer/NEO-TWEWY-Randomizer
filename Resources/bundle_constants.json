@@ -280,5 +280,317 @@
 				"type": "scenario"
 			}
 		}
+	},
+	"quota-data": {
+		"key": "quota-data",
+		"file_name": "3fe1216d.unity3d",
+		"cab_directory": "CAB-e5fee32a127de60a25c801b562ed893f",
+		"files": {
+			"MatchEquipBrandSO001": {
+				"name": "MatchEquipBrandSO001",
+				"type": "quota",
+				"sub-type": "brand"
+			},
+			"MatchEquipBrandSO002": {
+				"name": "MatchEquipBrandSO002",
+				"type": "quota",
+				"sub-type": "brand"
+			},
+			"MatchEquipBrandSO003": {
+				"name": "MatchEquipBrandSO003",
+				"type": "quota",
+				"sub-type": "brand"
+			},
+			"MatchEquipBrandSO004": {
+				"name": "MatchEquipBrandSO004",
+				"type": "quota",
+				"sub-type": "brand"
+			},
+			"MatchEquipItemSO002": {
+				"name": "MatchEquipItemSO002",
+				"type": "quota",
+				"sub-type": "item"
+			},
+			"MatchEquipItemSO003": {
+				"name": "MatchEquipItemSO003",
+				"type": "quota",
+				"sub-type": "item"
+			},
+			"OwnBadgeSO002": {
+				"name": "OwnBadgeSO002",
+				"type": "quota",
+				"sub-type": "pin"
+			},
+			"OwnBadgeSO003": {
+				"name": "OwnBadgeSO003",
+				"type": "quota",
+				"sub-type": "pin"
+			},
+			"QuotaKillNoiseSO002": {
+				"name": "QuotaKillNoiseSO002",
+				"type": "quota",
+				"sub-type": "noise"
+			},
+			"QuotaKillNoiseSO003": {
+				"name": "QuotaKillNoiseSO003",
+				"type": "quota",
+				"sub-type": "noise"
+			},
+			"QuotaKillNoiseSO004": {
+				"name": "QuotaKillNoiseSO004",
+				"type": "quota",
+				"sub-type": "noise"
+			},
+			"QuotaKillNoiseSO005": {
+				"name": "QuotaKillNoiseSO005",
+				"type": "quota",
+				"sub-type": "noise"
+			},
+			"QuotaKillNoiseSymbolSO_1w1d_01": {
+				"name": "QuotaKillNoiseSymbolSO_1w1d_01",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_1w1d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_1w1d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_1w2d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_1w2d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_1w5d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_1w5d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_1w7d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_1w7d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w1d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w1d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w2d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w2d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w4d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w4d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w5d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w5d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w6d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w6d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_2w7d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_2w7d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w1d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w1d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w2d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w2d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w3d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w3d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w4d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w4d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w5d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w5d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w6d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w6d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w7d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w7d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w8d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w8d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO_boss_3w9d": {
+				"name": "QuotaKillNoiseSymbolSO_boss_3w9d",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO002": {
+				"name": "QuotaKillNoiseSymbolSO002",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO003": {
+				"name": "QuotaKillNoiseSymbolSO003",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO005": {
+				"name": "QuotaKillNoiseSymbolSO005",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO006": {
+				"name": "QuotaKillNoiseSymbolSO006",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO007": {
+				"name": "QuotaKillNoiseSymbolSO007",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"QuotaKillNoiseSymbolSO008": {
+				"name": "QuotaKillNoiseSymbolSO008",
+				"type": "quota",
+				"sub-type": "noise-boss"
+			},
+			"RelationshipSO002": {
+				"name": "RelationshipSO002",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"RelationshipSO003": {
+				"name": "RelationshipSO003",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"RelationshipSO004": {
+				"name": "RelationshipSO004",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"RelationshipSO005": {
+				"name": "RelationshipSO005",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"RelationshipSO006": {
+				"name": "RelationshipSO006",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"RelationshipSO007": {
+				"name": "RelationshipSO007",
+				"type": "quota",
+				"sub-type": "relationship"
+			},
+			"TrophyMissionSO001": {
+				"name": "TrophyMissionSO001",
+				"type": "quota",
+				"sub-type": "trophy"
+			},
+			"WinRoundBattleSO002": {
+				"name": "WinRoundBattleSO002",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinRoundBattleSO003": {
+				"name": "WinRoundBattleSO003",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinRoundBattleSO005": {
+				"name": "WinRoundBattleSO005",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinRoundBattleSO006": {
+				"name": "WinRoundBattleSO006",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinRoundBattleSO007": {
+				"name": "WinRoundBattleSO007",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO002": {
+				"name": "WinSeriesBattleSO002",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO003": {
+				"name": "WinSeriesBattleSO003",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO004_1": {
+				"name": "WinSeriesBattleSO004_1",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO004_2": {
+				"name": "WinSeriesBattleSO004_2",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO005_1": {
+				"name": "WinSeriesBattleSO005_1",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO005_2": {
+				"name": "WinSeriesBattleSO005_2",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO006": {
+				"name": "WinSeriesBattleSO006",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO007": {
+				"name": "WinSeriesBattleSO007",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO008": {
+				"name": "WinSeriesBattleSO008",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO009": {
+				"name": "WinSeriesBattleSO009",
+				"type": "quota",
+				"sub-type": "reduction"
+			},
+			"WinSeriesBattleSO010": {
+				"name": "WinSeriesBattleSO010",
+				"type": "quota",
+				"sub-type": "reduction"
+			}
+		}
 	}
 }

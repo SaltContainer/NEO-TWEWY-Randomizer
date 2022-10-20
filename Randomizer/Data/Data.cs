@@ -43,6 +43,10 @@ namespace NEO_TWEWY_Randomizer
             {
                 return GetScenarioAssetScriptFile(baseField);
             }
+            else if (assetType == FileConstants.QuotaAssetType)
+            {
+                return GetQuotaAssetScriptFile(baseField, FileConstants.Bundles[bundleKey].Files[fileName].SubType);
+            }
 
             return "";
         }
@@ -65,7 +69,11 @@ namespace NEO_TWEWY_Randomizer
                 {
                     SetScenarioAssetScriptFile(baseField, script.Value);
                 }
-                
+                else if (assetType == FileConstants.QuotaAssetType)
+                {
+                    SetQuotaAssetScriptFile(baseField, script.Value);
+                }
+
                 replacers.Add(new AssetsReplacerFromMemory(0, fileInfo.index, (int)fileInfo.curFileType, 0xffff, baseField.WriteToByteArray()));
             }
 
@@ -108,6 +116,11 @@ namespace NEO_TWEWY_Randomizer
             return ScenarioAssetConverter.ConvertFromBaseField(baseField);
         }
 
+        private string GetQuotaAssetScriptFile(AssetTypeValueField baseField, string subtype)
+        {
+            return QuotaAssetConverter.ConvertFromBaseField(baseField, subtype);
+        }
+
         private void SetTextAssetScriptFile(AssetTypeValueField baseField, string newValue)
         {
             baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().Set(newValue);
@@ -116,6 +129,11 @@ namespace NEO_TWEWY_Randomizer
         private void SetScenarioAssetScriptFile(AssetTypeValueField baseField, string newValue)
         {
             ScenarioAssetConverter.InsertInBaseField(baseField, newValue);
+        }
+
+        private void SetQuotaAssetScriptFile(AssetTypeValueField baseField, string newValue)
+        {
+            QuotaAssetConverter.InsertInBaseField(baseField, newValue);
         }
     }
 }

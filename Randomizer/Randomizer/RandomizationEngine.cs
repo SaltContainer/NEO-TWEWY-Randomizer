@@ -36,7 +36,7 @@ namespace NEO_TWEWY_Randomizer
         {
             logger = new RandomizationLogger();
 
-            string file1 = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104Dogenzaka_Progress);
+            /*string file1 = dataManipulator.GetScriptFileFromBundle("w1d2-scenario", ScenarioFileNames.W1D2_104Dogenzaka_Progress);
             Scenario scenario1 = JsonConvert.DeserializeObject<Scenario>(file1);
             scenario1.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList.Clear();
             scenario1.Ready.List[0].Kind.Name = "MissionId";
@@ -62,8 +62,27 @@ namespace NEO_TWEWY_Randomizer
                 { ScenarioFileNames.W1D2_104Dogenzaka_Progress, JsonConvert.SerializeObject(scenario1) },
                 { ScenarioFileNames.W1D2_104Dogenzaka_Complete, JsonConvert.SerializeObject(scenario2) },
                 { ScenarioFileNames.W1D2_104Dogenzaka_Intro, JsonConvert.SerializeObject(scenario3) }
+            };*/
+
+            string file1 = dataManipulator.GetScriptFileFromBundle(QuotaDataFileNames.QuotaDataBundleKey, QuotaDataFileNames.KillNoise2FileName);
+            Quota quota1 = JsonConvert.DeserializeObject<NoiseQuota>(file1);
+
+            string file2 = dataManipulator.GetScriptFileFromBundle(QuotaDataFileNames.QuotaDataBundleKey, QuotaDataFileNames.EquipItem2FileName);
+            Quota quota2 = JsonConvert.DeserializeObject<ItemQuota>(file2);
+
+            string file3 = dataManipulator.GetScriptFileFromBundle(QuotaDataFileNames.QuotaDataBundleKey, QuotaDataFileNames.KillNoiseBossW3D2FileName);
+            Quota quota3 = JsonConvert.DeserializeObject<BossNoiseQuota>(file3);
+
+            string file4 = dataManipulator.GetScriptFileFromBundle(QuotaDataFileNames.QuotaDataBundleKey, QuotaDataFileNames.EquipBrand1FileName);
+            Quota quota4 = JsonConvert.DeserializeObject<BrandQuota>(file4);
+
+            Dictionary<string, string> dict = new Dictionary<string, string>() {
+                { QuotaDataFileNames.KillNoise2FileName, JsonConvert.SerializeObject(quota1) },
+                { QuotaDataFileNames.EquipItem2FileName, JsonConvert.SerializeObject(quota2) },
+                { QuotaDataFileNames.KillNoiseBossW3D2FileName, JsonConvert.SerializeObject(quota3) },
+                { QuotaDataFileNames.EquipBrand1FileName, JsonConvert.SerializeObject(quota4) }
             };
-            dataManipulator.SetScriptFilesToBundle("w1d2-scenario", dict);
+            dataManipulator.SetScriptFilesToBundle(QuotaDataFileNames.QuotaDataBundleKey, dict);
         }
 
         public void Randomize(RandomizationSettings settings)

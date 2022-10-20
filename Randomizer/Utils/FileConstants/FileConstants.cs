@@ -19,5 +19,15 @@ namespace NEO_TWEWY_Randomizer
         public static string TextAssetAttributeKey { get; } = "m_Script";
 
         public static string ScenarioAssetType { get; } = "scenario";
+
+        public static string QuotaAssetType { get; } = "quota";
+        public static string BrandQuotaSubType { get; } = "brand";
+        public static string ItemQuotaSubType { get; } = "item";
+        public static string OwnPinQuotaSubType { get; } = "pin";
+        public static string NoiseQuotaSubType { get; } = "noise";
+        public static string BossNoiseQuotaSubType { get; } = "noise-boss";
+        public static string RelationshipQuotaSubType { get; } = "relationship";
+        public static string TrophyQuotaSubType { get; } = "trophy";
+        public static string ReductionQuotaSubType { get; } = "reduction";
     }
 }

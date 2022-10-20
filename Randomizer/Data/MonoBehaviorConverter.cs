@@ -14,12 +14,12 @@ namespace NEO_TWEWY_Randomizer
             return CreateObject(baseField);
         }
 
-        private static string CreateField(AssetTypeValueField field)
+        public static string CreateField(AssetTypeValueField field)
         {
             return string.Format("\"{0}\":{1}", field.GetName(), GetValue(field));
         }
 
-        private static string CreateObject(AssetTypeValueField field)
+        public static string CreateObject(AssetTypeValueField field)
         {
             List<string> fields = new List<string>();
             foreach (var child in field.GetChildrenList())
@@ -29,7 +29,7 @@ namespace NEO_TWEWY_Randomizer
             return string.Format("{{{0}}}", string.Join(",", fields));
         }
 
-        private static string CreateArray(AssetTypeValueField field)
+        public static string CreateArray(AssetTypeValueField field)
         {
             List<string> fields = new List<string>();
             foreach (var child in field.GetChildrenList())
@@ -39,7 +39,7 @@ namespace NEO_TWEWY_Randomizer
             return string.Format("[{0}]", string.Join(",", fields));
         }
 
-        private static string GetValue(AssetTypeValueField field)
+        public static string GetValue(AssetTypeValueField field)
         {
             int children = field.GetChildrenCount();
             string type = field.GetFieldType();

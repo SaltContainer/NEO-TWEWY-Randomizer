@@ -90,7 +90,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Randomizer\Data\BundleCompressor.cs" />
-    <Compile Include="Randomizer\Data\Data.cs" />
+    <Compile Include="Randomizer\Data\Bundle\Bundle.cs" />
+    <Compile Include="Randomizer\Data\Bundle\QuotaBundle.cs" />
+    <Compile Include="Randomizer\Data\Bundle\ScenarioBundle.cs" />
+    <Compile Include="Randomizer\Data\Bundle\TextBundle.cs" />
     <Compile Include="Randomizer\Data\DataManipulator.cs" />
     <Compile Include="Randomizer\Data\Data\AttackComboSet\AttackComboSet.cs" />
     <Compile Include="Randomizer\Data\Data\AttackComboSet\AttackComboSetList.cs" />
@@ -197,7 +200,6 @@
     <Compile Include="Randomizer\Utils\FloatFormatConverter.cs" />
     <Compile Include="Randomizer\Utils\QuotaJsonConverter.cs" />
     <Compile Include="Randomizer\Utils\SourceLinks.cs" />
-    <Compile Include="Randomizer\Data\DataAddresses.cs" />
     <Compile Include="Randomizer\Utils\Validator.cs" />
     <EmbeddedResource Include="Randomizer\UI\Forms\FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>

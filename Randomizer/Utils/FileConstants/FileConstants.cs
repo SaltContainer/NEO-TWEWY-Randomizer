@@ -15,6 +15,10 @@ namespace NEO_TWEWY_Randomizer
         public static SettingsStringVersionList SettingsStringVersions { get; } = JsonConvert.DeserializeObject<SettingsStringVersionList>(Resources.settings_string_versions);
         public static ItemNames ItemNames { get; } = JsonConvert.DeserializeObject<ItemNames>(Resources.id_list);
 
+        public static string TextBundleType { get; } = "text";
+        public static string ScenarioBundleType { get; } = "scenario";
+        public static string QuotaBundleType { get; } = "quota";
+
         public static string TextAssetType { get; } = "text";
         public static string TextAssetAttributeKey { get; } = "m_Script";
 

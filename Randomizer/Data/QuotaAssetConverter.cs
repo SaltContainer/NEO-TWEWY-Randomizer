@@ -23,7 +23,7 @@ namespace NEO_TWEWY_Randomizer
 
         public static void InsertInBaseField(AssetTypeValueField baseField, string newValue)
         {
-            Quota quota = JsonConvert.DeserializeObject<Quota>(newValue);
+            Quota quota = JsonConvert.DeserializeObject<Quota>(newValue, new QuotaJsonConverter());
         }
     }
 }

@@ -14,13 +14,13 @@ namespace NEO_TWEWY_Randomizer
     {
         private AssetsManager assetsManager;
         private BundleCompressor bundleCompressor;
-        private Dictionary<string, Data> dataFiles;
+        private Dictionary<string, Bundle> dataFiles;
 
         public DataManipulator()
         {
             assetsManager = new AssetsManager();
             bundleCompressor = new BundleCompressor(assetsManager);
-            dataFiles = new Dictionary<string, Data>();
+            dataFiles = new Dictionary<string, Bundle>();
         }
 
         public bool AreFilesLoaded()
@@ -34,8 +34,12 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in fileNames)
                 {
-                    Data data = new Data(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key);
-                    dataFiles.Add(entry.Key, data);
+                    if (FileConstants.Bundles[entry.Key].BundleType == FileConstants.TextBundleType)
+                        dataFiles.Add(entry.Key, new TextBundle(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key));
+                    else if (FileConstants.Bundles[entry.Key].BundleType == FileConstants.ScenarioBundleType)
+                        dataFiles.Add(entry.Key, new ScenarioBundle(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key));
+                    else if (FileConstants.Bundles[entry.Key].BundleType == FileConstants.QuotaBundleType)
+                        dataFiles.Add(entry.Key, new QuotaBundle(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key));
                 }
                 return true;
             }
@@ -65,7 +69,7 @@ namespace NEO_TWEWY_Randomizer
 
         private void SaveBundle(string bundleKey, string fileName)
         {
-            Data data = dataFiles[bundleKey];
+            Bundle data = dataFiles[bundleKey];
             BundleFileInstance bundleInstance = data.GetBundle();
             string cabDirName = FileConstants.Bundles[bundleKey].CabDirectory;
 

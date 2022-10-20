@@ -11,6 +11,8 @@ namespace NEO_TWEWY_Randomizer
     {
         [JsonProperty("key")]
         public string Key { get; set; }
+        [JsonProperty("type")]
+        public string BundleType { get; set; }
         [JsonProperty("file_name")]
         public string FileName { get; set; }
         [JsonProperty("cab_directory")]

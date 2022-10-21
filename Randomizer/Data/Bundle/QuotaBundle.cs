@@ -1,5 +1,6 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ namespace NEO_TWEWY_Randomizer
     {
         public QuotaBundle(AssetsManager assetsManager, BundleFileInstance bundle, string bundleKey) : base(assetsManager, bundle, bundleKey) { }
 
-        public override string GetScriptFile(string fileName)
+        public override JObject GetScriptFile(string fileName)
         {
             AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(fileName);
             AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
@@ -21,7 +22,7 @@ namespace NEO_TWEWY_Randomizer
             return QuotaAssetConverter.ConvertFromBaseField(baseField, FileConstants.Bundles[bundleKey].Files[fileName].SubType);
         }
 
-        public override void SetScriptFiles(Dictionary<string, string> scripts)
+        public override void SetScriptFiles(Dictionary<string, JObject> scripts)
         {
             List<AssetsReplacer> replacers = new List<AssetsReplacer>();
             foreach (var script in scripts)
@@ -42,7 +43,7 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        private void SetQuotaAssetScriptFile(AssetTypeValueField baseField, string newValue)
+        private void SetQuotaAssetScriptFile(AssetTypeValueField baseField, JObject newValue)
         {
             QuotaAssetConverter.InsertInBaseField(baseField, newValue);
         }

@@ -1,5 +1,6 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,15 +14,15 @@ namespace NEO_TWEWY_Randomizer
     {
         public TextBundle(AssetsManager assetsManager, BundleFileInstance bundle, string bundleKey) : base(assetsManager, bundle, bundleKey) { }
 
-        public override string GetScriptFile(string fileName)
+        public override JObject GetScriptFile(string fileName)
         {
             AssetFileInfoEx fileInfo = assetsFile.table.GetAssetInfo(fileName);
             AssetTypeValueField baseField = assetsManager.GetTypeInstance(assetsFile, fileInfo).GetBaseField();
 
-            return baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().AsString();
+            return new JObject(new JProperty(FileConstants.ScriptJObject, baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().AsString()));
         }
 
-        public override void SetScriptFiles(Dictionary<string, string> scripts)
+        public override void SetScriptFiles(Dictionary<string, JObject> scripts)
         {
             List<AssetsReplacer> replacers = new List<AssetsReplacer>();
             foreach (var script in scripts)
@@ -42,9 +43,9 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        private void SetTextAssetScriptFile(AssetTypeValueField baseField, string newValue)
+        private void SetTextAssetScriptFile(AssetTypeValueField baseField, JObject newValue)
         {
-            baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().Set(newValue);
+            baseField.Get(FileConstants.TextAssetAttributeKey).GetValue().Set(newValue.Value<string>(FileConstants.ScriptJObject));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,9 +29,9 @@ namespace NEO_TWEWY_Randomizer
                 assetsManager.LoadClassDatabaseFromPackage(assetsFile.file.typeTree.unityVersion);
         }
 
-        public abstract string GetScriptFile(string fileName);
+        public abstract JObject GetScriptFile(string fileName);
 
-        public abstract void SetScriptFiles(Dictionary<string, string> scripts);
+        public abstract void SetScriptFiles(Dictionary<string, JObject> scripts);
 
         public AssetTypeValueField GetBaseField(string fileName)
         {

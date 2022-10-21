@@ -1,5 +1,7 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,12 +17,15 @@ namespace NEO_TWEWY_Randomizer
         private AssetsManager assetsManager;
         private BundleCompressor bundleCompressor;
         private Dictionary<string, Bundle> dataFiles;
+        private JsonSerializer bundleSerializer;
 
         public DataManipulator()
         {
             assetsManager = new AssetsManager();
             bundleCompressor = new BundleCompressor(assetsManager);
             dataFiles = new Dictionary<string, Bundle>();
+            bundleSerializer = new JsonSerializer();
+            bundleSerializer.Converters.Add(new QuotaJsonConverter());
         }
 
         public bool AreFilesLoaded()
@@ -83,14 +88,19 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        public string GetScriptFileFromBundle(string bundleKey, string fileName)
+        public JObject GetScriptFileFromBundle(string bundleKey, string fileName)
         {
             return dataFiles[bundleKey].GetScriptFile(fileName);
         }
 
-        public void SetScriptFilesToBundle(string bundleKey, Dictionary<string, string> scripts)
+        public void SetScriptFilesToBundle(string bundleKey, Dictionary<string, JObject> scripts)
         {
             dataFiles[bundleKey].SetScriptFiles(scripts);
+        }
+
+        public JsonSerializer GetBundleSerializer()
+        {
+            return bundleSerializer;
         }
     }
 }

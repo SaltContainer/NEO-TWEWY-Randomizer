@@ -718,7 +718,7 @@ namespace NEO_TWEWY_Randomizer
                 fileDialog.Title = string.Format("Select the {0} bundle file...", bundleNeeded.FileName);
 
                 // TODO: REMOVE TESTING
-                if (bundleNeeded.Key == QuotaDataFileNames.QuotaDataBundleKey)
+                if (bundleNeeded.Key == QuotaDataFileNames.QuotaDataBundleKey || bundleNeeded.Key == TextDataFileNames.TextDataBundleKey)
                 {
                     if (fileDialog.ShowDialog() == DialogResult.OK)
                         files.Add(bundleNeeded.Key, fileDialog.FileName);

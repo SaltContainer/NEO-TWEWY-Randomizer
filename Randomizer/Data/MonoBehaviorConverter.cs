@@ -1,4 +1,5 @@
 ﻿using AssetsTools.NET;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,59 @@ namespace NEO_TWEWY_Randomizer
 {
     static class MonoBehaviorConverter
     {
-        public static string ConvertFromBaseField(AssetTypeValueField baseField)
+        public static JObject ConvertFromBaseField(AssetTypeValueField baseField)
+        {
+            return new JObject(
+                    new JProperty(FileConstants.ScriptJObject, CreateObject(baseField))
+                );
+        }
+
+        public static JProperty CreateField(AssetTypeValueField field)
+        {
+            return new JProperty(field.GetName(), GetValue(field));
+        }
+
+        public static JObject CreateObject(AssetTypeValueField field)
+        {
+            return new JObject(
+                    from c in field.GetChildrenList()
+                    select CreateField(c)
+                );
+        }
+
+        public static JArray CreateArray(AssetTypeValueField field)
+        {
+            return new JArray(
+                    from c in field.GetChildrenList()
+                    select GetValue(c)
+                );
+        }
+
+        public static JToken GetValue(AssetTypeValueField field)
+        {
+            int children = field.GetChildrenCount();
+            string type = field.GetFieldType();
+
+            if (children == 1 && field.GetChildrenList()[0].GetName() == "Array")
+                return CreateArray(field.GetChildrenList()[0]);
+
+            switch (type)
+            {
+                case "string":
+                    return new JValue(field.GetValue().AsString());
+                case "UInt8":
+                    return new JValue(field.GetValue().AsUInt());
+                case "int":
+                case "Int32":
+                    return new JValue(field.GetValue().AsInt());
+                case "SInt64":
+                    return new JValue(field.GetValue().AsInt64());
+                default:
+                    return CreateObject(field);
+            }
+        }
+
+        /*public static string ConvertFromBaseField(AssetTypeValueField baseField)
         {
             return CreateObject(baseField);
         }
@@ -61,6 +114,6 @@ namespace NEO_TWEWY_Randomizer
                 default:
                     return CreateObject(field);
             }
-        }
+        }*/
     }
 }

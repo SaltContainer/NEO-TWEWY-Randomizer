@@ -1,10 +1,8 @@
-﻿using AssetsTools.NET;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -56,7 +54,7 @@ namespace NEO_TWEWY_Randomizer
         public bool Save(string filePath, int seed)
         {
             bool result = dataManipulator.SaveBundles(filePath);
-            result = result && logger.SaveLogToFile(string.Format("{0}\\Randomization-Log-{1}.log", filePath, seed.ToString()));
+            result = result && logger.SaveLogToFile(Path.Combine(filePath, string.Format("Randomization-Log-{0}.log", seed.ToString())));
             return result;
         }
 

@@ -34,7 +34,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in fileNames)
                 {
-                    Data data = new Data(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value), entry.Key);
+                    Data data = new Data(assetsManager, bundleCompressor.LoadAndDecompressFile(entry.Value, out bool encrypted), entry.Key, encrypted);
                     dataFiles.Add(entry.Key, data);
                 }
                 return true;
@@ -52,7 +52,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in dataFiles)
                 {
-                    SaveBundle(entry.Key, string.Format("{0}/{1}", filePath, FileConstants.Bundles[entry.Key].FileName));
+                    SaveBundle(entry.Key, Path.Combine(filePath, FileConstants.Bundles[entry.Key].FileName));
                 }
                 return true;
             }
@@ -70,10 +70,31 @@ namespace NEO_TWEWY_Randomizer
             string cabDirName = FileConstants.Bundles[bundleKey].CabDirectory;
 
             BundleReplacerFromMemory bundleReplacer = new BundleReplacerFromMemory(cabDirName, cabDirName, true, data.GetNewData(), -1);
-            AssetsFileWriter bundleWriter = new AssetsFileWriter(File.OpenWrite(fileName));
-            bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
 
-            bundleWriter.Close();
+            if (data.IsEncrypted())
+            {
+                var memStream = new MemoryStream();
+                AssetsFileWriter bundleWriter = new AssetsFileWriter(memStream);
+                bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
+                bundleWriter.Flush();
+
+                Unity3dCrypto.TryEncryptFile(memStream.ToArray(), out byte[] result);
+                using (FileStream stream = File.OpenWrite(fileName))
+                {
+                    stream.Write(result, 0, result.Length);
+                }
+
+                bundleWriter.Close();
+            }
+            else
+            {
+                using (FileStream stream = File.OpenWrite(fileName))
+                {
+                    AssetsFileWriter bundleWriter = new AssetsFileWriter(stream);
+                    bundleInstance.file.Write(bundleWriter, new List<BundleReplacer>() { bundleReplacer });
+                    bundleWriter.Close();
+                } 
+            }
         }
 
         public string GetScriptFileFromBundle(string bundleKey, string className)

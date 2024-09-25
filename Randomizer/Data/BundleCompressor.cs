@@ -18,9 +18,30 @@ namespace NEO_TWEWY_Randomizer
             this.assetsManager = assetsManager;
         }
 
-        public BundleFileInstance LoadAndDecompressFile(string fileName)
+        public BundleFileInstance LoadAndDecompressFile(string fileName, out bool encrypted)
         {
-            BundleFileInstance bundle = assetsManager.LoadBundleFile(fileName);
+            BundleFileInstance bundle;
+
+            if (!Unity3dCrypto.TryDecryptFile(fileName, out byte[] decryptedData))
+            {
+                // Not encrypted
+                bundle = assetsManager.LoadBundleFile(fileName);
+                encrypted = false;
+            }
+            else
+            {
+                // Encrypted
+                using (FileStream stream = new FileStream(fileName + "_decrypted", FileMode.OpenOrCreate, FileAccess.ReadWrite))
+                {
+                    stream.Write(decryptedData, 0, decryptedData.Length);
+
+                    stream.Position = 0;
+                    bundle = assetsManager.LoadBundleFile(stream);
+                }
+
+                encrypted = true;
+            } 
+
             bundle.file.reader.Position = 0;
 
             MemoryStream bundleStream = new MemoryStream();

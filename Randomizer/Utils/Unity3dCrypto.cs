@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -30,69 +31,97 @@ namespace NEO_TWEWY_Randomizer
 
         public static bool TryProcessFile(string fileName, out byte[] result)
         {
-            Rijndael crypto = new Rijndael(Unity3dKey, Unity3dIv);
-
-            using (FileStream fileStream = File.OpenRead(fileName))
+            using (var aes = Aes.Create())
             {
-                using (BinaryReader stream = new BinaryReader(fileStream))
-                {
-                    byte[] header = stream.ReadBytes(7);
-                    byte[] magic = stream.ReadBytes(25);
+                aes.Padding = PaddingMode.PKCS7;
+                aes.Mode = CipherMode.CBC;
+                aes.BlockSize = 128;
+                aes.Key = Unity3dKey;
+                aes.IV = Unity3dIv;
 
-                    if (TryEncryptFile(stream, crypto, header, magic, out result))
-                        return true;
-                    else if (TryDecryptFile(stream, crypto, header, magic, out result))
-                        return true;
-                    else
-                        return false;
+                using (FileStream fileStream = File.OpenRead(fileName))
+                {
+                    using (BinaryReader stream = new BinaryReader(fileStream))
+                    {
+                        byte[] header = stream.ReadBytes(7);
+                        byte[] magic = stream.ReadBytes(25);
+
+                        if (TryEncryptFile(stream, aes, header, magic, out result))
+                            return true;
+                        else if (TryDecryptFile(stream, aes, header, magic, out result))
+                            return true;
+                        else
+                            return false;
+                    }
                 }
             }
         }
 
         public static bool TryEncryptFile(string fileName, out byte[] result)
         {
-            Rijndael crypto = new Rijndael(Unity3dKey, Unity3dIv);
-
-            using (FileStream fileStream = File.OpenRead(fileName))
+            using (var aes = Aes.Create())
             {
-                using (BinaryReader stream = new BinaryReader(fileStream))
-                {
-                    byte[] header = stream.ReadBytes(7);
-                    byte[] magic = stream.ReadBytes(25);
+                aes.Padding = PaddingMode.PKCS7;
+                aes.Mode = CipherMode.CBC;
+                aes.BlockSize = 128;
+                aes.Key = Unity3dKey;
+                aes.IV = Unity3dIv;
 
-                    return TryEncryptFile(stream, crypto, header, magic, out result);
+                using (FileStream fileStream = File.OpenRead(fileName))
+                {
+                    using (BinaryReader stream = new BinaryReader(fileStream))
+                    {
+                        byte[] header = stream.ReadBytes(7);
+                        byte[] magic = stream.ReadBytes(25);
+
+                        return TryEncryptFile(stream, aes, header, magic, out result);
+                    }
                 }
             }
         }
 
         public static bool TryEncryptFile(byte[] data, out byte[] result)
         {
-            Rijndael crypto = new Rijndael(Unity3dKey, Unity3dIv);
-
-            using (MemoryStream memoryStream = new MemoryStream(data))
+            using (var aes = Aes.Create())
             {
-                using (BinaryReader stream = new BinaryReader(memoryStream, System.Text.Encoding.UTF8, true))
-                {
-                    byte[] header = stream.ReadBytes(7);
-                    byte[] magic = stream.ReadBytes(25);
+                aes.Padding = PaddingMode.PKCS7;
+                aes.Mode = CipherMode.CBC;
+                aes.BlockSize = 128;
+                aes.Key = Unity3dKey;
+                aes.IV = Unity3dIv;
 
-                    return TryEncryptFile(stream, crypto, header, magic, out result);
+                using (MemoryStream memoryStream = new MemoryStream(data))
+                {
+                    using (BinaryReader stream = new BinaryReader(memoryStream, System.Text.Encoding.UTF8, true))
+                    {
+                        byte[] header = stream.ReadBytes(7);
+                        byte[] magic = stream.ReadBytes(25);
+
+                        return TryEncryptFile(stream, aes, header, magic, out result);
+                    }
                 }
-            }
+            }  
         }
 
         public static bool TryDecryptFile(string fileName, out byte[] result)
         {
-            Rijndael crypto = new Rijndael(Unity3dKey, Unity3dIv);
-
-            using (FileStream fileStream = File.OpenRead(fileName))
+            using (var aes = Aes.Create())
             {
-                using (BinaryReader stream = new BinaryReader(fileStream))
-                {
-                    byte[] header = stream.ReadBytes(7);
-                    byte[] magic = stream.ReadBytes(25);
+                aes.Padding = PaddingMode.PKCS7;
+                aes.Mode = CipherMode.CBC;
+                aes.BlockSize = 128;
+                aes.Key = Unity3dKey;
+                aes.IV = Unity3dIv;
 
-                    return TryDecryptFile(stream, crypto, header, magic, out result);
+                using (FileStream fileStream = File.OpenRead(fileName))
+                {
+                    using (BinaryReader stream = new BinaryReader(fileStream))
+                    {
+                        byte[] header = stream.ReadBytes(7);
+                        byte[] magic = stream.ReadBytes(25);
+
+                        return TryDecryptFile(stream, aes, header, magic, out result);
+                    }
                 }
             }
         }
@@ -145,16 +174,24 @@ namespace NEO_TWEWY_Randomizer
             return rv;
         }
 
-        private static bool TryEncryptFile(BinaryReader stream, Rijndael crypto, byte[] header, byte[] magic, out byte[] result)
+        private static bool TryEncryptFile(BinaryReader stream, Aes crypto, byte[] header, byte[] magic, out byte[] result)
         {
             if (CompareHeader(header))
             {
-                long length = stream.BaseStream.Length - 32;
-                byte[] decryptedData = CombineByteArrays(header, magic, stream.ReadBytes((int)length));
-                byte[] encryptedData = crypto.Encrypt(decryptedData);
+                using (var ms = new MemoryStream())
+                {
+                    using (var transform = crypto.CreateEncryptor())
+                    using (var cs = new CryptoStream(ms, transform, CryptoStreamMode.Write))
+                    {
+                        long length = stream.BaseStream.Length - 32;
+                        byte[] decryptedData = CombineByteArrays(header, magic, stream.ReadBytes((int)length));
+                        cs.Write(decryptedData, 0, decryptedData.Length);
+                        cs.FlushFinalBlock();
+                    }
 
-                result = encryptedData;
-                return true;
+                    result = ms.ToArray();
+                    return true;
+                }
             }
             else
             {
@@ -163,15 +200,33 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        private static bool TryDecryptFile(BinaryReader stream, Rijndael crypto, byte[] header, byte[] magic, out byte[] result)
+        private static bool TryDecryptFile(BinaryReader stream, Aes crypto, byte[] header, byte[] magic, out byte[] result)
         {
             if (CompareMagic(CombineByteArrays(header, magic)))
             {
-                long length = stream.BaseStream.Length - 32;
+                // We read the WHOLE stream, including the header and magic
+                long length = stream.BaseStream.Length;
+                stream.BaseStream.Position = 0;
                 byte[] encryptedData = stream.ReadBytes((int)length);
-                byte[] decryptedData = crypto.Decrypt(CombineByteArrays(header, magic, encryptedData));
 
-                result = decryptedData;
+                using (var ms = new MemoryStream(encryptedData))
+                using (var output = new MemoryStream())
+                {
+                    using (var transform = crypto.CreateDecryptor())
+                    using (var cs = new CryptoStream(ms, transform, CryptoStreamMode.Read))
+                    {
+                        var buffer = new byte[1024];
+                        var read = cs.Read(buffer, 0, buffer.Length);
+                        while (read > 0)
+                        {
+                            output.Write(buffer, 0, read);
+                            read = cs.Read(buffer, 0, buffer.Length);
+                        }
+                        cs.Flush();
+                        result = output.ToArray();
+                    }
+                }
+                
                 return true;
             }
             else

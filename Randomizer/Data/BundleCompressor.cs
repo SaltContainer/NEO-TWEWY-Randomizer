@@ -1,11 +1,7 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -31,13 +27,15 @@ namespace NEO_TWEWY_Randomizer
             else
             {
                 // Encrypted
-                using (FileStream stream = new FileStream(fileName + "_decrypted", FileMode.OpenOrCreate, FileAccess.ReadWrite))
-                {
+                var decryptedPath = Path.Combine(GetTempFolder(), Path.GetFileName(fileName) + "_decrypted");
+
+                using (FileStream stream = new FileStream(decryptedPath, FileMode.OpenOrCreate, FileAccess.Write))
                     stream.Write(decryptedData, 0, decryptedData.Length);
 
-                    stream.Position = 0;
+                using (FileStream stream = new FileStream(decryptedPath, FileMode.Open, FileAccess.Read))
                     bundle = assetsManager.LoadBundleFile(stream);
-                }
+
+                File.Delete(decryptedPath);
 
                 encrypted = true;
             } 
@@ -56,6 +54,13 @@ namespace NEO_TWEWY_Randomizer
             bundle.file = newBundle;
 
             return bundle;
+        }
+
+        private string GetTempFolder()
+        {
+            var path = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Temp");
+            Directory.CreateDirectory(path);
+            return path;
         }
     }
 }

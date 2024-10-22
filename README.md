@@ -15,10 +15,10 @@ As of the latest version, there is only one file needed for the randomization to
 To obtain this file, the process is a bit different for each version.
 
 ### PC
-You can find the file directly at `\<directory\>/NEO The World Ends with You_Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+You can find the file directly at `<directory>/NEO The World Ends with You_Data/StreamingAssets/Assets/4017d8fc.unity3d`.
 
 ### Switch
-There are many tutorials online on how to extract the game files. You'll specifically want to find how to dump/extract the RomFS. Once you've done that, the file will be found at `\<directory\>/Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+There are many tutorials online on how to extract the game files. You'll specifically want to find how to dump/extract the RomFS. Once you've done that, the file will be found at `<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`.
 
 ### PS4
 I am not aware on how to obtain the game files from the PS4 version of the game. There are likely tutorials online on how to do this. The path for the file will look similar to the ones for the other versions.
@@ -30,7 +30,7 @@ Once you've obtained the file and ran it through the randomizer, you can then si
 Replace the `4017d8fc.unity3d` file in the game files with the one the randomizer generated. Make sure to keep a backup of the vanilla file!
 
 ### Switch
-Please follow tutorials online on how to use either an emulator's or Atmosphere's LayeredFS implementation to mod your game. Make sure you recreate the proper folder structure when creating your mod (`\<directory\>/Data/StreamingAssets/Assets/4017d8fc.unity3d`).
+Please follow tutorials online on how to use either an emulator's or Atmosphere's LayeredFS implementation to mod your game. Make sure you recreate the proper folder structure when creating your mod (`<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`).
 
 ### PS4
 I am not aware on how to mod games on the PS4. There are likely tutorials online on how to do this.

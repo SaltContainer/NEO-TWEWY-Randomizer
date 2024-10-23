@@ -1,32 +1,50 @@
-﻿using Newtonsoft.Json;
+﻿using NEO_TWEWY_Randomizer.Randomizer.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace NEO_TWEWY_Randomizer
 {
     class RandomizationEngine
     {
         private Random rand;
-        private DataManipulator dataManipulator;
         private RandomizationLogger logger;
+
+        private BundleEngine bundleEngine;
         private Dictionary<string, string> scripts;
+        private Dictionary<string, Bundle> bundles;
 
         public RandomizationEngine()
         {
-            dataManipulator = new DataManipulator();
+            bundleEngine = new BundleEngine();
             scripts = new Dictionary<string, string>();
+            bundles = new Dictionary<string, Bundle>();
         }
 
-        public bool LoadFiles(Dictionary<string, string> fileNames)
+        public bool LoadBundles(Dictionary<string, string> fileNames)
         {
-            return dataManipulator.LoadBundles(fileNames);
+            try
+            {
+                foreach (var entry in fileNames)
+                {
+                    Bundle bundle = bundleEngine.LoadBundle(entry.Value, entry.Key);
+                    bundles.Add(entry.Key, bundle);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error reading or decrypting one of the asset bundles. Full Exception: " + ex.Message, "Loading Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
-        public bool AreFilesLoaded()
+        public bool AreBundlesLoaded()
         {
-            return dataManipulator.AreFilesLoaded();
+            return FileConstants.Bundles.All(kvp => bundles.ContainsKey(kvp.Key));
         }
 
         public void Randomize(RandomizationSettings settings)
@@ -42,7 +60,7 @@ namespace NEO_TWEWY_Randomizer
             scripts.AddRange(RandomizePinStats(settings));
             scripts.AddRange(RandomizeStoryRewards(settings));
 
-            dataManipulator.SetScriptFilesToBundle(FileConstants.TextDataBundleKey, scripts);
+            bundles[FileConstants.TextDataBundleKey].SetScriptFiles(scripts);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -53,23 +71,41 @@ namespace NEO_TWEWY_Randomizer
 
         public bool Save(string filePath, int seed)
         {
-            bool result = dataManipulator.SaveBundles(filePath);
+            bool result = SaveBundles(filePath);
             result = result && logger.SaveLogToFile(Path.Combine(filePath, string.Format("Randomization-Log-{0}.log", seed.ToString())));
             return result;
         }
 
+        private bool SaveBundles(string filePath)
+        {
+            try
+            {
+                foreach (var entry in bundles)
+                {
+                    bundleEngine.SaveBundleToFile(entry.Value, filePath);
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was an error writing one of the data files. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private Dictionary<string, string> GetBaseScripts()
         {
-            Dictionary<string, string> obtainedScripts = new Dictionary<string, string>();
-            obtainedScripts.Add(FileConstants.EnemyDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.EnemyDataClassName));
-            obtainedScripts.Add(FileConstants.PigDataClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PigDataClassName));
-            obtainedScripts.Add(FileConstants.BadgeClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.BadgeClassName));
-            obtainedScripts.Add(FileConstants.PsychicClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.PsychicClassName));
-            obtainedScripts.Add(FileConstants.AttackComboSetClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackComboSetClassName));
-            obtainedScripts.Add(FileConstants.AttackClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackClassName));
-            obtainedScripts.Add(FileConstants.AttackHitClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.AttackHitClassName));
-            obtainedScripts.Add(FileConstants.ScenarioRewardsClassName, dataManipulator.GetScriptFileFromBundle(FileConstants.TextDataBundleKey, FileConstants.ScenarioRewardsClassName));
-            return obtainedScripts;
+            return new Dictionary<string, string>
+            {
+                { FileConstants.EnemyDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.EnemyDataClassName) },
+                { FileConstants.PigDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PigDataClassName) },
+                { FileConstants.BadgeClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.BadgeClassName) },
+                { FileConstants.PsychicClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PsychicClassName) },
+                { FileConstants.AttackComboSetClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackComboSetClassName) },
+                { FileConstants.AttackClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackClassName) },
+                { FileConstants.AttackHitClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackHitClassName) },
+                { FileConstants.ScenarioRewardsClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.ScenarioRewardsClassName) }
+            };
         }
 
         private double NextDoubleRange(double min, double max)

@@ -720,13 +720,13 @@ namespace NEO_TWEWY_Randomizer
                 if (fileDialog.ShowDialog() == DialogResult.OK)
                     files.Add(bundleNeeded.Key, fileDialog.FileName);
             }
-            bool result = randomizationEngine.LoadFiles(files);
+            bool result = randomizationEngine.LoadBundles(files);
             if (result)
             {
-                if (randomizationEngine.AreFilesLoaded())
+                if (randomizationEngine.AreBundlesLoaded())
                     UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Loaded"));
-                btnSave.Enabled = randomizationEngine.AreFilesLoaded();
-                btnOpen.Enabled = !randomizationEngine.AreFilesLoaded();
+                btnSave.Enabled = randomizationEngine.AreBundlesLoaded();
+                btnOpen.Enabled = !randomizationEngine.AreBundlesLoaded();
             }
         }
 

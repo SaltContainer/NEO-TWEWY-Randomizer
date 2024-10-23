@@ -1,25 +1,39 @@
 # NEO-TWEWY-Randomizer
 This is a Randomizer for NEO: The World Ends With You.
 
-![Picture showing the application](https://i.imgur.com/IdOE9bS.png "The Randomizer")<br>
+![Picture showing the application](Images/Randomizer_Img.png "The Randomizer")<br>
 
 The most recent version can be downloaded from the releases page. Supported features are described further down.
 
-## Requirements
-As of the latest version, there is only one file needed for the randomization to work properly (4017d8fc.unity3d). To obtain this file, you can use Ryujinx or yuzu to extract the game data. You can also use any other tool that extracts the game files from your legally acquired ROM (hactool, etc.).
-
-### Ryujinx
-Simply right-click the ROM in your ROM list, then select Extract Data, then RomFS.<br>
-![Picture showing where to extract on Ryujinx](https://i.imgur.com/dQgjGUb.png "Extracting on Ryujinx")<br>
-
-### yuzu
-Simply right-click the ROM in your ROM list, then select Dump RomFS, then Dump RomFS.<br>
-![Picture showing where to extract on yuzu](https://i.imgur.com/EWi5YO5.png "Extracting on yuzu")<br>
-
-In all cases, the file will be found at \<directory\>/Data/StreamingAssets/Assets/4017d8fc.unity3d. After it has been randomized, you can use the generated file and follow the many tutorials online for modding your Nintendo Switch games. Make sure not to forget to replicate the folder structure (Data/StreamingAssets/Assets/4017d8fc.unity3d).
-
 ## Platform Support
-The Randomizer is currently being made for the Nintendo Switch release of the game. It may or may not also work out of the box for other versions (PS4 and PC). That all depends on how mods work on those other versions.
+The Randomizer now supports the PC version of the game! That version specifically encrypts the Unity asset bundles, which is what is modified by the randomizer. If a bundle is encrypted, the randomizer will now detect it and decrypt it properly before randomizing. The randomized bundle is then re-encrypted so it can be read by the game.
+
+With the PC version now being supported, all versions of the game _should_ be supported. I was not able to test the PS4 version myself but if it uses either un-encrypted bundles (like the Switch version) or bundles encrypted in the same way as the PC version, then it should work without any issues.
+
+## Requirements
+As of the latest version, there is only one file needed for the randomization to work properly (`4017d8fc.unity3d`).
+To obtain this file, the process is a bit different for each version.
+
+### PC
+You can find the file directly at `<directory>/NEO The World Ends with You_Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+
+### Switch
+There are many tutorials online on how to extract the game files. You'll specifically want to find how to dump/extract the RomFS. Once you've done that, the file will be found at `<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+
+### PS4
+I am not aware on how to obtain the game files from the PS4 version of the game. There are likely tutorials online on how to do this. The path for the file will look similar to the ones for the other versions.
+
+## Using the Randomized Data
+Once you've obtained the file and ran it through the randomizer, you can then simply "replace" it in your game's installation.
+
+### PC
+Replace the `4017d8fc.unity3d` file in the game files with the one the randomizer generated. Make sure to keep a backup of the vanilla file!
+
+### Switch
+Please follow tutorials online on how to use either an emulator's or Atmosphere's LayeredFS implementation to mod your game. Make sure you recreate the proper folder structure when creating your mod (`<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`).
+
+### PS4
+I am not aware on how to mod games on the PS4. There are likely tutorials online on how to do this.
 
 ## Features
 
@@ -28,6 +42,7 @@ The Randomizer is currently being made for the Nintendo Switch release of the ga
   - Pins dropped by Noise can be either shuffled or randomized.
     - "Limited" Pins (Axion, Dilaton, Dibaryon, and Sfermion) can also be included.
     - It is possible to only change drops for specific difficulties.
+    - Turning this option on may result in softlocks since some of the barrier requirements could be impossible to fulfill.
   - Drop Rates for these Pins can be randomized.
     - It is possible to only change rates for specific difficulties.
     - There is an option to "weigh" each difficulty so that pins are rarer or more common at different difficulties.

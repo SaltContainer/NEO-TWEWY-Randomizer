@@ -1,11 +1,7 @@
 ﻿using AssetsTools.NET;
 using AssetsTools.NET.Extra;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -16,12 +12,14 @@ namespace NEO_TWEWY_Randomizer
         private BundleFileInstance bundle;
         private AssetsFileInstance assetsFile;
         private byte[] newData;
+        private bool encrypted;
 
-        public Data(AssetsManager assetsManager, BundleFileInstance bundle, string bundleKey)
+        public Data(AssetsManager assetsManager, BundleFileInstance bundle, string bundleKey, bool encrypted)
         {
             this.assetsManager = assetsManager;
             this.bundle = bundle;
             this.bundleKey = bundleKey;
+            this.encrypted = encrypted;
 
             assetsFile = assetsManager.LoadAssetsFileFromBundle(bundle, FileConstants.Bundles[bundleKey].CabDirectory);
             if (!assetsFile.file.typeTree.hasTypeTree)
@@ -74,6 +72,11 @@ namespace NEO_TWEWY_Randomizer
         public byte[] GetNewData()
         {
             return newData;
+        }
+
+        public bool IsEncrypted()
+        {
+            return encrypted;
         }
     }
 }

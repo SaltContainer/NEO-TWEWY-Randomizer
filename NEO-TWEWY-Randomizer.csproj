@@ -162,6 +162,7 @@
     <Compile Include="Randomizer\Utils\FloatFormatConverter.cs" />
     <Compile Include="Randomizer\Utils\SourceLinks.cs" />
     <Compile Include="Randomizer\Data\DataAddresses.cs" />
+    <Compile Include="Randomizer\Utils\Unity3dCrypto.cs" />
     <Compile Include="Randomizer\Utils\Validator.cs" />
     <EmbeddedResource Include="Randomizer\UI\Forms\FormAbout.resx">
       <DependentUpon>FormAbout.cs</DependentUpon>

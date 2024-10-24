@@ -1,14 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class FloatFormatConverter : JsonConverter
+    public class FloatFormatConverter : JsonConverter
     {
         public int decimals;
 

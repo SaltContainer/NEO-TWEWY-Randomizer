@@ -3,7 +3,7 @@ using AssetsTools.NET;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NEO_TWEWY_Randomizer.Randomizer.Data
+namespace NEO_TWEWY_Randomizer
 {
     public class BundleEngine
     {

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class PinStatSettings
+    public class PinStatSettings
     {
         public bool Power { get; set; }
         public bool PowerScaling { get; set; }

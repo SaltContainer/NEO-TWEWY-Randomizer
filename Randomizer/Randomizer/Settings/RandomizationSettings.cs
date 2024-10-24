@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NEO_TWEWY_Randomizer
+﻿namespace NEO_TWEWY_Randomizer
 {
-    class RandomizationSettings
+    public class RandomizationSettings
     {
         public NoiseDropSettings NoiseDrops { get; set; }
         public PinStatSettings PinStats { get; set; }

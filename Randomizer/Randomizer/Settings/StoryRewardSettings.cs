@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NEO_TWEWY_Randomizer
 {
-    class StoryRewardSettings
+    public class StoryRewardSettings
     {
         public StoryPin PinChoice { get; set; }
         public bool IncludeLimitedPins { get; set; }

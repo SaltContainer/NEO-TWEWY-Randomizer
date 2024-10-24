@@ -111,6 +111,9 @@
     <Compile Include="Randomizer\Data\Data\Psychic\PsychicList.cs" />
     <Compile Include="Randomizer\Data\Data\ScenarioRewards\ScenarioRewards.cs" />
     <Compile Include="Randomizer\Data\Data\ScenarioRewards\ScenarioRewardsList.cs" />
+    <Compile Include="Randomizer\Randomizer\Components\NoiseDropsRandomizer.cs" />
+    <Compile Include="Randomizer\Randomizer\Components\PinStatsRandomizer.cs" />
+    <Compile Include="Randomizer\Randomizer\Components\StoryRewardsRandomizer.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\Difficulties.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropRate.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\NoiseDropType.cs" />
@@ -126,7 +129,10 @@
     <Compile Include="Randomizer\Randomizer\Enums\StoryReport.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\StoryRewards.cs" />
     <Compile Include="Randomizer\Randomizer\Enums\StoryYen.cs" />
-    <Compile Include="Randomizer\Randomizer\RandomizationLogger.cs" />
+    <Compile Include="Randomizer\Randomizer\Logging\Components\NoiseDropsLogger.cs" />
+    <Compile Include="Randomizer\Randomizer\Logging\Components\PinStatsLogger.cs" />
+    <Compile Include="Randomizer\Randomizer\Logging\Components\StoryRewardsLogger.cs" />
+    <Compile Include="Randomizer\Randomizer\Logging\RandomizationLogger.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringValue.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersion.cs" />
     <Compile Include="Randomizer\Randomizer\SettingsString\SettingsStringVersionList.cs" />

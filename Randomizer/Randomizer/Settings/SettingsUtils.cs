@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NEO_TWEWY_Randomizer
+﻿namespace NEO_TWEWY_Randomizer
 {
-    class SettingsUtils
+    public class SettingsUtils
     {
         private static uint MakeBitMask(int left, int right)
         {

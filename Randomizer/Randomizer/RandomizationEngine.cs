@@ -12,7 +12,6 @@ namespace NEO_TWEWY_Randomizer
         private RandomizationLogger logger;
 
         private BundleEngine bundleEngine;
-        private Dictionary<string, string> scripts;
         private BundleSet bundles;
 
         private NoiseDropsRandomizer noiseDropsRandomizer;
@@ -20,6 +19,7 @@ namespace NEO_TWEWY_Randomizer
         private StoryRewardsRandomizer storyRewardsRandomizer;
 
         public Random Rand { get => rand; }
+        public BundleSet Bundles { get => bundles; }
         public RandomizationLogger Logger { get => logger; }
 
         public RandomizationEngine()
@@ -27,7 +27,6 @@ namespace NEO_TWEWY_Randomizer
             logger = new RandomizationLogger();
 
             bundleEngine = new BundleEngine();
-            scripts = new Dictionary<string, string>();
             bundles = new BundleSet();
 
             noiseDropsRandomizer = new NoiseDropsRandomizer(this);
@@ -76,24 +75,10 @@ namespace NEO_TWEWY_Randomizer
 
             logger.LogSettings(settings);
 
-            scripts.AddRange(GetBaseScripts());
-            scripts.AddRange(noiseDropsRandomizer.RandomizeDroppedPins(settings));
-            scripts.AddRange(noiseDropsRandomizer.RandomizeDropRate(settings));
-            scripts.AddRange(pinStatsRandomizer.RandomizePinStats(settings));
-            scripts.AddRange(storyRewardsRandomizer.RandomizeStoryRewards(settings));
-
-            bundles.TextData.SetScriptFiles(scripts);
-
-            // TODO: Move to randomizer logic
-            var w1d2 = bundles.W1D2Scenario.GetScenarioFile("story_w1d2_01_050_mission");
-            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
-            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
-            bundles.W1D2Scenario.SetScenarioFiles(new Dictionary<string, ScenarioObjectItemGroup>(){ { "story_w1d2_01_050_mission", w1d2 } });
-
-            var w2d5 = bundles.W2D5Scenario.GetScenarioFile("story_w2d5_01_066_mission");
-            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
-            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
-            bundles.W2D5Scenario.SetScenarioFiles(new Dictionary<string, ScenarioObjectItemGroup>() { { "story_w2d5_01_066_mission", w2d5 } });
+            noiseDropsRandomizer.RandomizeDroppedPins(settings);
+            noiseDropsRandomizer.RandomizeDropRate(settings);
+            pinStatsRandomizer.RandomizePinStats(settings);
+            storyRewardsRandomizer.RandomizeStoryRewards(settings);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -107,11 +92,6 @@ namespace NEO_TWEWY_Randomizer
             bool result = SaveBundles(filePath);
             result = result && logger.SaveLogToFile(Path.Combine(filePath, string.Format("Randomization-Log-{0}.log", seed.ToString())));
             return result;
-        }
-
-        public string GetScript(string scriptName)
-        {
-            return scripts[scriptName];
         }
 
         public int RandNext()
@@ -163,6 +143,10 @@ namespace NEO_TWEWY_Randomizer
         {
             try
             {
+                bundles.TextData.SaveTextData();
+                bundles.W1D2Scenario.SaveScenarioFiles();
+                bundles.W2D5Scenario.SaveScenarioFiles();
+
                 bundleEngine.SaveBundleToFile(bundles.TextData, filePath);
                 bundleEngine.SaveBundleToFile(bundles.W1D2Scenario, filePath);
                 bundleEngine.SaveBundleToFile(bundles.W2D5Scenario, filePath);
@@ -174,21 +158,6 @@ namespace NEO_TWEWY_Randomizer
                 MessageBox.Show("There was an error writing one of the data files. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }
-
-        private Dictionary<string, string> GetBaseScripts()
-        {
-            return new Dictionary<string, string>
-            {
-                { FileConstants.EnemyDataClassName, bundles.TextData.GetScriptFile(FileConstants.EnemyDataClassName) },
-                { FileConstants.PigDataClassName, bundles.TextData.GetScriptFile(FileConstants.PigDataClassName) },
-                { FileConstants.BadgeClassName, bundles.TextData.GetScriptFile(FileConstants.BadgeClassName) },
-                { FileConstants.PsychicClassName, bundles.TextData.GetScriptFile(FileConstants.PsychicClassName) },
-                { FileConstants.AttackComboSetClassName, bundles.TextData.GetScriptFile(FileConstants.AttackComboSetClassName) },
-                { FileConstants.AttackClassName, bundles.TextData.GetScriptFile(FileConstants.AttackClassName) },
-                { FileConstants.AttackHitClassName, bundles.TextData.GetScriptFile(FileConstants.AttackHitClassName) },
-                { FileConstants.ScenarioRewardsClassName, bundles.TextData.GetScriptFile(FileConstants.ScenarioRewardsClassName) }
-            };
         }
     }
 }

@@ -15,14 +15,17 @@ namespace NEO_TWEWY_Randomizer
         public const string W1D2ScenarioBundleKey = "w1d2-scenario";
         public const string W2D5ScenarioBundleKey = "w2d5-scenario";
 
-        public const string EnemyDataClassName = "EnemyData";
-        public const string EnemyReportClassName = "EnemyReport";
-        public const string PigDataClassName = "PigData";
-        public const string BadgeClassName = "Badge";
-        public const string PsychicClassName = "Psychic";
-        public const string AttackComboSetClassName = "AttackComboSet";
-        public const string AttackClassName = "Attack";
-        public const string AttackHitClassName = "AttackHit";
-        public const string ScenarioRewardsClassName = "ScenarioRewards";
+        public const string EnemyDataAssetName = "EnemyData";
+        public const string EnemyReportAssetName = "EnemyReport";
+        public const string PigDataAssetName = "PigData";
+        public const string BadgeAssetName = "Badge";
+        public const string PsychicAssetName = "Psychic";
+        public const string AttackComboSetAssetName = "AttackComboSet";
+        public const string AttackAssetName = "Attack";
+        public const string AttackHitAssetName = "AttackHit";
+        public const string ScenarioRewardsAssetName = "ScenarioRewards";
+
+        public const string W1D2PinMissionAssetName = "story_w1d2_01_050_mission";
+        public const string W2D5PinMissionAssetName = "story_w2d5_01_066_mission";
     }
 }

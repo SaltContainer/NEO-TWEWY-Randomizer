@@ -1,22 +1,30 @@
 ﻿using AssetsTools.NET.Extra;
 using AssetsTools.NET;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace NEO_TWEWY_Randomizer
 {
     public class ScenarioBundle : Bundle
     {
+        private Dictionary<string, ScenarioObjectItemGroup> scenarios;
+
         public ScenarioBundle(AssetsManager manager, BundleFileInstance bundle, string bundleKey, bool encrypted) :
             base(manager, bundle, bundleKey, encrypted)
-        { }
+        {
+            scenarios = new Dictionary<string, ScenarioObjectItemGroup>();
+        }
 
         public ScenarioObjectItemGroup GetScenarioFile(string assetName)
         {
-            return ScenarioObjectItemGroup.CreateFromMono(GetBaseFieldOfAsset(assetName));
+            if (scenarios.TryGetValue(assetName, out ScenarioObjectItemGroup scenario))
+                return scenario;
+
+            var newScenario = ScenarioObjectItemGroup.CreateFromMono(GetBaseFieldOfAsset(assetName));
+            scenarios.Add(assetName, newScenario);
+            return newScenario;
         }
 
-        public void SetScenarioFiles(Dictionary<string, ScenarioObjectItemGroup> scenarios)
+        public void SaveScenarioFiles()
         {
             foreach (var scenario in scenarios)
             {
@@ -32,15 +40,13 @@ namespace NEO_TWEWY_Randomizer
 
         private AssetFileInfo GetAssetInfoOfAsset(string assetName)
         {
-            var assetInfos = assetsFile.file.GetAssetsOfType(AssetClassID.MonoBehaviour);
-            return assetInfos.Where(f => manager.GetBaseField(assetsFile, f)["m_Name"].AsString == assetName).FirstOrDefault();
+            return assetsFile.file.GetAssetsOfType(AssetClassID.MonoBehaviour)
+                .Find(f => manager.GetBaseField(assetsFile, f)["m_Name"].AsString == assetName);
         }
 
         private AssetTypeValueField GetBaseFieldOfAsset(string assetName)
         {
-            var baseFields = assetsFile.file.GetAssetsOfType(AssetClassID.MonoBehaviour).Select(f => manager.GetBaseField(assetsFile, f));
-            var names = baseFields.Select(f => f["m_Name"].AsString);
-            return baseFields.Where(f => f["m_Name"].AsString == assetName).FirstOrDefault();
+            return manager.GetBaseField(assetsFile, GetAssetInfoOfAsset(assetName));
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace NEO_TWEWY_Randomizer
@@ -34,12 +33,10 @@ namespace NEO_TWEWY_Randomizer
             }
         }
 
-        public Dictionary<string, string> RandomizeStoryRewards(RandomizationSettings settings)
+        public void RandomizeStoryRewards(RandomizationSettings settings)
         {
-            string scenarioRewardsScript = engine.GetScript(FileConstants.ScenarioRewardsClassName);
-
-            ScenarioRewardsList storyDataOriginal = JsonConvert.DeserializeObject<ScenarioRewardsList>(scenarioRewardsScript);
-            ScenarioRewardsList storyData = JsonConvert.DeserializeObject<ScenarioRewardsList>(scenarioRewardsScript);
+            ScenarioRewardsList storyDataOriginal = engine.Bundles.TextData.ParseScenarioRewards();
+            ScenarioRewardsList storyData = engine.Bundles.TextData.GetScenarioRewards();
 
             List<NameAssociation> storyNames = FileConstants.ItemNames.StoryPins
                 .Union(FileConstants.ItemNames.StoryLimitedPins)
@@ -54,162 +51,174 @@ namespace NEO_TWEWY_Randomizer
             switch (settings.StoryRewards.PinChoice)
             {
                 case StoryPin.Shuffle:
-                    List<ScenarioRewards> pinsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).ToList();
+                {
+                    List<ScenarioRewards> pins = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).ToList();
                     if (settings.StoryRewards.IncludeLimitedPins)
-                    {
-                        pinsToShuffle.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)));
-                    }
+                        pins.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)));
 
-                    ShuffleListOfStoryRewards(pinsToShuffle);
-                    break;
+                    ShuffleListOfStoryRewards(pins);
+                }
+                break;
 
                 case StoryPin.Random:
-                    List<ScenarioRewards> pinsToRando = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).ToList();
+                {
+                    List<ScenarioRewards> pins = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).ToList();
                     List<(int, int)> randomIds = FileConstants.ItemNames.PinItems.Select(p => (p.Id, 1)).ToList();
                     if (settings.StoryRewards.IncludeLimitedPins)
                     {
-                        pinsToRando.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)));
+                        pins.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)));
                         randomIds.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => (p.Id, 1)));
                     }
 
-                    RandomizeListOfStoryRewards(pinsToRando, randomIds);
-                    break;
+                    RandomizeListOfStoryRewards(pins, randomIds);
+                }
+                break;
             }
 
             switch (settings.StoryRewards.YenChoice)
             {
                 case StoryYen.Shuffle:
-                    List<(int, ScenarioRewards)> pinsToShuffle = fullListToEdit
-                        .Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p)).ToList();
-                    List<int> newIds = pinsToShuffle.Select(p => p.Item2.FirstReward).ToList();
+                {
+                    List<(int, ScenarioRewards)> pins = fullListToEdit
+                    .Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p)).ToList();
+                    List<int> newIds = pins.Select(p => p.Item2.FirstReward).ToList();
 
-                    List<(int, ScenarioRewards)> pinsToShuffle2nd = fullListToEdit
+                    List<(int, ScenarioRewards)> pins2nd = fullListToEdit
                         .Where(reward => FileConstants.ItemNames.StoryYen2nd.Select(p => p.Id).Contains(reward.Id)).Select(p => (2, p)).ToList();
-                    List<int> newIds2nd = pinsToShuffle2nd.Select(p => p.Item2.SecondReward).ToList();
+                    List<int> newIds2nd = pins2nd.Select(p => p.Item2.SecondReward).ToList();
 
-                    pinsToShuffle.AddRange(pinsToShuffle2nd);
+                    pins.AddRange(pins2nd);
                     newIds.AddRange(newIds2nd);
 
                     newIds = newIds.OrderBy(pin => engine.RandNext()).ToList();
 
-                    for (int i = 0; i < pinsToShuffle.Count(); i++)
+                    for (int i=0; i<pins.Count; i++)
                     {
-                        var pin = pinsToShuffle[i];
+                        var pin = pins[i];
                         if (pin.Item1 == 1) pin.Item2.FirstReward = newIds[i];
                         else if (pin.Item1 == 2) pin.Item2.SecondReward = newIds[i];
                     }
-                    break;
+                }
+                break;
 
                 case StoryYen.Random:
-                    List<(int, ScenarioRewards)> pinsToRando = fullListToEdit
-                        .Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p)).ToList();
-                    pinsToRando.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen2nd.Select(p => p.Id).Contains(reward.Id)).Select(p => (2, p)));
+                {
+                    List<(int, ScenarioRewards)> pins = fullListToEdit
+                    .Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p)).ToList();
+                    pins.AddRange(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen2nd.Select(p => p.Id).Contains(reward.Id)).Select(p => (2, p)));
 
                     List<int> randomIds = FileConstants.ItemNames.YenPins.Select(p => p.Id).ToList();
 
-                    foreach (var pin in pinsToRando)
+                    foreach (var pin in pins)
                     {
                         if (pin.Item1 == 1) pin.Item2.FirstReward = randomIds[engine.RandNext(randomIds.Count)];
                         else if (pin.Item1 == 2) pin.Item2.SecondReward = randomIds[engine.RandNext(randomIds.Count)];
                     }
-                    break;
+                }
+                break;
             }
 
             switch (settings.StoryRewards.GemChoice)
             {
                 case StoryGem.Shuffle:
-                    List<ScenarioRewards> pinsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).ToList();
-                    ShuffleListOfStoryRewards(pinsToShuffle);
-                    break;
+                {
+                    List<ScenarioRewards> pins = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).ToList();
+                    ShuffleListOfStoryRewards(pins);
+                }
+                break;
 
                 case StoryGem.Random:
-                    List<ScenarioRewards> pinsToRando = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).ToList();
+                {
+                    List<ScenarioRewards> pins = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).ToList();
                     List<(int, int)> randomIds = FileConstants.ItemNames.GemPins.Select(p => (p.Id, engine.RandNext(1, 4))).ToList();
-                    RandomizeListOfStoryRewards(pinsToRando, randomIds);
-                    break;
+                    RandomizeListOfStoryRewards(pins, randomIds);
+                }
+                break;
             }
 
             switch (settings.StoryRewards.FPChoice)
             {
                 case StoryFP.Shuffle:
-                    List<ScenarioRewards> fpToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).ToList();
-                    List<int> newCountsShuffle = fpToShuffle.OrderBy(pin => engine.RandNext()).Select(p => p.FirstRewardCount).ToList();
+                {
+                    List<ScenarioRewards> fp = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).ToList();
+                    List<int> newCounts = fp.OrderBy(pin => engine.RandNext()).Select(p => p.FirstRewardCount).ToList();
 
-                    for (int i = 0; i < fpToShuffle.Count(); i++)
-                    {
-                        fpToShuffle[i].FirstRewardCount = newCountsShuffle[i];
-                    }
-                    break;
+                    for (int i=0; i<fp.Count; i++)
+                        fp[i].FirstRewardCount = newCounts[i];
+                }
+                break;
 
                 case StoryFP.RandomFixedTotal:
+                {
+                    // Hardcoded to vanilla max for now
                     int maxFp = 159;
-                    List<ScenarioRewards> fpToRando = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).ToList();
-                    List<int> newCountsRando = engine.RandGenerateListOfSum(fpToRando.Count(), maxFp);
+                    List<ScenarioRewards> fp = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).ToList();
+                    List<int> newCounts = engine.RandGenerateListOfSum(fp.Count(), maxFp);
 
-                    for (int i = 0; i < fpToRando.Count(); i++)
-                    {
-                        fpToRando[i].FirstRewardCount = newCountsRando[i];
-                    }
-                    break;
+                    for (int i=0; i<fp.Count; i++)
+                        fp[i].FirstRewardCount = newCounts[i];
+                }
+                break;
             }
 
-            if (settings.StoryRewards.ReportChoice == StoryReport.Shuffle)
+            switch (settings.StoryRewards.ReportChoice)
             {
-                List<ScenarioRewards> reportsToShuffle = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryReports.Select(p => p.Id).Contains(reward.Id)).ToList();
-                ShuffleListOfStoryRewards(reportsToShuffle);
+                case StoryReport.Shuffle:
+                {
+                    List<ScenarioRewards> reports = fullListToEdit.Where(reward => FileConstants.ItemNames.StoryReports.Select(p => p.Id).Contains(reward.Id)).ToList();
+                    ShuffleListOfStoryRewards(reports);
+                }
+                break;
             }
 
-            if (settings.StoryRewards.GlobalShuffleChoice == StoryGlobalShuffle.Shuffle)
+            switch (settings.StoryRewards.GlobalShuffleChoice)
             {
-                List<(int, ScenarioRewards)> rewardsToShuffle = new List<(int, ScenarioRewards)>();
-                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins))
+                case StoryGlobalShuffle.Shuffle:
                 {
-                    rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-                    if (settings.StoryRewards.IncludeLimitedPins) rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-                }
-                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen))
-                {
-                    rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-                    rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen2nd.Select(p => p.Id).Contains(reward.Id)).Select(p => (2, p))).ToList();
-                }
-                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems)) rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP)) rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-                if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports)) rewardsToShuffle = rewardsToShuffle
-                        .Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryReports.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
-
-                List<(int, int)> newRewards = rewardsToShuffle.Where(r => r.Item1 == 1).Select(r => (r.Item2.FirstReward, r.Item2.FirstRewardCount)).ToList();
-                newRewards.AddRange(rewardsToShuffle.Where(r => r.Item1 == 2).Select(r => (r.Item2.SecondReward, r.Item2.SecondRewardCount)));
-
-                newRewards = newRewards.OrderBy(reward => engine.RandNext()).ToList();
-                for (int i = 0; i < rewardsToShuffle.Count(); i++)
-                {
-                    var reward = rewardsToShuffle[i];
-                    if (reward.Item1 == 1)
+                    List<(int, ScenarioRewards)> rewards = [];
+                    if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Pins))
                     {
-                        reward.Item2.FirstReward = newRewards[i].Item1;
-                        reward.Item2.FirstRewardCount = newRewards[i].Item2;
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryPins.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
+                        if (settings.StoryRewards.IncludeLimitedPins)
+                            rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryLimitedPins.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
                     }
-                    if (reward.Item1 == 2)
+
+                    if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Yen))
                     {
-                        reward.Item2.SecondReward = newRewards[i].Item1;
-                        reward.Item2.SecondRewardCount = newRewards[i].Item2;
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryYen2nd.Select(p => p.Id).Contains(reward.Id)).Select(p => (2, p))).ToList();
+                    }
+
+                    if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems))
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryGems.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
+                    if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP))
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryFP.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
+                    if (settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports))
+                        rewards = rewards.Union(fullListToEdit.Where(reward => FileConstants.ItemNames.StoryReports.Select(p => p.Id).Contains(reward.Id)).Select(p => (1, p))).ToList();
+
+                    List<(int, int)> newRewards = rewards.Where(r => r.Item1 == 1).Select(r => (r.Item2.FirstReward, r.Item2.FirstRewardCount)).ToList();
+                    newRewards.AddRange(rewards.Where(r => r.Item1 == 2).Select(r => (r.Item2.SecondReward, r.Item2.SecondRewardCount)));
+
+                    newRewards = newRewards.OrderBy(reward => engine.RandNext()).ToList();
+                    for (int i=0; i<rewards.Count; i++)
+                    {
+                        var reward = rewards[i];
+                        if (reward.Item1 == 1)
+                        {
+                            reward.Item2.FirstReward = newRewards[i].Item1;
+                            reward.Item2.FirstRewardCount = newRewards[i].Item2;
+                        }
+                        if (reward.Item1 == 2)
+                        {
+                            reward.Item2.SecondReward = newRewards[i].Item1;
+                            reward.Item2.SecondRewardCount = newRewards[i].Item2;
+                        }
                     }
                 }
+                break;
             }
 
             engine.Logger.LogStoryRewardChanges(fullListToEditOriginal, fullListToEdit);
-
-            Dictionary<string, string> editedScripts = new Dictionary<string, string>
-            {
-                { FileConstants.ScenarioRewardsClassName, JsonConvert.SerializeObject(storyData, Formatting.Indented, new FloatFormatConverter(1)) }
-            };
-            return editedScripts;
         }
     }
 }

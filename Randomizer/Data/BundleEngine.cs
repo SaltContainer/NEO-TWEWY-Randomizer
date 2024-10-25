@@ -1,6 +1,4 @@
 ﻿using AssetsTools.NET.Extra;
-using AssetsTools.NET;
-using System.Collections.Generic;
 using System.IO;
 
 namespace NEO_TWEWY_Randomizer
@@ -39,26 +37,6 @@ namespace NEO_TWEWY_Randomizer
         private BundleFileInstance LoadBundleFile(string path, out bool encrypted)
         {
             return decryptor.LoadAndDecryptBundle(path, out encrypted);
-        }
-
-        private AssetsFileInstance LoadAssetsFileFromBundle(BundleFileInstance bundle)
-        {
-            return manager.LoadAssetsFileFromBundle(bundle, 0);
-        }
-
-        private void SaveBundleToFile(BundleFileInstance bundle, string path, bool encrypted)
-        {
-            decryptor.SaveAndEncryptBundle(bundle, path, encrypted);
-        }
-
-        private void SetAssetsFileInBundle(BundleFileInstance bundle, AssetsFileInstance assetsFile)
-        {
-            bundle.file.BlockAndDirInfo.DirectoryInfos[0].SetNewData(assetsFile.file);
-        }
-
-        private int FindObjectOfName(List<AssetTypeValueField> objBaseFields, string name)
-        {
-            return objBaseFields.FindIndex(s => s["m_Name"].AsString == name);
         }
     }
 }

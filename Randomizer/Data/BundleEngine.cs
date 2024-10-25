@@ -21,29 +21,34 @@ namespace NEO_TWEWY_Randomizer
             manager.UnloadAll();
         }
 
-        public Bundle LoadBundle(string path, string key)
+        public TextBundle LoadTextBundle(string path, string key)
         {
-            return new Bundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
+            return new TextBundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
         }
 
-        public BundleFileInstance LoadBundleFile(string path, out bool encrypted)
+        public ScenarioBundle LoadScenarioBundle(string path, string key)
         {
-            return decryptor.LoadAndDecryptBundle(path, out encrypted);
-        }
-
-        public AssetsFileInstance LoadAssetsFileFromBundle(BundleFileInstance bundle)
-        {
-            return manager.LoadAssetsFileFromBundle(bundle, 0);
-        }
-
-        public void SaveBundleToFile(BundleFileInstance bundle, string path, bool encrypted)
-        {
-            decryptor.SaveAndEncryptBundle(bundle, path, encrypted);
+            return new ScenarioBundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
         }
 
         public void SaveBundleToFile(Bundle bundle, string path)
         {
             decryptor.SaveAndEncryptBundle(bundle.BundleInstance, Path.Combine(path, bundle.FileName), bundle.Encrypted);
+        }
+
+        private BundleFileInstance LoadBundleFile(string path, out bool encrypted)
+        {
+            return decryptor.LoadAndDecryptBundle(path, out encrypted);
+        }
+
+        private AssetsFileInstance LoadAssetsFileFromBundle(BundleFileInstance bundle)
+        {
+            return manager.LoadAssetsFileFromBundle(bundle, 0);
+        }
+
+        private void SaveBundleToFile(BundleFileInstance bundle, string path, bool encrypted)
+        {
+            decryptor.SaveAndEncryptBundle(bundle, path, encrypted);
         }
 
         private void SetAssetsFileInBundle(BundleFileInstance bundle, AssetsFileInstance assetsFile)

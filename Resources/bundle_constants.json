@@ -41,5 +41,35 @@
 				"attribute": "m_Script"
 			}
 		}
+	},
+	"w1d2-scenario": {
+		"key": "w1d2-scenario",
+		"file_name": "8b022f77.unity3d",
+		"cab_directory": "CAB-84e9504e429f96994d54dec104b3409e",
+		"classes": {
+			"story_w1d2_01_042_mission": {
+				"name": "story_w1d2_01_042_mission",
+				"attribute": "m_Script"
+			},
+			"story_w1d2_01_050_mission": {
+				"name": "story_w1d2_01_050_mission",
+				"attribute": "m_Script"
+			}
+		}
+	},
+	"w2d5-scenario": {
+		"key": "w2d5-scenario",
+		"file_name": "a90d3deb.unity3d",
+		"cab_directory": "CAB-610a711252718139df0c19c6c44250aa",
+		"classes": {
+			"story_w2d5_01_063_mission": {
+				"name": "story_w2d5_01_063_mission",
+				"attribute": "m_Script"
+			},
+			"story_w2d5_01_066_mission": {
+				"name": "story_w2d5_01_066_mission",
+				"attribute": "m_Script"
+			}
+		}
 	}
 }

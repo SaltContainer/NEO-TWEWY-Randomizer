@@ -1,5 +1,4 @@
 ﻿using NEO_TWEWY_Randomizer.Properties;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;

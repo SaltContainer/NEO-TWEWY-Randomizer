@@ -13,7 +13,7 @@ namespace NEO_TWEWY_Randomizer
 
         private BundleEngine bundleEngine;
         private Dictionary<string, string> scripts;
-        private Dictionary<string, Bundle> bundles;
+        private BundleSet bundles;
 
         private NoiseDropsRandomizer noiseDropsRandomizer;
         private PinStatsRandomizer pinStatsRandomizer;
@@ -28,7 +28,7 @@ namespace NEO_TWEWY_Randomizer
 
             bundleEngine = new BundleEngine();
             scripts = new Dictionary<string, string>();
-            bundles = new Dictionary<string, Bundle>();
+            bundles = new BundleSet();
 
             noiseDropsRandomizer = new NoiseDropsRandomizer(this);
             pinStatsRandomizer = new PinStatsRandomizer(this);
@@ -41,8 +41,20 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in fileNames)
                 {
-                    Bundle bundle = bundleEngine.LoadBundle(entry.Value, entry.Key);
-                    bundles.Add(entry.Key, bundle);
+                    switch (entry.Key)
+                    {
+                        case FileConstants.TextDataBundleKey:
+                            bundles.TextData = bundleEngine.LoadTextBundle(entry.Value, entry.Key);
+                            break;
+
+                        case FileConstants.W1D2ScenarioBundleKey:
+                            bundles.W1D2Scenario = bundleEngine.LoadScenarioBundle(entry.Value, entry.Key);
+                            break;
+
+                        case FileConstants.W2D5ScenarioBundleKey:
+                            bundles.W2D5Scenario = bundleEngine.LoadScenarioBundle(entry.Value, entry.Key);
+                            break;
+                    }
                 }
                 return true;
             }
@@ -55,7 +67,7 @@ namespace NEO_TWEWY_Randomizer
 
         public bool AreBundlesLoaded()
         {
-            return FileConstants.Bundles.All(kvp => bundles.ContainsKey(kvp.Key));
+            return bundles.AreAllBundlesLoaded();
         }
 
         public void Randomize(RandomizationSettings settings)
@@ -70,7 +82,18 @@ namespace NEO_TWEWY_Randomizer
             scripts.AddRange(pinStatsRandomizer.RandomizePinStats(settings));
             scripts.AddRange(storyRewardsRandomizer.RandomizeStoryRewards(settings));
 
-            bundles[FileConstants.TextDataBundleKey].SetScriptFiles(scripts);
+            bundles.TextData.SetScriptFiles(scripts);
+
+            // TODO: Move to randomizer logic
+            var w1d2 = bundles.W1D2Scenario.GetScenarioFile("story_w1d2_01_050_mission");
+            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
+            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
+            bundles.W1D2Scenario.SetScenarioFiles(new Dictionary<string, ScenarioObjectItemGroup>(){ { "story_w1d2_01_050_mission", w1d2 } });
+
+            var w2d5 = bundles.W2D5Scenario.GetScenarioFile("story_w2d5_01_066_mission");
+            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
+            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
+            bundles.W2D5Scenario.SetScenarioFiles(new Dictionary<string, ScenarioObjectItemGroup>() { { "story_w2d5_01_066_mission", w2d5 } });
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -140,10 +163,10 @@ namespace NEO_TWEWY_Randomizer
         {
             try
             {
-                foreach (var entry in bundles)
-                {
-                    bundleEngine.SaveBundleToFile(entry.Value, filePath);
-                }
+                bundleEngine.SaveBundleToFile(bundles.TextData, filePath);
+                bundleEngine.SaveBundleToFile(bundles.W1D2Scenario, filePath);
+                bundleEngine.SaveBundleToFile(bundles.W2D5Scenario, filePath);
+
                 return true;
             }
             catch (Exception ex)
@@ -157,14 +180,14 @@ namespace NEO_TWEWY_Randomizer
         {
             return new Dictionary<string, string>
             {
-                { FileConstants.EnemyDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.EnemyDataClassName) },
-                { FileConstants.PigDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PigDataClassName) },
-                { FileConstants.BadgeClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.BadgeClassName) },
-                { FileConstants.PsychicClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PsychicClassName) },
-                { FileConstants.AttackComboSetClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackComboSetClassName) },
-                { FileConstants.AttackClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackClassName) },
-                { FileConstants.AttackHitClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackHitClassName) },
-                { FileConstants.ScenarioRewardsClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.ScenarioRewardsClassName) }
+                { FileConstants.EnemyDataClassName, bundles.TextData.GetScriptFile(FileConstants.EnemyDataClassName) },
+                { FileConstants.PigDataClassName, bundles.TextData.GetScriptFile(FileConstants.PigDataClassName) },
+                { FileConstants.BadgeClassName, bundles.TextData.GetScriptFile(FileConstants.BadgeClassName) },
+                { FileConstants.PsychicClassName, bundles.TextData.GetScriptFile(FileConstants.PsychicClassName) },
+                { FileConstants.AttackComboSetClassName, bundles.TextData.GetScriptFile(FileConstants.AttackComboSetClassName) },
+                { FileConstants.AttackClassName, bundles.TextData.GetScriptFile(FileConstants.AttackClassName) },
+                { FileConstants.AttackHitClassName, bundles.TextData.GetScriptFile(FileConstants.AttackHitClassName) },
+                { FileConstants.ScenarioRewardsClassName, bundles.TextData.GetScriptFile(FileConstants.ScenarioRewardsClassName) }
             };
         }
     }

@@ -39,18 +39,18 @@ namespace NEO_TWEWY_Randomizer
                 .ToList();
             List<NameAssociation> storyRewardNames2nd = FileConstants.ItemNames.StoryYen2nd.ToList();
 
-            for (int i = 0; i < original.Count; i++)
+            for (int i=0; i<original.Count; i++)
             {
                 ScenarioRewards rewardsOriginal = original[i];
                 ScenarioRewards rewardsRandomized = randomized[i];
-                if (storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).Any())
+                if (storyRewardNames.Where(n => (ScenarioRewards.Label)n.Id == rewardsOriginal.Id).Any())
                 {
-                    string rewardName = storyRewardNames.Where(n => n.Id == rewardsOriginal.Id).First().Name;
-                    AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName, itemNames.Where(n => n.Id == rewardsOriginal.FirstReward).First().Name, rewardsOriginal.FirstRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.FirstReward).First().Name, rewardsRandomized.FirstRewardCount));
-                    if (storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).Any())
+                    string rewardName = storyRewardNames.Where(n => (ScenarioRewards.Label)n.Id == rewardsOriginal.Id).First().Name;
+                    AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName, itemNames.Where(n => (AllItemsLabel)n.Id == rewardsOriginal.FirstReward).First().Name, rewardsOriginal.FirstRewardCount, itemNames.Where(n => (AllItemsLabel)n.Id == rewardsRandomized.FirstReward).First().Name, rewardsRandomized.FirstRewardCount));
+                    if (storyRewardNames2nd.Where(n => (ScenarioRewards.Label)n.Id == rewardsOriginal.Id).Any())
                     {
-                        string rewardName2nd = storyRewardNames2nd.Where(n => n.Id == rewardsOriginal.Id).First().Name;
-                        AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName2nd, itemNames.Where(n => n.Id == rewardsOriginal.SecondReward).First().Name, rewardsOriginal.SecondRewardCount, itemNames.Where(n => n.Id == rewardsRandomized.SecondReward).First().Name, rewardsRandomized.SecondRewardCount));
+                        string rewardName2nd = storyRewardNames2nd.Where(n => (ScenarioRewards.Label)n.Id == rewardsOriginal.Id).First().Name;
+                        AddToLog(string.Format("{0,-35}: {1,-25} x{2,-3} -> {3,-25} x{4,-3}\n", rewardName2nd, itemNames.Where(n => (AllItemsLabel)n.Id == rewardsOriginal.SecondReward).First().Name, rewardsOriginal.SecondRewardCount, itemNames.Where(n => (AllItemsLabel)n.Id == rewardsRandomized.SecondReward).First().Name, rewardsRandomized.SecondRewardCount));
                     }
                 }
             }

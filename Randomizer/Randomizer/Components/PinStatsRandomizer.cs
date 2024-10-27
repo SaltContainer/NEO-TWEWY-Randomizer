@@ -13,16 +13,16 @@ namespace NEO_TWEWY_Randomizer
             this.engine = engine;
         }
 
-        private Dictionary<int, List<AttackHit>> FindAttackHitsToModify(List<Badge> pins, AttackHitList dataToSearch)
+        private Dictionary<Badge.Label, List<AttackHit>> FindAttackHitsToModify(List<Badge> pins, AttackHitList dataToSearch)
         {
             PsychicList psychicDataOriginal = engine.Bundles.TextData.GetPsychic();
             AttackComboSetList attackComboSetDataOriginal = engine.Bundles.TextData.GetAttackComboSet();
             AttackList attackDataOriginal = engine.Bundles.TextData.GetAttack();
 
-            Dictionary<int, Psychic> psDict = pins.ToDictionary(p => p.Id, p => psychicDataOriginal.Items.Where(ps => ps.Id == p.Psychic).First());
-            Dictionary<int, AttackComboSet> acsDict = psDict.ToDictionary(ps => ps.Key, ps => attackComboSetDataOriginal.Items.Where(acs => acs.Id == ps.Value.AttackComboSet).First());
-            Dictionary<int, List<Attack>> atkDict = acsDict.ToDictionary(acs => acs.Key, acs => attackDataOriginal.Items.Where(atk => acs.Value.AttackList.Contains(atk.Id)).ToList());
-            Dictionary<int, List<AttackHit>> hitDict = atkDict.ToDictionary(atk => atk.Key, atk => dataToSearch.Items.Where(hit => atk.Value.SelectMany(a => a.HitList).Contains(hit.Id)).ToList());
+            Dictionary<Badge.Label, Psychic> psDict = pins.ToDictionary(p => p.Id, p => psychicDataOriginal.Items.Where(ps => ps.Id == p.Psychic).First());
+            Dictionary<Badge.Label, AttackComboSet> acsDict = psDict.ToDictionary(ps => ps.Key, ps => attackComboSetDataOriginal.Items.Where(acs => acs.Id == ps.Value.AttackComboSet).First());
+            Dictionary<Badge.Label, List<Attack>> atkDict = acsDict.ToDictionary(acs => acs.Key, acs => attackDataOriginal.Items.Where(atk => acs.Value.AttackList.Contains(atk.Id)).ToList());
+            Dictionary<Badge.Label, List<AttackHit>> hitDict = atkDict.ToDictionary(atk => atk.Key, atk => dataToSearch.Items.Where(hit => atk.Value.SelectMany(a => a.HitList).Contains(hit.Id)).ToList());
 
             return hitDict;
         }
@@ -35,10 +35,10 @@ namespace NEO_TWEWY_Randomizer
             AttackHitList attackHitDataOriginal = engine.Bundles.TextData.ParseAttackHit();
             AttackHitList attackHitData = engine.Bundles.TextData.GetAttackHit();
 
-            List<Badge> listToEditOriginal = pinDataOriginal.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => p.Id).Contains(data.Id)).ToList();
-            List<Badge> listToEdit = pinData.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => p.Id).Contains(data.Id)).ToList();
+            List<Badge> listToEditOriginal = pinDataOriginal.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).Contains(data.Id)).ToList();
+            List<Badge> listToEdit = pinData.Items.Where(data => FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).Contains(data.Id)).ToList();
 
-            Dictionary<int, List<AttackHit>> attackHitToEdit = FindAttackHitsToModify(listToEdit, attackHitData);
+            Dictionary<Badge.Label, List<AttackHit>> attackHitToEdit = FindAttackHitsToModify(listToEdit, attackHitData);
 
             if (settings.PinStats.MaxLevel) listToEdit.ForEach(p => p.MaxLevel = engine.RandNext(2, 11));
 
@@ -65,7 +65,7 @@ namespace NEO_TWEWY_Randomizer
             if (settings.PinStats.Affinity)
             {
                 listToEdit.ForEach(p => {
-                    p.MashUpAffinity = FileConstants.ItemNames.Affinities[engine.RandNext(FileConstants.ItemNames.Affinities.Count)].Id;
+                    p.MashUpAffinity = (ElementType)FileConstants.ItemNames.Affinities[engine.RandNext(FileConstants.ItemNames.Affinities.Count)].Id;
                     attackHitToEdit[p.Id].ForEach(hit => hit.Affinity[0] = p.MashUpAffinity);
                 });
             }
@@ -74,7 +74,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 case PinBrand.Shuffle:
                 {
-                    List<int> brands = [];
+                    List<BrandLabel> brands = [];
                     brands.AddRange(listToEdit.Select(p => p.Brand));
 
                     brands = brands.OrderBy(b => engine.RandNext()).ToList();
@@ -86,14 +86,14 @@ namespace NEO_TWEWY_Randomizer
 
                 case PinBrand.RandomCompletely:
                 {
-                    listToEdit.ForEach(p => p.Brand = engine.RandNext(0, 16));
+                    listToEdit.ForEach(p => p.Brand = (BrandLabel)engine.RandNext(0, 16));
                 }
                 break;
 
                 case PinBrand.RandomUniform:
                 {
-                    List<int> brands = [];
-                    brands.AddRange(FileConstants.ItemNames.Brands.Select(b => b.Id));
+                    List<BrandLabel> brands = [];
+                    brands.AddRange(FileConstants.ItemNames.Brands.Select(b => (BrandLabel)b.Id));
 
                     brands = brands.OrderBy(b => engine.RandNext()).ToList();
 
@@ -120,8 +120,8 @@ namespace NEO_TWEWY_Randomizer
 
                 for (int i=0; i<listToEdit.Count; i++)
                 {
-                    listToEdit[pins[i]].Uber = i < count ? 1 : 0;
-                    listToEdit[pins[i]].PinClass = i < count ? 5 : 0;
+                    listToEdit[pins[i]].Uber = i < count ? BadgeRarityType.Rare : BadgeRarityType.Normal;
+                    listToEdit[pins[i]].PinClass = i < count ? BadgeClassLabel.God : BadgeClassLabel.C;
                 }
             }
 
@@ -129,7 +129,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 case PinAbility.Shuffle:
                 {
-                    List<IList<int>> abilities = [];
+                    List<IList<AbilityAbility>> abilities = [];
                     abilities.AddRange(listToEdit.Select(p => p.Abilities));
 
                     abilities = abilities.OrderBy(b => engine.RandNext()).ToList();
@@ -150,7 +150,7 @@ namespace NEO_TWEWY_Randomizer
                     for (int i=0; i<listToEdit.Count; i++)
                     {
                         listToEdit[abilities[i]].Abilities.Clear();
-                        if (i < count) listToEdit[abilities[i]].Abilities = new List<int>() { FileConstants.ItemNames.PinAbilities[engine.RandNext(FileConstants.ItemNames.PinAbilities.Count)].Id };
+                        if (i < count) listToEdit[abilities[i]].Abilities = new List<AbilityAbility>() { (AbilityAbility)FileConstants.ItemNames.PinAbilities[engine.RandNext(FileConstants.ItemNames.PinAbilities.Count)].Id };
                     }
                 }
                 break;
@@ -160,22 +160,22 @@ namespace NEO_TWEWY_Randomizer
             {
                 case PinGrowthRandomization.RandomCompletely:
                 {
-                    listToEdit.ForEach(p => p.Growth = FileConstants.ItemNames.GrowthRates[engine.RandNext(FileConstants.ItemNames.GrowthRates.Count)].Id);
+                    listToEdit.ForEach(p => p.Growth = (BadgeLvUpTypeLabel)FileConstants.ItemNames.GrowthRates[engine.RandNext(FileConstants.ItemNames.GrowthRates.Count)].Id);
                 }
                 break;
 
                 case PinGrowthRandomization.RandomUniform:
                 {
-                    List<int> growths = [];
-                    growths.AddRange(FileConstants.ItemNames.GrowthRates.Select(r => r.Id));
+                    List<BadgeLvUpTypeLabel> growths = [];
+                    growths.AddRange(FileConstants.ItemNames.GrowthRates.Select(r => (BadgeLvUpTypeLabel)r.Id));
 
-                    List<int> pins = Enumerable.Range(0, listToEdit.Count()).ToList();
+                    List<int> pins = Enumerable.Range(0, listToEdit.Count).ToList();
                     pins = pins.OrderBy(pin => engine.RandNext()).ToList();
 
-                    int growthId = 0;
+                    uint growthId = 0;
                     foreach (int i in pins)
                     {
-                        listToEdit[i].Growth = growths[growthId % growths.Count()];
+                        listToEdit[i].Growth = growths[(int)(growthId % growths.Count)];
                         growthId++;
                     }
                 }
@@ -183,7 +183,7 @@ namespace NEO_TWEWY_Randomizer
 
                 case PinGrowthRandomization.Specific:
                 {
-                    listToEdit.ForEach(p => p.Growth = (int)settings.PinStats.GrowthSpecific);
+                    listToEdit.ForEach(p => p.Growth = (BadgeLvUpTypeLabel)settings.PinStats.GrowthSpecific);
                 }
                 break;
             }
@@ -194,18 +194,18 @@ namespace NEO_TWEWY_Randomizer
                 {
                     foreach (Badge data in listToEdit)
                     {
-                        List<int> possibleEvos;
+                        List<Badge.Label> possibleEvos;
                         if (settings.PinStats.EvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == data.Brand).Select(p => p.Id).ToList();
-                        else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                        else possibleEvos = FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).ToList();
 
-                        if (data.EvolutionSingle != -1)
+                        if (data.EvolutionSingle != Badge.Label.Invalid)
                         {
                             data.EvolutionSingle = possibleEvos[engine.RandNext(possibleEvos.Count)];
                             data.EvolutionLevel = data.MaxLevel;
                         }
                         for (int i=0; i<data.EvolutionList.Count; i++)
                         {
-                            if (data.EvolutionList[i] != -1)
+                            if (data.EvolutionList[i] != Badge.Label.Invalid)
                             {
                                 data.EvolutionList[i] = possibleEvos[engine.RandNext(possibleEvos.Count)];
                                 data.EvolutionLevel = data.MaxLevel;
@@ -227,9 +227,9 @@ namespace NEO_TWEWY_Randomizer
                     {
                         if (i < count)
                         {
-                            List<int> possibleEvos;
+                            List<Badge.Label> possibleEvos;
                             if (settings.PinStats.EvoForceBrand) possibleEvos = listToEdit.Where(p => p.Brand == listToEdit[pins[i]].Brand).Select(p => p.Id).ToList();
-                            else possibleEvos = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
+                            else possibleEvos = FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).ToList();
 
                             bool single = engine.RandNext(3) < 2;
                             if (single)
@@ -240,15 +240,15 @@ namespace NEO_TWEWY_Randomizer
                             else
                             {
                                 int chara = engine.RandNext(7);
-                                listToEdit[pins[i]].EvolutionSingle = -1;
-                                listToEdit[pins[i]].EvolutionList = Enumerable.Repeat(-1, 7).ToList();
+                                listToEdit[pins[i]].EvolutionSingle = Badge.Label.Invalid;
+                                listToEdit[pins[i]].EvolutionList = Enumerable.Repeat(Badge.Label.Invalid, 7).ToList();
                                 listToEdit[pins[i]].EvolutionList[chara] = possibleEvos[engine.RandNext(possibleEvos.Count)];
                             }
                             listToEdit[pins[i]].EvolutionLevel = listToEdit[pins[i]].MaxLevel;
                         }
                         else
                         {
-                            listToEdit[pins[i]].EvolutionSingle = -1;
+                            listToEdit[pins[i]].EvolutionSingle = Badge.Label.Invalid;
                             listToEdit[pins[i]].EvolutionList.Clear();
                             listToEdit[pins[i]].EvolutionLevel = 0;
                         }
@@ -263,7 +263,7 @@ namespace NEO_TWEWY_Randomizer
                 {
                     if (data.EvolutionList.Count > 0)
                     {
-                        data.EvolutionSingle = data.EvolutionList.Where(i => i != -1).First();
+                        data.EvolutionSingle = data.EvolutionList.Where(i => i != Badge.Label.Invalid).First();
                         data.EvolutionList.Clear();
                     }
                 }

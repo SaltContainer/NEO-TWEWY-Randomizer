@@ -11,26 +11,27 @@ The Randomizer now supports the PC version of the game! That version specificall
 With the PC version now being supported, all versions of the game _should_ be supported. I was not able to test the PS4 version myself but if it uses either un-encrypted bundles (like the Switch version) or bundles encrypted in the same way as the PC version, then it should work without any issues.
 
 ## Requirements
-As of the latest version, there is only one file needed for the randomization to work properly (`4017d8fc.unity3d`).
-To obtain this file, the process is a bit different for each version.
+As of the latest version, there are 3 files needed for the randomization to work properly (`4017d8fc.unity3d`, `8b022f77.unity3d`, `a90d3deb.unity3d`). You will need to have all of them in the same folder. When loading the files in the randomizer, you'll just need to select that folder.
+
+To obtain these files, the process is a bit different for each version.
 
 ### PC
-You can find the file directly at `<directory>/NEO The World Ends with You_Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+You can find the files directly in this folder: `<directory>/NEO The World Ends with You_Data/StreamingAssets/Assets`.
 
 ### Switch
-There are many tutorials online on how to extract the game files. You'll specifically want to find how to dump/extract the RomFS. Once you've done that, the file will be found at `<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`.
+There are many tutorials online on how to extract the game files. You'll specifically want to find how to dump/extract the RomFS. Once you've done that, the files will be found in thid folder: `<directory>/Data/StreamingAssets/Assets`.
 
 ### PS4
-I am not aware on how to obtain the game files from the PS4 version of the game. There are likely tutorials online on how to do this. The path for the file will look similar to the ones for the other versions.
+I am not aware on how to obtain the game files from the PS4 version of the game. There are likely tutorials online on how to do this. The path for the files will look similar to the ones for the other versions.
 
 ## Using the Randomized Data
-Once you've obtained the file and ran it through the randomizer, you can then simply "replace" it in your game's installation.
+Once you've obtained the files and ran them through the randomizer, you can then simply "replace" them in your game's installation.
 
 ### PC
-Replace the `4017d8fc.unity3d` file in the game files with the one the randomizer generated. Make sure to keep a backup of the vanilla file!
+Directly replace the files in your game with the ones the randomizer generated. Make sure to keep a backup of the vanilla files!
 
 ### Switch
-Please follow tutorials online on how to use either an emulator's or Atmosphere's LayeredFS implementation to mod your game. Make sure you recreate the proper folder structure when creating your mod (`<directory>/Data/StreamingAssets/Assets/4017d8fc.unity3d`).
+Please follow tutorials online on how to use either an emulator's or Atmosphere's LayeredFS implementation to mod your game. Make sure you recreate the proper folder structure when creating your mod (`<directory>/Data/StreamingAssets/Assets/xxxxx.unity3d`).
 
 ### PS4
 I am not aware on how to mod games on the PS4. There are likely tutorials online on how to do this.
@@ -42,7 +43,8 @@ I am not aware on how to mod games on the PS4. There are likely tutorials online
   - Pins dropped by Noise can be either shuffled or randomized.
     - "Limited" Pins (Axion, Dilaton, Dibaryon, and Sfermion) can also be included.
     - It is possible to only change drops for specific difficulties.
-    - Turning this option on may result in softlocks since some of the barrier requirements could be impossible to fulfill.
+    - Turning this option on will make the two missions that require specific pins automatically fulfilled after talking to the reaper again.
+      - The two missions are during W1D2 to go between 104 and Dogenzaka, and during W2D5 to go between 104 and TSUTAYA O-EAST.
   - Drop Rates for these Pins can be randomized.
     - It is possible to only change rates for specific difficulties.
     - There is an option to "weigh" each difficulty so that pins are rarer or more common at different difficulties.

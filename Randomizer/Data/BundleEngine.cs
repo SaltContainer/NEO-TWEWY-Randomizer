@@ -1,6 +1,4 @@
 ﻿using AssetsTools.NET.Extra;
-using AssetsTools.NET;
-using System.Collections.Generic;
 using System.IO;
 
 namespace NEO_TWEWY_Randomizer
@@ -21,24 +19,14 @@ namespace NEO_TWEWY_Randomizer
             manager.UnloadAll();
         }
 
-        public Bundle LoadBundle(string path, string key)
+        public TextBundle LoadTextBundle(string path, string key)
         {
-            return new Bundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
+            return new TextBundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
         }
 
-        public BundleFileInstance LoadBundleFile(string path, out bool encrypted)
+        public ScenarioBundle LoadScenarioBundle(string path, string key)
         {
-            return decryptor.LoadAndDecryptBundle(path, out encrypted);
-        }
-
-        public AssetsFileInstance LoadAssetsFileFromBundle(BundleFileInstance bundle)
-        {
-            return manager.LoadAssetsFileFromBundle(bundle, 0);
-        }
-
-        public void SaveBundleToFile(BundleFileInstance bundle, string path, bool encrypted)
-        {
-            decryptor.SaveAndEncryptBundle(bundle, path, encrypted);
+            return new ScenarioBundle(manager, LoadBundleFile(path, out bool encrypted), key, encrypted);
         }
 
         public void SaveBundleToFile(Bundle bundle, string path)
@@ -46,14 +34,9 @@ namespace NEO_TWEWY_Randomizer
             decryptor.SaveAndEncryptBundle(bundle.BundleInstance, Path.Combine(path, bundle.FileName), bundle.Encrypted);
         }
 
-        private void SetAssetsFileInBundle(BundleFileInstance bundle, AssetsFileInstance assetsFile)
+        private BundleFileInstance LoadBundleFile(string path, out bool encrypted)
         {
-            bundle.file.BlockAndDirInfo.DirectoryInfos[0].SetNewData(assetsFile.file);
-        }
-
-        private int FindObjectOfName(List<AssetTypeValueField> objBaseFields, string name)
-        {
-            return objBaseFields.FindIndex(s => s["m_Name"].AsString == name);
+            return decryptor.LoadAndDecryptBundle(path, out encrypted);
         }
     }
 }

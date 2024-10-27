@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -14,20 +13,17 @@ namespace NEO_TWEWY_Randomizer
             this.engine = engine;
         }
 
-        public Dictionary<string, string> RandomizeDroppedPins(RandomizationSettings settings)
+        public void RandomizeDroppedPins(RandomizationSettings settings)
         {
-            string enemyDataScript = engine.GetScript(FileConstants.EnemyDataClassName);
-            string pigsScript = engine.GetScript(FileConstants.PigDataClassName);
+            EnemyDataList enemyDataOriginal = engine.Bundles.TextData.ParseEnemyData();
+            EnemyDataList enemyData = engine.Bundles.TextData.GetEnemyData();
+            PigDataList pigDataOriginal = engine.Bundles.TextData.ParsePigData();
+            PigDataList pigData = engine.Bundles.TextData.GetPigData();
 
-            EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
-            EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
-            PigDataList pigDataOriginal = JsonConvert.DeserializeObject<PigDataList>(pigsScript);
-            PigDataList pigData = JsonConvert.DeserializeObject<PigDataList>(pigsScript);
-
-            List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
-            List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
-            List<PigData> pigsToEditOriginal = pigDataOriginal.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => p.Id).Contains(pig.Id)).ToList();
-            List<PigData> pigsToEdit = pigData.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => p.Id).Contains(pig.Id)).ToList();
+            List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => (EnemyData.Name)e.Id).Contains(data.Id)).ToList();
+            List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => (EnemyData.Name)e.Id).Contains(data.Id)).ToList();
+            List<PigData> pigsToEditOriginal = pigDataOriginal.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => (PigData.Label)p.Id).Contains(pig.Id)).ToList();
+            List<PigData> pigsToEdit = pigData.Items.Where(pig => FileConstants.ItemNames.Pigs.Select(p => (PigData.Label)p.Id).Contains(pig.Id)).ToList();
 
             bool dropEasy = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Easy);
             bool dropNormal = settings.NoiseDrops.DropTypeDifficulties.Contains(Difficulties.Normal);
@@ -39,112 +35,115 @@ namespace NEO_TWEWY_Randomizer
             switch (settings.NoiseDrops.DropTypeChoice)
             {
                 case NoiseDropType.ShuffleCompletely:
-                    List<int> scPins = new List<int>();
-                    if (dropEasy) scPins.AddRange(listToEditOriginal.Select(data => data.Drop[0]));
-                    if (dropNormal) scPins.AddRange(listToEditOriginal.Select(data => data.Drop[1]));
-                    if (dropHard) scPins.AddRange(listToEditOriginal.Select(data => data.Drop[2]));
-                    if (dropUltimate) scPins.AddRange(listToEditOriginal.Select(data => data.Drop[3]));
+                {
+                    List<Badge.Label> pins = [];
+                    if (dropEasy) pins.AddRange(listToEditOriginal.Select(data => data.Drop[0]));
+                    if (dropNormal) pins.AddRange(listToEditOriginal.Select(data => data.Drop[1]));
+                    if (dropHard) pins.AddRange(listToEditOriginal.Select(data => data.Drop[2]));
+                    if (dropUltimate) pins.AddRange(listToEditOriginal.Select(data => data.Drop[3]));
 
-                    scPins = scPins.OrderBy(pin => engine.RandNext()).ToList();
+                    pins = pins.OrderBy(pin => engine.RandNext()).ToList();
 
                     int pinId = 0;
                     foreach (EnemyData data in listToEdit)
                     {
-                        if (dropEasy) data.Drop[0] = scPins[pinId++];
-                        if (dropNormal) data.Drop[1] = scPins[pinId++];
-                        if (dropHard) data.Drop[2] = scPins[pinId++];
-                        if (dropUltimate) data.Drop[3] = scPins[pinId++];
+                        if (dropEasy) data.Drop[0] = pins[pinId++];
+                        if (dropNormal) data.Drop[1] = pins[pinId++];
+                        if (dropHard) data.Drop[2] = pins[pinId++];
+                        if (dropUltimate) data.Drop[3] = pins[pinId++];
                     }
                     AdjustEnemyDataDroppedPins(enemyData);
-                    break;
+                    RemovePinSpecificMissions();
+                }
+                break;
 
                 case NoiseDropType.ShuffleSets:
-                    List<IList<int>> ssPins = listToEditOriginal.Select(data => data.Drop).ToList();
-                    ssPins = ssPins.OrderBy(pin => engine.RandNext()).ToList();
+                {
+                    List<IList<Badge.Label>> pins = listToEditOriginal.Select(data => data.Drop).ToList();
+                    pins = pins.OrderBy(pin => engine.RandNext()).ToList();
 
-                    for (int i = 0; i < listToEdit.Count; i++)
-                    {
-                        listToEdit[i].Drop = ssPins[i];
-                    }
+                    for (int i=0; i<listToEdit.Count; i++)
+                        listToEdit[i].Drop = pins[i];
+
                     AdjustEnemyDataDroppedPins(enemyData);
-                    break;
+                    RemovePinSpecificMissions();
+                }
+                break;
 
                 case NoiseDropType.RandomCompletely:
-                    List<int> rcPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
-                    rcPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
-                    rcPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
-                    if (limited) rcPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
+                {
+                    List<Badge.Label> pins = FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).ToList();
+                    pins.AddRange(FileConstants.ItemNames.YenPins.Select(p => (Badge.Label)p.Id));
+                    pins.AddRange(FileConstants.ItemNames.GemPins.Select(p => (Badge.Label)p.Id));
+                    if (limited) pins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => (Badge.Label)p.Id));
 
                     foreach (EnemyData data in listToEdit)
                     {
-                        if (dropEasy) data.Drop[0] = rcPins[engine.RandNext(rcPins.Count)];
-                        if (dropNormal) data.Drop[1] = rcPins[engine.RandNext(rcPins.Count)];
-                        if (dropHard) data.Drop[2] = rcPins[engine.RandNext(rcPins.Count)];
-                        if (dropUltimate) data.Drop[3] = rcPins[engine.RandNext(rcPins.Count)];
+                        if (dropEasy) data.Drop[0] = pins[engine.RandNext(pins.Count)];
+                        if (dropNormal) data.Drop[1] = pins[engine.RandNext(pins.Count)];
+                        if (dropHard) data.Drop[2] = pins[engine.RandNext(pins.Count)];
+                        if (dropUltimate) data.Drop[3] = pins[engine.RandNext(pins.Count)];
                     }
                     AdjustEnemyDataDroppedPins(enemyData);
-                    break;
+                    RemovePinSpecificMissions();
+                }
+                break;
 
                 case NoiseDropType.RandomAllPins:
-                    List<int> raPins = FileConstants.ItemNames.Pins.Select(p => p.Id).ToList();
-                    raPins.AddRange(FileConstants.ItemNames.YenPins.Select(p => p.Id));
-                    raPins.AddRange(FileConstants.ItemNames.GemPins.Select(p => p.Id));
-                    if (limited) raPins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => p.Id));
+                {
+                    List<Badge.Label> pins = FileConstants.ItemNames.Pins.Select(p => (Badge.Label)p.Id).ToList();
+                    pins.AddRange(FileConstants.ItemNames.YenPins.Select(p => (Badge.Label)p.Id));
+                    pins.AddRange(FileConstants.ItemNames.GemPins.Select(p => (Badge.Label)p.Id));
+                    if (limited) pins.AddRange(FileConstants.ItemNames.LimitedPins.Select(p => (Badge.Label)p.Id));
 
-                    int raEnemyCount = listToEdit.Count;
+                    int enemyCount = listToEdit.Count;
 
-                    List<(int, int)> raEnemies = Enumerable.Range(0, raEnemyCount).SelectMany(e => Enumerable.Range(0, 4).Select(d => (e, d))).ToList();
-                    raEnemies.AddRange(Enumerable.Range(raEnemyCount, pigsToEdit.Count).Select(p => (p, 0)).ToList());
-                    raEnemies = raEnemies.OrderBy(enemy => engine.RandNext()).ToList();
+                    List<(int, int)> enemies = Enumerable.Range(0, enemyCount).SelectMany(e => Enumerable.Range(0, 4).Select(d => (e, d))).ToList();
+                    enemies.AddRange(Enumerable.Range(enemyCount, pigsToEdit.Count).Select(p => (p, 0)).ToList());
+                    enemies = enemies.OrderBy(enemy => engine.RandNext()).ToList();
 
-                    for (int i = 0; i < raPins.Count; i++)
+                    for (int i=0; i<pins.Count; i++)
                     {
-                        var (e, d) = raEnemies[i];
-                        if (e < raEnemyCount)
+                        var (e, d) = enemies[i];
+                        if (e < enemyCount)
                         {
-                            listToEdit[e].Drop[d] = raPins[i];
+                            listToEdit[e].Drop[d] = pins[i];
                         }
                         else
                         {
-                            pigsToEdit[e - raEnemyCount].Drop = raPins[i];
+                            pigsToEdit[e - enemyCount].Drop = pins[i];
                         }
                     }
-                    for (int i = raPins.Count; i < raEnemies.Count; i++)
+                    for (int i=pins.Count; i<enemies.Count; i++)
                     {
-                        var (e, d) = raEnemies[i];
-                        if (e < raEnemyCount)
+                        var (e, d) = enemies[i];
+                        if (e < enemyCount)
                         {
-                            listToEdit[e].Drop[d] = raPins[engine.RandNext(raPins.Count)];
+                            listToEdit[e].Drop[d] = pins[engine.RandNext(pins.Count)];
                         }
                         else
                         {
-                            pigsToEdit[e - raEnemyCount].Drop = raPins[engine.RandNext(raPins.Count)];
+                            pigsToEdit[e - enemyCount].Drop = pins[engine.RandNext(pins.Count)];
                         }
                     }
                     AdjustEnemyDataDroppedPins(enemyData);
-                    break;
+                    RemovePinSpecificMissions();
+                }
+                break;
             }
 
             engine.Logger.LogDropTypeChanges(listToEditOriginal, listToEdit);
-            if (settings.NoiseDrops.DropTypeChoice == NoiseDropType.RandomAllPins) engine.Logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
-
-            Dictionary<string, string> editedScripts = new Dictionary<string, string>
-            {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented) },
-                { FileConstants.PigDataClassName, JsonConvert.SerializeObject(pigData, Formatting.Indented) }
-            };
-            return editedScripts;
+            if (settings.NoiseDrops.DropTypeChoice == NoiseDropType.RandomAllPins)
+                engine.Logger.LogPigDropChanges(pigsToEditOriginal, pigsToEdit);
         }
 
-        public Dictionary<string, string> RandomizeDropRate(RandomizationSettings settings)
+        public void RandomizeDropRate(RandomizationSettings settings)
         {
-            string enemyDataScript = engine.GetScript(FileConstants.EnemyDataClassName);
+            EnemyDataList enemyDataOriginal = engine.Bundles.TextData.ParseEnemyData();
+            EnemyDataList enemyData = engine.Bundles.TextData.GetEnemyData();
 
-            EnemyDataList enemyDataOriginal = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
-            EnemyDataList enemyData = JsonConvert.DeserializeObject<EnemyDataList>(enemyDataScript);
-
-            List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
-            List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => e.Id).Contains(data.Id)).ToList();
+            List<EnemyData> listToEditOriginal = enemyDataOriginal.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => (EnemyData.Name)e.Id).Contains(data.Id)).ToList();
+            List<EnemyData> listToEdit = enemyData.Items.Where(data => FileConstants.ItemNames.Enemies.Select(e => (EnemyData.Name)e.Id).Contains(data.Id)).ToList();
 
             bool dropEasy = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Easy);
             bool dropNormal = settings.NoiseDrops.DropRateDifficulties.Contains(Difficulties.Normal);
@@ -157,6 +156,7 @@ namespace NEO_TWEWY_Randomizer
             switch (settings.NoiseDrops.DropRateChoice)
             {
                 case NoiseDropRate.RandomCompletely:
+                {
                     foreach (EnemyData data in listToEdit)
                     {
                         if (dropEasy) data.DropRate[0] = (float)Math.Round((engine.RandNextDouble() * (max - min)) + min, 4);
@@ -165,9 +165,11 @@ namespace NEO_TWEWY_Randomizer
                         if (dropUltimate) data.DropRate[3] = (float)Math.Round((engine.RandNextDouble() * (max - min)) + min, 4);
                     }
                     AdjustEnemyDataDropRate(enemyData);
-                    break;
+                }
+                break;
 
                 case NoiseDropRate.RandomWeighted:
+                {
                     List<uint> weightsOn = new List<uint>();
                     if (dropEasy) weightsOn.Add(settings.NoiseDrops.DropRateWeights[0]);
                     if (dropNormal) weightsOn.Add(settings.NoiseDrops.DropRateWeights[1]);
@@ -190,16 +192,11 @@ namespace NEO_TWEWY_Randomizer
                     }
 
                     AdjustEnemyDataDropRate(enemyData);
-                    break;
+                }
+                break;
             }
 
             engine.Logger.LogDropRateChanges(listToEditOriginal, listToEdit);
-
-            Dictionary<string, string> editedScripts = new Dictionary<string, string>
-            {
-                { FileConstants.EnemyDataClassName, JsonConvert.SerializeObject(enemyData, Formatting.Indented, new FloatFormatConverter(4)) }
-            };
-            return editedScripts;
         }
 
         private void AdjustEnemyDataDroppedPins(EnemyDataList enemyData)
@@ -207,19 +204,19 @@ namespace NEO_TWEWY_Randomizer
             foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.Duplicates)
             {
                 EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
-                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<int>(original.Drop));
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<Badge.Label>(original.Drop));
             }
 
             foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.ForcedNormalDrops)
             {
                 EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
-                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<int>(original.Drop));
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<Badge.Label>(original.Drop));
             }
 
             foreach (EnemyDuplicate dupe in FileConstants.EnemyDataDuplicates.NoDrops)
             {
                 EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
-                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<int>(original.Drop));
+                enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.Drop = new List<Badge.Label>(original.Drop));
             }
         }
 
@@ -246,6 +243,17 @@ namespace NEO_TWEWY_Randomizer
                 EnemyData original = enemyData.Items.Where(enemy => enemy.Id == dupe.Id).First();
                 enemyData.Items.Where(enemy => dupe.Duplicates.Contains(enemy.Id)).ToList().ForEach(enemy => enemy.DropRate = new List<float> { 0, 0, 0, 0 });
             }
+        }
+
+        private void RemovePinSpecificMissions()
+        {
+            var w1d2 = engine.Bundles.W1D2Scenario.GetScenarioFile(FileConstants.W1D2PinMissionAssetName);
+            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
+            w1d2.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
+
+            var w2d5 = engine.Bundles.W2D5Scenario.GetScenarioFile(FileConstants.W2D5PinMissionAssetName);
+            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.Name = "OrMore";
+            w2d5.Ready.List[0].ScenarioKindExtension.ScenarioBadgeList[0].CalcOperator.SerializedValue = 5;
         }
     }
 }

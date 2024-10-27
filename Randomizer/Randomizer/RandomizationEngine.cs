@@ -12,14 +12,14 @@ namespace NEO_TWEWY_Randomizer
         private RandomizationLogger logger;
 
         private BundleEngine bundleEngine;
-        private Dictionary<string, string> scripts;
-        private Dictionary<string, Bundle> bundles;
+        private BundleSet bundles;
 
         private NoiseDropsRandomizer noiseDropsRandomizer;
         private PinStatsRandomizer pinStatsRandomizer;
         private StoryRewardsRandomizer storyRewardsRandomizer;
 
         public Random Rand { get => rand; }
+        public BundleSet Bundles { get => bundles; }
         public RandomizationLogger Logger { get => logger; }
 
         public RandomizationEngine()
@@ -27,8 +27,7 @@ namespace NEO_TWEWY_Randomizer
             logger = new RandomizationLogger();
 
             bundleEngine = new BundleEngine();
-            scripts = new Dictionary<string, string>();
-            bundles = new Dictionary<string, Bundle>();
+            bundles = new BundleSet();
 
             noiseDropsRandomizer = new NoiseDropsRandomizer(this);
             pinStatsRandomizer = new PinStatsRandomizer(this);
@@ -41,8 +40,20 @@ namespace NEO_TWEWY_Randomizer
             {
                 foreach (var entry in fileNames)
                 {
-                    Bundle bundle = bundleEngine.LoadBundle(entry.Value, entry.Key);
-                    bundles.Add(entry.Key, bundle);
+                    switch (entry.Key)
+                    {
+                        case FileConstants.TextDataBundleKey:
+                            bundles.TextData = bundleEngine.LoadTextBundle(entry.Value, entry.Key);
+                            break;
+
+                        case FileConstants.W1D2ScenarioBundleKey:
+                            bundles.W1D2Scenario = bundleEngine.LoadScenarioBundle(entry.Value, entry.Key);
+                            break;
+
+                        case FileConstants.W2D5ScenarioBundleKey:
+                            bundles.W2D5Scenario = bundleEngine.LoadScenarioBundle(entry.Value, entry.Key);
+                            break;
+                    }
                 }
                 return true;
             }
@@ -55,7 +66,7 @@ namespace NEO_TWEWY_Randomizer
 
         public bool AreBundlesLoaded()
         {
-            return FileConstants.Bundles.All(kvp => bundles.ContainsKey(kvp.Key));
+            return bundles.AreAllBundlesLoaded();
         }
 
         public void Randomize(RandomizationSettings settings)
@@ -64,13 +75,10 @@ namespace NEO_TWEWY_Randomizer
 
             logger.LogSettings(settings);
 
-            scripts.AddRange(GetBaseScripts());
-            scripts.AddRange(noiseDropsRandomizer.RandomizeDroppedPins(settings));
-            scripts.AddRange(noiseDropsRandomizer.RandomizeDropRate(settings));
-            scripts.AddRange(pinStatsRandomizer.RandomizePinStats(settings));
-            scripts.AddRange(storyRewardsRandomizer.RandomizeStoryRewards(settings));
-
-            bundles[FileConstants.TextDataBundleKey].SetScriptFiles(scripts);
+            noiseDropsRandomizer.RandomizeDroppedPins(settings);
+            noiseDropsRandomizer.RandomizeDropRate(settings);
+            pinStatsRandomizer.RandomizePinStats(settings);
+            storyRewardsRandomizer.RandomizeStoryRewards(settings);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)
@@ -84,11 +92,6 @@ namespace NEO_TWEWY_Randomizer
             bool result = SaveBundles(filePath);
             result = result && logger.SaveLogToFile(Path.Combine(filePath, string.Format("Randomization-Log-{0}.log", seed.ToString())));
             return result;
-        }
-
-        public string GetScript(string scriptName)
-        {
-            return scripts[scriptName];
         }
 
         public int RandNext()
@@ -140,10 +143,14 @@ namespace NEO_TWEWY_Randomizer
         {
             try
             {
-                foreach (var entry in bundles)
-                {
-                    bundleEngine.SaveBundleToFile(entry.Value, filePath);
-                }
+                bundles.TextData.SaveTextData();
+                bundles.W1D2Scenario.SaveScenarioFiles();
+                bundles.W2D5Scenario.SaveScenarioFiles();
+
+                bundleEngine.SaveBundleToFile(bundles.TextData, filePath);
+                bundleEngine.SaveBundleToFile(bundles.W1D2Scenario, filePath);
+                bundleEngine.SaveBundleToFile(bundles.W2D5Scenario, filePath);
+
                 return true;
             }
             catch (Exception ex)
@@ -151,21 +158,6 @@ namespace NEO_TWEWY_Randomizer
                 MessageBox.Show("There was an error writing one of the data files. Full Exception: " + ex.Message, "Saving Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }
-
-        private Dictionary<string, string> GetBaseScripts()
-        {
-            return new Dictionary<string, string>
-            {
-                { FileConstants.EnemyDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.EnemyDataClassName) },
-                { FileConstants.PigDataClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PigDataClassName) },
-                { FileConstants.BadgeClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.BadgeClassName) },
-                { FileConstants.PsychicClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.PsychicClassName) },
-                { FileConstants.AttackComboSetClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackComboSetClassName) },
-                { FileConstants.AttackClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackClassName) },
-                { FileConstants.AttackHitClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.AttackHitClassName) },
-                { FileConstants.ScenarioRewardsClassName, bundles[FileConstants.TextDataBundleKey].GetScriptFile(FileConstants.ScenarioRewardsClassName) }
-            };
         }
     }
 }

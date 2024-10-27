@@ -1,5 +1,8 @@
-﻿using System;
+﻿using AssetsTools.NET;
+using AssetsTools.NET.Extra;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -24,6 +27,16 @@ namespace NEO_TWEWY_Randomizer
                     source.Add(item.Key, item.Value);
                 }
             }
+        }
+
+        public static void ReplaceArray<T>(this AssetTypeValueField array, IEnumerable<T> items, Action<T, AssetTypeValueField> func)
+        {
+            array.Children.Clear();
+            array.Children.AddRange(items.Select(x => {
+                var item = ValueBuilder.DefaultValueFieldFromArrayTemplate(array);
+                func(x, item);
+                return item;
+            }));
         }
     }
 }

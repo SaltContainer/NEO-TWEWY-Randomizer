@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
 
 namespace NEO_TWEWY_Randomizer
 {
@@ -11,7 +10,5 @@ namespace NEO_TWEWY_Randomizer
         public string FileName { get; set; }
         [JsonProperty("cab_directory")]
         public string CabDirectory { get; set; }
-        [JsonProperty("classes")]
-        public Dictionary<string, DataClass> Classes { get; set; }
     }
 }

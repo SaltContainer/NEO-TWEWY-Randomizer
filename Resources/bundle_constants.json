@@ -2,44 +2,16 @@
 	"text-data": {
 		"key": "text-data",
 		"file_name": "4017d8fc.unity3d",
-		"cab_directory": "CAB-69ae4a77338c6711e85a72e9f85eed3c",
-		"classes": {
-			"EnemyData": {
-				"name": "EnemyData",
-				"attribute": "m_Script"
-			},
-			"EnemyReport": {
-				"name": "EnemyReport",
-				"attribute": "m_Script"
-			},
-			"PigData": {
-				"name": "PigData",
-				"attribute": "m_Script"
-			},
-			"Badge": {
-				"name": "Badge",
-				"attribute": "m_Script"
-			},
-			"Psychic": {
-				"name": "Psychic",
-				"attribute": "m_Script"
-			},
-			"AttackComboSet": {
-				"name": "AttackComboSet",
-				"attribute": "m_Script"
-			},
-			"Attack": {
-				"name": "Attack",
-				"attribute": "m_Script"
-			},
-			"AttackHit": {
-				"name": "AttackHit",
-				"attribute": "m_Script"
-			},
-			"ScenarioRewards": {
-				"name": "ScenarioRewards",
-				"attribute": "m_Script"
-			}
-		}
+		"cab_directory": "CAB-69ae4a77338c6711e85a72e9f85eed3c"
+	},
+	"w1d2-scenario": {
+		"key": "w1d2-scenario",
+		"file_name": "8b022f77.unity3d",
+		"cab_directory": "CAB-84e9504e429f96994d54dec104b3409e"
+	},
+	"w2d5-scenario": {
+		"key": "w2d5-scenario",
+		"file_name": "a90d3deb.unity3d",
+		"cab_directory": "CAB-610a711252718139df0c19c6c44250aa"
 	}
 }

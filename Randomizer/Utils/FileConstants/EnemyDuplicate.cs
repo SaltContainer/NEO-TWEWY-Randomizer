@@ -6,8 +6,8 @@ namespace NEO_TWEWY_Randomizer
     public class EnemyDuplicate
     {
         [JsonProperty("id")]
-        public int Id { get; set; }
+        public EnemyData.Name Id { get; set; }
         [JsonProperty("duplicates")]
-        public IList<int> Duplicates { get; set; }
+        public IList<EnemyData.Name> Duplicates { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace NEO_TWEWY_Randomizer
         public const string AttackAssetName = "Attack";
         public const string AttackHitAssetName = "AttackHit";
         public const string ScenarioRewardsAssetName = "ScenarioRewards";
+        public const string SkillAssetName = "Skill";
+        public const string SkillTreeAssetName = "SkillTree";
 
         public const string W1D2PinMissionAssetName = "story_w1d2_01_050_mission";
         public const string W2D5PinMissionAssetName = "story_w2d5_01_066_mission";

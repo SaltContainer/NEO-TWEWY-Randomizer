@@ -2,6 +2,7 @@
 	"versions": [
 		{
 			"version": 0,
+			"character_count": 37,
 			"values": {
 				"dropped_pin_category": {
 					"name": "dropped_pin_category",
@@ -277,6 +278,21 @@
 					"name": "story_global_shuffle_reports",
 					"offset": 139,
 					"size": 1
+				},
+				"skill_cost_category": {
+					"name": "skill_cost_category",
+					"offset": 140,
+					"size": 2
+				},
+				"skill_rewards_category": {
+					"name": "skill_rewards_category",
+					"offset": 142,
+					"size": 2
+				},
+				"skill_shuffle_category": {
+					"name": "skill_shuffle_category",
+					"offset": 144,
+					"size": 2
 				}
 			},
 			"changed_values": []

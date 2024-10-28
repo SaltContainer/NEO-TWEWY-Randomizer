@@ -243,6 +243,19 @@ namespace NEO_TWEWY_Randomizer
             if (checkStoryGlobalReport.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Reports);
             #endregion
 
+            #region Social Network
+            if (radioSkillCostUnchanged.Checked) settings.Network.CostChoice = SkillCost.Unchanged;
+            else if (radioSkillCostShuffle.Checked) settings.Network.CostChoice = SkillCost.Shuffle;
+            else if (radioSkillCostRandom.Checked) settings.Network.CostChoice = SkillCost.RandomFixedTotal;
+
+            if (radioSkillRewardUnchanged.Checked) settings.Network.RewardsChoice = SkillRewards.Unchanged;
+            else if (radioSkillRewardShuffle.Checked) settings.Network.RewardsChoice = SkillRewards.Shuffle;
+            else if (radioSkillRewardRandom.Checked) settings.Network.RewardsChoice = SkillRewards.Random;
+
+            if (radioSkillShuffleUnchanged.Checked) settings.Network.ShuffleChoice = SkillShuffle.Unchanged;
+            else if (radioSkillShuffleShuffle.Checked) settings.Network.ShuffleChoice = SkillShuffle.Shuffle;
+            #endregion
+
             return settings;
         }
         #endregion
@@ -468,6 +481,44 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalGems.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems);
             checkStoryGlobalFP.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP);
             checkStoryGlobalReport.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports);
+            #endregion
+
+            #region Social Network
+            switch (settings.Network.CostChoice)
+            {
+                case SkillCost.Unchanged:
+                    radioSkillCostUnchanged.Checked = true;
+                    break;
+                case SkillCost.Shuffle:
+                    radioSkillCostShuffle.Checked = true;
+                    break;
+                case SkillCost.RandomFixedTotal:
+                    radioSkillCostRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.Network.RewardsChoice)
+            {
+                case SkillRewards.Unchanged:
+                    radioSkillRewardUnchanged.Checked = true;
+                    break;
+                case SkillRewards.Shuffle:
+                    radioSkillRewardShuffle.Checked = true;
+                    break;
+                case SkillRewards.Random:
+                    radioSkillRewardRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.Network.ShuffleChoice)
+            {
+                case SkillShuffle.Unchanged:
+                    radioSkillShuffleUnchanged.Checked = true;
+                    break;
+                case SkillShuffle.Shuffle:
+                    radioSkillShuffleShuffle.Checked = true;
+                    break;
+            }
             #endregion
         }
         #endregion

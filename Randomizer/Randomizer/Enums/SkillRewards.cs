@@ -4,6 +4,7 @@
     {
         Unchanged,
         Shuffle,
-        Random
+        RandomSameType,
+        RandomCompletely
     }
 }

@@ -148,7 +148,7 @@ namespace NEO_TWEWY_Randomizer
             grpSkilIReward = new System.Windows.Forms.GroupBox();
             radioSkillRewardUnchanged = new System.Windows.Forms.RadioButton();
             radioSkillRewardShuffle = new System.Windows.Forms.RadioButton();
-            radioSkillRewardRandom = new System.Windows.Forms.RadioButton();
+            radioSkillRewardRandomS = new System.Windows.Forms.RadioButton();
             grpSkillShuffle = new System.Windows.Forms.GroupBox();
             radioSkillShuffleUnchanged = new System.Windows.Forms.RadioButton();
             radioSkillShuffleShuffle = new System.Windows.Forms.RadioButton();
@@ -174,6 +174,7 @@ namespace NEO_TWEWY_Randomizer
             btnSeedRandom = new System.Windows.Forms.Button();
             grpSeed = new System.Windows.Forms.GroupBox();
             ttFormMain = new System.Windows.Forms.ToolTip(components);
+            radioSkillRewardRandomC = new System.Windows.Forms.RadioButton();
             tabsMain.SuspendLayout();
             tabDrops.SuspendLayout();
             grpChance.SuspendLayout();
@@ -1646,7 +1647,7 @@ namespace NEO_TWEWY_Randomizer
             grpSkillCost.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpSkillCost.Name = "grpSkillCost";
             grpSkillCost.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpSkillCost.Size = new System.Drawing.Size(289, 138);
+            grpSkillCost.Size = new System.Drawing.Size(289, 159);
             grpSkillCost.TabIndex = 3;
             grpSkillCost.TabStop = false;
             grpSkillCost.Text = "Skill Costs";
@@ -1690,12 +1691,13 @@ namespace NEO_TWEWY_Randomizer
             // 
             grpSkilIReward.Controls.Add(radioSkillRewardUnchanged);
             grpSkilIReward.Controls.Add(radioSkillRewardShuffle);
-            grpSkilIReward.Controls.Add(radioSkillRewardRandom);
+            grpSkilIReward.Controls.Add(radioSkillRewardRandomS);
+            grpSkilIReward.Controls.Add(radioSkillRewardRandomC);
             grpSkilIReward.Location = new System.Drawing.Point(304, 7);
             grpSkilIReward.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpSkilIReward.Name = "grpSkilIReward";
             grpSkilIReward.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpSkilIReward.Size = new System.Drawing.Size(288, 138);
+            grpSkilIReward.Size = new System.Drawing.Size(288, 159);
             grpSkilIReward.TabIndex = 4;
             grpSkilIReward.TabStop = false;
             grpSkilIReward.Text = "Item Rewards";
@@ -1724,16 +1726,16 @@ namespace NEO_TWEWY_Randomizer
             radioSkillRewardShuffle.Text = "Shuffle";
             radioSkillRewardShuffle.UseVisualStyleBackColor = true;
             // 
-            // radioSkillRewardRandom
+            // radioSkillRewardRandomS
             // 
-            radioSkillRewardRandom.AutoSize = true;
-            radioSkillRewardRandom.Location = new System.Drawing.Point(21, 82);
-            radioSkillRewardRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            radioSkillRewardRandom.Name = "radioSkillRewardRandom";
-            radioSkillRewardRandom.Size = new System.Drawing.Size(70, 19);
-            radioSkillRewardRandom.TabIndex = 0;
-            radioSkillRewardRandom.Text = "Random";
-            radioSkillRewardRandom.UseVisualStyleBackColor = true;
+            radioSkillRewardRandomS.AutoSize = true;
+            radioSkillRewardRandomS.Location = new System.Drawing.Point(21, 82);
+            radioSkillRewardRandomS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardRandomS.Name = "radioSkillRewardRandomS";
+            radioSkillRewardRandomS.Size = new System.Drawing.Size(137, 19);
+            radioSkillRewardRandomS.TabIndex = 0;
+            radioSkillRewardRandomS.Text = "Random (Same Type)";
+            radioSkillRewardRandomS.UseVisualStyleBackColor = true;
             // 
             // grpSkillShuffle
             // 
@@ -1743,7 +1745,7 @@ namespace NEO_TWEWY_Randomizer
             grpSkillShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpSkillShuffle.Name = "grpSkillShuffle";
             grpSkillShuffle.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpSkillShuffle.Size = new System.Drawing.Size(289, 138);
+            grpSkillShuffle.Size = new System.Drawing.Size(289, 159);
             grpSkillShuffle.TabIndex = 5;
             grpSkillShuffle.TabStop = false;
             grpSkillShuffle.Text = "Skill Location Shuffling";
@@ -2017,6 +2019,17 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.IsBalloon = true;
             ttFormMain.ReshowDelay = 100;
             // 
+            // radioSkillRewardRandomC
+            // 
+            radioSkillRewardRandomC.AutoSize = true;
+            radioSkillRewardRandomC.Location = new System.Drawing.Point(21, 107);
+            radioSkillRewardRandomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardRandomC.Name = "radioSkillRewardRandomC";
+            radioSkillRewardRandomC.Size = new System.Drawing.Size(142, 19);
+            radioSkillRewardRandomC.TabIndex = 1;
+            radioSkillRewardRandomC.Text = "Random (Completely)";
+            radioSkillRewardRandomC.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -2243,10 +2256,11 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.GroupBox grpSkilIReward;
         private System.Windows.Forms.RadioButton radioSkillRewardUnchanged;
         private System.Windows.Forms.RadioButton radioSkillRewardShuffle;
-        private System.Windows.Forms.RadioButton radioSkillRewardRandom;
+        private System.Windows.Forms.RadioButton radioSkillRewardRandomS;
         private System.Windows.Forms.GroupBox grpSkillShuffle;
         private System.Windows.Forms.RadioButton radioSkillShuffleUnchanged;
         private System.Windows.Forms.RadioButton radioSkillShuffleShuffle;
+        private System.Windows.Forms.RadioButton radioSkillRewardRandomC;
     }
 }
 

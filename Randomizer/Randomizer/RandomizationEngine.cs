@@ -17,6 +17,7 @@ namespace NEO_TWEWY_Randomizer
         private NoiseDropsRandomizer noiseDropsRandomizer;
         private PinStatsRandomizer pinStatsRandomizer;
         private StoryRewardsRandomizer storyRewardsRandomizer;
+        private NetworkRandomizer networkRandomizer;
 
         public Random Rand { get => rand; }
         public BundleSet Bundles { get => bundles; }
@@ -32,6 +33,7 @@ namespace NEO_TWEWY_Randomizer
             noiseDropsRandomizer = new NoiseDropsRandomizer(this);
             pinStatsRandomizer = new PinStatsRandomizer(this);
             storyRewardsRandomizer = new StoryRewardsRandomizer(this);
+            networkRandomizer = new NetworkRandomizer(this);
         }
 
         public bool LoadBundles(Dictionary<string, string> fileNames)
@@ -79,6 +81,7 @@ namespace NEO_TWEWY_Randomizer
             noiseDropsRandomizer.RandomizeDropRate(settings);
             pinStatsRandomizer.RandomizePinStats(settings);
             storyRewardsRandomizer.RandomizeStoryRewards(settings);
+            networkRandomizer.RandomizeNetworkData(settings);
         }
 
         public void Randomize(RandomizationSettings settings, int seed)

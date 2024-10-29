@@ -250,7 +250,8 @@ namespace NEO_TWEWY_Randomizer
 
             if (radioSkillRewardUnchanged.Checked) settings.Network.RewardsChoice = SkillRewards.Unchanged;
             else if (radioSkillRewardShuffle.Checked) settings.Network.RewardsChoice = SkillRewards.Shuffle;
-            else if (radioSkillRewardRandom.Checked) settings.Network.RewardsChoice = SkillRewards.Random;
+            else if (radioSkillRewardRandomS.Checked) settings.Network.RewardsChoice = SkillRewards.RandomSameType;
+            else if (radioSkillRewardRandomC.Checked) settings.Network.RewardsChoice = SkillRewards.RandomCompletely;
 
             if (radioSkillShuffleUnchanged.Checked) settings.Network.ShuffleChoice = SkillShuffle.Unchanged;
             else if (radioSkillShuffleShuffle.Checked) settings.Network.ShuffleChoice = SkillShuffle.Shuffle;
@@ -505,8 +506,11 @@ namespace NEO_TWEWY_Randomizer
                 case SkillRewards.Shuffle:
                     radioSkillRewardShuffle.Checked = true;
                     break;
-                case SkillRewards.Random:
-                    radioSkillRewardRandom.Checked = true;
+                case SkillRewards.RandomSameType:
+                    radioSkillRewardRandomS.Checked = true;
+                    break;
+                case SkillRewards.RandomCompletely:
+                    radioSkillRewardRandomC.Checked = true;
                     break;
             }
 

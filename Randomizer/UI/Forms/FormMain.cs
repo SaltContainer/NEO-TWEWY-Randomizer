@@ -127,6 +127,16 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.SetToolTip(checkPinEvoBrand, Resources.ttcheckPinEvoBrand);
             ttFormMain.SetToolTip(checkPinEvoChara, Resources.ttcheckPinEvoChara);
             ttFormMain.SetToolTip(numPinEvo, Resources.ttnumPinEvo);
+
+            ttFormMain.SetToolTip(radioSkillCostUnchanged, Resources.ttradioSkillCostUnchanged);
+            ttFormMain.SetToolTip(radioSkillCostShuffle, Resources.ttradioSkillCostShuffle);
+            ttFormMain.SetToolTip(radioSkillCostRandom, Resources.ttradioSkillCostRandom);
+            ttFormMain.SetToolTip(radioSkillRewardUnchanged, Resources.ttradioSkillRewardUnchanged);
+            ttFormMain.SetToolTip(radioSkillRewardShuffle, Resources.ttradioSkillRewardShuffle);
+            ttFormMain.SetToolTip(radioSkillRewardRandomS, Resources.ttradioSkillRewardRandomS);
+            ttFormMain.SetToolTip(radioSkillRewardRandomC, Resources.ttradioSkillRewardRandomC);
+            ttFormMain.SetToolTip(radioSkillShuffleUnchanged, Resources.ttradioSkillShuffleUnchanged);
+            ttFormMain.SetToolTip(radioSkillShuffleShuffle, Resources.ttradioSkillShuffleShuffle);
         }
         #endregion
 

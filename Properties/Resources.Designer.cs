@@ -19,7 +19,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -65,27 +65,19 @@ namespace NEO_TWEWY_Randomizer.Properties {
         ///	&quot;text-data&quot;: {
         ///		&quot;key&quot;: &quot;text-data&quot;,
         ///		&quot;file_name&quot;: &quot;4017d8fc.unity3d&quot;,
-        ///		&quot;cab_directory&quot;: &quot;CAB-69ae4a77338c6711e85a72e9f85eed3c&quot;,
-        ///		&quot;classes&quot;: {
-        ///			&quot;EnemyData&quot;: {
-        ///				&quot;name&quot;: &quot;EnemyData&quot;,
-        ///				&quot;attribute&quot;: &quot;m_Script&quot;
-        ///			},
-        ///			&quot;EnemyReport&quot;: {
-        ///				&quot;name&quot;: &quot;EnemyReport&quot;,
-        ///				&quot;attribute&quot;: &quot;m_Script&quot;
-        ///			},
-        ///			&quot;PigData&quot;: {
-        ///				&quot;name&quot;: &quot;PigData&quot;,
-        ///				&quot;attribute&quot;: &quot;m_Script&quot;
-        ///			},
-        ///			&quot;Badge&quot;: {
-        ///				&quot;name&quot;: &quot;Badge&quot;,
-        ///				&quot;attribute&quot;: &quot;m_Script&quot;
-        ///			},
-        ///			&quot;Psychic&quot;: {
-        ///				&quot;name&quot;: &quot;Psychic&quot;,
-        /// [rest of string was truncated]&quot;;.
+        ///		&quot;cab_directory&quot;: &quot;CAB-69ae4a77338c6711e85a72e9f85eed3c&quot;
+        ///	},
+        ///	&quot;w1d2-scenario&quot;: {
+        ///		&quot;key&quot;: &quot;w1d2-scenario&quot;,
+        ///		&quot;file_name&quot;: &quot;8b022f77.unity3d&quot;,
+        ///		&quot;cab_directory&quot;: &quot;CAB-84e9504e429f96994d54dec104b3409e&quot;
+        ///	},
+        ///	&quot;w2d5-scenario&quot;: {
+        ///		&quot;key&quot;: &quot;w2d5-scenario&quot;,
+        ///		&quot;file_name&quot;: &quot;a90d3deb.unity3d&quot;,
+        ///		&quot;cab_directory&quot;: &quot;CAB-610a711252718139df0c19c6c44250aa&quot;
+        ///	}
+        ///}.
         /// </summary>
         internal static string bundle_constants {
             get {
@@ -3421,6 +3413,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
         ///	&quot;versions&quot;: [
         ///		{
         ///			&quot;version&quot;: 0,
+        ///			&quot;character_count&quot;: 37,
         ///			&quot;values&quot;: {
         ///				&quot;dropped_pin_category&quot;: {
         ///					&quot;name&quot;: &quot;dropped_pin_category&quot;,
@@ -3441,8 +3434,7 @@ namespace NEO_TWEWY_Randomizer.Properties {
         ///					&quot;name&quot;: &quot;dropped_pin_normal&quot;,
         ///					&quot;offset&quot;: 9,
         ///					&quot;size&quot;: 1
-        ///				},
-        ///				&quot;dropped_pin_har [rest of string was truncated]&quot;;.
+        ///	 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string settings_string_versions {
             get {
@@ -4088,6 +4080,103 @@ namespace NEO_TWEWY_Randomizer.Properties {
         internal static string ttradioPinGrowthUnchanged {
             get {
                 return ResourceManager.GetString("ttradioPinGrowthUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random Skill Costs
+        ///Make each skill cost a new random amount with a fixed overall total.
+        ///This total is currently set to the vanilla total of 159 FP..
+        /// </summary>
+        internal static string ttradioSkillCostRandom {
+            get {
+                return ResourceManager.GetString("ttradioSkillCostRandom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Skill Costs
+        ///Take the full vanilla set of skill costs, and randomize which skill each cost is associated with..
+        /// </summary>
+        internal static string ttradioSkillCostShuffle {
+            get {
+                return ResourceManager.GetString("ttradioSkillCostShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Skill Costs
+        ///Don&apos;t change the cost of skills..
+        /// </summary>
+        internal static string ttradioSkillCostUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioSkillCostUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Completely) Skill Item Rewards
+        ///Make each skill item reward a new random item with no other limitations.
+        ///Those items can only be limited pins or threads.
+        ///Only skills with an item reward in vanilla are affected..
+        /// </summary>
+        internal static string ttradioSkillRewardRandomC {
+            get {
+                return ResourceManager.GetString("ttradioSkillRewardRandomC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Random (Same Type) Skill Item Rewards
+        ///Make each skill item reward a new random item of the same type.
+        ///Limited pins will become limited pins and threads will become threads.
+        ///Only skills with an item reward in vanilla are affected..
+        /// </summary>
+        internal static string ttradioSkillRewardRandomS {
+            get {
+                return ResourceManager.GetString("ttradioSkillRewardRandomS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Skill Item Rewards
+        ///Take the full vanilla set of skill item rewards, and randomize which skill each reward is associated with.
+        ///Only skills with an item reward in vanilla are affected..
+        /// </summary>
+        internal static string ttradioSkillRewardShuffle {
+            get {
+                return ResourceManager.GetString("ttradioSkillRewardShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Skill Item Rewards
+        ///Don&apos;t change the item rewards from skills..
+        /// </summary>
+        internal static string ttradioSkillRewardUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioSkillRewardUnchanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Shuffled Skill Locations
+        ///Take the full set of skills/item rewards, and randomize where each is received in the social network.
+        ///This is applied after the randomization of all skill costs and item rewards..
+        /// </summary>
+        internal static string ttradioSkillShuffleShuffle {
+            get {
+                return ResourceManager.GetString("ttradioSkillShuffleShuffle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to   Unchanged Skill Locations
+        ///Don&apos;t change where each skill/item reward is received in the social network..
+        /// </summary>
+        internal static string ttradioSkillShuffleUnchanged {
+            get {
+                return ResourceManager.GetString("ttradioSkillShuffleUnchanged", resourceCulture);
             }
         }
         

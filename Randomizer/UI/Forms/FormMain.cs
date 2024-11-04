@@ -28,8 +28,8 @@ namespace NEO_TWEWY_Randomizer
             lbVersion.Text = string.Format("NEO: The World Ends With You Randomizer - Version {0}", SourceLinks.GetSmallVersion());
             UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
 
-            comboPinGrowth.DataSource = FileConstants.ItemNames.GrowthRates;
-            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)PinGrowth.Normal).First();
+            comboPinGrowth.DataSource = FileConstants.IDNames.GrowthRates;
+            comboPinGrowth.SelectedItem = FileConstants.IDNames.GrowthRates.Where(g => g.Id == (int)PinGrowth.Normal).First();
 
             pinImages = new PinImages();
             picPin.Image = pinImages.GetRandomImage();
@@ -393,7 +393,7 @@ namespace NEO_TWEWY_Randomizer
                     radioPinGrowthSpecific.Checked = true;
                     break;
             }
-            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First();
+            comboPinGrowth.SelectedItem = FileConstants.IDNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First();
 
             switch (settings.PinStats.EvolutionChoice)
             {

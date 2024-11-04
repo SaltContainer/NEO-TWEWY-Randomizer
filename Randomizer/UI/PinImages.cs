@@ -16,8 +16,8 @@ namespace NEO_TWEWY_Randomizer
 
         public Image GetRandomImage()
         {
-            int index = rand.Next(FileConstants.ItemNames.RandoPinImages.Count());
-            Bitmap pin = (Bitmap) Resources.ResourceManager.GetObject(FileConstants.ItemNames.RandoPinImages[index].Name);
+            int index = rand.Next(FileConstants.IDNames.RandoPinImages.Count());
+            Bitmap pin = (Bitmap) Resources.ResourceManager.GetObject(FileConstants.IDNames.RandoPinImages[index].Name);
             return pin;
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NEO_TWEWY_Randomizer
 {
-    public class ItemNames
+    public class Names
     {
         [JsonProperty("pins")]
         public IList<NameAssociation> Pins { get; set; }

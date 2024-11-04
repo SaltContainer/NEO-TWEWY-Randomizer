@@ -13,6 +13,7 @@ namespace NEO_TWEWY_Randomizer
         private NoiseDropsLogger noiseDropsLogger;
         private PinStatsLogger pinStatsLogger;
         private StoryRewardsLogger storyRewardsLogger;
+        private NetworkLogger networkLogger;
 
         public RandomizationLogger()
         {
@@ -21,6 +22,7 @@ namespace NEO_TWEWY_Randomizer
             noiseDropsLogger = new NoiseDropsLogger();
             pinStatsLogger = new PinStatsLogger();
             storyRewardsLogger = new StoryRewardsLogger();
+            networkLogger = new NetworkLogger();
         }
 
         public void AddToLog(string logString)
@@ -36,6 +38,7 @@ namespace NEO_TWEWY_Randomizer
             AddToLog(noiseDropsLogger.LogSettings(settings));
             AddToLog(pinStatsLogger.LogSettings(settings));
             AddToLog(storyRewardsLogger.LogSettings(settings));
+            AddToLog(networkLogger.LogSettings(settings));
         }
 
         public void LogDropTypeChanges(List<EnemyData> original, List<EnemyData> randomized)
@@ -61,6 +64,16 @@ namespace NEO_TWEWY_Randomizer
         public void LogStoryRewardChanges(List<ScenarioRewards> original, List<ScenarioRewards> randomized)
         {
             AddToLog(storyRewardsLogger.LogStoryRewardChanges(original, randomized));
+        }
+
+        public void LogSkillChanges(List<Skill> original, List<Skill> randomized)
+        {
+            AddToLog(networkLogger.LogSkillChanges(original, randomized));
+        }
+
+        public void LogSkillTreeChanges(List<SkillTree> original, List<SkillTree> randomized)
+        {
+            AddToLog(networkLogger.LogSkillTreeChanges(original, randomized));
         }
 
         public bool SaveLogToFile(string fileName)

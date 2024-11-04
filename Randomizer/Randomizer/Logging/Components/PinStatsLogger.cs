@@ -27,7 +27,7 @@ namespace NEO_TWEWY_Randomizer
             {
                 Badge pinOriginal = original[i];
                 Badge pinRandomized = randomized[i];
-                AddToLog(string.Format("{0}\n", FileConstants.ItemNames.Pins.Where(p => (Badge.Label)p.Id == original[i].Id).First().Name));
+                AddToLog(string.Format("{0}\n", FileConstants.IDNames.Pins.Where(p => (Badge.Label)p.Id == original[i].Id).First().Name));
                 AddToLog(string.Format("{0,-14}: {1,-4} (+{2,-3})               -> {3,-4} (+{4,-3})\n", "Power", pinOriginal.Power, pinOriginal.PowerScaling, pinRandomized.Power, pinRandomized.PowerScaling));
                 AddToLog(string.Format("{0,-14}: {1,-4:F1} uses/secs (+{2,-3:F1})     -> {3,-4:F1} uses/secs (+{4,-3:F1})\n", "Limit", pinOriginal.Limit, pinOriginal.LimitScaling, pinRandomized.Limit, pinRandomized.LimitScaling));
                 AddToLog(string.Format("{0,-14}: {1,-4:F1} secs (-{2,-3:F1})          -> {3,-4:F1} secs (-{4,-3:F1})\n", "Reboot", pinOriginal.Reboot, pinOriginal.RebootScaling, pinRandomized.Reboot, pinRandomized.RebootScaling));
@@ -35,13 +35,13 @@ namespace NEO_TWEWY_Randomizer
                 AddToLog(string.Format("{0,-14}: {1,-4:F1} secs (-{2,-3:F1})          -> {3,-4:F1} secs (-{4,-3:F1})\n", "Recover", pinOriginal.Recover, pinOriginal.RecoverScaling, pinRandomized.Recover, pinRandomized.RecoverScaling));
                 AddToLog(string.Format("{0,-14}: {1,-3:F1} secs                  -> {2,-3:F1} secs\n", "Charge", pinOriginal.Charge, pinRandomized.Charge));
                 AddToLog(string.Format("{0,-14}: {1,-5} ¥ (+{2,-4})           -> {3,-5} ¥ (+{4,-4})\n", "Sell Price", pinOriginal.SellPrice, pinOriginal.SellPriceScaling, pinRandomized.SellPrice, pinRandomized.SellPriceScaling));
-                AddToLog(string.Format("{0,-14}: {1,-8}                  -> {2,-8}\n", "Affinity", FileConstants.ItemNames.Affinities.Where(a => (ElementType)a.Id == pinOriginal.MashUpAffinity).First().Name, FileConstants.ItemNames.Affinities.Where(a => (ElementType)a.Id == pinRandomized.MashUpAffinity).First().Name));
+                AddToLog(string.Format("{0,-14}: {1,-8}                  -> {2,-8}\n", "Affinity", FileConstants.IDNames.Affinities.Where(a => (ElementType)a.Id == pinOriginal.MashUpAffinity).First().Name, FileConstants.IDNames.Affinities.Where(a => (ElementType)a.Id == pinRandomized.MashUpAffinity).First().Name));
                 AddToLog(string.Format("{0,-14}: {1,-2}                        -> {2,-2}\n", "Max Level", pinOriginal.MaxLevel, pinRandomized.MaxLevel));
-                AddToLog(string.Format("{0,-14}: {1,-24}  -> {2,-24}\n", "Brand", FileConstants.ItemNames.Brands.Where(b => (BrandLabel)b.Id == pinOriginal.Brand).First().Name, FileConstants.ItemNames.Brands.Where(b => (BrandLabel)b.Id == pinRandomized.Brand).First().Name));
+                AddToLog(string.Format("{0,-14}: {1,-24}  -> {2,-24}\n", "Brand", FileConstants.IDNames.Brands.Where(b => (BrandLabel)b.Id == pinOriginal.Brand).First().Name, FileConstants.IDNames.Brands.Where(b => (BrandLabel)b.Id == pinRandomized.Brand).First().Name));
                 AddToLog(string.Format("{0,-14}: {1,-3}                       -> {2,-3}\n", "Uber", pinOriginal.Uber == BadgeRarityType.Rare ? "Yes" : "No", pinRandomized.Uber == BadgeRarityType.Rare ? "Yes" : "No"));
-                AddToLog(string.Format("{0,-14}: {1,-18}        -> {2,-18}\n", "Ability", pinOriginal.Abilities.Count > 0 ? FileConstants.ItemNames.PinAbilities.Where(a => (AbilityAbility)a.Id == pinOriginal.Abilities[0]).First().Name : "None", pinRandomized.Abilities.Count > 0 ? FileConstants.ItemNames.PinAbilities.Where(a => (AbilityAbility)a.Id == pinRandomized.Abilities[0]).First().Name : "None"));
-                AddToLog(string.Format("{0,-14}: {1,-13}             -> {2,-13}\n", "Growth", FileConstants.ItemNames.GrowthRates.Where(g => (BadgeLvUpTypeLabel)g.Id == pinOriginal.Growth).First().Name, FileConstants.ItemNames.GrowthRates.Where(g => (BadgeLvUpTypeLabel)g.Id == pinRandomized.Growth).First().Name));
-                AddToLog(string.Format("{0,-14}: {1,-25} -> {2,-25}\n", "Global Evo", pinOriginal.EvolutionSingle != Badge.Label.Invalid ? FileConstants.ItemNames.Pins.Where(p => (Badge.Label)p.Id == pinOriginal.EvolutionSingle).First().Name : "None", pinRandomized.EvolutionSingle != Badge.Label.Invalid ? FileConstants.ItemNames.Pins.Where(p => (Badge.Label)p.Id == pinRandomized.EvolutionSingle).First().Name : "None"));
+                AddToLog(string.Format("{0,-14}: {1,-18}        -> {2,-18}\n", "Ability", pinOriginal.Abilities.Count > 0 ? FileConstants.IDNames.PinAbilities.Where(a => (AbilityAbility)a.Id == pinOriginal.Abilities[0]).First().Name : "None", pinRandomized.Abilities.Count > 0 ? FileConstants.IDNames.PinAbilities.Where(a => (AbilityAbility)a.Id == pinRandomized.Abilities[0]).First().Name : "None"));
+                AddToLog(string.Format("{0,-14}: {1,-13}             -> {2,-13}\n", "Growth", FileConstants.IDNames.GrowthRates.Where(g => (BadgeLvUpTypeLabel)g.Id == pinOriginal.Growth).First().Name, FileConstants.IDNames.GrowthRates.Where(g => (BadgeLvUpTypeLabel)g.Id == pinRandomized.Growth).First().Name));
+                AddToLog(string.Format("{0,-14}: {1,-25} -> {2,-25}\n", "Global Evo", pinOriginal.EvolutionSingle != Badge.Label.Invalid ? FileConstants.IDNames.Pins.Where(p => (Badge.Label)p.Id == pinOriginal.EvolutionSingle).First().Name : "None", pinRandomized.EvolutionSingle != Badge.Label.Invalid ? FileConstants.IDNames.Pins.Where(p => (Badge.Label)p.Id == pinRandomized.EvolutionSingle).First().Name : "None"));
 
                 List<Badge.Label> charaEvoPinsOriginal = new List<Badge.Label>(pinOriginal.EvolutionList);
                 List<Badge.Label> charaEvoPinsRandomized = new List<Badge.Label>(pinRandomized.EvolutionList);
@@ -52,9 +52,9 @@ namespace NEO_TWEWY_Randomizer
                 {
                     if (charaEvoPinsOriginal[j] != Badge.Label.Invalid || charaEvoPinsRandomized[j] != Badge.Label.Invalid)
                     {
-                        string character = FileConstants.ItemNames.Characters.Where(c => c.Id == j + 1).First().Name;
-                        string pinNameOriginal = charaEvoPinsOriginal[j] != Badge.Label.Invalid ? FileConstants.ItemNames.Pins.Where(p => (Badge.Label)p.Id == pinOriginal.EvolutionList[j]).First().Name : "None";
-                        string pinNameRandomized = charaEvoPinsRandomized[j] != Badge.Label.Invalid ? FileConstants.ItemNames.Pins.Where(p => (Badge.Label)p.Id == pinRandomized.EvolutionList[j]).First().Name : "None";
+                        string character = FileConstants.IDNames.Characters.Where(c => c.Id == j + 1).First().Name;
+                        string pinNameOriginal = charaEvoPinsOriginal[j] != Badge.Label.Invalid ? FileConstants.IDNames.Pins.Where(p => (Badge.Label)p.Id == pinOriginal.EvolutionList[j]).First().Name : "None";
+                        string pinNameRandomized = charaEvoPinsRandomized[j] != Badge.Label.Invalid ? FileConstants.IDNames.Pins.Where(p => (Badge.Label)p.Id == pinRandomized.EvolutionList[j]).First().Name : "None";
                         AddToLog(string.Format("{0,-14}: {1,-25} -> {2,-25}\n", character + " Evo", pinNameOriginal, pinNameRandomized));
                     }
                 }
@@ -115,7 +115,7 @@ namespace NEO_TWEWY_Randomizer
                 case PinGrowthRandomization.RandomUniform: growthChoice = "Random (Uniform)"; break;
                 case PinGrowthRandomization.Specific: growthChoice = "Specific Growth Speed"; break;
             }
-            AddToLog(string.Format("Growth Speed: {0}\n", growthChoice + (settings.PinStats.GrowthChoice == PinGrowthRandomization.Specific ? string.Format(" ({0})", FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First().Name) : "")));
+            AddToLog(string.Format("Growth Speed: {0}\n", growthChoice + (settings.PinStats.GrowthChoice == PinGrowthRandomization.Specific ? string.Format(" ({0})", FileConstants.IDNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First().Name) : "")));
             string evoChoice = "";
             switch (settings.PinStats.EvolutionChoice)
             {

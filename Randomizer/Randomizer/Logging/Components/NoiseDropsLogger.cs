@@ -23,14 +23,14 @@ namespace NEO_TWEWY_Randomizer
             log.Clear();
             AddToLog("Noise Drops\n========================================\n\n");
 
-            List<NameAssociation> pins = FileConstants.ItemNames.Pins
-                .Union(FileConstants.ItemNames.LimitedPins)
-                .Union(FileConstants.ItemNames.YenPins)
-                .Union(FileConstants.ItemNames.GemPins).ToList();
+            List<NameAssociation> pins = FileConstants.IDNames.Pins
+                .Union(FileConstants.IDNames.LimitedPins)
+                .Union(FileConstants.IDNames.YenPins)
+                .Union(FileConstants.IDNames.GemPins).ToList();
 
             for (int i=0; i<original.Count; i++)
             {
-                string enemyName = FileConstants.ItemNames.Enemies.Where(e => (EnemyData.Name)e.Id == original[i].Id).First().Name;
+                string enemyName = FileConstants.IDNames.Enemies.Where(e => (EnemyData.Name)e.Id == original[i].Id).First().Name;
                 List<string> dropsOriginal = original[i].Drop.Select(d => pins.Where(p => (Badge.Label)p.Id == d).First()).Select(d => d.Name).ToList();
                 List<string> dropsRandomized = randomized[i].Drop.Select(d => pins.Where(p => (Badge.Label)p.Id == d).First()).Select(d => d.Name).ToList();
                 AddToLog(string.Format("{0}\n{1,-8}: {2,-25} -> {3}\n{4,-8}: {5,-25} -> {6}\n{7,-8}: {8,-25} -> {9}\n{10,-8}: {11,-25} -> {12}\n\n", enemyName, "Easy", dropsOriginal[0], dropsRandomized[0], "Normal", dropsOriginal[1], dropsRandomized[1], "Hard", dropsOriginal[2], dropsRandomized[2], "Ultimate", dropsOriginal[3], dropsRandomized[3]));
@@ -46,7 +46,7 @@ namespace NEO_TWEWY_Randomizer
 
             for (int i=0; i<original.Count; i++)
             {
-                string enemyName = FileConstants.ItemNames.Enemies.Where(e => (EnemyData.Name)e.Id == original[i].Id).First().Name;
+                string enemyName = FileConstants.IDNames.Enemies.Where(e => (EnemyData.Name)e.Id == original[i].Id).First().Name;
                 List<float> dropsOriginal = original[i].DropRate.Select(r => r * 100).ToList();
                 List<float> dropsRandomized = randomized[i].DropRate.Select(r => r * 100).ToList();
                 AddToLog(string.Format("{0}\n{1,-8}: {2,-6:F2}% -> {3:F2}%\n{4,-8}: {5,-6:F2}% -> {6:F2}%\n{7,-8}: {8,-6:F2}% -> {9:F2}%\n{10,-8}: {11,-6:F2}% -> {12:F2}%\n\n", enemyName, "Easy", dropsOriginal[0], dropsRandomized[0], "Normal", dropsOriginal[1], dropsRandomized[1], "Hard", dropsOriginal[2], dropsRandomized[2], "Ultimate", dropsOriginal[3], dropsRandomized[3]));
@@ -60,14 +60,14 @@ namespace NEO_TWEWY_Randomizer
             log.Clear();
             AddToLog("Pig Noise Drops\n========================================\n\n");
 
-            List<NameAssociation> pins = FileConstants.ItemNames.Pins
-                .Union(FileConstants.ItemNames.LimitedPins)
-                .Union(FileConstants.ItemNames.YenPins)
-                .Union(FileConstants.ItemNames.GemPins).ToList();
+            List<NameAssociation> pins = FileConstants.IDNames.Pins
+                .Union(FileConstants.IDNames.LimitedPins)
+                .Union(FileConstants.IDNames.YenPins)
+                .Union(FileConstants.IDNames.GemPins).ToList();
 
             for (int i=0; i<original.Count; i++)
             {
-                string pigName = FileConstants.ItemNames.Pigs.Where(e => (PigData.Label)e.Id == original[i].Id).First().Name;
+                string pigName = FileConstants.IDNames.Pigs.Where(e => (PigData.Label)e.Id == original[i].Id).First().Name;
                 string dropOriginal = pins.Where(p => (Badge.Label)p.Id == original[i].Drop).First().Name;
                 string dropRandomized = pins.Where(p => (Badge.Label)p.Id == randomized[i].Drop).First().Name;
                 AddToLog(string.Format("{0,-20}: {1,-25} -> {2}\n", pigName, dropOriginal, dropRandomized));

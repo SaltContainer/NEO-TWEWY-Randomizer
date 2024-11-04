@@ -79,13 +79,13 @@ namespace NEO_TWEWY_Randomizer
 
                 case SkillRewards.RandomSameType:
                 {
-                    List<NameAssociation> pinNames = FileConstants.ItemNames.LimitedPins.ToList();
+                    List<NameAssociation> pinNames = FileConstants.IDNames.LimitedPins.ToList();
                     var pinRewards = fullSkillListToEdit.Where(s => pinNames.Select(p => (AllItemsLabel)p.Id).Contains(s.ShopReward));
 
                     foreach (var pinReward in pinRewards)
                         pinReward.ShopReward = (AllItemsLabel)pinNames[engine.RandNext(pinNames.Count)].Id;
 
-                    List<NameAssociation> threadNames = FileConstants.ItemNames.Threads.ToList();
+                    List<NameAssociation> threadNames = FileConstants.IDNames.Threads.ToList();
                     var threadRewards = fullSkillListToEdit.Where(s => threadNames.Select(p => (AllItemsLabel)p.Id).Contains(s.ShopReward));
 
                     foreach (var threadReward in threadRewards)
@@ -95,8 +95,8 @@ namespace NEO_TWEWY_Randomizer
 
                 case SkillRewards.RandomCompletely:
                 {
-                    List<NameAssociation> allNames = FileConstants.ItemNames.LimitedPins
-                        .Union(FileConstants.ItemNames.Threads).ToList();
+                    List<NameAssociation> allNames = FileConstants.IDNames.LimitedPins
+                        .Union(FileConstants.IDNames.Threads).ToList();
                     var allRewards = fullSkillListToEdit.Where(s => allNames.Select(p => (AllItemsLabel)p.Id).Contains(s.ShopReward));
 
                     foreach (var allReward in allRewards)
@@ -113,6 +113,9 @@ namespace NEO_TWEWY_Randomizer
                 }
                 break;
             }
+
+            engine.Logger.LogSkillChanges(fullSkillListToEditOriginal, fullSkillListToEdit);
+            engine.Logger.LogSkillTreeChanges(fullSkillTreeListToEditOriginal, fullSkillTreeListToEdit);
         }
     }
 }

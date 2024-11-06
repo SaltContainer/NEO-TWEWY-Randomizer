@@ -57,9 +57,12 @@ I am not aware on how to mod games on the PS4. There are likely tutorials online
   - Power, Limit, Reboot, Boot, Recover, Charge, Sell Price, Affinity, Max Level, Brand, Uber Status, Ability, Growth Speed, and Evolution are all data that can be randomized.
     - Most stats have predetermined ranges that cannot be edited at this time.
   - Character-specific evolutions can be removed.
+- Random Social Network Rewards
+  - Rewards obtained from the Social Network can be shuffled.
+  - Item rewards can be randomized, to an item of the same type or not.
+  - The cost of every reward can be either shuffled or randomized to have a set total (currently always 159).
 
 ### Planned
-- Shuffled Social Network Rewards
 - Random Thread Stats
 - Random Shops
 - Random Noise Encounters

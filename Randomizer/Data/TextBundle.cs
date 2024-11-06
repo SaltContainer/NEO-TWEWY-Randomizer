@@ -14,6 +14,8 @@ namespace NEO_TWEWY_Randomizer
         private BadgeList badge = null;
         private AttackHitList attackHit = null;
         private ScenarioRewardsList scenarioRewards = null;
+        private SkillList skill = null;
+        private SkillTreeList skillTree = null;
 
         public TextBundle(AssetsManager manager, BundleFileInstance bundle, string bundleKey, bool encrypted) :
             base (manager, bundle, bundleKey, encrypted) {}
@@ -90,6 +92,24 @@ namespace NEO_TWEWY_Randomizer
             scenarioRewards = ParseScenarioRewards();
             return scenarioRewards;
         }
+
+        public SkillList GetSkill()
+        {
+            if (skill != null)
+                return skill;
+
+            skill = ParseSkill();
+            return skill;
+        }
+
+        public SkillTreeList GetSkillTree()
+        {
+            if (skillTree != null)
+                return skillTree;
+
+            skillTree = ParseSkillTree();
+            return skillTree;
+        }
         #endregion
 
         #region Parsing
@@ -164,6 +184,24 @@ namespace NEO_TWEWY_Randomizer
         {
             return JsonConvert.DeserializeObject<ScenarioRewardsList>(GetBaseFieldOfAsset(FileConstants.ScenarioRewardsAssetName)["m_Script"].AsString);
         }
+
+        /// <summary>
+        /// Call instead of Get to get a new object with the original data
+        /// </summary>
+        /// <returns></returns>
+        public SkillList ParseSkill()
+        {
+            return JsonConvert.DeserializeObject<SkillList>(GetBaseFieldOfAsset(FileConstants.SkillAssetName)["m_Script"].AsString);
+        }
+
+        /// <summary>
+        /// Call instead of Get to get a new object with the original data
+        /// </summary>
+        /// <returns></returns>
+        public SkillTreeList ParseSkillTree()
+        {
+            return JsonConvert.DeserializeObject<SkillTreeList>(GetBaseFieldOfAsset(FileConstants.SkillTreeAssetName)["m_Script"].AsString);
+        }
         #endregion
 
         public void SaveTextData()
@@ -173,6 +211,8 @@ namespace NEO_TWEWY_Randomizer
             SetTextInAsset(FileConstants.BadgeAssetName, badge, new FloatFormatConverter(1));
             SetTextInAsset(FileConstants.AttackHitAssetName, attackHit);
             SetTextInAsset(FileConstants.ScenarioRewardsAssetName, scenarioRewards, new FloatFormatConverter(1));
+            SetTextInAsset(FileConstants.SkillAssetName, skill, new FloatFormatConverter(1));
+            SetTextInAsset(FileConstants.SkillTreeAssetName, skillTree);
 
             SetAssetsFileInBundle();
         }

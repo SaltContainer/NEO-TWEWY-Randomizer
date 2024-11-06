@@ -23,21 +23,21 @@ namespace NEO_TWEWY_Randomizer
             log.Clear();
             AddToLog("Story Rewards\n========================================\n\n");
 
-            List<NameAssociation> itemNames = FileConstants.ItemNames.PinItems
-                .Union(FileConstants.ItemNames.LimitedPins)
-                .Union(FileConstants.ItemNames.YenPins)
-                .Union(FileConstants.ItemNames.GemPins)
-                .Union(FileConstants.ItemNames.FP)
-                .Union(FileConstants.ItemNames.SecretReports)
+            List<NameAssociation> itemNames = FileConstants.IDNames.PinItems
+                .Union(FileConstants.IDNames.LimitedPins)
+                .Union(FileConstants.IDNames.YenPins)
+                .Union(FileConstants.IDNames.GemPins)
+                .Union(FileConstants.IDNames.FP)
+                .Union(FileConstants.IDNames.SecretReports)
                 .ToList();
-            List<NameAssociation> storyRewardNames = FileConstants.ItemNames.StoryPins
-                .Union(FileConstants.ItemNames.StoryLimitedPins)
-                .Union(FileConstants.ItemNames.StoryYen)
-                .Union(FileConstants.ItemNames.StoryGems)
-                .Union(FileConstants.ItemNames.StoryFP)
-                .Union(FileConstants.ItemNames.StoryReports)
+            List<NameAssociation> storyRewardNames = FileConstants.IDNames.StoryPins
+                .Union(FileConstants.IDNames.StoryLimitedPins)
+                .Union(FileConstants.IDNames.StoryYen)
+                .Union(FileConstants.IDNames.StoryGems)
+                .Union(FileConstants.IDNames.StoryFP)
+                .Union(FileConstants.IDNames.StoryReports)
                 .ToList();
-            List<NameAssociation> storyRewardNames2nd = FileConstants.ItemNames.StoryYen2nd.ToList();
+            List<NameAssociation> storyRewardNames2nd = FileConstants.IDNames.StoryYen2nd.ToList();
 
             for (int i=0; i<original.Count; i++)
             {

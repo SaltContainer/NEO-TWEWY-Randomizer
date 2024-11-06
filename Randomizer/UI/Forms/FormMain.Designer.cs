@@ -141,6 +141,17 @@ namespace NEO_TWEWY_Randomizer
             checkPinAffinity = new System.Windows.Forms.CheckBox();
             checkPinMaxLevel = new System.Windows.Forms.CheckBox();
             tabSocial = new System.Windows.Forms.TabPage();
+            grpSkillCost = new System.Windows.Forms.GroupBox();
+            radioSkillCostUnchanged = new System.Windows.Forms.RadioButton();
+            radioSkillCostShuffle = new System.Windows.Forms.RadioButton();
+            radioSkillCostRandom = new System.Windows.Forms.RadioButton();
+            grpSkilIReward = new System.Windows.Forms.GroupBox();
+            radioSkillRewardUnchanged = new System.Windows.Forms.RadioButton();
+            radioSkillRewardShuffle = new System.Windows.Forms.RadioButton();
+            radioSkillRewardRandomS = new System.Windows.Forms.RadioButton();
+            grpSkillShuffle = new System.Windows.Forms.GroupBox();
+            radioSkillShuffleUnchanged = new System.Windows.Forms.RadioButton();
+            radioSkillShuffleShuffle = new System.Windows.Forms.RadioButton();
             tabThreads = new System.Windows.Forms.TabPage();
             tabEncounter = new System.Windows.Forms.TabPage();
             tabFood = new System.Windows.Forms.TabPage();
@@ -163,6 +174,7 @@ namespace NEO_TWEWY_Randomizer
             btnSeedRandom = new System.Windows.Forms.Button();
             grpSeed = new System.Windows.Forms.GroupBox();
             ttFormMain = new System.Windows.Forms.ToolTip(components);
+            radioSkillRewardRandomC = new System.Windows.Forms.RadioButton();
             tabsMain.SuspendLayout();
             tabDrops.SuspendLayout();
             grpChance.SuspendLayout();
@@ -194,6 +206,10 @@ namespace NEO_TWEWY_Randomizer
             ((System.ComponentModel.ISupportInitialize)numPinUber).BeginInit();
             grpPinBrand.SuspendLayout();
             grpPinGeneralStats.SuspendLayout();
+            tabSocial.SuspendLayout();
+            grpSkillCost.SuspendLayout();
+            grpSkilIReward.SuspendLayout();
+            grpSkillShuffle.SuspendLayout();
             grpInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picPin).BeginInit();
             grpSettingString.SuspendLayout();
@@ -246,7 +262,7 @@ namespace NEO_TWEWY_Randomizer
             grpChance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpChance.Name = "grpChance";
             grpChance.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpChance.Size = new System.Drawing.Size(438, 248);
+            grpChance.Size = new System.Drawing.Size(438, 235);
             grpChance.TabIndex = 1;
             grpChance.TabStop = false;
             grpChance.Text = "Drop Rates";
@@ -254,7 +270,7 @@ namespace NEO_TWEWY_Randomizer
             // lbChanceMax
             // 
             lbChanceMax.AutoSize = true;
-            lbChanceMax.Location = new System.Drawing.Point(26, 190);
+            lbChanceMax.Location = new System.Drawing.Point(26, 169);
             lbChanceMax.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbChanceMax.Name = "lbChanceMax";
             lbChanceMax.Size = new System.Drawing.Size(117, 15);
@@ -266,7 +282,7 @@ namespace NEO_TWEWY_Randomizer
             numChanceMax.DecimalPlaces = 2;
             numChanceMax.Enabled = false;
             numChanceMax.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numChanceMax.Location = new System.Drawing.Point(26, 209);
+            numChanceMax.Location = new System.Drawing.Point(26, 187);
             numChanceMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numChanceMax.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
             numChanceMax.Name = "numChanceMax";
@@ -278,7 +294,7 @@ namespace NEO_TWEWY_Randomizer
             // lbChanceMin
             // 
             lbChanceMin.AutoSize = true;
-            lbChanceMin.Location = new System.Drawing.Point(26, 126);
+            lbChanceMin.Location = new System.Drawing.Point(26, 116);
             lbChanceMin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbChanceMin.Name = "lbChanceMin";
             lbChanceMin.Size = new System.Drawing.Size(115, 15);
@@ -290,7 +306,7 @@ namespace NEO_TWEWY_Randomizer
             numChanceMin.DecimalPlaces = 2;
             numChanceMin.Enabled = false;
             numChanceMin.Increment = new decimal(new int[] { 1, 0, 0, 131072 });
-            numChanceMin.Location = new System.Drawing.Point(26, 144);
+            numChanceMin.Location = new System.Drawing.Point(26, 134);
             numChanceMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numChanceMin.Minimum = new decimal(new int[] { 1, 0, 0, 131072 });
             numChanceMin.Name = "numChanceMin";
@@ -315,7 +331,7 @@ namespace NEO_TWEWY_Randomizer
             grpChanceDifficulty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpChanceDifficulty.Name = "grpChanceDifficulty";
             grpChanceDifficulty.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpChanceDifficulty.Size = new System.Drawing.Size(202, 155);
+            grpChanceDifficulty.Size = new System.Drawing.Size(202, 148);
             grpChanceDifficulty.TabIndex = 3;
             grpChanceDifficulty.TabStop = false;
             grpChanceDifficulty.Text = "Affected Difficulties";
@@ -347,7 +363,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             numChanceWeightNormal.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             numChanceWeightNormal.Enabled = false;
-            numChanceWeightNormal.Location = new System.Drawing.Point(121, 66);
+            numChanceWeightNormal.Location = new System.Drawing.Point(121, 64);
             numChanceWeightNormal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numChanceWeightNormal.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numChanceWeightNormal.Name = "numChanceWeightNormal";
@@ -359,7 +375,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             numChanceWeightHard.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             numChanceWeightHard.Enabled = false;
-            numChanceWeightHard.Location = new System.Drawing.Point(121, 92);
+            numChanceWeightHard.Location = new System.Drawing.Point(121, 89);
             numChanceWeightHard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numChanceWeightHard.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numChanceWeightHard.Name = "numChanceWeightHard";
@@ -371,7 +387,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             numChanceWeightUltimate.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             numChanceWeightUltimate.Enabled = false;
-            numChanceWeightUltimate.Location = new System.Drawing.Point(121, 119);
+            numChanceWeightUltimate.Location = new System.Drawing.Point(121, 114);
             numChanceWeightUltimate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numChanceWeightUltimate.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numChanceWeightUltimate.Name = "numChanceWeightUltimate";
@@ -400,7 +416,7 @@ namespace NEO_TWEWY_Randomizer
             checkChanceNormal.Checked = true;
             checkChanceNormal.CheckState = System.Windows.Forms.CheckState.Checked;
             checkChanceNormal.Enabled = false;
-            checkChanceNormal.Location = new System.Drawing.Point(19, 67);
+            checkChanceNormal.Location = new System.Drawing.Point(19, 65);
             checkChanceNormal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkChanceNormal.Name = "checkChanceNormal";
             checkChanceNormal.Size = new System.Drawing.Size(66, 19);
@@ -415,7 +431,7 @@ namespace NEO_TWEWY_Randomizer
             checkChanceHard.Checked = true;
             checkChanceHard.CheckState = System.Windows.Forms.CheckState.Checked;
             checkChanceHard.Enabled = false;
-            checkChanceHard.Location = new System.Drawing.Point(19, 93);
+            checkChanceHard.Location = new System.Drawing.Point(19, 90);
             checkChanceHard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkChanceHard.Name = "checkChanceHard";
             checkChanceHard.Size = new System.Drawing.Size(52, 19);
@@ -430,7 +446,7 @@ namespace NEO_TWEWY_Randomizer
             checkChanceUltimate.Checked = true;
             checkChanceUltimate.CheckState = System.Windows.Forms.CheckState.Checked;
             checkChanceUltimate.Enabled = false;
-            checkChanceUltimate.Location = new System.Drawing.Point(19, 120);
+            checkChanceUltimate.Location = new System.Drawing.Point(19, 115);
             checkChanceUltimate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkChanceUltimate.Name = "checkChanceUltimate";
             checkChanceUltimate.Size = new System.Drawing.Size(71, 19);
@@ -456,7 +472,7 @@ namespace NEO_TWEWY_Randomizer
             // radioChanceRandomC
             // 
             radioChanceRandomC.AutoSize = true;
-            radioChanceRandomC.Location = new System.Drawing.Point(20, 59);
+            radioChanceRandomC.Location = new System.Drawing.Point(20, 57);
             radioChanceRandomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioChanceRandomC.Name = "radioChanceRandomC";
             radioChanceRandomC.Size = new System.Drawing.Size(142, 19);
@@ -468,7 +484,7 @@ namespace NEO_TWEWY_Randomizer
             // radioChanceRandomW
             // 
             radioChanceRandomW.AutoSize = true;
-            radioChanceRandomW.Location = new System.Drawing.Point(20, 85);
+            radioChanceRandomW.Location = new System.Drawing.Point(20, 82);
             radioChanceRandomW.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioChanceRandomW.Name = "radioChanceRandomW";
             radioChanceRandomW.Size = new System.Drawing.Size(132, 19);
@@ -489,7 +505,7 @@ namespace NEO_TWEWY_Randomizer
             grpItems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpItems.Name = "grpItems";
             grpItems.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpItems.Size = new System.Drawing.Size(438, 248);
+            grpItems.Size = new System.Drawing.Size(438, 235);
             grpItems.TabIndex = 0;
             grpItems.TabStop = false;
             grpItems.Text = "Dropped Pins";
@@ -505,7 +521,7 @@ namespace NEO_TWEWY_Randomizer
             grpItemsDifficulty.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpItemsDifficulty.Name = "grpItemsDifficulty";
             grpItemsDifficulty.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpItemsDifficulty.Size = new System.Drawing.Size(202, 142);
+            grpItemsDifficulty.Size = new System.Drawing.Size(202, 135);
             grpItemsDifficulty.TabIndex = 2;
             grpItemsDifficulty.TabStop = false;
             grpItemsDifficulty.Text = "Affected Difficulties";
@@ -530,7 +546,7 @@ namespace NEO_TWEWY_Randomizer
             checkItemsNormal.Checked = true;
             checkItemsNormal.CheckState = System.Windows.Forms.CheckState.Checked;
             checkItemsNormal.Enabled = false;
-            checkItemsNormal.Location = new System.Drawing.Point(19, 54);
+            checkItemsNormal.Location = new System.Drawing.Point(19, 53);
             checkItemsNormal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkItemsNormal.Name = "checkItemsNormal";
             checkItemsNormal.Size = new System.Drawing.Size(66, 19);
@@ -544,7 +560,7 @@ namespace NEO_TWEWY_Randomizer
             checkItemsHard.Checked = true;
             checkItemsHard.CheckState = System.Windows.Forms.CheckState.Checked;
             checkItemsHard.Enabled = false;
-            checkItemsHard.Location = new System.Drawing.Point(19, 81);
+            checkItemsHard.Location = new System.Drawing.Point(19, 78);
             checkItemsHard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkItemsHard.Name = "checkItemsHard";
             checkItemsHard.Size = new System.Drawing.Size(52, 19);
@@ -558,7 +574,7 @@ namespace NEO_TWEWY_Randomizer
             checkItemsUltimate.Checked = true;
             checkItemsUltimate.CheckState = System.Windows.Forms.CheckState.Checked;
             checkItemsUltimate.Enabled = false;
-            checkItemsUltimate.Location = new System.Drawing.Point(19, 107);
+            checkItemsUltimate.Location = new System.Drawing.Point(19, 103);
             checkItemsUltimate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkItemsUltimate.Name = "checkItemsUltimate";
             checkItemsUltimate.Size = new System.Drawing.Size(71, 19);
@@ -571,7 +587,7 @@ namespace NEO_TWEWY_Randomizer
             checkItemsLimited.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             checkItemsLimited.AutoSize = true;
             checkItemsLimited.Enabled = false;
-            checkItemsLimited.Location = new System.Drawing.Point(244, 33);
+            checkItemsLimited.Location = new System.Drawing.Point(244, 32);
             checkItemsLimited.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkItemsLimited.Name = "checkItemsLimited";
             checkItemsLimited.Size = new System.Drawing.Size(133, 19);
@@ -597,7 +613,7 @@ namespace NEO_TWEWY_Randomizer
             // radioItemsShuffleC
             // 
             radioItemsShuffleC.AutoSize = true;
-            radioItemsShuffleC.Location = new System.Drawing.Point(20, 59);
+            radioItemsShuffleC.Location = new System.Drawing.Point(20, 57);
             radioItemsShuffleC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioItemsShuffleC.Name = "radioItemsShuffleC";
             radioItemsShuffleC.Size = new System.Drawing.Size(134, 19);
@@ -609,7 +625,7 @@ namespace NEO_TWEWY_Randomizer
             // radioItemsShuffleS
             // 
             radioItemsShuffleS.AutoSize = true;
-            radioItemsShuffleS.Location = new System.Drawing.Point(20, 85);
+            radioItemsShuffleS.Location = new System.Drawing.Point(20, 82);
             radioItemsShuffleS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioItemsShuffleS.Name = "radioItemsShuffleS";
             radioItemsShuffleS.Size = new System.Drawing.Size(94, 19);
@@ -621,7 +637,7 @@ namespace NEO_TWEWY_Randomizer
             // radioItemsRandomC
             // 
             radioItemsRandomC.AutoSize = true;
-            radioItemsRandomC.Location = new System.Drawing.Point(20, 112);
+            radioItemsRandomC.Location = new System.Drawing.Point(20, 107);
             radioItemsRandomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioItemsRandomC.Name = "radioItemsRandomC";
             radioItemsRandomC.Size = new System.Drawing.Size(142, 19);
@@ -632,7 +648,7 @@ namespace NEO_TWEWY_Randomizer
             // radioItemsRandomA
             // 
             radioItemsRandomA.AutoSize = true;
-            radioItemsRandomA.Location = new System.Drawing.Point(20, 138);
+            radioItemsRandomA.Location = new System.Drawing.Point(20, 132);
             radioItemsRandomA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioItemsRandomA.Name = "radioItemsRandomA";
             radioItemsRandomA.Size = new System.Drawing.Size(120, 19);
@@ -701,7 +717,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryPinsShuffle
             // 
             radioStoryPinsShuffle.AutoSize = true;
-            radioStoryPinsShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryPinsShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryPinsShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryPinsShuffle.Name = "radioStoryPinsShuffle";
             radioStoryPinsShuffle.Size = new System.Drawing.Size(62, 19);
@@ -713,7 +729,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryPinsRandom
             // 
             radioStoryPinsRandom.AutoSize = true;
-            radioStoryPinsRandom.Location = new System.Drawing.Point(20, 85);
+            radioStoryPinsRandom.Location = new System.Drawing.Point(20, 82);
             radioStoryPinsRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryPinsRandom.Name = "radioStoryPinsRandom";
             radioStoryPinsRandom.Size = new System.Drawing.Size(70, 19);
@@ -739,7 +755,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryYenRandom
             // 
             radioStoryYenRandom.AutoSize = true;
-            radioStoryYenRandom.Location = new System.Drawing.Point(20, 85);
+            radioStoryYenRandom.Location = new System.Drawing.Point(20, 82);
             radioStoryYenRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryYenRandom.Name = "radioStoryYenRandom";
             radioStoryYenRandom.Size = new System.Drawing.Size(70, 19);
@@ -750,7 +766,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryYenShuffle
             // 
             radioStoryYenShuffle.AutoSize = true;
-            radioStoryYenShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryYenShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryYenShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryYenShuffle.Name = "radioStoryYenShuffle";
             radioStoryYenShuffle.Size = new System.Drawing.Size(62, 19);
@@ -788,7 +804,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryFPRandom
             // 
             radioStoryFPRandom.AutoSize = true;
-            radioStoryFPRandom.Location = new System.Drawing.Point(20, 85);
+            radioStoryFPRandom.Location = new System.Drawing.Point(20, 82);
             radioStoryFPRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryFPRandom.Name = "radioStoryFPRandom";
             radioStoryFPRandom.Size = new System.Drawing.Size(137, 19);
@@ -799,7 +815,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryFPShuffle
             // 
             radioStoryFPShuffle.AutoSize = true;
-            radioStoryFPShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryFPShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryFPShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryFPShuffle.Name = "radioStoryFPShuffle";
             radioStoryFPShuffle.Size = new System.Drawing.Size(62, 19);
@@ -836,7 +852,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryReportShuffle
             // 
             radioStoryReportShuffle.AutoSize = true;
-            radioStoryReportShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryReportShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryReportShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryReportShuffle.Name = "radioStoryReportShuffle";
             radioStoryReportShuffle.Size = new System.Drawing.Size(62, 19);
@@ -874,7 +890,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryGemsRandom
             // 
             radioStoryGemsRandom.AutoSize = true;
-            radioStoryGemsRandom.Location = new System.Drawing.Point(20, 85);
+            radioStoryGemsRandom.Location = new System.Drawing.Point(20, 82);
             radioStoryGemsRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryGemsRandom.Name = "radioStoryGemsRandom";
             radioStoryGemsRandom.Size = new System.Drawing.Size(70, 19);
@@ -885,7 +901,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryGemsShuffle
             // 
             radioStoryGemsShuffle.AutoSize = true;
-            radioStoryGemsShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryGemsShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryGemsShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryGemsShuffle.Name = "radioStoryGemsShuffle";
             radioStoryGemsShuffle.Size = new System.Drawing.Size(62, 19);
@@ -942,7 +958,7 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalGems.Checked = true;
             checkStoryGlobalGems.CheckState = System.Windows.Forms.CheckState.Checked;
             checkStoryGlobalGems.Enabled = false;
-            checkStoryGlobalGems.Location = new System.Drawing.Point(20, 73);
+            checkStoryGlobalGems.Location = new System.Drawing.Point(20, 75);
             checkStoryGlobalGems.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkStoryGlobalGems.Name = "checkStoryGlobalGems";
             checkStoryGlobalGems.Size = new System.Drawing.Size(76, 19);
@@ -956,7 +972,7 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalPins.Checked = true;
             checkStoryGlobalPins.CheckState = System.Windows.Forms.CheckState.Checked;
             checkStoryGlobalPins.Enabled = false;
-            checkStoryGlobalPins.Location = new System.Drawing.Point(20, 20);
+            checkStoryGlobalPins.Location = new System.Drawing.Point(20, 25);
             checkStoryGlobalPins.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkStoryGlobalPins.Name = "checkStoryGlobalPins";
             checkStoryGlobalPins.Size = new System.Drawing.Size(48, 19);
@@ -970,7 +986,7 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalYen.Checked = true;
             checkStoryGlobalYen.CheckState = System.Windows.Forms.CheckState.Checked;
             checkStoryGlobalYen.Enabled = false;
-            checkStoryGlobalYen.Location = new System.Drawing.Point(20, 46);
+            checkStoryGlobalYen.Location = new System.Drawing.Point(20, 50);
             checkStoryGlobalYen.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkStoryGlobalYen.Name = "checkStoryGlobalYen";
             checkStoryGlobalYen.Size = new System.Drawing.Size(70, 19);
@@ -984,7 +1000,7 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalFP.Checked = true;
             checkStoryGlobalFP.CheckState = System.Windows.Forms.CheckState.Checked;
             checkStoryGlobalFP.Enabled = false;
-            checkStoryGlobalFP.Location = new System.Drawing.Point(173, 20);
+            checkStoryGlobalFP.Location = new System.Drawing.Point(173, 25);
             checkStoryGlobalFP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkStoryGlobalFP.Name = "checkStoryGlobalFP";
             checkStoryGlobalFP.Size = new System.Drawing.Size(117, 19);
@@ -998,7 +1014,7 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalReport.Checked = true;
             checkStoryGlobalReport.CheckState = System.Windows.Forms.CheckState.Checked;
             checkStoryGlobalReport.Enabled = false;
-            checkStoryGlobalReport.Location = new System.Drawing.Point(173, 46);
+            checkStoryGlobalReport.Location = new System.Drawing.Point(173, 50);
             checkStoryGlobalReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkStoryGlobalReport.Name = "checkStoryGlobalReport";
             checkStoryGlobalReport.Size = new System.Drawing.Size(101, 19);
@@ -1009,7 +1025,7 @@ namespace NEO_TWEWY_Randomizer
             // radioStoryGlobalShuffle
             // 
             radioStoryGlobalShuffle.AutoSize = true;
-            radioStoryGlobalShuffle.Location = new System.Drawing.Point(20, 59);
+            radioStoryGlobalShuffle.Location = new System.Drawing.Point(20, 57);
             radioStoryGlobalShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioStoryGlobalShuffle.Name = "radioStoryGlobalShuffle";
             radioStoryGlobalShuffle.Size = new System.Drawing.Size(158, 19);
@@ -1067,7 +1083,7 @@ namespace NEO_TWEWY_Randomizer
             // numPinAbility
             // 
             numPinAbility.Enabled = false;
-            numPinAbility.Location = new System.Drawing.Point(170, 45);
+            numPinAbility.Location = new System.Drawing.Point(180, 42);
             numPinAbility.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numPinAbility.Name = "numPinAbility";
             numPinAbility.Size = new System.Drawing.Size(162, 23);
@@ -1077,7 +1093,7 @@ namespace NEO_TWEWY_Randomizer
             // labPinAbility
             // 
             labPinAbility.AutoSize = true;
-            labPinAbility.Location = new System.Drawing.Point(169, 24);
+            labPinAbility.Location = new System.Drawing.Point(180, 24);
             labPinAbility.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             labPinAbility.Name = "labPinAbility";
             labPinAbility.Size = new System.Drawing.Size(179, 15);
@@ -1088,7 +1104,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             radioPinAbilityUnchanged.AutoSize = true;
             radioPinAbilityUnchanged.Checked = true;
-            radioPinAbilityUnchanged.Location = new System.Drawing.Point(13, 22);
+            radioPinAbilityUnchanged.Location = new System.Drawing.Point(20, 24);
             radioPinAbilityUnchanged.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinAbilityUnchanged.Name = "radioPinAbilityUnchanged";
             radioPinAbilityUnchanged.Size = new System.Drawing.Size(86, 19);
@@ -1101,7 +1117,7 @@ namespace NEO_TWEWY_Randomizer
             // radioPinAbilityShuffle
             // 
             radioPinAbilityShuffle.AutoSize = true;
-            radioPinAbilityShuffle.Location = new System.Drawing.Point(13, 48);
+            radioPinAbilityShuffle.Location = new System.Drawing.Point(20, 49);
             radioPinAbilityShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinAbilityShuffle.Name = "radioPinAbilityShuffle";
             radioPinAbilityShuffle.Size = new System.Drawing.Size(62, 19);
@@ -1113,7 +1129,7 @@ namespace NEO_TWEWY_Randomizer
             // radioPinAbilityRandom
             // 
             radioPinAbilityRandom.AutoSize = true;
-            radioPinAbilityRandom.Location = new System.Drawing.Point(13, 75);
+            radioPinAbilityRandom.Location = new System.Drawing.Point(20, 74);
             radioPinAbilityRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinAbilityRandom.Name = "radioPinAbilityRandom";
             radioPinAbilityRandom.Size = new System.Drawing.Size(142, 19);
@@ -1327,7 +1343,7 @@ namespace NEO_TWEWY_Randomizer
             // numPinUber
             // 
             numPinUber.Enabled = false;
-            numPinUber.Location = new System.Drawing.Point(13, 83);
+            numPinUber.Location = new System.Drawing.Point(20, 83);
             numPinUber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numPinUber.Name = "numPinUber";
             numPinUber.Size = new System.Drawing.Size(140, 23);
@@ -1337,7 +1353,7 @@ namespace NEO_TWEWY_Randomizer
             // lbPinUber
             // 
             lbPinUber.AutoSize = true;
-            lbPinUber.Location = new System.Drawing.Point(12, 65);
+            lbPinUber.Location = new System.Drawing.Point(20, 65);
             lbPinUber.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lbPinUber.Name = "lbPinUber";
             lbPinUber.Size = new System.Drawing.Size(136, 15);
@@ -1347,7 +1363,7 @@ namespace NEO_TWEWY_Randomizer
             // checkPinUber
             // 
             checkPinUber.AutoSize = true;
-            checkPinUber.Location = new System.Drawing.Point(13, 24);
+            checkPinUber.Location = new System.Drawing.Point(20, 24);
             checkPinUber.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             checkPinUber.Name = "checkPinUber";
             checkPinUber.Size = new System.Drawing.Size(85, 19);
@@ -1375,7 +1391,7 @@ namespace NEO_TWEWY_Randomizer
             // 
             radioPinBrandUnchanged.AutoSize = true;
             radioPinBrandUnchanged.Checked = true;
-            radioPinBrandUnchanged.Location = new System.Drawing.Point(13, 23);
+            radioPinBrandUnchanged.Location = new System.Drawing.Point(20, 24);
             radioPinBrandUnchanged.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinBrandUnchanged.Name = "radioPinBrandUnchanged";
             radioPinBrandUnchanged.Size = new System.Drawing.Size(86, 19);
@@ -1387,7 +1403,7 @@ namespace NEO_TWEWY_Randomizer
             // radioPinBrandShuffle
             // 
             radioPinBrandShuffle.AutoSize = true;
-            radioPinBrandShuffle.Location = new System.Drawing.Point(13, 50);
+            radioPinBrandShuffle.Location = new System.Drawing.Point(20, 49);
             radioPinBrandShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinBrandShuffle.Name = "radioPinBrandShuffle";
             radioPinBrandShuffle.Size = new System.Drawing.Size(62, 19);
@@ -1398,7 +1414,7 @@ namespace NEO_TWEWY_Randomizer
             // radioPinBrandRandomC
             // 
             radioPinBrandRandomC.AutoSize = true;
-            radioPinBrandRandomC.Location = new System.Drawing.Point(13, 76);
+            radioPinBrandRandomC.Location = new System.Drawing.Point(20, 74);
             radioPinBrandRandomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinBrandRandomC.Name = "radioPinBrandRandomC";
             radioPinBrandRandomC.Size = new System.Drawing.Size(142, 19);
@@ -1409,7 +1425,7 @@ namespace NEO_TWEWY_Randomizer
             // radioPinBrandRandomU
             // 
             radioPinBrandRandomU.AutoSize = true;
-            radioPinBrandRandomU.Location = new System.Drawing.Point(13, 103);
+            radioPinBrandRandomU.Location = new System.Drawing.Point(20, 99);
             radioPinBrandRandomU.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             radioPinBrandRandomU.Name = "radioPinBrandRandomU";
             radioPinBrandRandomU.Size = new System.Drawing.Size(125, 19);
@@ -1610,6 +1626,9 @@ namespace NEO_TWEWY_Randomizer
             // 
             // tabSocial
             // 
+            tabSocial.Controls.Add(grpSkillCost);
+            tabSocial.Controls.Add(grpSkilIReward);
+            tabSocial.Controls.Add(grpSkillShuffle);
             tabSocial.Location = new System.Drawing.Point(4, 24);
             tabSocial.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabSocial.Name = "tabSocial";
@@ -1618,6 +1637,142 @@ namespace NEO_TWEWY_Randomizer
             tabSocial.TabIndex = 2;
             tabSocial.Text = "Social Network";
             tabSocial.UseVisualStyleBackColor = true;
+            // 
+            // grpSkillCost
+            // 
+            grpSkillCost.Controls.Add(radioSkillCostUnchanged);
+            grpSkillCost.Controls.Add(radioSkillCostShuffle);
+            grpSkillCost.Controls.Add(radioSkillCostRandom);
+            grpSkillCost.Location = new System.Drawing.Point(7, 7);
+            grpSkillCost.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkillCost.Name = "grpSkillCost";
+            grpSkillCost.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkillCost.Size = new System.Drawing.Size(289, 159);
+            grpSkillCost.TabIndex = 3;
+            grpSkillCost.TabStop = false;
+            grpSkillCost.Text = "Skill Costs";
+            // 
+            // radioSkillCostUnchanged
+            // 
+            radioSkillCostUnchanged.AutoSize = true;
+            radioSkillCostUnchanged.Checked = true;
+            radioSkillCostUnchanged.Location = new System.Drawing.Point(20, 32);
+            radioSkillCostUnchanged.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillCostUnchanged.Name = "radioSkillCostUnchanged";
+            radioSkillCostUnchanged.Size = new System.Drawing.Size(86, 19);
+            radioSkillCostUnchanged.TabIndex = 0;
+            radioSkillCostUnchanged.TabStop = true;
+            radioSkillCostUnchanged.Text = "Unchanged";
+            radioSkillCostUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioSkillCostShuffle
+            // 
+            radioSkillCostShuffle.AutoSize = true;
+            radioSkillCostShuffle.Location = new System.Drawing.Point(20, 57);
+            radioSkillCostShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillCostShuffle.Name = "radioSkillCostShuffle";
+            radioSkillCostShuffle.Size = new System.Drawing.Size(62, 19);
+            radioSkillCostShuffle.TabIndex = 0;
+            radioSkillCostShuffle.Text = "Shuffle";
+            radioSkillCostShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioSkillCostRandom
+            // 
+            radioSkillCostRandom.AutoSize = true;
+            radioSkillCostRandom.Location = new System.Drawing.Point(20, 82);
+            radioSkillCostRandom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillCostRandom.Name = "radioSkillCostRandom";
+            radioSkillCostRandom.Size = new System.Drawing.Size(137, 19);
+            radioSkillCostRandom.TabIndex = 0;
+            radioSkillCostRandom.Text = "Random (Fixed Total)";
+            radioSkillCostRandom.UseVisualStyleBackColor = true;
+            // 
+            // grpSkilIReward
+            // 
+            grpSkilIReward.Controls.Add(radioSkillRewardUnchanged);
+            grpSkilIReward.Controls.Add(radioSkillRewardShuffle);
+            grpSkilIReward.Controls.Add(radioSkillRewardRandomS);
+            grpSkilIReward.Controls.Add(radioSkillRewardRandomC);
+            grpSkilIReward.Location = new System.Drawing.Point(304, 7);
+            grpSkilIReward.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkilIReward.Name = "grpSkilIReward";
+            grpSkilIReward.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkilIReward.Size = new System.Drawing.Size(288, 159);
+            grpSkilIReward.TabIndex = 4;
+            grpSkilIReward.TabStop = false;
+            grpSkilIReward.Text = "Item Rewards";
+            // 
+            // radioSkillRewardUnchanged
+            // 
+            radioSkillRewardUnchanged.AutoSize = true;
+            radioSkillRewardUnchanged.Checked = true;
+            radioSkillRewardUnchanged.Location = new System.Drawing.Point(21, 32);
+            radioSkillRewardUnchanged.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardUnchanged.Name = "radioSkillRewardUnchanged";
+            radioSkillRewardUnchanged.Size = new System.Drawing.Size(86, 19);
+            radioSkillRewardUnchanged.TabIndex = 0;
+            radioSkillRewardUnchanged.TabStop = true;
+            radioSkillRewardUnchanged.Text = "Unchanged";
+            radioSkillRewardUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioSkillRewardShuffle
+            // 
+            radioSkillRewardShuffle.AutoSize = true;
+            radioSkillRewardShuffle.Location = new System.Drawing.Point(21, 57);
+            radioSkillRewardShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardShuffle.Name = "radioSkillRewardShuffle";
+            radioSkillRewardShuffle.Size = new System.Drawing.Size(62, 19);
+            radioSkillRewardShuffle.TabIndex = 0;
+            radioSkillRewardShuffle.Text = "Shuffle";
+            radioSkillRewardShuffle.UseVisualStyleBackColor = true;
+            // 
+            // radioSkillRewardRandomS
+            // 
+            radioSkillRewardRandomS.AutoSize = true;
+            radioSkillRewardRandomS.Location = new System.Drawing.Point(21, 82);
+            radioSkillRewardRandomS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardRandomS.Name = "radioSkillRewardRandomS";
+            radioSkillRewardRandomS.Size = new System.Drawing.Size(137, 19);
+            radioSkillRewardRandomS.TabIndex = 0;
+            radioSkillRewardRandomS.Text = "Random (Same Type)";
+            radioSkillRewardRandomS.UseVisualStyleBackColor = true;
+            // 
+            // grpSkillShuffle
+            // 
+            grpSkillShuffle.Controls.Add(radioSkillShuffleUnchanged);
+            grpSkillShuffle.Controls.Add(radioSkillShuffleShuffle);
+            grpSkillShuffle.Location = new System.Drawing.Point(600, 7);
+            grpSkillShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkillShuffle.Name = "grpSkillShuffle";
+            grpSkillShuffle.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpSkillShuffle.Size = new System.Drawing.Size(289, 159);
+            grpSkillShuffle.TabIndex = 5;
+            grpSkillShuffle.TabStop = false;
+            grpSkillShuffle.Text = "Skill Location Shuffling";
+            // 
+            // radioSkillShuffleUnchanged
+            // 
+            radioSkillShuffleUnchanged.AutoSize = true;
+            radioSkillShuffleUnchanged.Checked = true;
+            radioSkillShuffleUnchanged.Location = new System.Drawing.Point(22, 32);
+            radioSkillShuffleUnchanged.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillShuffleUnchanged.Name = "radioSkillShuffleUnchanged";
+            radioSkillShuffleUnchanged.Size = new System.Drawing.Size(86, 19);
+            radioSkillShuffleUnchanged.TabIndex = 0;
+            radioSkillShuffleUnchanged.TabStop = true;
+            radioSkillShuffleUnchanged.Text = "Unchanged";
+            radioSkillShuffleUnchanged.UseVisualStyleBackColor = true;
+            // 
+            // radioSkillShuffleShuffle
+            // 
+            radioSkillShuffleShuffle.AutoSize = true;
+            radioSkillShuffleShuffle.Location = new System.Drawing.Point(22, 57);
+            radioSkillShuffleShuffle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillShuffleShuffle.Name = "radioSkillShuffleShuffle";
+            radioSkillShuffleShuffle.Size = new System.Drawing.Size(62, 19);
+            radioSkillShuffleShuffle.TabIndex = 0;
+            radioSkillShuffleShuffle.Text = "Shuffle";
+            radioSkillShuffleShuffle.UseVisualStyleBackColor = true;
             // 
             // tabThreads
             // 
@@ -1864,6 +2019,17 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.IsBalloon = true;
             ttFormMain.ReshowDelay = 100;
             // 
+            // radioSkillRewardRandomC
+            // 
+            radioSkillRewardRandomC.AutoSize = true;
+            radioSkillRewardRandomC.Location = new System.Drawing.Point(21, 107);
+            radioSkillRewardRandomC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            radioSkillRewardRandomC.Name = "radioSkillRewardRandomC";
+            radioSkillRewardRandomC.Size = new System.Drawing.Size(142, 19);
+            radioSkillRewardRandomC.TabIndex = 1;
+            radioSkillRewardRandomC.Text = "Random (Completely)";
+            radioSkillRewardRandomC.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1932,6 +2098,13 @@ namespace NEO_TWEWY_Randomizer
             grpPinBrand.PerformLayout();
             grpPinGeneralStats.ResumeLayout(false);
             grpPinGeneralStats.PerformLayout();
+            tabSocial.ResumeLayout(false);
+            grpSkillCost.ResumeLayout(false);
+            grpSkillCost.PerformLayout();
+            grpSkilIReward.ResumeLayout(false);
+            grpSkilIReward.PerformLayout();
+            grpSkillShuffle.ResumeLayout(false);
+            grpSkillShuffle.PerformLayout();
             grpInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picPin).EndInit();
             grpSettingString.ResumeLayout(false);
@@ -2076,6 +2249,18 @@ namespace NEO_TWEWY_Randomizer
         private System.Windows.Forms.RadioButton radioStoryGemsUnchanged;
         private System.Windows.Forms.CheckBox checkStoryGlobalGems;
         private System.Windows.Forms.RadioButton radioStoryGemsRandom;
+        private System.Windows.Forms.GroupBox grpSkillCost;
+        private System.Windows.Forms.RadioButton radioSkillCostUnchanged;
+        private System.Windows.Forms.RadioButton radioSkillCostShuffle;
+        private System.Windows.Forms.RadioButton radioSkillCostRandom;
+        private System.Windows.Forms.GroupBox grpSkilIReward;
+        private System.Windows.Forms.RadioButton radioSkillRewardUnchanged;
+        private System.Windows.Forms.RadioButton radioSkillRewardShuffle;
+        private System.Windows.Forms.RadioButton radioSkillRewardRandomS;
+        private System.Windows.Forms.GroupBox grpSkillShuffle;
+        private System.Windows.Forms.RadioButton radioSkillShuffleUnchanged;
+        private System.Windows.Forms.RadioButton radioSkillShuffleShuffle;
+        private System.Windows.Forms.RadioButton radioSkillRewardRandomC;
     }
 }
 

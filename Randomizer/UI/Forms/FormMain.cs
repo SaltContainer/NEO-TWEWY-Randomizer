@@ -28,8 +28,8 @@ namespace NEO_TWEWY_Randomizer
             lbVersion.Text = string.Format("NEO: The World Ends With You Randomizer - Version {0}", SourceLinks.GetSmallVersion());
             UpdateLoadedFilesLabel(FileConstants.Bundles.ToDictionary(kvp => kvp.Key, kvp => "Not Loaded"));
 
-            comboPinGrowth.DataSource = FileConstants.ItemNames.GrowthRates;
-            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)PinGrowth.Normal).First();
+            comboPinGrowth.DataSource = FileConstants.IDNames.GrowthRates;
+            comboPinGrowth.SelectedItem = FileConstants.IDNames.GrowthRates.Where(g => g.Id == (int)PinGrowth.Normal).First();
 
             pinImages = new PinImages();
             picPin.Image = pinImages.GetRandomImage();
@@ -127,6 +127,16 @@ namespace NEO_TWEWY_Randomizer
             ttFormMain.SetToolTip(checkPinEvoBrand, Resources.ttcheckPinEvoBrand);
             ttFormMain.SetToolTip(checkPinEvoChara, Resources.ttcheckPinEvoChara);
             ttFormMain.SetToolTip(numPinEvo, Resources.ttnumPinEvo);
+
+            ttFormMain.SetToolTip(radioSkillCostUnchanged, Resources.ttradioSkillCostUnchanged);
+            ttFormMain.SetToolTip(radioSkillCostShuffle, Resources.ttradioSkillCostShuffle);
+            ttFormMain.SetToolTip(radioSkillCostRandom, Resources.ttradioSkillCostRandom);
+            ttFormMain.SetToolTip(radioSkillRewardUnchanged, Resources.ttradioSkillRewardUnchanged);
+            ttFormMain.SetToolTip(radioSkillRewardShuffle, Resources.ttradioSkillRewardShuffle);
+            ttFormMain.SetToolTip(radioSkillRewardRandomS, Resources.ttradioSkillRewardRandomS);
+            ttFormMain.SetToolTip(radioSkillRewardRandomC, Resources.ttradioSkillRewardRandomC);
+            ttFormMain.SetToolTip(radioSkillShuffleUnchanged, Resources.ttradioSkillShuffleUnchanged);
+            ttFormMain.SetToolTip(radioSkillShuffleShuffle, Resources.ttradioSkillShuffleShuffle);
         }
         #endregion
 
@@ -241,6 +251,20 @@ namespace NEO_TWEWY_Randomizer
             if (checkStoryGlobalGems.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Gems);
             if (checkStoryGlobalFP.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.FP);
             if (checkStoryGlobalReport.Checked) settings.StoryRewards.ShuffledStoryRewards.Add(StoryRewards.Reports);
+            #endregion
+
+            #region Social Network
+            if (radioSkillCostUnchanged.Checked) settings.Network.CostChoice = SkillCost.Unchanged;
+            else if (radioSkillCostShuffle.Checked) settings.Network.CostChoice = SkillCost.Shuffle;
+            else if (radioSkillCostRandom.Checked) settings.Network.CostChoice = SkillCost.RandomFixedTotal;
+
+            if (radioSkillRewardUnchanged.Checked) settings.Network.RewardsChoice = SkillRewards.Unchanged;
+            else if (radioSkillRewardShuffle.Checked) settings.Network.RewardsChoice = SkillRewards.Shuffle;
+            else if (radioSkillRewardRandomS.Checked) settings.Network.RewardsChoice = SkillRewards.RandomSameType;
+            else if (radioSkillRewardRandomC.Checked) settings.Network.RewardsChoice = SkillRewards.RandomCompletely;
+
+            if (radioSkillShuffleUnchanged.Checked) settings.Network.ShuffleChoice = SkillShuffle.Unchanged;
+            else if (radioSkillShuffleShuffle.Checked) settings.Network.ShuffleChoice = SkillShuffle.Shuffle;
             #endregion
 
             return settings;
@@ -369,7 +393,7 @@ namespace NEO_TWEWY_Randomizer
                     radioPinGrowthSpecific.Checked = true;
                     break;
             }
-            comboPinGrowth.SelectedItem = FileConstants.ItemNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First();
+            comboPinGrowth.SelectedItem = FileConstants.IDNames.GrowthRates.Where(g => g.Id == (int)settings.PinStats.GrowthSpecific).First();
 
             switch (settings.PinStats.EvolutionChoice)
             {
@@ -468,6 +492,47 @@ namespace NEO_TWEWY_Randomizer
             checkStoryGlobalGems.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Gems);
             checkStoryGlobalFP.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.FP);
             checkStoryGlobalReport.Checked = settings.StoryRewards.ShuffledStoryRewards.Contains(StoryRewards.Reports);
+            #endregion
+
+            #region Social Network
+            switch (settings.Network.CostChoice)
+            {
+                case SkillCost.Unchanged:
+                    radioSkillCostUnchanged.Checked = true;
+                    break;
+                case SkillCost.Shuffle:
+                    radioSkillCostShuffle.Checked = true;
+                    break;
+                case SkillCost.RandomFixedTotal:
+                    radioSkillCostRandom.Checked = true;
+                    break;
+            }
+
+            switch (settings.Network.RewardsChoice)
+            {
+                case SkillRewards.Unchanged:
+                    radioSkillRewardUnchanged.Checked = true;
+                    break;
+                case SkillRewards.Shuffle:
+                    radioSkillRewardShuffle.Checked = true;
+                    break;
+                case SkillRewards.RandomSameType:
+                    radioSkillRewardRandomS.Checked = true;
+                    break;
+                case SkillRewards.RandomCompletely:
+                    radioSkillRewardRandomC.Checked = true;
+                    break;
+            }
+
+            switch (settings.Network.ShuffleChoice)
+            {
+                case SkillShuffle.Unchanged:
+                    radioSkillShuffleUnchanged.Checked = true;
+                    break;
+                case SkillShuffle.Shuffle:
+                    radioSkillShuffleShuffle.Checked = true;
+                    break;
+            }
             #endregion
         }
         #endregion

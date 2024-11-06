@@ -9,7 +9,7 @@ namespace NEO_TWEWY_Randomizer
         public static Dictionary<string, DataBundle> Bundles { get; } = JsonConvert.DeserializeObject<Dictionary<string, DataBundle>>(Resources.bundle_constants);
         public static EnemyDuplicateList EnemyDataDuplicates { get; } = JsonConvert.DeserializeObject<EnemyDuplicateList>(Resources.enemy_sets);
         public static SettingsStringVersionList SettingsStringVersions { get; } = JsonConvert.DeserializeObject<SettingsStringVersionList>(Resources.settings_string_versions);
-        public static ItemNames ItemNames { get; } = JsonConvert.DeserializeObject<ItemNames>(Resources.id_list);
+        public static Names IDNames { get; } = JsonConvert.DeserializeObject<Names>(Resources.id_list);
 
         public const string TextDataBundleKey = "text-data";
         public const string W1D2ScenarioBundleKey = "w1d2-scenario";
@@ -24,6 +24,8 @@ namespace NEO_TWEWY_Randomizer
         public const string AttackAssetName = "Attack";
         public const string AttackHitAssetName = "AttackHit";
         public const string ScenarioRewardsAssetName = "ScenarioRewards";
+        public const string SkillAssetName = "Skill";
+        public const string SkillTreeAssetName = "SkillTree";
 
         public const string W1D2PinMissionAssetName = "story_w1d2_01_050_mission";
         public const string W2D5PinMissionAssetName = "story_w2d5_01_066_mission";

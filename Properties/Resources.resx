@@ -1457,6 +1457,58 @@ Make all pins have a specific growth speed.</value>
 Don't change the growth speed of any pin.</value>
     <comment>Pin Growth Unchanged</comment>
   </data>
+  <data name="ttradioSkillCostRandom" xml:space="preserve">
+    <value>  Random Skill Costs
+Make each skill cost a new random amount with a fixed overall total.
+This total is currently set to the vanilla total of 159 FP.</value>
+    <comment>Social Network Skill Costs Random Fixed Total</comment>
+  </data>
+  <data name="ttradioSkillCostShuffle" xml:space="preserve">
+    <value>  Shuffled Skill Costs
+Take the full vanilla set of skill costs, and randomize which skill each cost is associated with.</value>
+    <comment>Social Network Skill Costs Shuffle</comment>
+  </data>
+  <data name="ttradioSkillCostUnchanged" xml:space="preserve">
+    <value>  Unchanged Skill Costs
+Don't change the cost of skills.</value>
+    <comment>Social Network Skill Costs Unchanged</comment>
+  </data>
+  <data name="ttradioSkillRewardRandomC" xml:space="preserve">
+    <value>  Random (Completely) Skill Item Rewards
+Make each skill item reward a new random item with no other limitations.
+Those items can only be limited pins or threads.
+Only skills with an item reward in vanilla are affected.</value>
+    <comment>Social Network Item Rewards Random Completely</comment>
+  </data>
+  <data name="ttradioSkillRewardRandomS" xml:space="preserve">
+    <value>  Random (Same Type) Skill Item Rewards
+Make each skill item reward a new random item of the same type.
+Limited pins will become limited pins and threads will become threads.
+Only skills with an item reward in vanilla are affected.</value>
+    <comment>Social Network Item Rewards Random Same Type</comment>
+  </data>
+  <data name="ttradioSkillRewardShuffle" xml:space="preserve">
+    <value>  Shuffled Skill Item Rewards
+Take the full vanilla set of skill item rewards, and randomize which skill each reward is associated with.
+Only skills with an item reward in vanilla are affected.</value>
+    <comment>Social Network Item Rewards Shuffle</comment>
+  </data>
+  <data name="ttradioSkillRewardUnchanged" xml:space="preserve">
+    <value>  Unchanged Skill Item Rewards
+Don't change the item rewards from skills.</value>
+    <comment>Social Network Item Rewards Unchanged</comment>
+  </data>
+  <data name="ttradioSkillShuffleShuffle" xml:space="preserve">
+    <value>  Shuffled Skill Locations
+Take the full set of skills/item rewards, and randomize where each is received in the social network.
+This is applied after the randomization of all skill costs and item rewards.</value>
+    <comment>Social Network Skill Location Shuffling Shuffle</comment>
+  </data>
+  <data name="ttradioSkillShuffleUnchanged" xml:space="preserve">
+    <value>  Unchanged Skill Locations
+Don't change where each skill/item reward is received in the social network.</value>
+    <comment>Social Network Skill Location Shuffling Unchanged</comment>
+  </data>
   <data name="ttradioStoryFPRandom" xml:space="preserve">
     <value>  Random Friendship Point Story Rewards
 Make each amount of FP received as a story reward a new random amount with a fixed overall total.
